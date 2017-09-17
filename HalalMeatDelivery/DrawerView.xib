@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,32 +12,33 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1" customClass="DrawerView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" tag="24" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayb-lG-IQ5">
-                    <frame key="frameInset" width="600" height="600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tXO-v4-3jx">
-                    <frame key="frameInset" width="450" height="600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="450" height="600"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adJ-1E-P1A">
+                            <rect key="frame" x="18" y="31" width="26" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="cjJ-Kn-Cfo"/>
                                 <constraint firstAttribute="width" constant="26" id="gy6-RZ-tdG"/>
                             </constraints>
-                            <state key="normal" image="BackREDImg.png"/>
+                            <state key="normal" image="WhiteBackArrow.png"/>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="RedLogo" translatesAutoresizingMaskIntoConstraints="NO" id="LGf-Kt-JYz">
-                            <frame key="frameInset" minX="119" minY="80" width="212" height="114"/>
+                            <rect key="frame" x="119" y="80" width="212" height="114"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="212" id="J45-PR-cjd"/>
                                 <constraint firstAttribute="height" constant="114" id="qUy-wA-vWt"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1a-an-1v4">
-                            <frame key="frameInset" minX="20" minY="223" width="410" height="1"/>
+                            <rect key="frame" x="20" y="223" width="410" height="1"/>
                             <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="Civ-4m-TVM"/>
@@ -44,12 +48,12 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ucE-hw-wWg">
-                            <frame key="frameInset" minX="20" minY="226" width="430" height="374"/>
+                            <rect key="frame" x="20" y="226" width="430" height="374"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </tableView>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="adJ-1E-P1A" firstAttribute="leading" secondItem="tXO-v4-3jx" secondAttribute="leading" constant="18" id="2lc-Cu-Tae"/>
                         <constraint firstItem="ucE-hw-wWg" firstAttribute="leading" secondItem="tXO-v4-3jx" secondAttribute="leading" constant="20" id="5A4-AQ-JdH"/>
@@ -85,11 +89,11 @@
                 <outlet property="LogoWidht" destination="J45-PR-cjd" id="b5U-e2-dIk"/>
                 <outlet property="drawerTableView" destination="ucE-hw-wWg" id="UN4-Hz-JGY"/>
             </connections>
-            <point key="canvasLocation" x="82" y="311"/>
+            <point key="canvasLocation" x="-334" y="282"/>
         </view>
     </objects>
     <resources>
-        <image name="BackREDImg.png" width="51" height="44"/>
-        <image name="RedLogo" width="141" height="76"/>
+        <image name="RedLogo" width="181" height="131"/>
+        <image name="WhiteBackArrow.png" width="55" height="53"/>
     </resources>
 </document>
