@@ -165,7 +165,7 @@ static dispatch_once_t predicate;
 }
 - (void)handleGetFilterResponse:(NSDictionary*)response
 {
-    NSLog(@"GetFilterResponse ===%@",response);
+   // NSLog(@"GetFilterResponse ===%@",response);
     if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
     {
         FilterDict=[response valueForKey:@"result"];
@@ -252,13 +252,20 @@ static dispatch_once_t predicate;
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
     [dictParams setObject:SerachByShopServiceName  forKey:@"service"];
+    
     [dictParams setObject:[NSString stringWithFormat:@"%.8f", Latitude]  forKey:@"lat"];
     [dictParams setObject:[NSString stringWithFormat:@"%.8f", Logitude]  forKey:@"long"];
+    
+    //[dictParams setObject:@"22.2795076"  forKey:@"lat"];
+   // [dictParams setObject:@"70.7696403"  forKey:@"long"];
+    
     [dictParams setObject:[NSString stringWithFormat:@"%ld", (long)limit_only]  forKey:@"limit_only"];
-    NSLog(@"dictParams===%@",dictParams);
+    NSLog(@"dictParams search by Shop===%@",dictParams);
     
+    //22.2795076
+    //70.7696403
     
-    
+   
     [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,SerachByShop_url] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
      {
          [self handleCategoryResponse:response];
@@ -268,7 +275,7 @@ static dispatch_once_t predicate;
 
 - (void)handleCategoryResponse:(NSDictionary*)response
 {
-    //NSLog(@"response ===%@",response);
+    NSLog(@"response ===%@",response);
     if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
     {
         DataDic=[response valueForKey:@"result"];

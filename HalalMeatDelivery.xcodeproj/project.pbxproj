@@ -94,7 +94,8 @@
 		535FF4D91D7418A0001355CD /* ProductDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FF4D71D7418A0001355CD /* ProductDetailCell.m */; };
 		535FF4DA1D7418A0001355CD /* ProductDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535FF4D81D7418A0001355CD /* ProductDetailCell.xib */; };
 		535FF4E21D741931001355CD /* ShoppingCartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FF4E11D741931001355CD /* ShoppingCartView.m */; };
-		536552661EB308D1004E4598 /* SplashScreen.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 536552651EB308D1004E4598 /* SplashScreen.JPG */; };
+		536552661EB308D1004E4598 /* SplashScreen11.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 536552651EB308D1004E4598 /* SplashScreen11.JPG */; };
+		53A96F041F6E611E00907393 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 53A96F031F6E611E00907393 /* SplashScreen.png */; };
 		53FBF0C91D96B58200E47FE3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FBF0C81D96B58200E47FE3 /* Reachability.m */; };
 		53FE84A61D7FF2A7005AF059 /* NearByView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE84A31D7FF2A7005AF059 /* NearByView.m */; };
 		53FE84A71D7FF2A7005AF059 /* MapNearbyPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE84A51D7FF2A7005AF059 /* MapNearbyPlace.m */; };
@@ -346,7 +347,8 @@
 		535FF4D81D7418A0001355CD /* ProductDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailCell.xib; sourceTree = "<group>"; };
 		535FF4E01D741931001355CD /* ShoppingCartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartView.h; sourceTree = "<group>"; };
 		535FF4E11D741931001355CD /* ShoppingCartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartView.m; sourceTree = "<group>"; };
-		536552651EB308D1004E4598 /* SplashScreen.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SplashScreen.JPG; sourceTree = "<group>"; };
+		536552651EB308D1004E4598 /* SplashScreen11.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SplashScreen11.JPG; sourceTree = "<group>"; };
+		53A96F031F6E611E00907393 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
 		53FBF0C71D96B58200E47FE3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		53FBF0C81D96B58200E47FE3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		53FE84A21D7FF2A7005AF059 /* NearByView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearByView.h; sourceTree = "<group>"; };
@@ -967,7 +969,8 @@
 				B148B2141EBF62BD009E9346 /* BlankTxtFildwithframe.png */,
 				B111C7361D93046A00DE70B6 /* phonereceiver.png */,
 				B10B98011D91B25700228F33 /* SimpleTXT.png */,
-				536552651EB308D1004E4598 /* SplashScreen.JPG */,
+				53A96F031F6E611E00907393 /* SplashScreen.png */,
+				536552651EB308D1004E4598 /* SplashScreen11.JPG */,
 				5307932A1D7086AE0028BF53 /* SplashScreen1.png */,
 				B1F47D4A1D6F5C33000D5C0A /* WhiteStat.png */,
 				B1F47D441D6F557C000D5C0A /* WhiteBackArrow.png */,
@@ -1193,7 +1196,8 @@
 				5308248F1D829A4900948547 /* PhoneTxt.png in Resources */,
 				B10B97EB1D91AF9100228F33 /* OrderHistoryCell.xib in Resources */,
 				530793351D7097F50028BF53 /* FBSignUpBtn.png in Resources */,
-				536552661EB308D1004E4598 /* SplashScreen.JPG in Resources */,
+				53A96F041F6E611E00907393 /* SplashScreen.png in Resources */,
+				536552661EB308D1004E4598 /* SplashScreen11.JPG in Resources */,
 				5308248D1D8299C600948547 /* cityTxt.png in Resources */,
 				530824991D82A1F400948547 /* emailTxtQuare.png in Resources */,
 				B1FAD78A1D6E0E1F00304CC0 /* MenuIcon.png in Resources */,
