@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "PlushBTN.png",
+      "filename" : "plus_circle.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "PlushBTN-1.png",
+      "filename" : "plus_circle-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "PlushBTN-2.png",
+      "filename" : "plus_circle-2.png",
       "scale" : "3x"
     }
   ],

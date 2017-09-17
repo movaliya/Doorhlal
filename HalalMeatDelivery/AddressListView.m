@@ -11,7 +11,7 @@
 #import "AddressListCell.h"
 #import "CreateNewAddressView.h"
 
-#define ButtonColor [UIColor colorWithRed:171.0/255.0 green:30.0/255.0 blue:40.0/255.0 alpha:1.0]
+#define ButtonColor [UIColor colorWithRed:242.0/255.0 green:18.0/255.0 blue:43.0/255.0 alpha:1.0]
 #define DefaultBTNColor [UIColor colorWithRed:25.0/255.0 green:123.0/255.0 blue:48.0/255.0 alpha:1.0]
 
 @interface AddressListView ()

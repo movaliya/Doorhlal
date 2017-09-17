@@ -156,6 +156,8 @@
 		B1415BDF1F6E56B100BCAF6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1415BDE1F6E56B100BCAF6D /* AppDelegate.m */; };
 		B1415BE41F6E56C800BCAF6D /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1415BE11F6E56C800BCAF6D /* LoginView.m */; };
 		B1415BE51F6E56C800BCAF6D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1415BE31F6E56C800BCAF6D /* RegisterView.m */; };
+		B1415BE91F6EAECA00BCAF6D /* NewNearbyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1415BE71F6EAECA00BCAF6D /* NewNearbyCell.m */; };
+		B1415BEA1F6EAECA00BCAF6D /* NewNearbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1415BE81F6EAECA00BCAF6D /* NewNearbyCell.xib */; };
 		B148B2151EBF62BD009E9346 /* BlankTxtFildwithframe.png in Resources */ = {isa = PBXBuildFile; fileRef = B148B2141EBF62BD009E9346 /* BlankTxtFildwithframe.png */; };
 		B15330A51EB8FD5200E96C28 /* PaymentView1.m in Sources */ = {isa = PBXBuildFile; fileRef = B15330A41EB8FD5200E96C28 /* PaymentView1.m */; };
 		B15330A81EB9025300E96C28 /* PaymentView2.m in Sources */ = {isa = PBXBuildFile; fileRef = B15330A71EB9025300E96C28 /* PaymentView2.m */; };
@@ -450,6 +452,9 @@
 		B1415BE11F6E56C800BCAF6D /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		B1415BE21F6E56C800BCAF6D /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		B1415BE31F6E56C800BCAF6D /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
+		B1415BE61F6EAECA00BCAF6D /* NewNearbyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNearbyCell.h; sourceTree = "<group>"; };
+		B1415BE71F6EAECA00BCAF6D /* NewNearbyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNearbyCell.m; sourceTree = "<group>"; };
+		B1415BE81F6EAECA00BCAF6D /* NewNearbyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewNearbyCell.xib; sourceTree = "<group>"; };
 		B148B2141EBF62BD009E9346 /* BlankTxtFildwithframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlankTxtFildwithframe.png; sourceTree = "<group>"; };
 		B15330A31EB8FD5200E96C28 /* PaymentView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentView1.h; sourceTree = "<group>"; };
 		B15330A41EB8FD5200E96C28 /* PaymentView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentView1.m; sourceTree = "<group>"; };
@@ -1002,6 +1007,9 @@
 				535FF4D11D741877001355CD /* NearByCell.h */,
 				535FF4D21D741877001355CD /* NearByCell.m */,
 				535FF4D31D741877001355CD /* NearByCell.xib */,
+				B1415BE61F6EAECA00BCAF6D /* NewNearbyCell.h */,
+				B1415BE71F6EAECA00BCAF6D /* NewNearbyCell.m */,
+				B1415BE81F6EAECA00BCAF6D /* NewNearbyCell.xib */,
 				535FF4D61D7418A0001355CD /* ProductDetailCell.h */,
 				535FF4D71D7418A0001355CD /* ProductDetailCell.m */,
 				535FF4D81D7418A0001355CD /* ProductDetailCell.xib */,
@@ -1256,6 +1264,7 @@
 				530793291D7079FF0028BF53 /* searchnearbyBtn.png in Resources */,
 				53080A921D857D0F00ADA06C /* AddReviewBtn.png in Resources */,
 				B1415BDC1F6E566000BCAF6D /* Main.storyboard in Resources */,
+				B1415BEA1F6EAECA00BCAF6D /* NewNearbyCell.xib in Resources */,
 				535EA4A31EBB52FE00A1AA23 /* adress1.png in Resources */,
 				530A20E11E5C099200452FF2 /* ios in Resources */,
 				5308249B1D82A25C00948547 /* PhoneTxtQuare.png in Resources */,
@@ -1290,6 +1299,7 @@
 				B11657FD1D7760A7005AF0D1 /* SDWebImagePrefetcher.m in Sources */,
 				53FE84A61D7FF2A7005AF059 /* NearByView.m in Sources */,
 				B1BE54D51D6E1A030012A152 /* IQKeyboardManager.m in Sources */,
+				B1415BE91F6EAECA00BCAF6D /* NewNearbyCell.m in Sources */,
 				B110D5C71D72B208008D8655 /* SearchByCatCell.m in Sources */,
 				5301AF301D76A80300F16656 /* UIImage+KVNImageEffects.m in Sources */,
 				5301AF361D76A80F00F16656 /* KVNProgressConfiguration.m in Sources */,

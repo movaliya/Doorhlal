@@ -230,7 +230,7 @@ static dispatch_once_t predicate;
                 self.rangeSliderCurrency.maxValue = MaxRang;
                 self.rangeSliderCurrency.selectedMinimum = 0;
                 self.rangeSliderCurrency.selectedMaximum = MaxRang;
-                self.rangeSliderCurrency.handleColor = [UIColor colorWithRed:(185/255.0) green:(23/255.0) blue:(44/255.0) alpha:1.0];;
+                self.rangeSliderCurrency.handleColor = SelectedButtonColor;
                 self.rangeSliderCurrency.handleDiameter = 20;
                 self.rangeSliderCurrency.selectedHandleDiameterMultiplier = 1;
                 NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -248,25 +248,20 @@ static dispatch_once_t predicate;
 }
 -(void)CallForSearchByShop
 {
-    
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
     [dictParams setObject:SerachByShopServiceName  forKey:@"service"];
     
-   // [dictParams setObject:[NSString stringWithFormat:@"%.8f", Latitude]  forKey:@"lat"];
-   // [dictParams setObject:[NSString stringWithFormat:@"%.8f", Logitude]  forKey:@"long"];
+    [dictParams setObject:[NSString stringWithFormat:@"%.8f", Latitude]  forKey:@"lat"];
+    [dictParams setObject:[NSString stringWithFormat:@"%.8f", Logitude]  forKey:@"long"];
     
-    [dictParams setObject:@"22.2795076"  forKey:@"lat"];
-    [dictParams setObject:@"70.7696403"  forKey:@"long"];
+   // [dictParams setObject:@"22.2795076"  forKey:@"lat"];
+   // [dictParams setObject:@"70.7696403"  forKey:@"long"];
     
    [dictParams setObject:[NSString stringWithFormat:@"%ld", (long)limit_only]  forKey:@"limit_only"];
     NSLog(@"dictParams search by Shop===%@",dictParams);
     
-    //22.2795076
-    //70.7696403
-//	http://bulkbox.in/door2door/service/service_restorant.php?r_p=1224&service=get_restorants&lat=22.2795076&long=70.7696403&limit_only=0
-    //http://bulkbox.in/door2door/service/service_restorant.php?r_p=1224&service=get_restorants&lat=22.2795076&long=70.7696403&limit_only=0
-    http://bulkbox.in/door2door/service/service_restorant.php"
+   
    
     [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,SerachByShop_url] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
      {
@@ -283,9 +278,7 @@ static dispatch_once_t predicate;
         DataDic=[response valueForKey:@"result"];
         for (NSDictionary *dic in DataDic)
         {
-            //NSLog(@"===%@",dic);
             [SearchDictnory addObject:dic];
-            
         }
         NewArr=[[NSMutableArray alloc]initWithArray:SearchDictnory];
         limit_only=limit_only+DataDic.count;
@@ -297,7 +290,6 @@ static dispatch_once_t predicate;
         NoResponseInt=0;
        // oldLimit_ony=limit_only;
     }
-    
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle
@@ -319,11 +311,11 @@ static dispatch_once_t predicate;
     
 }
 
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1; // in your case, there are 3 cells
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==CatTBL)
@@ -1149,4 +1141,6 @@ static dispatch_once_t predicate;
     [self CallForSearchByShop];
     FilterView.hidden=YES;
 }
+
+
 @end

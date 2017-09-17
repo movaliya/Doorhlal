@@ -360,7 +360,7 @@
     {
         cell.IconWidth.constant=19;
         cell.IconHeight.constant=16;
-        cell.IconX.constant=8;
+       // cell.IconX.constant=8;
         cell.ImgLblGap.constant=16;
         
     }
@@ -368,7 +368,7 @@
     {
         cell.IconWidth.constant=20;
         cell.IconHeight.constant=15;
-        cell.IconX.constant=8;
+       // cell.IconX.constant=8;
         cell.ImgLblGap.constant=15.5;
         
     }
@@ -376,35 +376,35 @@
     {
         cell.IconWidth.constant=14;
         cell.IconHeight.constant=14;
-        cell.IconX.constant=8;
+        //cell.IconX.constant=8;
         cell.ImgLblGap.constant=19;
     }
     if (indexPath.row==3)
     {
         cell.IconWidth.constant=17;
         cell.IconHeight.constant=17;
-        cell.IconX.constant=8;
+       // cell.IconX.constant=8;
         cell.ImgLblGap.constant=16;
     }
     if (indexPath.row==4)
     {
         cell.IconWidth.constant=14;
         cell.IconHeight.constant=13;
-        cell.IconX.constant=8;
+        //cell.IconX.constant=8;
         cell.ImgLblGap.constant=19;
     }
     if (indexPath.row==5)
     {
         cell.IconWidth.constant=15;
         cell.IconHeight.constant=15;
-        cell.IconX.constant=8;
+       // cell.IconX.constant=8;
         cell.ImgLblGap.constant=18;
     }
     if (indexPath.row==6)
     {
         cell.IconWidth.constant=14;
         cell.IconHeight.constant=20;
-        cell.IconX.constant=8;
+      //  cell.IconX.constant=8;
         cell.ImgLblGap.constant=18;
         
     }

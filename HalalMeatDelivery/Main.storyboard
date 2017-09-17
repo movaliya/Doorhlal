@@ -3665,7 +3665,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Payment Method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tid-uE-DJz">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="50"/>
-                                        <color key="backgroundColor" red="0.10588235294117647" green="0.48627450980392156" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.070588235289999995" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="NNS-cp-fqN"/>
                                         </constraints>
@@ -3675,7 +3675,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lK-rX-uwd">
                                         <rect key="frame" x="174" y="201" width="97" height="47"/>
-                                        <color key="backgroundColor" red="0.66274509803921566" green="0.12549019607843137" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.070588235289999995" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="veD-Wg-QdF"/>
                                             <constraint firstAttribute="width" constant="97" id="xop-xZ-ZVD"/>
@@ -3717,7 +3717,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecM-S1-UYw">
-                                        <rect key="frame" x="35" y="65.5" width="200" height="43"/>
+                                        <rect key="frame" x="30" y="65.5" width="200" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="4YO-DL-k8t"/>
                                             <constraint firstAttribute="height" constant="43" id="B87-BR-wcM"/>
@@ -3727,7 +3727,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iW-QV-LLU">
-                                        <rect key="frame" x="35" y="120" width="208" height="43"/>
+                                        <rect key="frame" x="30" y="120" width="208" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="208" id="KvJ-mb-Wk8"/>
                                             <constraint firstAttribute="height" constant="43" id="hX8-6Y-Ufc"/>
@@ -3744,14 +3744,14 @@
                                     <constraint firstItem="jne-N4-gHg" firstAttribute="top" secondItem="ecM-S1-UYw" secondAttribute="bottom" constant="18" id="8Vb-OQ-DNT"/>
                                     <constraint firstItem="doJ-gs-dsY" firstAttribute="leading" secondItem="hAu-DF-QZY" secondAttribute="trailing" constant="15" id="D9k-8i-l04"/>
                                     <constraint firstItem="hAu-DF-QZY" firstAttribute="leading" secondItem="gqr-VZ-ZuM" secondAttribute="leading" constant="35" id="DzQ-er-bFg"/>
-                                    <constraint firstItem="0iW-QV-LLU" firstAttribute="leading" secondItem="gqr-VZ-ZuM" secondAttribute="leading" constant="35" id="DzW-bl-YgX"/>
+                                    <constraint firstItem="0iW-QV-LLU" firstAttribute="leading" secondItem="gqr-VZ-ZuM" secondAttribute="leading" constant="30" id="DzW-bl-YgX"/>
                                     <constraint firstItem="oCW-LU-cHt" firstAttribute="centerY" secondItem="jne-N4-gHg" secondAttribute="centerY" id="Lrs-aE-fhO"/>
                                     <constraint firstItem="0iW-QV-LLU" firstAttribute="centerY" secondItem="jne-N4-gHg" secondAttribute="centerY" id="O05-dI-yZ3"/>
                                     <constraint firstItem="jne-N4-gHg" firstAttribute="leading" secondItem="gqr-VZ-ZuM" secondAttribute="leading" constant="35" id="eey-Z0-vKZ"/>
                                     <constraint firstItem="ecM-S1-UYw" firstAttribute="centerY" secondItem="hAu-DF-QZY" secondAttribute="centerY" id="g7V-W9-X5p"/>
                                     <constraint firstItem="Tid-uE-DJz" firstAttribute="top" secondItem="gqr-VZ-ZuM" secondAttribute="top" id="iCb-4x-gwf"/>
                                     <constraint firstAttribute="trailing" secondItem="Tid-uE-DJz" secondAttribute="trailing" id="mA1-OI-Yey"/>
-                                    <constraint firstItem="ecM-S1-UYw" firstAttribute="leading" secondItem="gqr-VZ-ZuM" secondAttribute="leading" constant="35" id="n0q-Vp-TI2"/>
+                                    <constraint firstItem="ecM-S1-UYw" firstAttribute="leading" secondItem="gqr-VZ-ZuM" secondAttribute="leading" constant="30" id="n0q-Vp-TI2"/>
                                     <constraint firstAttribute="trailing" secondItem="4lK-rX-uwd" secondAttribute="trailing" constant="17" id="rmJ-iP-QFq"/>
                                     <constraint firstAttribute="bottom" secondItem="4lK-rX-uwd" secondAttribute="bottom" constant="12" id="uCv-Gz-Ljf"/>
                                     <constraint firstItem="oCW-LU-cHt" firstAttribute="leading" secondItem="jne-N4-gHg" secondAttribute="trailing" constant="15" id="ulM-Cv-VuW"/>
@@ -7889,7 +7889,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVz-aF-zvI">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feed Me Meat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h87-m6-73i">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h87-m6-73i">
                                         <rect key="frame" x="55" y="40" width="200" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="JsO-sR-Qkx"/>
@@ -8427,7 +8427,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AddPlush" width="49" height="49"/>
+        <image name="AddPlush" width="86" height="86"/>
         <image name="AddressTxtQuare.png" width="686" height="116"/>
         <image name="Arrow" width="25" height="25"/>
         <image name="BlankTxtFild" width="343" height="48"/>

@@ -16,7 +16,8 @@
 @synthesize SaveBtn,MainVIEW,CashOndlvryIMAGE,OnlinePaymtIMAGE;
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     MainVIEW.layer.masksToBounds = NO;
     MainVIEW.layer.shadowOffset = CGSizeMake(-4,4);
@@ -56,7 +57,8 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -69,6 +71,7 @@
     Paymethod_Str=@"CashOnDelivery";
    
 }
+
 - (IBAction)OnlinePayment_action:(id)sender
 {
     CashOndlvryIMAGE.image=[UIImage imageNamed:@"RadioDisable"];
@@ -76,6 +79,7 @@
     
     Paymethod_Str=@"OnlinePayment";
    }
+
 - (IBAction)SaveBtn_action:(id)sender
 {
     [[NSUserDefaults standardUserDefaults] setObject:Paymethod_Str forKey:@"PAYMENTMETHOD"];
@@ -83,19 +87,15 @@
      [AppDelegate showErrorMessageWithTitle:@"Success" message:@"Payment Method Save Successfully." delegate:nil];
 
 }
+
 - (IBAction)BackBtn_action:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
-*/
 
 @end
