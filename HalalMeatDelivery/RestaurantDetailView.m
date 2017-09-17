@@ -633,6 +633,8 @@
     [dictParams setObject:@"1"  forKey:@"p_required"];
     //[dictParams setObject:Pin  forKey:@"pin"];
     
+   
+    
     NSLog(@"rest dictParams==%@",dictParams);
     
     [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,GerRestByCatID_url] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)

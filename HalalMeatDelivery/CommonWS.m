@@ -156,10 +156,10 @@
 
 + (void)AAwebserviceWithURL:(NSString*)strUrl withParam:(NSDictionary*)dictParam withCompletion:(void(^)(NSDictionary*response,BOOL success1))completion
 {
-    //NSString *Token=[[NSUserDefaults standardUserDefaults]objectForKey:@"Token"];
+    NSString *Token=[[NSUserDefaults standardUserDefaults]objectForKey:@"Token"];
     
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-   // [manager.requestSerializer setValue:Token forHTTPHeaderField:@"authorization"];
+    [manager.requestSerializer setValue:Token forHTTPHeaderField:@"authorization"];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     [KVNProgress show];
