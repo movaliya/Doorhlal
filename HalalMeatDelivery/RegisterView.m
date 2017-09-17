@@ -241,9 +241,10 @@
     [dictParams setObject:@""  forKey:@"u_phone"];
     [dictParams setObject:address_Txt.text  forKey:@"u_address"];
     [dictParams setObject:pincode_Txt.text  forKey:@"u_zip"];
-    [dictParams setObject:@""  forKey:@"u_city"];
-    [dictParams setObject:@""  forKey:@"u_state"];
-    [dictParams setObject:@""  forKey:@"u_country"];
+    //[dictParams setObject:@""  forKey:@"u_city"];
+   // [dictParams setObject:@""  forKey:@"u_state"];
+   // [dictParams setObject:@""  forKey:@"u_country"];
+     [dictParams setObject:@"simple"  forKey:@"u_type"];
     
     
     
