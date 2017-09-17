@@ -139,8 +139,10 @@
     [dictParams setObject:Phone_TXT.text  forKey:@"u_phone"];
     [dictParams setObject:Name_TXT.text  forKey:@"u_name"];
     [dictParams setObject:Address_TXT.text  forKey:@"u_address"];
-    [dictParams setObject:PinCode_TXT.text  forKey:@"u_pin"];
-    [dictParams setObject:City_TXT.text  forKey:@"u_city"];
+    [dictParams setObject:PinCode_TXT.text  forKey:@"u_zip"];
+   // [dictParams setObject:City_TXT.text  forKey:@"u_city"];
+    
+
    
     NSLog(@"updatePF Dic=%@",dictParams);
     
@@ -162,7 +164,7 @@
         [UserData setValue:Email_TXT.text forKey:@"u_email"];
         [UserData setValue:Name_TXT.text forKey:@"u_name"];
         [UserData setValue:Phone_TXT.text forKey:@"u_phone"];
-        [UserData setValue:PinCode_TXT.text forKey:@"u_pincode"];
+        [UserData setValue:PinCode_TXT.text forKey:@"u_zip"];
          NSLog(@"LoginUserDic Dic=%@",UserData);
 
         

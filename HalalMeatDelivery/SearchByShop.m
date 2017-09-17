@@ -258,7 +258,7 @@ static dispatch_once_t predicate;
    // [dictParams setObject:@"22.2795076"  forKey:@"lat"];
    // [dictParams setObject:@"70.7696403"  forKey:@"long"];
     
-    [dictParams setObject:[NSString stringWithFormat:@"%ld", (long)limit_only]  forKey:@"limit_only"];
+   [dictParams setObject:[NSString stringWithFormat:@"%ld", (long)limit_only]  forKey:@"limit_only"];
     NSLog(@"dictParams search by Shop===%@",dictParams);
     
    
