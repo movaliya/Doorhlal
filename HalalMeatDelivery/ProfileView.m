@@ -9,6 +9,7 @@
 #import "ProfileView.h"
 #import "PasswordView.h"
 #import "AppDelegate.h"
+#import "HalalMeatDelivery.pch"
 
 @interface ProfileView ()<UITextFieldDelegate>
 {
@@ -39,16 +40,18 @@
 {
     [super viewDidLoad];
     [self prefersStatusBarHidden];
-
+    
+    [KmyappDelegate SetimageinTextfield:Name_TXT :@"UserIcon"];
+    [KmyappDelegate SetimageinTextfield:Email_TXT :@"Email_Icon"];
+    [KmyappDelegate SetimageinTextfield:Address_TXT :@"AddressIcon"];
+    [KmyappDelegate SetimageinTextfield:PinCode_TXT :@"PinIcon"];
+    [KmyappDelegate SetimageinTextfield:Phone_TXT :@"MobileIcon"];
+    
+    [KmyappDelegate SetbuttonCorner:Update_BTN];
+    [KmyappDelegate SetbuttonCorner:ChangePass_BTN];
     
     // Initialize the appDelegate property.
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    Update_BTN.layer.cornerRadius=20.0;
-    Update_BTN.autoresizingMask=YES;
-    
-    ChangePass_BTN.layer.cornerRadius=20.0;
-    ChangePass_BTN.autoresizingMask=YES;
     
     POPView =[[[NSBundle mainBundle]loadNibNamed:@"PasswordView" owner:nil options:nil]firstObject];
     POPView.frame =self.view.frame;
@@ -68,7 +71,7 @@
     self.PinCode_TXT.text=[UserData valueForKey:@"u_pincode"];
     self.Address_TXT.text=[UserData valueForKey:@"u_address"];
     self.City_TXT.text=[UserData valueForKey:@"u_city"];
-     Email_TXT.enabled=NO;
+    Email_TXT.enabled=NO;
     Email_TXT.textColor=[UIColor grayColor];
     
 }
@@ -121,10 +124,6 @@
     }
 }
 
--(BOOL)prefersStatusBarHidden
-{
-    return YES;
-}
 
 -(void)CallprofileService
 {
@@ -150,6 +149,7 @@
          [self handleUpdateProfileResponse:response];
      }];
 }
+
 - (void)handleUpdateProfileResponse:(NSDictionary*)response
 {
     if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
@@ -178,6 +178,7 @@
         [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
     }
 }
+
 - (IBAction)ChangePass_Click:(id)sender
 {
     [self ShowPOPUP];
@@ -204,7 +205,6 @@
     POPSubmit =(UIButton *)[POPView viewWithTag:50];
     [POPSubmit addTarget:self action:@selector(POPSubmit_Click:) forControlEvents:UIControlEventTouchUpInside];
 }
-
 
 -(void)POPCancel_Click:(id)sender
 {
@@ -254,6 +254,7 @@
         
     }
 }
+
 -(void)updatePassword
 {
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
@@ -287,6 +288,7 @@
         [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
     }
 }
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
    // POPOldPAss
@@ -312,4 +314,5 @@
     return YES;
    
 }
+
 @end
