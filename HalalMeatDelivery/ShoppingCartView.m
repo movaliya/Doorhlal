@@ -26,13 +26,14 @@
 @implementation ShoppingCartView
 @synthesize TableView,dic,arr,MainDic,MainCount;
 @synthesize SelectDate_TXT,upperDateGBLBL,upperView;
-@synthesize RestruntNameView;
+@synthesize RestruntNameView,EmptyCartView,BottomView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.appDelegate = [AppDelegate sharedInstance];
+    EmptyCartView.hidden=YES;
         
     UINib *nib = [UINib nibWithNibName:@"ProductDetailCell" bundle:nil];
     ProductDetailCell *cell = [[nib instantiateWithOwner:nil options:nil] objectAtIndex:0];
@@ -204,6 +205,8 @@
     }
     else
     {
+        EmptyCartView.hidden=NO;
+        BottomView.hidden=YES;
         [upperView setHidden:YES];
         [_RestorantImage setHidden:YES];
         [_RestNameLBL setHidden:YES];
@@ -211,7 +214,7 @@
         [_RestDeleveryLBL setHidden:YES];
         [_JustDeleveyLBL setHidden:YES];
         [_justCellRestImge setHidden:YES];
-        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:@"CART EMPTY" delegate:nil];
+        //[AppDelegate showErrorMessageWithTitle:AlertTitleError message:@"CART EMPTY" delegate:nil];
     }
     
 }

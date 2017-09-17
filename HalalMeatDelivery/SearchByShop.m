@@ -19,7 +19,7 @@
 
 static dispatch_once_t predicate;
 
-#define SelectedButtonColor [UIColor colorWithRed:169.0f/255.0f green:32.0f/255.0f blue:40.0f/255.0f alpha:1.0f]
+#define SelectedButtonColor [UIColor colorWithRed:242.0f/255.0f green:18.0f/255.0f blue:43.0f/255.0f alpha:1.0f]
 #define UnSelectedButtonColor [UIColor colorWithRed:101.0f/255.0f green:100.0f/255.0f blue:98.0f/255.0f alpha:1.0f]
 
 @interface SearchByShop ()<CLLocationManagerDelegate,UIScrollViewDelegate,UISearchBarDelegate>
@@ -253,18 +253,20 @@ static dispatch_once_t predicate;
     [dictParams setObject:r_p  forKey:@"r_p"];
     [dictParams setObject:SerachByShopServiceName  forKey:@"service"];
     
-    [dictParams setObject:[NSString stringWithFormat:@"%.8f", Latitude]  forKey:@"lat"];
-    [dictParams setObject:[NSString stringWithFormat:@"%.8f", Logitude]  forKey:@"long"];
+   // [dictParams setObject:[NSString stringWithFormat:@"%.8f", Latitude]  forKey:@"lat"];
+   // [dictParams setObject:[NSString stringWithFormat:@"%.8f", Logitude]  forKey:@"long"];
     
-    //[dictParams setObject:@"22.2795076"  forKey:@"lat"];
-   // [dictParams setObject:@"70.7696403"  forKey:@"long"];
+    [dictParams setObject:@"22.2795076"  forKey:@"lat"];
+    [dictParams setObject:@"70.7696403"  forKey:@"long"];
     
     [dictParams setObject:[NSString stringWithFormat:@"%ld", (long)limit_only]  forKey:@"limit_only"];
     NSLog(@"dictParams search by Shop===%@",dictParams);
     
     //22.2795076
     //70.7696403
-    
+//	http://bulkbox.in/door2door/service/service_restorant.php?r_p=1224&service=get_restorants&lat=22.2795076&long=70.7696403&limit_only=0
+    //http://bulkbox.in/door2door/service/service_restorant.php?r_p=1224&service=get_restorants&lat=22.2795076&long=70.7696403&limit_only=0
+    http://bulkbox.in/door2door/service/service_restorant.php"
    
     [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,SerachByShop_url] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
      {

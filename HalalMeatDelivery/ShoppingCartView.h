@@ -27,6 +27,8 @@
     
     NSString *deleteQTY;
 }
+@property (strong, nonatomic) IBOutlet UIView *EmptyCartView;
+@property (strong, nonatomic) IBOutlet UIView *BottomView;
 @property (weak, nonatomic) IBOutlet UIImageView *RestorantImage;
 @property (weak, nonatomic) IBOutlet UILabel *RestNameLBL;
 @property (weak, nonatomic) IBOutlet UILabel *RestAddressLBL;
