@@ -92,7 +92,11 @@
     [dictParams setObject:r_p  forKey:@"r_p"];
     [dictParams setObject:SerachByPincodeServiceName  forKey:@"service"];
     [dictParams setObject:PincodeSTR  forKey:@"pin"];
-    [dictParams setObject:@"1"  forKey:@"p_required"];
+    [dictParams setObject:@"22.2795332"  forKey:@"lat"];
+    [dictParams setObject:@"70.7695987"  forKey:@"long"];
+    
+  
+
     
     
     [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,SerachByPincode_url] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
