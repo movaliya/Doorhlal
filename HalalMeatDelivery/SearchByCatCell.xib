@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="KGk-i7-Jjw" customClass="SearchByCatCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="199"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foodImg1.png" translatesAutoresizingMaskIntoConstraints="NO" id="gpU-qT-T9X"/>
+                    <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LQ9-tR-czi">
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="HIE-yz-n5S"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed6-fl-iav">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="FKy-Ci-AI7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="LQ9-tR-czi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4uT-6D-cVr"/>
+                    <constraint firstAttribute="bottom" secondItem="gpU-qT-T9X" secondAttribute="bottom" id="8E7-OT-tyK"/>
+                    <constraint firstItem="gpU-qT-T9X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="DNy-k9-MnF"/>
+                    <constraint firstItem="gpU-qT-T9X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="FCb-J3-13U"/>
+                    <constraint firstAttribute="trailing" secondItem="gpU-qT-T9X" secondAttribute="trailing" id="HeL-m6-kTh"/>
+                    <constraint firstAttribute="trailing" secondItem="ed6-fl-iav" secondAttribute="trailing" constant="10" id="QPa-kC-HVQ"/>
+                    <constraint firstAttribute="trailing" secondItem="LQ9-tR-czi" secondAttribute="trailing" id="dxJ-TC-Dxd"/>
+                    <constraint firstAttribute="bottom" secondItem="LQ9-tR-czi" secondAttribute="bottom" id="gra-KZ-84G"/>
+                    <constraint firstItem="ed6-fl-iav" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="svO-Yc-gP5"/>
+                    <constraint firstItem="ed6-fl-iav" firstAttribute="centerY" secondItem="LQ9-tR-czi" secondAttribute="centerY" id="xLV-3j-5UM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="CatIMG" destination="gpU-qT-T9X" id="cUc-iI-88W"/>
+                <outlet property="Catname_LBL" destination="ed6-fl-iav" id="46a-gZ-DFL"/>
+            </connections>
+            <point key="canvasLocation" x="338" y="298"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="foodImg1.png" width="30" height="20"/>
+    </resources>
+</document>

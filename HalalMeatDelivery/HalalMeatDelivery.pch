@@ -1,0 +1,188 @@
+
+#import <Availability.h>
+#import "CCKFNavDrawer.h"
+#import "NearByView.h"
+#import "HomeView.h"
+#import "MapNearbyPlace.h"
+
+#import "AFNetworking.h"
+#import "CommonWS.h"
+#import "KVNProgress.h"
+#import "AlertView.h"
+#import "LoginView.h"
+
+// AFNetworking
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+
+//AlertView Title
+#define AlertTitle @"Success"
+#define AlertTitleError @""
+
+
+
+// Stripe
+#define StripeBaseUrl @"http://feedmemeathalal.com/application/stripe/"
+#define StripePublishKey @"get_publishable_key.php"
+#define ChargeCard_url @"charge.php"
+
+#define KmyappDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+
+// URL Or Web Service Implement  //@"http://bulkbox.in/halal/service/"
+
+//#define BaseUrl @"http://bulkbox.in/feedmemeat/service/"
+#define BaseUrl @"http://feedmemeathalal.com/application/service/"
+#define r_p @"1224"
+
+#define UserLogin @"service_login.php"
+#define UserLoginServiceName @"login_user"
+
+#define RegisterUrl @"service_register.php"
+#define RegisterServiceName @"register_user"
+
+#define Nearbyrestorant_url @"service_restorant.php"
+#define Nearby_restorantsServiceName @"get_nearby_restorants"
+//#define Nearby_restorantsServiceName @"get_restorants"
+
+#define SerachByPincode_url @"service_restorant.php"
+#define SerachByPincodeServiceName @"get_restorants"
+
+#define GerRestByCatID_url @"service_restorant.php"
+#define GerRestByCatIDServiceName @"get_restorants_from_category"
+
+#define SerachByShop_url @"service_restorant.php"
+#define SerachByShopServiceName @"get_restorants"
+
+
+#define SerachByCategory_url @"service_general.php"
+#define get_categoryServiceName @"get_category"
+
+// Card Service
+#define AddToCard_url @"service_cart.php"
+#define AddToCardServiceName @"add_item_to_cart"
+
+#define GetCardItem_url @"service_cart.php"
+#define get_cart_itemsServiceName @"get_cart_items"
+
+#define updateCardItem_url @"service_cart.php"
+#define updateCardItemServiceName @"update_cart_item"
+
+#define RemoveCardItem_url @"service_cart.php"
+#define RemoveCardItemServiceName @"remove_cart_item"
+
+#define GetOrderHistryItem_url @"service_cart.php"
+#define GetOrderHistryServiceName @"get_order_history"
+
+
+#define get_cart_item_from_cart_id_url @"service_cart.php"
+#define get_cart_item_from_cart_idServiceName @"get_cart_item_from_cart_id"
+
+#define cancel_order_url @"service_cart.php"
+#define cancel_orderServiceName @"cancel_order"
+
+
+// Update Profile
+
+#define UpdateProfile_url @"service_user_profile.php"
+#define UpdateProfileServiceName @"change_user_profile"
+
+#define change_passwordServiceName @"change_password"
+
+//Forgot Password
+#define forget_passwordServiceName @"forget_password"
+#define check_securityServiceName @"check_security"
+
+#define change_forget_passwordServiceName @"change_forget_password"
+
+//Address
+
+#define AddDeleveryAddress @"delivery_address_service"
+#define GetDeleveryHistory @"get_delivery_address"
+#define SetDefautAddress @"set_default_delivery_address"
+#define DeleteDeliveryAddress @"delete_delivery_address"
+
+
+// CheckOut TakeAway Services
+
+#define CardService_url @"service_cart.php"
+#define PlaceOrderTakeAway1ServiceName @"place_order_part_1_take_away"
+#define PlaceOrderTakeAway2ServiceName @"place_order_part_2_take_away"
+#define PlaceOrderTakeAway1_1DateServiceName @"place_order_part_1_1_take_away"
+
+// TakeAway New service with Payment Selection
+#define place_order_part_2_take_awayServiceName @"place_order_part_2_take_away"
+#define place_order_part_3_take_away_collectionServiceName @"place_order_part_3_take_away_collection"
+#define place_order_part_3_take_away_onlinePayServiceName @"place_order_part_3_take_away_online_payment"
+
+
+// CheckOut COD Services
+#define place_order_part_1_deliveryServiceName @"place_order_part_1_delivery"
+#define place_order_part_2_deliveryServiceName @"place_order_part_2_delivery"
+#define place_order_part_3_delivery_codServiceName @"place_order_part_3_delivery_cod"
+
+// PayOnline
+#define place_order_part_3_delivery_online_payment @"place_order_part_3_delivery_online_payment"
+
+// Review
+#define Restorant_rate_url @"service_rate.php"
+#define GetRestorantRateServiceName @"get_restorant_rate"
+
+#define GeAddRestorantRateReviewServiceName @"add_restorant_rate_review"
+
+// Filter
+#define Filter_url @"service_general.php"
+#define getFilterServiceName @"get_filter"
+//Get Filter Restaurant
+#define getFilterRestorantServiceName @"get_filtered_restorant"
+
+// check date and Time for delivery
+#define checkTakeAwayTimeServiceName @"place_order_part_1_1_take_away"
+#define checkDeliveryTimeServiceName @"place_order_part_1_1_delivery"
+
+
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
+//Get Device Height
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+//Get Device Height
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+#define IS_IPHONE_4 (IS_IPHONE && SCREEN_MAX_LENGTH == 480.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
+#define SelectedLabel [UIColor whiteColor]
+#define UnSelectedLabel [UIColor colorWithRed:78.0/255.0 green:78.0/255.0 blue:78.0/255.0 alpha:1.0]
+
+//Calender
+#ifdef __IPHONE_8_0
+#define GregorianCalendar NSCalendarIdentifierGregorian
+#else
+#define GregorianCalendar NSGregorianCalendar
+#endif
+
+
+//Check if iphone5 or iphone 4
+#define isIPhone5 ([UIScreen mainScreen].bounds.size.height == 568.0)
+
+//Get Device height Differenct in iphone4 and iphone 5
+#define SCREEN_HEIGHT_DIFF (568-SCREEN_HEIGHT)
+
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "AppDelegate.h"
+
+#endif

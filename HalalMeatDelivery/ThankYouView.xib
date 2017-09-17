@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Proxima Nova Regular.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="hgx-ih-Qvx" customClass="ThankYouView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nC7-Q2-Bc7">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysf-QX-gZS">
+                    <rect key="frame" x="37.5" y="122.5" width="300" height="422"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank You" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DM3-Nx-nS6">
+                            <rect key="frame" x="0.0" y="23" width="300" height="22"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Order Successfully Placed!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z18-ng-l2d">
+                            <rect key="frame" x="36" y="66" width="229" height="49"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="49" id="Wc6-yC-2po"/>
+                                <constraint firstAttribute="width" constant="229" id="jn2-2s-zVZ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYW-QP-b5G">
+                            <rect key="frame" x="20" y="55" width="260" height="1"/>
+                            <color key="backgroundColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="WYI-xW-bfr"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZ4-6H-d4m">
+                            <rect key="frame" x="20" y="339" width="260" height="1"/>
+                            <color key="backgroundColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="Bb2-Xe-2IE"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="19"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Email_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="HVN-nV-XHb">
+                            <rect key="frame" x="141" y="127" width="19" height="14"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="19" id="rSX-9G-c6I"/>
+                                <constraint firstAttribute="height" constant="14" id="w59-Sl-SQd"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TimeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="X38-O6-ruC">
+                            <rect key="frame" x="139" y="234" width="23" height="23"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="23" id="LCo-cD-FEz"/>
+                                <constraint firstAttribute="height" constant="23" id="w9u-ko-eiq"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An email receipt including details of your order has been sent to email address provided.Please keep it for your record." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnV-PQ-ivD">
+                            <rect key="frame" x="20" y="153" width="260" height="69"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="260" id="YlB-ZQ-EPL"/>
+                                <constraint firstAttribute="height" constant="69" id="is3-g1-vI5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can visit order history to check your order delivery status from navigation menu" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgt-5T-biC">
+                            <rect key="frame" x="20" y="269" width="260" height="55"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="260" id="g0t-YE-U15"/>
+                                <constraint firstAttribute="height" constant="55" id="rTz-Ny-kqW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6C-Lj-C8j">
+                            <rect key="frame" x="113" y="370" width="75" height="30"/>
+                            <color key="backgroundColor" red="0.66666666669999997" green="0.12549019610000001" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="LaE-uZ-FbL"/>
+                                <constraint firstAttribute="height" constant="30" id="eCi-Fu-RwF"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <state key="normal" title="OK"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="pYW-QP-b5G" firstAttribute="leading" secondItem="ysf-QX-gZS" secondAttribute="leading" constant="20" id="1UW-Qh-UfR"/>
+                        <constraint firstAttribute="trailing" secondItem="pYW-QP-b5G" secondAttribute="trailing" constant="20" id="8rc-I3-SH2"/>
+                        <constraint firstItem="E6C-Lj-C8j" firstAttribute="top" secondItem="xZ4-6H-d4m" secondAttribute="bottom" constant="30" id="BF0-Ua-i0R"/>
+                        <constraint firstItem="X38-O6-ruC" firstAttribute="centerX" secondItem="rnV-PQ-ivD" secondAttribute="centerX" id="EIs-Ef-ihR"/>
+                        <constraint firstItem="HVN-nV-XHb" firstAttribute="centerX" secondItem="z18-ng-l2d" secondAttribute="centerX" id="H8F-i9-eJf"/>
+                        <constraint firstItem="rnV-PQ-ivD" firstAttribute="centerX" secondItem="HVN-nV-XHb" secondAttribute="centerX" id="IJc-yc-K0D"/>
+                        <constraint firstItem="DM3-Nx-nS6" firstAttribute="top" secondItem="ysf-QX-gZS" secondAttribute="top" constant="23" id="JGf-H9-f5l"/>
+                        <constraint firstItem="z18-ng-l2d" firstAttribute="top" secondItem="pYW-QP-b5G" secondAttribute="bottom" constant="10" id="LMt-hD-Tb9"/>
+                        <constraint firstItem="rnV-PQ-ivD" firstAttribute="top" secondItem="HVN-nV-XHb" secondAttribute="bottom" constant="12" id="P1x-1K-ypv"/>
+                        <constraint firstItem="HVN-nV-XHb" firstAttribute="top" secondItem="z18-ng-l2d" secondAttribute="bottom" constant="12" id="Pse-Gk-ifz"/>
+                        <constraint firstAttribute="trailing" secondItem="DM3-Nx-nS6" secondAttribute="trailing" id="SaH-2Y-ikM"/>
+                        <constraint firstItem="X38-O6-ruC" firstAttribute="top" secondItem="rnV-PQ-ivD" secondAttribute="bottom" constant="12" id="SvH-Fk-trG"/>
+                        <constraint firstItem="mgt-5T-biC" firstAttribute="centerX" secondItem="xZ4-6H-d4m" secondAttribute="centerX" id="Wi7-Wq-quH"/>
+                        <constraint firstItem="E6C-Lj-C8j" firstAttribute="centerX" secondItem="xZ4-6H-d4m" secondAttribute="centerX" id="Zry-A1-rcL"/>
+                        <constraint firstItem="mgt-5T-biC" firstAttribute="top" secondItem="X38-O6-ruC" secondAttribute="bottom" constant="12" id="amL-C0-l0s"/>
+                        <constraint firstItem="mgt-5T-biC" firstAttribute="centerX" secondItem="X38-O6-ruC" secondAttribute="centerX" id="dE7-d6-8xB"/>
+                        <constraint firstItem="xZ4-6H-d4m" firstAttribute="leading" secondItem="ysf-QX-gZS" secondAttribute="leading" constant="20" id="fKS-Da-EH6"/>
+                        <constraint firstAttribute="height" constant="422" id="gKy-MU-BsN"/>
+                        <constraint firstAttribute="width" constant="300" id="gYL-Za-sP5"/>
+                        <constraint firstItem="xZ4-6H-d4m" firstAttribute="top" secondItem="mgt-5T-biC" secondAttribute="bottom" constant="15" id="hzy-Dh-ik5"/>
+                        <constraint firstAttribute="trailing" secondItem="xZ4-6H-d4m" secondAttribute="trailing" constant="20" id="oMc-91-9Nu"/>
+                        <constraint firstItem="z18-ng-l2d" firstAttribute="centerX" secondItem="DM3-Nx-nS6" secondAttribute="centerX" id="pV1-em-Xeg"/>
+                        <constraint firstItem="DM3-Nx-nS6" firstAttribute="leading" secondItem="ysf-QX-gZS" secondAttribute="leading" id="qgk-kH-y85"/>
+                        <constraint firstItem="pYW-QP-b5G" firstAttribute="top" secondItem="DM3-Nx-nS6" secondAttribute="bottom" constant="10" id="qpJ-e2-zFG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="nC7-Q2-Bc7" firstAttribute="centerY" secondItem="ysf-QX-gZS" secondAttribute="centerY" id="BQC-31-Jtx"/>
+                <constraint firstAttribute="bottom" secondItem="nC7-Q2-Bc7" secondAttribute="bottom" id="Bg0-V2-Xlq"/>
+                <constraint firstItem="nC7-Q2-Bc7" firstAttribute="leading" secondItem="hgx-ih-Qvx" secondAttribute="leading" id="OIL-Xv-6RE"/>
+                <constraint firstItem="ysf-QX-gZS" firstAttribute="centerY" secondItem="hgx-ih-Qvx" secondAttribute="centerY" id="f7Y-0w-xg3"/>
+                <constraint firstItem="nC7-Q2-Bc7" firstAttribute="top" secondItem="hgx-ih-Qvx" secondAttribute="top" id="fBS-09-xid"/>
+                <constraint firstItem="ysf-QX-gZS" firstAttribute="centerX" secondItem="hgx-ih-Qvx" secondAttribute="centerX" id="lcW-x6-gkU"/>
+                <constraint firstAttribute="trailing" secondItem="nC7-Q2-Bc7" secondAttribute="trailing" id="mdB-d2-gAS"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <connections>
+                <outlet property="OK_BTN" destination="E6C-Lj-C8j" id="3uM-0e-xzd"/>
+            </connections>
+            <point key="canvasLocation" x="566" y="314"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Email_Icon" width="15" height="10"/>
+        <image name="TimeIcon" width="15" height="16"/>
+    </resources>
+</document>
