@@ -66,6 +66,27 @@
    
     return YES;
 }
+
+-(void)SetimageinTextfield: (UITextField *)TXT :(NSString *)ImageName
+{
+    UIView *vw=[[UIView alloc]initWithFrame:CGRectMake(50, 0, 40, 50)];
+    UIImageView *imgforLeft=[[UIImageView alloc] initWithFrame:CGRectMake(12, 13, 22, 22)];
+    [imgforLeft setImage:[UIImage imageNamed:ImageName]];
+    [imgforLeft setContentMode:UIViewContentModeCenter];
+    [vw addSubview:imgforLeft];
+    TXT.leftView=vw;
+    TXT.leftViewMode=UITextFieldViewModeAlways;
+    TXT.layer.cornerRadius=20.0f;
+    
+    [TXT setValue:[UIColor colorWithRed:116.0f/255.0f green:104.0f/255.0f blue:102.0f/255.0f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
+}
+
+-(void)SetbuttonCorner :(UIButton *)BTN
+{
+    BTN.layer.cornerRadius=20.0f;
+    BTN.layer.masksToBounds=YES;
+}
+
 -(void)GetPublishableKey
 {
     

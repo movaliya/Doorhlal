@@ -30,5 +30,8 @@
 +(void)showInternetErrorMessageWithTitle:(NSString *)title delegate:(id)delegate;
 - (BOOL)isUserLoggedIn;
 -(void)GetPublishableKey;
+-(void)SetbuttonCorner :(UIButton *)BTN;
+-(void)SetimageinTextfield: (UITextField *)TXT :(NSString *)ImageName;
+
 @end
 

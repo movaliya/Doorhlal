@@ -13,6 +13,7 @@
 #import "HomeView.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "Forgotpasswordview.h"
+#import "HalalMeatDelivery.pch"
 
 
 @interface LoginView ()
@@ -32,15 +33,24 @@
 @synthesize Login_BTN,FaceBook_BTN;
 @synthesize Logi_View,Passwor_View;
 @synthesize User_TXT,Password_TXT;
-@synthesize POPNO,POPOK,POPYES,Title_LBL,Desc_LBL;
+@synthesize POPNO,POPOK,POPYES,Title_LBL,Desc_LBL,GustBTN;
 @synthesize LogoHight,LogoWidth,WelcomToLogoGap,WelcomeGap,TopLogoHight;
+
+
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.appDelegate = [AppDelegate sharedInstance];
     
-//    if ([self.appDelegate isUserLoggedIn] == YES)
+    [KmyappDelegate SetimageinTextfield:User_TXT :@"UserIcon"];
+    [KmyappDelegate SetimageinTextfield:Password_TXT :@"PasswordIcon"];
+    
+    [KmyappDelegate SetbuttonCorner:Login_BTN];
+    [KmyappDelegate SetbuttonCorner:GustBTN];
+    
+    //    if ([self.appDelegate isUserLoggedIn] == YES)
 //    {
 //        [self performSelector:@selector(checkLoginAndPresentContainer) withObject:nil afterDelay:0.0];
 //    }
@@ -84,24 +94,6 @@
     [super viewWillAppear:animated];
     [self prefersStatusBarHidden];
    
-    if (SCREEN_HEIGHT==480)
-    {
-        LogoHight.constant=83;
-        LogoWidth.constant=185;
-        WelcomToLogoGap.constant=28;
-        WelcomeGap.constant=15;
-        TopLogoHight.constant=20;
-    }
-    else
-    {
-        LogoHight.constant=108;
-        LogoWidth.constant=234;
-        WelcomToLogoGap.constant=55;
-        WelcomeGap.constant=25;
-        TopLogoHight.constant=27;
-    }
-
-
     self.rootNav = (CCKFNavDrawer *)self.navigationController;
     [self.rootNav setCCKFNavDrawerDelegate:self];
     [self.rootNav.pan_gr setEnabled:NO];
@@ -117,17 +109,7 @@
 
 -(void)SetupUI
 {
-    Login_BTN.layer.cornerRadius=20.0;
-    Login_BTN.autoresizingMask=YES;
     
-    FaceBook_BTN.layer.cornerRadius=20.0;
-    FaceBook_BTN.autoresizingMask=YES;
-    
-    Logi_View.layer.cornerRadius=20.0;
-    Logi_View.autoresizingMask=YES;
-    
-    Passwor_View.layer.cornerRadius=20.0;
-    Passwor_View.autoresizingMask=YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -435,5 +417,7 @@
 - (IBAction)backbtn_action:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)Guest_Click:(id)sender {
 }
 @end

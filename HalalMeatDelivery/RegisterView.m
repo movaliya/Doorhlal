@@ -44,19 +44,18 @@
     NSLog(@"CCKFNavDrawerSelection = %li", (long)selectionIndex);
     
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [ScrollView setContentSize:CGSizeMake(0, 900)];
-    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"login_back_xhdpi"]];
+    [KmyappDelegate SetimageinTextfield:Username_Txt :@"UserIcon"];
+    [KmyappDelegate SetimageinTextfield:email_Txt :@"Email_Icon"];
+    [KmyappDelegate SetimageinTextfield:pincode_Txt :@"PinIcon"];
+    [KmyappDelegate SetimageinTextfield:password_Txt :@"PasswordIcon"];
+    [KmyappDelegate SetimageinTextfield:address_Txt :@"AddressIcon"];
     
-    SignUp_BTN.layer.cornerRadius=20.0;
-    SignUp_BTN.autoresizingMask=YES;
-    
-    FaceBook_BTN.layer.cornerRadius=20.0;
-    FaceBook_BTN.autoresizingMask=YES;
-    
+    [KmyappDelegate SetbuttonCorner:SignUp_BTN];
     
     // Initialize the appDelegate property.
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -130,7 +129,7 @@
     
     NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789!@#$%^&*()_-,.;:"];
     
-    if ( [pwd length]<8 || [pwd length]>10 )
+    if ( [pwd length]<8 || [pwd length]>20 )
         return NO;  // too long or too short
     NSRange rang;
     rang = [pwd rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]];
@@ -211,8 +210,13 @@
         {
             [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter valid email" delegate:nil];
         }
+        else if (![self isPasswordValid:password_Txt.text])
+        {
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Password should be 8 characters, one Special character , One Number" delegate:nil];
+        }
         else
         {
+            
             BOOL internet=[AppDelegate connectedToNetwork];
             if (internet)
             {
@@ -284,6 +288,8 @@
         [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
     
 }
+
+
 
 #pragma mark - Private method implementation
 -(void)openActiveSessionWithPermissions:(NSArray *)permissions allowLoginUI:(BOOL)allowLoginUI{

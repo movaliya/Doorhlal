@@ -26,6 +26,8 @@
 - (IBAction)Login_click:(id)sender;
 - (IBAction)Forgot_Click:(id)sender;
 - (IBAction)SignUp_Click:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *GustBTN;
+- (IBAction)Guest_Click:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIView *Logi_View;
 @property (strong, nonatomic) IBOutlet UIView *Passwor_View;

@@ -72,7 +72,6 @@
 		530B1F701D89778300F1F894 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530B1F6F1D89778300F1F894 /* CoreMedia.framework */; };
 		530B1F721D89779700F1F894 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530B1F711D89779700F1F894 /* MessageUI.framework */; };
 		530B1F741D8977C000F1F894 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530B1F731D8977C000F1F894 /* SafariServices.framework */; };
-		530E786E1ED7EF6B001E04F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 530E786D1ED7EF6B001E04F4 /* Main.storyboard */; };
 		5310F86B1D7854DE007744A1 /* myAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310F86A1D7854DE007744A1 /* myAnnotation.m */; };
 		534D02AA1ED6B8F10007F0C6 /* AddCreditCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 534D02A91ED6B8F10007F0C6 /* AddCreditCardView.m */; };
 		534D02AC1ED6BD660007F0C6 /* Stripe.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 534D02AB1ED6BD660007F0C6 /* Stripe.bundle */; };
@@ -89,8 +88,6 @@
 		535EA4A91EBB533700A1AA23 /* city.png in Resources */ = {isa = PBXBuildFile; fileRef = 535EA4A81EBB533700A1AA23 /* city.png */; };
 		535EA4AB1EBB54EC00A1AA23 /* email1.png in Resources */ = {isa = PBXBuildFile; fileRef = 535EA4AA1EBB54EC00A1AA23 /* email1.png */; };
 		535EA4AD1EBB551600A1AA23 /* user1.png in Resources */ = {isa = PBXBuildFile; fileRef = 535EA4AC1EBB551600A1AA23 /* user1.png */; };
-		535FF4CD1D7330A8001355CD /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FF4CA1D7330A8001355CD /* LoginView.m */; };
-		535FF4CE1D7330A8001355CD /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FF4CC1D7330A8001355CD /* RegisterView.m */; };
 		535FF4D01D733262001355CD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535FF4CF1D733262001355CD /* FacebookSDK.framework */; };
 		535FF4D41D741877001355CD /* NearByCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FF4D21D741877001355CD /* NearByCell.m */; };
 		535FF4D51D741877001355CD /* NearByCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535FF4D31D741877001355CD /* NearByCell.xib */; };
@@ -105,7 +102,6 @@
 		B10605B71D75FDFE00D0501F /* myView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10605B61D75FDFE00D0501F /* myView.xib */; };
 		B10605BA1D76014A00D0501F /* MapCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B10605B91D76014A00D0501F /* MapCellView.m */; };
 		B109C6551D6C9FC9000936A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B109C6541D6C9FC9000936A2 /* main.m */; };
-		B109C6581D6C9FC9000936A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B109C6571D6C9FC9000936A2 /* AppDelegate.m */; };
 		B109C6601D6C9FC9000936A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B109C65F1D6C9FC9000936A2 /* Assets.xcassets */; };
 		B109C6631D6C9FC9000936A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B109C6611D6C9FC9000936A2 /* LaunchScreen.storyboard */; };
 		B109C67B1D6CBE1A000936A2 /* Food.png in Resources */ = {isa = PBXBuildFile; fileRef = B109C67A1D6CBE1A000936A2 /* Food.png */; };
@@ -155,6 +151,10 @@
 		B120439C1D789BE800095219 /* RestaurantHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B120439B1D789BE800095219 /* RestaurantHeaderView.m */; };
 		B13984101EB6432800A32E36 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B139840E1EB6432800A32E36 /* CategoryCell.m */; };
 		B13984111EB6432800A32E36 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B139840F1EB6432800A32E36 /* CategoryCell.xib */; };
+		B1415BDC1F6E566000BCAF6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1415BDB1F6E566000BCAF6D /* Main.storyboard */; };
+		B1415BDF1F6E56B100BCAF6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1415BDE1F6E56B100BCAF6D /* AppDelegate.m */; };
+		B1415BE41F6E56C800BCAF6D /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1415BE11F6E56C800BCAF6D /* LoginView.m */; };
+		B1415BE51F6E56C800BCAF6D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1415BE31F6E56C800BCAF6D /* RegisterView.m */; };
 		B148B2151EBF62BD009E9346 /* BlankTxtFildwithframe.png in Resources */ = {isa = PBXBuildFile; fileRef = B148B2141EBF62BD009E9346 /* BlankTxtFildwithframe.png */; };
 		B15330A51EB8FD5200E96C28 /* PaymentView1.m in Sources */ = {isa = PBXBuildFile; fileRef = B15330A41EB8FD5200E96C28 /* PaymentView1.m */; };
 		B15330A81EB9025300E96C28 /* PaymentView2.m in Sources */ = {isa = PBXBuildFile; fileRef = B15330A71EB9025300E96C28 /* PaymentView2.m */; };
@@ -316,7 +316,6 @@
 		530B1F6F1D89778300F1F894 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		530B1F711D89779700F1F894 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		530B1F731D8977C000F1F894 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
-		530E786D1ED7EF6B001E04F4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5310F8691D7854DE007744A1 /* myAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myAnnotation.h; sourceTree = "<group>"; };
 		5310F86A1D7854DE007744A1 /* myAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myAnnotation.m; sourceTree = "<group>"; };
 		5320DB141EC2ECC400B70059 /* HCSStarRatingView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HCSStarRatingView.framework; sourceTree = SOURCE_ROOT; };
@@ -338,10 +337,6 @@
 		535EA4A81EBB533700A1AA23 /* city.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = city.png; sourceTree = "<group>"; };
 		535EA4AA1EBB54EC00A1AA23 /* email1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email1.png; sourceTree = "<group>"; };
 		535EA4AC1EBB551600A1AA23 /* user1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user1.png; sourceTree = "<group>"; };
-		535FF4C91D7330A8001355CD /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
-		535FF4CA1D7330A8001355CD /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
-		535FF4CB1D7330A8001355CD /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
-		535FF4CC1D7330A8001355CD /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		535FF4CF1D733262001355CD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		535FF4D11D741877001355CD /* NearByCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearByCell.h; sourceTree = "<group>"; };
 		535FF4D21D741877001355CD /* NearByCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearByCell.m; sourceTree = "<group>"; };
@@ -364,8 +359,6 @@
 		B10605B91D76014A00D0501F /* MapCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapCellView.m; sourceTree = "<group>"; };
 		B109C6501D6C9FC9000936A2 /* HalalMeatDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HalalMeatDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B109C6541D6C9FC9000936A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B109C6561D6C9FC9000936A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B109C6571D6C9FC9000936A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B109C65F1D6C9FC9000936A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B109C6621D6C9FC9000936A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B109C6641D6C9FC9000936A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -448,6 +441,13 @@
 		B139840D1EB6432800A32E36 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
 		B139840E1EB6432800A32E36 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		B139840F1EB6432800A32E36 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		B1415BDB1F6E566000BCAF6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B1415BDD1F6E56B100BCAF6D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B1415BDE1F6E56B100BCAF6D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B1415BE01F6E56C800BCAF6D /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		B1415BE11F6E56C800BCAF6D /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		B1415BE21F6E56C800BCAF6D /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
+		B1415BE31F6E56C800BCAF6D /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		B148B2141EBF62BD009E9346 /* BlankTxtFildwithframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlankTxtFildwithframe.png; sourceTree = "<group>"; };
 		B15330A31EB8FD5200E96C28 /* PaymentView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentView1.h; sourceTree = "<group>"; };
 		B15330A41EB8FD5200E96C28 /* PaymentView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentView1.m; sourceTree = "<group>"; };
@@ -772,11 +772,6 @@
 		B109C6471D6C9FC9000936A2 = {
 			isa = PBXGroup;
 			children = (
-				530B1F731D8977C000F1F894 /* SafariServices.framework */,
-				530B1F711D89779700F1F894 /* MessageUI.framework */,
-				530B1F6F1D89778300F1F894 /* CoreMedia.framework */,
-				530B1F6D1D89776400F1F894 /* AudioToolbox.framework */,
-				530B1F6B1D89773F00F1F894 /* Accelerate.framework */,
 				B109C6521D6C9FC9000936A2 /* HalalMeatDelivery */,
 				B109C6511D6C9FC9000936A2 /* Products */,
 			);
@@ -803,12 +798,13 @@
 				B1BE54581D6E13130012A152 /* Cells */,
 				5301AEEF1D76A45700F16656 /* CommanClass */,
 				534D02A61ED6B8C50007F0C6 /* StripePay */,
-				B109C6561D6C9FC9000936A2 /* AppDelegate.h */,
-				B109C6571D6C9FC9000936A2 /* AppDelegate.m */,
-				535FF4C91D7330A8001355CD /* LoginView.h */,
-				535FF4CA1D7330A8001355CD /* LoginView.m */,
-				535FF4CB1D7330A8001355CD /* RegisterView.h */,
-				535FF4CC1D7330A8001355CD /* RegisterView.m */,
+				B1415BDB1F6E566000BCAF6D /* Main.storyboard */,
+				B1415BDD1F6E56B100BCAF6D /* AppDelegate.h */,
+				B1415BDE1F6E56B100BCAF6D /* AppDelegate.m */,
+				B1415BE01F6E56C800BCAF6D /* LoginView.h */,
+				B1415BE11F6E56C800BCAF6D /* LoginView.m */,
+				B1415BE21F6E56C800BCAF6D /* RegisterView.h */,
+				B1415BE31F6E56C800BCAF6D /* RegisterView.m */,
 				B10E201F1D95D1D900FE5D9B /* Forgotpasswordview.h */,
 				B10E20201D95D1D900FE5D9B /* Forgotpasswordview.m */,
 				B1BE54591D6E134B0012A152 /* HomeView.h */,
@@ -853,7 +849,6 @@
 				5301AEF61D76A72F00F16656 /* Class File */,
 				B10B1BDA1D6EFC33005C9D87 /* Frameworks */,
 				B10B1BC11D6EB2AD005C9D87 /* HalalMeatDelivery.pch */,
-				530E786D1ED7EF6B001E04F4 /* Main.storyboard */,
 				B109C6541D6C9FC9000936A2 /* main.m */,
 				B109C65F1D6C9FC9000936A2 /* Assets.xcassets */,
 				B109C6611D6C9FC9000936A2 /* LaunchScreen.storyboard */,
@@ -880,6 +875,11 @@
 		B10B1BDA1D6EFC33005C9D87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				530B1F731D8977C000F1F894 /* SafariServices.framework */,
+				530B1F711D89779700F1F894 /* MessageUI.framework */,
+				530B1F6F1D89778300F1F894 /* CoreMedia.framework */,
+				530B1F6D1D89776400F1F894 /* AudioToolbox.framework */,
+				530B1F6B1D89773F00F1F894 /* Accelerate.framework */,
 				534D02AD1ED6BD6D0007F0C6 /* Stripe.framework */,
 				534D02AB1ED6BD660007F0C6 /* Stripe.bundle */,
 				5320DB141EC2ECC400B70059 /* HCSStarRatingView.framework */,
@@ -1251,7 +1251,7 @@
 				B10605B71D75FDFE00D0501F /* myView.xib in Resources */,
 				530793291D7079FF0028BF53 /* searchnearbyBtn.png in Resources */,
 				53080A921D857D0F00ADA06C /* AddReviewBtn.png in Resources */,
-				530E786E1ED7EF6B001E04F4 /* Main.storyboard in Resources */,
+				B1415BDC1F6E566000BCAF6D /* Main.storyboard in Resources */,
 				535EA4A31EBB52FE00A1AA23 /* adress1.png in Resources */,
 				530A20E11E5C099200452FF2 /* ios in Resources */,
 				5308249B1D82A25C00948547 /* PhoneTxtQuare.png in Resources */,
@@ -1292,6 +1292,7 @@
 				B11657F61D7760A7005AF0D1 /* NSData+ImageContentType.m in Sources */,
 				B10B1BD21D6EEC44005C9D87 /* MenuCell.m in Sources */,
 				B1BE54D31D6E1A030012A152 /* IQUIViewController+Additions.m in Sources */,
+				B1415BDF1F6E56B100BCAF6D /* AppDelegate.m in Sources */,
 				B1BE54D01D6E1A030012A152 /* IQUIScrollView+Additions.m in Sources */,
 				B10B98071D91B43E00228F33 /* PaymentView.m in Sources */,
 				B1FC79401D7DEDD900DA38DC /* PasswordView.m in Sources */,
@@ -1336,10 +1337,10 @@
 				B1BE54D21D6E1A030012A152 /* IQUIView+Hierarchy.m in Sources */,
 				B1FFE4B21D80846000A40684 /* ThankYouView.m in Sources */,
 				B10B97EC1D91AF9100228F33 /* HostoryDetailCell.m in Sources */,
-				B109C6581D6C9FC9000936A2 /* AppDelegate.m in Sources */,
 				5301AF4A1D76A83C00F16656 /* AFURLRequestSerialization.m in Sources */,
 				B15330AE1EB9066100E96C28 /* DeliveryView2.m in Sources */,
 				5301AF491D76A83C00F16656 /* AFSecurityPolicy.m in Sources */,
+				B1415BE51F6E56C800BCAF6D /* RegisterView.m in Sources */,
 				535FF4D41D741877001355CD /* NearByCell.m in Sources */,
 				535FF4E21D741931001355CD /* ShoppingCartView.m in Sources */,
 				5301AF2E1D76A80300F16656 /* UIColor+KVNContrast.m in Sources */,
@@ -1353,6 +1354,7 @@
 				5301AF651D76A85600F16656 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				B11658011D7760A7005AF0D1 /* UIImageView+HighlightedWebCache.m in Sources */,
 				B11657FE1D7760A7005AF0D1 /* UIButton+WebCache.m in Sources */,
+				B1415BE41F6E56C800BCAF6D /* LoginView.m in Sources */,
 				5301AF691D76A85600F16656 /* UIRefreshControl+AFNetworking.m in Sources */,
 				B13984101EB6432800A32E36 /* CategoryCell.m in Sources */,
 				B11657FA1D7760A7005AF0D1 /* SDWebImageDownloader.m in Sources */,
@@ -1364,8 +1366,6 @@
 				B10E20211D95D1D900FE5D9B /* Forgotpasswordview.m in Sources */,
 				5301AF661D76A85600F16656 /* UIButton+AFNetworking.m in Sources */,
 				53FBF0C91D96B58200E47FE3 /* Reachability.m in Sources */,
-				535FF4CE1D7330A8001355CD /* RegisterView.m in Sources */,
-				535FF4CD1D7330A8001355CD /* LoginView.m in Sources */,
 				B10605BA1D76014A00D0501F /* MapCellView.m in Sources */,
 				5356CB331EB4765000E0A422 /* MyAccountVW.m in Sources */,
 				5309C4C81D83F3CF00C146AC /* RateView.m in Sources */,
@@ -1436,7 +1436,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "2dc15945-cded-47f7-8e4b-635355bbe22e";
@@ -1478,7 +1478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "2dc15945-cded-47f7-8e4b-635355bbe22e";
 				SDKROOT = iphoneos;
@@ -1503,7 +1503,7 @@
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				INFOPLIST_FILE = HalalMeatDelivery/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1540,7 +1540,7 @@
 				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				INFOPLIST_FILE = HalalMeatDelivery/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
