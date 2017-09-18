@@ -24,6 +24,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *Filter_BTN;
 - (IBAction)Filter_click:(id)sender;
 
+- (IBAction)Pancil_Click:(id)sender;
+@property (strong, nonatomic) IBOutlet UIView *AddressView;
+- (IBAction)AddressBack_Click:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIView *FilterView;
 - (IBAction)FilterBack_Ckick:(id)sender;

@@ -62,7 +62,7 @@ static dispatch_once_t predicate;
 @synthesize Table,Filter_BTN;
 @synthesize SearchBar,Search_IMG,Searc_BTN;
 @synthesize FilterView,SearchByCatBTN,SearchByRatBTN,SearchByDistBTN,SearchByPriceBTN,FreeDelevBTN;
-@synthesize CatTBL,PriceView;
+@synthesize CatTBL,PriceView,AddressView;
 
 - (void)viewDidLoad
 {
@@ -73,6 +73,7 @@ static dispatch_once_t predicate;
                                                  name:@"GetLocation" object:nil];
     
     self.rangeSliderCurrency.hidden=YES;
+    AddressView.hidden=YES;
     SelectedShort=0;
     CatTBL.hidden=NO;
     [SearchByCatBTN setBackgroundColor:SelectedButtonColor];
@@ -873,6 +874,11 @@ static dispatch_once_t predicate;
     
 }
 
+- (IBAction)Pancil_Click:(id)sender
+{
+    AddressView.hidden=NO;
+}
+
 - (IBAction)FilterBack_Ckick:(id)sender
 {
     FilterView.hidden=YES;
@@ -1163,4 +1169,8 @@ static dispatch_once_t predicate;
 }
 
 
+- (IBAction)AddressBack_Click:(id)sender
+{
+    AddressView.hidden=YES;
+}
 @end
