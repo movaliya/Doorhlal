@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <FacebookSDK/FacebookSDK.h>
 #import "HalalMeatDelivery.pch"
 #import "Constant.h"
 @import Stripe;
@@ -21,6 +20,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    //Google
+    NSError* configureError;
+    [[GGLContext sharedInstance] configureWithError: &configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+    
+    //Facebook
+    [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    
+    //Twitter
+    [[Twitter sharedInstance] startWithConsumerKey:@"M68MwH3dpgYz0MIeOrfXGKXy2" consumerSecret:@"bpweoifXH3c7oQ1f5bBu3nXim2RBBbYgV8ywRfK8GrXyn3buGm"];
     
     [self prefersStatusBarHidden];
     [[UIApplication sharedApplication] setStatusBarHidden:YES  withAnimation:UIStatusBarAnimationSlide];
@@ -60,11 +70,31 @@
 #endif
     */
     
-    
-    [FBLoginView class];
-    [FBProfilePictureView class];
+//    
+//    [FBLoginView class];
+//    [FBProfilePictureView class];
    
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
+{
+    if ([[FBSDKApplicationDelegate sharedInstance] application:app openURL:url options:options])
+    {
+        return YES;
+    }
+    else if ([[Twitter sharedInstance] application:app openURL:url options:options])
+    {
+        return YES;
+    }
+    else if([[url scheme] isEqualToString:GOOGLE_SCHEME])
+    {
+        return [[GIDSignIn sharedInstance] handleURL:url
+                                   sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                          annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+    }
+    
+    return NO;
 }
 
 -(void)SetimageinTextfield: (UITextField *)TXT :(NSString *)ImageName
@@ -122,12 +152,7 @@
     }
     
 }
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-    
-    return [FBAppCall handleOpenURL:url
-                  sourceApplication:sourceApplication];
-    
-}
+
 + (BOOL)connectedToNetwork{
     Reachability* reachability = [Reachability reachabilityWithHostName:@"www.google.com"];
     NetworkStatus remoteHostStatus = [reachability currentReachabilityStatus];
@@ -216,11 +241,9 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    if ([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded) {
-        [self openActiveSessionWithPermissions:nil allowLoginUI:NO];
-    }
+    [FBSDKAppEvents activateApp];
+
     
-    [FBAppCall handleDidBecomeActive];
    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"GetLocation" object:nil];
 
@@ -231,27 +254,6 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-#pragma mark - Public method implementation
-
--(void)openActiveSessionWithPermissions:(NSArray *)permissions allowLoginUI:(BOOL)allowLoginUI{
-    [FBSession openActiveSessionWithReadPermissions:permissions
-                                       allowLoginUI:allowLoginUI
-                                  completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-                                      // Create a NSDictionary object and set the parameter values.
-                                      NSDictionary *sessionStateInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                                                        session, @"session",
-                                                                        [NSNumber numberWithInteger:status], @"state",
-                                                                        error, @"error",
-                                                                        nil];
-                                      
-                                      // Create a new notification, add the sessionStateInfo dictionary to it and post it.
-                                      NSLog(@"sessionStateInfo=%@",sessionStateInfo);
-                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"SessionStateChangeNotification"
-                                                                                          object:nil
-                                                                                        userInfo:sessionStateInfo];
-                                      
-                                  }];
-}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

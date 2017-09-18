@@ -99,7 +99,7 @@
             [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"LoginUserDic"];
             [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"Email"];
             [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"Password"];
-            [[FBSession activeSession] closeAndClearTokenInformation];
+           // [[FBSession activeSession] closeAndClearTokenInformation];
             
             [self.navigationController popToRootViewControllerAnimated:NO];
         }

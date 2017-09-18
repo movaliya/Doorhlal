@@ -507,7 +507,7 @@
             [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"Email"];
             [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"Password"];
             [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"PAYMENTMETHOD"];
-            [[FBSession activeSession] closeAndClearTokenInformation];
+           // [[FBSession activeSession] closeAndClearTokenInformation];
             
             [self CheckLoginArr];
             [super popToRootViewControllerAnimated:NO];

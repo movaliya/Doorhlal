@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FacebookSDK/FacebookSDK.h>
 #import "HalalMeatDelivery.pch"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <Google/SignIn.h>
+#import <TwitterKit/TwitterKit.h>
 
-@interface LoginView : UIViewController<FBLoginViewDelegate,CCKFNavDrawerDelegate>
+@interface LoginView : UIViewController<CCKFNavDrawerDelegate,GIDSignInUIDelegate,GIDSignInDelegate>
 {
     NSDictionary *Maindic;
     NSMutableDictionary *FBSignIndictParams;
 }
+@property (strong,nonatomic) FBSDKLoginManager *loginMgr;
+
 
 @property (strong, nonatomic) CCKFNavDrawer *rootNav;
 @property (weak, nonatomic) IBOutlet UITextField *User_TXT;

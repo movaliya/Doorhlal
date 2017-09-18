@@ -18,6 +18,21 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+    <key>Fabric</key>
+    <dict>
+        <key>APIKey</key>
+        <string>e755be4584d12c9ba0a865160d7e1c27bbccf36d</string>
+        <key>Kits</key>
+        <array>
+            <dict>
+                <key>KitInfo</key>
+                <dict/>
+                <key>KitName</key>
+                <string>Crashlytics</string>
+            </dict>
+        </array>
+    </dict>
+
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -25,19 +40,35 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb140554453225007</string>
+				<string>fb819079131605197</string>
+				<string>twitterkit-M68MwH3dpgYz0MIeOrfXGKXy2</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>google</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.696392848252-ki8v92p483klb2k2akl5s4ltilmh6h8k</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>FacebookAppID</key>
-	<string>140554453225007
-</string>
+	<string>819079131605197</string>
 	<key>FacebookDisplayName</key>
-	<string>Feed Me Meat</string>
+	<string>DoorToDoor</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+		<string>twitter</string>
+		<string>twitterauth</string>
 		<string>org-appextension-feature-password-management</string>
 		<string>com.paypal.ppclient.touch.v1</string>
 		<string>com.paypal.ppclient.touch.v2</string>

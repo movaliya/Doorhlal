@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
 #import "Constant.h"
+#import <Google/SignIn.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <TwitterKit/TwitterKit.h>
+
+#define GOOGLE_SCHEME @"com.googleusercontent.apps.696392848252-ki8v92p483klb2k2akl5s4ltilmh6h8k"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {

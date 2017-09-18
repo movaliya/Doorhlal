@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "HalalMeatDelivery.pch"
-#import <FacebookSDK/FacebookSDK.h>
 
-@interface RegisterView : UIViewController<CCKFNavDrawerDelegate,FBLoginViewDelegate>
+@interface RegisterView : UIViewController<CCKFNavDrawerDelegate>
 {
     NSMutableDictionary *FBSignupdictParams;
 }
