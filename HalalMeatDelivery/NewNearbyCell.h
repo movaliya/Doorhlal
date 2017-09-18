@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *RestName_LBL;
 @property (strong, nonatomic) IBOutlet UILabel *Address_LBL;
 @property (strong, nonatomic) IBOutlet UILabel *Distance_LBL;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *BottonViewHeightAddr;
 
 @end

@@ -14,7 +14,8 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "Forgotpasswordview.h"
 #import "HalalMeatDelivery.pch"
-
+#import <CoreLocation/CoreLocation.h>
+#import "SearchByShop.h"
 
 @interface LoginView ()
 {
@@ -80,7 +81,7 @@
 
 -(void)checkLoginAndPresentContainer
 {
-    HomeView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeView"];
+    SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
     [self.navigationController pushViewController:vcr animated:YES];
 }
 
@@ -116,6 +117,10 @@
 {
     [super didReceiveMemoryWarning];
 }
+- (IBAction)Twitter_Click:(id)sender {
+}
+- (IBAction)Gmail_Click:(id)sender {
+}
 
 - (IBAction)Facebook_click:(UIButton *)sender
 {
@@ -132,6 +137,7 @@
         else{
             // Close an existing session.
             [[FBSession activeSession] closeAndClearTokenInformation];
+            
             // Update the UI.
         }
 
@@ -237,7 +243,7 @@
         dic=[[response valueForKey:@"result"] objectAtIndex:0];
         [[NSUserDefaults standardUserDefaults]setObject:dic forKey:@"LoginUserDic"];
         
-        HomeView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeView"];
+        SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
         [self.navigationController pushViewController:vcr animated:YES];
          [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
     }
@@ -418,6 +424,9 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-- (IBAction)Guest_Click:(id)sender {
+- (IBAction)Guest_Click:(id)sender
+{
+    SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
+    [self.navigationController pushViewController:vcr animated:YES];
 }
 @end

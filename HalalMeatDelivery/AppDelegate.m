@@ -10,6 +10,11 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "HalalMeatDelivery.pch"
 #import "Constant.h"
+
+#import <Google/SignIn.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <TwitterKit/TwitterKit.h>
+#define GOOGLE_SCHEME @"com.googleusercontent.apps.696392848252-ki8v92p483klb2k2akl5s4ltilmh6h8k"
 @import Stripe;
 
 @interface AppDelegate ()
@@ -59,14 +64,56 @@
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 #endif
     */
+    //Google
+    NSError* configureError;
+    [[GGLContext sharedInstance] configureWithError: &configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
     
+    //Facebook
+    [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    
+    //Twitter
+    [[Twitter sharedInstance] startWithConsumerKey:@"AQgWfrZdOGS6M3rEs3eLYLIOh" consumerSecret:@"hAfed1pDgIB2jkbOTnFfYnIwPwW37MVUxQ3KaB9suO6hBmGhRT"];
     
     [FBLoginView class];
     [FBProfilePictureView class];
    
     return YES;
 }
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBSDKAppEvents activateApp];
+    
+    //if ([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded) {
+       // [self openActiveSessionWithPermissions:nil allowLoginUI:NO];
+  //  }
+    
+    [FBAppCall handleDidBecomeActive];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"GetLocation" object:nil];
+}
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
 
+{
+    if ([[FBSDKApplicationDelegate sharedInstance] application:app openURL:url options:options])
+    {
+        return YES;
+    }
+    else if ([[Twitter sharedInstance] application:app openURL:url options:options])
+    {
+        return YES;
+    }
+    else if([[url scheme] isEqualToString:GOOGLE_SCHEME])
+    {
+        return [[GIDSignIn sharedInstance] handleURL:url
+                                   sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                          annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+    }
+    
+    return NO;
+}
 -(void)SetimageinTextfield: (UITextField *)TXT :(NSString *)ImageName
 {
     UIView *vw=[[UIView alloc]initWithFrame:CGRectMake(50, 0, 40, 50)];
@@ -212,19 +259,7 @@
         [toast dismissWithClickedButtonIndex:0 animated:YES];
     });
 }
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    
-    if ([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded) {
-        [self openActiveSessionWithPermissions:nil allowLoginUI:NO];
-    }
-    
-    [FBAppCall handleDidBecomeActive];
-   
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"GetLocation" object:nil];
 
-}
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {

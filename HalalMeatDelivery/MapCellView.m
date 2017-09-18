@@ -68,7 +68,7 @@
             self.star2.image=[UIImage imageNamed:@"FullStar"];
             self.star3.image=[UIImage imageNamed:@"FullStar"];
             self.star4.image=[UIImage imageNamed:@"FullStar"];
-            self.star5.image=[UIImage imageNamed:@"HalStar"];
+            self.star5.image=[UIImage imageNamed:@"FullStar"];
         }
     }
 }

@@ -9,9 +9,15 @@
 #import "NewNearbyCell.h"
 
 @implementation NewNearbyCell
-
+@synthesize Distance_LBL;
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    Distance_LBL.layer.cornerRadius=5;
+    Distance_LBL.layer.masksToBounds=YES;
+    Distance_LBL.layer.borderColor=[[UIColor whiteColor] CGColor];
+    Distance_LBL.layer.borderWidth=1;
+
     // Initialization code
 }
 

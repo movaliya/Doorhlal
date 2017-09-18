@@ -12,6 +12,7 @@
 #import "RestaurantDetailView.h"
 #import "UIImageView+WebCache.h"
 
+
 @interface NearByView ()
 {
     NSMutableDictionary *MainDic;

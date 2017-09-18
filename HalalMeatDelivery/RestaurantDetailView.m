@@ -1201,11 +1201,11 @@
             _star5.image=[UIImage imageNamed:@"DisableWhiteStar"];
         }
         if ([stars integerValue]==5) {
-            _star1.image=[UIImage imageNamed:@"FullStar"];
-            _star2.image=[UIImage imageNamed:@"FullStar"];
-            _star3.image=[UIImage imageNamed:@"FullStar"];
-            _star4.image=[UIImage imageNamed:@"FullStar"];
-            _star5.image=[UIImage imageNamed:@"FullStar"];
+            _star1.image=[UIImage imageNamed:@"WhiteStat"];
+            _star2.image=[UIImage imageNamed:@"WhiteStat"];
+            _star3.image=[UIImage imageNamed:@"WhiteStat"];
+            _star4.image=[UIImage imageNamed:@"WhiteStat"];
+            _star5.image=[UIImage imageNamed:@"WhiteStat"];
         }
     }
 }

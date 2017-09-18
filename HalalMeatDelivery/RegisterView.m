@@ -268,6 +268,10 @@
         [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
     }
 }
+- (IBAction)Twitter_Click:(id)sender {
+}
+- (IBAction)Gmail_Click:(id)sender {
+}
 - (IBAction)FB_signup:(id)sender
 {
     NSLog(@"FB Signup");

@@ -67,11 +67,11 @@
             FifthStar.image=[UIImage imageNamed:@"WhiteStat"];
         }
         if ([stars integerValue]==5) {
-            FirstStar.image=[UIImage imageNamed:@"FullStar"];
-            SecStar.image=[UIImage imageNamed:@"FullStar"];
-            ThardStar.image=[UIImage imageNamed:@"FullStar"];
-            FortStar.image=[UIImage imageNamed:@"FullStar"];
-            FifthStar.image=[UIImage imageNamed:@"FullStar"];
+            FirstStar.image=[UIImage imageNamed:@"WhiteStat"];
+            SecStar.image=[UIImage imageNamed:@"WhiteStat"];
+            ThardStar.image=[UIImage imageNamed:@"WhiteStat"];
+            FortStar.image=[UIImage imageNamed:@"WhiteStat"];
+            FifthStar.image=[UIImage imageNamed:@"WhiteStat"];
         }
     }
 }

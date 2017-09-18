@@ -16,6 +16,7 @@
 #import "RestaurantDetailView.h"
 #import <CoreLocation/CoreLocation.h>
 #import "CategoryCell.h"
+#import "NewNearbyCell.h"
 
 static dispatch_once_t predicate;
 
@@ -26,6 +27,9 @@ static dispatch_once_t predicate;
 {
     NSDictionary *DataDic;
     CLLocationManager *locationManager;
+    CLGeocoder *geocoder;
+    CLPlacemark *placemark;
+    
     double Latitude,Logitude;
     NSInteger limit_only,NoResponseInt;
     
@@ -78,6 +82,7 @@ static dispatch_once_t predicate;
     FilterView.hidden=YES;
     
     // Getting Lat Log
+    geocoder = [[CLGeocoder alloc] init];
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -97,10 +102,10 @@ static dispatch_once_t predicate;
     self.appDelegate = [AppDelegate sharedInstance];
     
     
-    UINib *nib = [UINib nibWithNibName:@"NearByCell" bundle:nil];
-    NearByCell *cell = [[nib instantiateWithOwner:nil options:nil] objectAtIndex:0];
+    UINib *nib = [UINib nibWithNibName:@"NewNearbyCell" bundle:nil];
+    NewNearbyCell *cell = [[nib instantiateWithOwner:nil options:nil] objectAtIndex:0];
     Table.rowHeight = cell.frame.size.height;
-    [Table registerNib:nib forCellReuseIdentifier:@"NearByCell"];
+    [Table registerNib:nib forCellReuseIdentifier:@"NewNearbyCell"];
     
     UINib *nib2 = [UINib nibWithNibName:@"CategoryCell" bundle:nil];
     CategoryCell *cell2 = [[nib2 instantiateWithOwner:nil options:nil] objectAtIndex:0];
@@ -463,48 +468,51 @@ static dispatch_once_t predicate;
     }
     else
     {
-        static NSString *CellIdentifier = @"NearByCell";
-        NearByCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        
+        static NSString *CellIdentifier = @"NewNearbyCell";
+        NewNearbyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         cell=nil;
         if (cell == nil)
         {
             cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             
         }
+        
         NSString *Urlstr=[[SearchDictnory valueForKey:@"image_path"] objectAtIndex:indexPath.row];
         Urlstr = [Urlstr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
-        [cell.Rest_IMG sd_setImageWithURL:[NSURL URLWithString:Urlstr] placeholderImage:[UIImage imageNamed:@"placeholder_img"]];
-        [cell.Rest_IMG setShowActivityIndicatorView:YES];
+        [cell.RestIMG sd_setImageWithURL:[NSURL URLWithString:Urlstr] placeholderImage:[UIImage imageNamed:@"placeholder_img"]];
+        [cell.RestIMG setShowActivityIndicatorView:YES];
         
-        cell.RestNAME_LBL.text=[[SearchDictnory valueForKey:@"name"] objectAtIndex:indexPath.row];
-        cell.Item_LBL.text=[[SearchDictnory valueForKey:@"serving_category"] objectAtIndex:indexPath.row];
         
-        NSString *develveryOption=[[SearchDictnory valueForKey:@"delivery_option"] objectAtIndex:indexPath.row];
+        cell.RestName_LBL.text=[[SearchDictnory valueForKey:@"name"] objectAtIndex:indexPath.row];
+        cell.Distance_LBL.text=[NSString stringWithFormat:@" %@ ",[[SearchDictnory valueForKey:@"distance"] objectAtIndex:indexPath.row]] ;
+        cell.Address_LBL.text=[NSString stringWithFormat:@" %@ ",[[SearchDictnory valueForKey:@"address"] objectAtIndex:indexPath.row]] ;
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
-        if ([develveryOption isEqualToString:@"1"])
+        NSInteger linecout=[self hight:cell.Address_LBL];
+        if (linecout==1)
         {
-            NSString *option=[[SearchDictnory valueForKey:@"min_delivery_amount"] objectAtIndex:indexPath.row];
-            cell.Desc_LBL.text=[NSString stringWithFormat:@"Deliver Min :£%@",option];
-            cell.Desc_LBL.textColor=[UIColor colorWithRed:(62/255.0) green:(124/255.0) blue:(77/255.0) alpha:1.0];
+            cell.BottonViewHeightAddr.constant=56;
         }
         else
         {
-            cell.Desc_LBL.text=@"Take away";
-            cell.Desc_LBL.textColor=[UIColor colorWithRed:(204/255.0) green:(61/255.0) blue:(53/255.0) alpha:1.0];
+            cell.BottonViewHeightAddr.constant=66;
+            
         }
-        
-        
-        cell.Review_LBL.text=[NSString stringWithFormat:@"(%@ Review)",[[SearchDictnory valueForKey:@"count_review"] objectAtIndex:indexPath.row]];
-        cell.Dist_LBL.text=[NSString stringWithFormat:@" %@ ",[[SearchDictnory valueForKey:@"distance"] objectAtIndex:indexPath.row]] ;
-        
-        [cell ReviewCount:[[SearchDictnory valueForKey:@"count_review"] objectAtIndex:indexPath.row]];
-        
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        NSLog(@"linecout==%d",linecout);
         return cell;
-
     }
     return nil;
+}
+-(NSInteger)hight :(UILabel *)lbl
+{
+    NSInteger lineCount = 0;
+    CGSize textSize = CGSizeMake(lbl.frame.size.width, MAXFLOAT);
+    int rHeight = lroundf([lbl sizeThatFits:textSize].height);
+    int charSize = lroundf(lbl.font.lineHeight);
+    return  rHeight/charSize;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -725,10 +733,22 @@ static dispatch_once_t predicate;
                 locationManager=nil;
            // });
         }
-        
-       
-       // NSLog(@"longitude=%.8f",currentLocation.coordinate.longitude);
-        //NSLog(@"latitude=%.8f",currentLocation.coordinate.latitude);
+        // Reverse Geocoding
+        NSLog(@"Resolving the Address");
+        [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+            NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+            if (error == nil && [placemarks count] > 0) {
+                placemark = [placemarks lastObject];
+                self.Title_LBL.text = [NSString stringWithFormat:@"%@ %@ %@ %@",
+                                     placemark.subThoroughfare,
+                                    placemark.administrativeArea,
+                                     placemark.locality,
+                                     placemark.country];
+                 NSLog(@" placemarks: %@",  self.Title_LBL.text);
+            } else {
+                NSLog(@"%@", error.debugDescription);
+            }
+        } ];
         
     }
     

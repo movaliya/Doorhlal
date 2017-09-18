@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="180" id="KGk-i7-Jjw" customClass="NewNearbyCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="196" id="KGk-i7-Jjw" customClass="NewNearbyCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="196"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="196"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wft-I8-m7w">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="196"/>
+                    </imageView>
                     <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMl-7B-l3q">
-                        <rect key="frame" x="0.0" y="113.5" width="320" height="66"/>
+                        <rect key="frame" x="0.0" y="130" width="320" height="66"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="66" id="Eyr-Vw-RAZ"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wft-I8-m7w">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="179.5"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Restaurant Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndd-GB-6W9">
-                        <rect key="frame" x="10" y="118.5" width="126" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="10" y="137" width="206" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Labelsdfjsadjfl;a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tyl-Lu-Zor">
-                        <rect key="frame" x="217" y="120.5" width="93" height="15"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <rect key="frame" x="224" y="138" width="86" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Restaurant Name sdlkfsdfasdfj lsdkajf l;sadjfl ;jsdal;fjls;dafsadkf" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXS-C9-Qaj">
-                        <rect key="frame" x="10" y="140.5" width="300" height="29"/>
+                        <rect key="frame" x="10" y="157" width="300" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -52,6 +52,7 @@
                     <constraint firstItem="dMl-7B-l3q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="AQO-dJ-UkM"/>
                     <constraint firstAttribute="bottom" secondItem="Wft-I8-m7w" secondAttribute="bottom" id="Bfw-Ua-74g"/>
                     <constraint firstItem="Wft-I8-m7w" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="CBg-5u-zmc"/>
+                    <constraint firstItem="Tyl-Lu-Zor" firstAttribute="leading" secondItem="ndd-GB-6W9" secondAttribute="trailing" constant="8" id="OE6-sn-Oob"/>
                     <constraint firstAttribute="trailing" secondItem="Wft-I8-m7w" secondAttribute="trailing" id="R15-gl-xd6"/>
                     <constraint firstAttribute="bottom" secondItem="yXS-C9-Qaj" secondAttribute="bottom" constant="10" id="Tc1-fG-BIc"/>
                     <constraint firstAttribute="trailing" secondItem="Tyl-Lu-Zor" secondAttribute="trailing" constant="10" id="bCD-0N-uLY"/>
@@ -65,11 +66,12 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="Address_LBL" destination="yXS-C9-Qaj" id="O10-Cf-dGV"/>
+                <outlet property="BottonViewHeightAddr" destination="Eyr-Vw-RAZ" id="UaY-Nj-HKs"/>
                 <outlet property="Distance_LBL" destination="Tyl-Lu-Zor" id="Qiw-eY-C0u"/>
                 <outlet property="RestIMG" destination="Wft-I8-m7w" id="mda-9J-T7w"/>
                 <outlet property="RestName_LBL" destination="ndd-GB-6W9" id="BbF-fx-zvC"/>
             </connections>
-            <point key="canvasLocation" x="-5" y="30"/>
+            <point key="canvasLocation" x="-410" y="25"/>
         </tableViewCell>
     </objects>
 </document>
