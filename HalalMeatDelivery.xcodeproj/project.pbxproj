@@ -95,8 +95,6 @@
 		535FF4E21D741931001355CD /* ShoppingCartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FF4E11D741931001355CD /* ShoppingCartView.m */; };
 		536552661EB308D1004E4598 /* SplashScreen11.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 536552651EB308D1004E4598 /* SplashScreen11.JPG */; };
 		5377FE3C1F6F9C5800E35BA9 /* login_back_xhdpi.png in Resources */ = {isa = PBXBuildFile; fileRef = 5377FE3B1F6F9C5800E35BA9 /* login_back_xhdpi.png */; };
-		5377FE401F6FE1B700E35BA9 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 5377FE3F1F6FE1B700E35BA9 /* Podfile */; };
-		5377FE421F6FE55400E35BA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5377FE411F6FE55400E35BA9 /* GoogleService-Info.plist */; };
 		53A96F041F6E611E00907393 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 53A96F031F6E611E00907393 /* SplashScreen.png */; };
 		53A96F221F6EC39B00907393 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 53A96F071F6EC39B00907393 /* Contents.json */; };
 		53A96F231F6EC39B00907393 /* Icon-App-20x20@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53A96F081F6EC39B00907393 /* Icon-App-20x20@1x.png */; };
@@ -225,7 +223,6 @@
 		B1FC79421D7DEDF900DA38DC /* PasswordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FC79411D7DEDF900DA38DC /* PasswordView.xib */; };
 		B1FFE4B21D80846000A40684 /* ThankYouView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FFE4B11D80846000A40684 /* ThankYouView.m */; };
 		B1FFE4B41D80870800A40684 /* ThankYouView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FFE4B31D80870800A40684 /* ThankYouView.xib */; };
-		FDB22550F52A5648E83C00DB /* libPods-HalalMeatDelivery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED1BBDD2E092C949A0C4279 /* libPods-HalalMeatDelivery.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -254,9 +251,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		26A06756CE91A3732B6EEAAA /* Pods-HalalMeatDelivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HalalMeatDelivery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HalalMeatDelivery/Pods-HalalMeatDelivery.debug.xcconfig"; sourceTree = "<group>"; };
-		34A71807E531E74E2D8B3E71 /* Pods-HalalMeatDelivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HalalMeatDelivery.release.xcconfig"; path = "Pods/Target Support Files/Pods-HalalMeatDelivery/Pods-HalalMeatDelivery.release.xcconfig"; sourceTree = "<group>"; };
-		3ED1BBDD2E092C949A0C4279 /* libPods-HalalMeatDelivery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HalalMeatDelivery.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		530127A81EB769C300394F9A /* TTRangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRangeSlider.h; sourceTree = "<group>"; };
 		530127A91EB769C300394F9A /* TTRangeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRangeSlider.m; sourceTree = "<group>"; };
 		530127AA1EB769C300394F9A /* TTRangeSliderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRangeSliderDelegate.h; sourceTree = "<group>"; };
@@ -383,8 +377,6 @@
 		535FF4E11D741931001355CD /* ShoppingCartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartView.m; sourceTree = "<group>"; };
 		536552651EB308D1004E4598 /* SplashScreen11.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SplashScreen11.JPG; sourceTree = "<group>"; };
 		5377FE3B1F6F9C5800E35BA9 /* login_back_xhdpi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_back_xhdpi.png; sourceTree = "<group>"; };
-		5377FE3F1F6FE1B700E35BA9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		5377FE411F6FE55400E35BA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53A96F031F6E611E00907393 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
 		53A96F071F6EC39B00907393 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		53A96F081F6EC39B00907393 /* Icon-App-20x20@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@1x.png"; sourceTree = "<group>"; };
@@ -609,21 +601,12 @@
 				B10B1BD91D6EFC1A005C9D87 /* CoreLocation.framework in Frameworks */,
 				B10B1BD51D6EFC05005C9D87 /* MapKit.framework in Frameworks */,
 				535FF4D01D733262001355CD /* FacebookSDK.framework in Frameworks */,
-				FDB22550F52A5648E83C00DB /* libPods-HalalMeatDelivery.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		472B345B400A79559FF671BA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3ED1BBDD2E092C949A0C4279 /* libPods-HalalMeatDelivery.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		530127A71EB769B400394F9A /* Slider */ = {
 			isa = PBXGroup;
 			children = (
@@ -889,23 +872,11 @@
 			name = Rechability;
 			sourceTree = "<group>";
 		};
-		A1DE842EABF1FCBE7A6D70C6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				26A06756CE91A3732B6EEAAA /* Pods-HalalMeatDelivery.debug.xcconfig */,
-				34A71807E531E74E2D8B3E71 /* Pods-HalalMeatDelivery.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		B109C6471D6C9FC9000936A2 = {
 			isa = PBXGroup;
 			children = (
-				5377FE3F1F6FE1B700E35BA9 /* Podfile */,
 				B109C6521D6C9FC9000936A2 /* HalalMeatDelivery */,
 				B109C6511D6C9FC9000936A2 /* Products */,
-				A1DE842EABF1FCBE7A6D70C6 /* Pods */,
-				472B345B400A79559FF671BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -920,7 +891,6 @@
 		B109C6521D6C9FC9000936A2 /* HalalMeatDelivery */ = {
 			isa = PBXGroup;
 			children = (
-				5377FE411F6FE55400E35BA9 /* GoogleService-Info.plist */,
 				53A96F051F6EC39B00907393 /* ios */,
 				530127A71EB769B400394F9A /* Slider */,
 				B1F47D3C1D6F54A4000D5C0A /* DTTableView */,
@@ -1271,15 +1241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B109C6671D6C9FC9000936A2 /* Build configuration list for PBXNativeTarget "HalalMeatDelivery" */;
 			buildPhases = (
-				15330B44D74E377F4720BD13 /* [CP] Check Pods Manifest.lock */,
 				B109C64C1D6C9FC9000936A2 /* Sources */,
 				B109C64D1D6C9FC9000936A2 /* Frameworks */,
 				B109C64E1D6C9FC9000936A2 /* Resources */,
 				534D02B11ED6BD8E0007F0C6 /* Embed Frameworks */,
 				534D02B31ED6BD930007F0C6 /* Embed PlugIns */,
 				530965CA1EDEFA74008349DD /* ShellScript */,
-				B7EE93489A5191009683E3C0 /* [CP] Embed Pods Frameworks */,
-				94B1B126AAE98C9AAC7DA6B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1371,12 +1338,10 @@
 				53A96F341F6EC39B00907393 /* Icon-App-76x76@2x.png in Resources */,
 				53A96F371F6EC39B00907393 /* Icon-Small-50x50@1x.png in Resources */,
 				53A96F2C1F6EC39B00907393 /* Icon-App-57x57@1x.png in Resources */,
-				5377FE401F6FE1B700E35BA9 /* Podfile in Resources */,
 				B10B1BD31D6EEC44005C9D87 /* MenuCell.xib in Resources */,
 				B10B98021D91B25700228F33 /* SimpleTXT.png in Resources */,
 				530793231D706FB40028BF53 /* loginBtn.png in Resources */,
 				535EA4A61EBB52FE00A1AA23 /* phone1.png in Resources */,
-				5377FE421F6FE55400E35BA9 /* GoogleService-Info.plist in Resources */,
 				B148B2151EBF62BD009E9346 /* BlankTxtFildwithframe.png in Resources */,
 				53A96F3A1F6EC39B00907393 /* iTunesArtwork@2x.png in Resources */,
 				B1FFE4B41D80870800A40684 /* ThankYouView.xib in Resources */,
@@ -1432,21 +1397,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		15330B44D74E377F4720BD13 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		530965CA1EDEFA74008349DD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1459,36 +1409,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
-		};
-		94B1B126AAE98C9AAC7DA6B5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HalalMeatDelivery/Pods-HalalMeatDelivery-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B7EE93489A5191009683E3C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HalalMeatDelivery/Pods-HalalMeatDelivery-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1707,12 +1627,10 @@
 		};
 		B109C6681D6C9FC9000936A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26A06756CE91A3732B6EEAAA /* Pods-HalalMeatDelivery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Faraz Mahadik (PHT4KDYA23)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 7PFD68G63X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1734,7 +1652,6 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
-					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.door2door;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1747,7 +1664,6 @@
 		};
 		B109C6691D6C9FC9000936A2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34A71807E531E74E2D8B3E71 /* Pods-HalalMeatDelivery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Faraz Mahadik (PHT4KDYA23)";
@@ -1773,7 +1689,6 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
-					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.door2door;
 				PRODUCT_NAME = "$(TARGET_NAME)";
