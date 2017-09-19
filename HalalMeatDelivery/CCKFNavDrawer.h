@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@protocol CCKFNavDrawerDelegate <NSObject>
+#import <TwitterKit/TwitterKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <Google/SignIn.h>
+@protocol CCKFNavDrawerDelegate <NSObject,GIDSignInUIDelegate,GIDSignInDelegate>
 @required
 - (void)CCKFNavDrawerSelection:(NSInteger)selectionIndex;
 @end
@@ -16,6 +19,7 @@
 @interface CCKFNavDrawer : UINavigationController<UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 -(void)CheckLoginArr;
+@property (strong,nonatomic) FBSDKLoginManager *loginMgr;
 
 @property (nonatomic, strong) UIPanGestureRecognizer *pan_gr;
 @property (weak, nonatomic)id<CCKFNavDrawerDelegate> CCKFNavDrawerDelegate;

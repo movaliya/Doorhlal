@@ -18,7 +18,7 @@
 @implementation RegisterView
 @synthesize SignUp_BTN,FaceBook_BTN,ScrollView;
 @synthesize Username_Txt,email_Txt,pincode_Txt,password_Txt,address_Txt;
-
+@synthesize loginMgr;
 
 -(BOOL)prefersStatusBarHidden
 {
@@ -59,6 +59,21 @@
     // Initialize the appDelegate property.
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [self didEnterZip:@"362265"];
+    
+    
+    //Google SignIn
+    NSString *userScope = @"https://www.googleapis.com/auth/plus.me";
+    NSString *loginScope = @"https://www.googleapis.com/auth/plus.login";
+    NSArray *arrScopes = [NSArray arrayWithObjects:loginScope,userScope, nil];
+    NSArray *currentScopes = [GIDSignIn sharedInstance].scopes;
+    [GIDSignIn sharedInstance].scopes   = [currentScopes arrayByAddingObjectsFromArray:arrScopes];
+    [GIDSignIn sharedInstance].shouldFetchBasicProfile = true;
+    [GIDSignIn sharedInstance].delegate = self;
+    [GIDSignIn sharedInstance].uiDelegate = self;
+    
+    //Facebook SignIn
+    loginMgr = [[FBSDKLoginManager alloc] init];
+    [loginMgr logOut];
    
 }
 - (void)didEnterZip:(NSString*)zip
@@ -267,101 +282,220 @@
         [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
     }
 }
-- (IBAction)Twitter_Click:(id)sender {
+- (IBAction)Twitter_Click:(id)sender
+{
+    [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error)
+     {
+         if (session)
+         {
+             //[MBProgressHUD showHUDAddedTo:sharedAppDel.window animated:YES];
+             NSLog(@"signed in as %@, \nauthToken = %@, \nauthSecretToken = %@, \nuserId = %@" , [session userName],[session authToken],[session authTokenSecret],[session userID]);
+             
+             NSString *emailtw=[NSString stringWithFormat:@"%@/@gmil.com",[session userName]];
+             FBSignupdictParams = [[NSMutableDictionary alloc] init];
+             [FBSignupdictParams setObject:r_p  forKey:@"r_p"];
+             [FBSignupdictParams setObject:RegisterServiceName  forKey:@"service"];
+             [FBSignupdictParams setObject:emailtw  forKey:@"u_email"];
+             [FBSignupdictParams setObject:[session userName]  forKey:@"u_name"];
+             [FBSignupdictParams setObject:@""  forKey:@"u_password"];
+             [FBSignupdictParams setObject:@""  forKey:@"u_phone"];
+             [FBSignupdictParams setObject:@""  forKey:@"u_address"];
+             [FBSignupdictParams setObject:@""  forKey:@"u_zip"];
+             [FBSignupdictParams setObject:@""  forKey:@"u_city"];
+             [FBSignupdictParams setObject:@""  forKey:@"u_state"];
+             [FBSignupdictParams setObject:@""  forKey:@"u_country"];
+             [FBSignupdictParams setObject:@"twitter"  forKey:@"u_type"];
+             [self CallFBSignup];
+             
+             
+             
+             
+             
+             //             NSDictionary *dictTwitter = [[NSDictionary alloc] initWithObjectsAndKeys:
+             //                                          [NSString stringWithFormat:@"%@@twitter.com",[session userName]],@"email",
+             //                                          [session userName],@"username",
+             //                                          @"",@"full_name",
+             //                                          @"twitter",@"provider",
+             //                                          [session userID],@"uid",
+             //                                          @"iPhone",@"device_type",
+             //                                          [sharedAppDel deviceTokenID],@"device_token",nil];
+             //
+             //             [self SocialLoginAPICall:dictTwitter];
+         }
+         else
+         {
+             // [sharedAppDel ShowAlertWithOneBtn:@"Login Error!, Please try again" andbtnTitle:@"Ok"];
+             NSLog(@"error: %@", [error localizedDescription]);
+         }
+     }];
 }
-- (IBAction)Gmail_Click:(id)sender {
+- (IBAction)Gmail_Click:(id)sender
+{
+     [[GIDSignIn sharedInstance] signIn];
+}
+#pragma mark - Google SignIn Delegate
+
+- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error
+{
+    // Perform any operations on signed in user here.
+    if (error == nil)
+    {
+        // [MBProgressHUD showHUDAddedTo:sharedAppDel.window animated:YES];
+        NSString *userId = user.userID;
+        NSString *fullName = user.profile.name;
+        NSString *givenName = user.profile.givenName;
+        NSString *familyName = user.profile.familyName;
+        NSString *email = user.profile.email;
+        
+        NSString *clientID = user.authentication.clientID;
+        NSString *accessToken = user.authentication.accessToken;
+        NSString *refreshToken = user.authentication.refreshToken;
+        NSString *idToken = user.authentication.idToken;
+        
+        NSLog(@"userId == %@,\nfullName == %@,\ngivenName == %@,\nfamilyName == %@,\nemail == %@,\nclientID == %@,\naccessToken == %@,\nrefreshToken == %@,\nidToken == %@",userId,fullName,givenName,familyName,email,clientID,accessToken,refreshToken,idToken);
+        
+        FBSignupdictParams = [[NSMutableDictionary alloc] init];
+        [FBSignupdictParams setObject:r_p  forKey:@"r_p"];
+        [FBSignupdictParams setObject:RegisterServiceName  forKey:@"service"];
+        [FBSignupdictParams setObject:email  forKey:@"u_email"];
+        [FBSignupdictParams setObject:fullName  forKey:@"u_name"];
+        [FBSignupdictParams setObject:@""  forKey:@"u_password"];
+        [FBSignupdictParams setObject:@""  forKey:@"u_phone"];
+        [FBSignupdictParams setObject:@""  forKey:@"u_address"];
+        [FBSignupdictParams setObject:@""  forKey:@"u_zip"];
+        [FBSignupdictParams setObject:@""  forKey:@"u_city"];
+        [FBSignupdictParams setObject:@""  forKey:@"u_state"];
+        [FBSignupdictParams setObject:@""  forKey:@"u_country"];
+        [FBSignupdictParams setObject:@"gmail"  forKey:@"u_type"];
+        
+        //gmil
+        [self CallFBSignup];
+        
+        
+        
+        
+        
+        
+        
+        //
+        //        NSDictionary *dictGoogle = [[NSDictionary alloc] initWithObjectsAndKeys:
+        //                                    email,@"email",
+        //                                    @"",@"username",
+        //                                    fullName,@"full_name",
+        //                                    @"google",@"provider",
+        //                                    userId,@"uid",
+        //                                    @"iPhone",@"device_type",
+        //                                    [sharedAppDel deviceTokenID],@"device_token",nil];
+        
+        //[self SocialLoginAPICall:dictGoogle];
+    }
+    else
+    {
+        //  [sharedAppDel ShowAlertWithOneBtn:@"Login Error!, Please try again" andbtnTitle:@"Ok"];
+        NSLog(@"%@", error.localizedDescription);
+    }
 }
 
+- (void)signIn:(GIDSignIn *)signIn didDisconnectWithUser:(GIDGoogleUser *)user withError:(NSError *)error
+{
+    // Perform any operations when the user disconnects from app here.
+}
+
+- (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error
+{
+    NSLog(@"%@",error.description);
+}
+
+// Present a view that prompts the user to sign in with Google
+- (void)signIn:(GIDSignIn *)signIn presentViewController:(UIViewController *)viewController
+{
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+- (void)signIn:(GIDSignIn *)signIn dismissViewController:(UIViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 - (IBAction)FB_signup:(id)sender
 {
     NSLog(@"FB Signup");
     
-//    BOOL internet=[AppDelegate connectedToNetwork];
-//    if (internet)
-//    {
-//        if ([FBSession activeSession].state != FBSessionStateOpen &&
-//            [FBSession activeSession].state != FBSessionStateOpenTokenExtended) {
-//            [self.appDelegate openActiveSessionWithPermissions:@[@"public_profile", @"email"] allowLoginUI:YES];
-//        }
-//        else{
-//            // Close an existing session.
-//            [[FBSession activeSession] closeAndClearTokenInformation];
-//            // Update the UI.
-//        }
-//    }
-//    else
-//        [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+    BOOL internet=[AppDelegate connectedToNetwork];
+    if (internet)
+    {
+        
+        [loginMgr
+         logInWithReadPermissions: @[@"public_profile",@"email",@"user_friends",@"user_birthday"]
+         fromViewController:self
+         handler:^(FBSDKLoginManagerLoginResult *result, NSError *error)
+         {
+             if (error)
+             {
+                 NSLog(@"Process error == %@",error);
+                 [AppDelegate showErrorMessageWithTitle:@"" message:@"Login Error!, Please try again" delegate:nil];
+             }
+             else if (result.isCancelled)
+             {
+                 NSLog(@"Cancelled");
+             }
+             else
+             {
+                 [self fetchUserInfo];
+                 NSLog(@"Logged in");
+             }
+         }];
+    }
+    else
+        [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
     
 }
 
+#pragma mark - FB UserInfo
 
-
-//#pragma mark - Private method implementation
-//-(void)openActiveSessionWithPermissions:(NSArray *)permissions allowLoginUI:(BOOL)allowLoginUI{
-//    NSLog(@"result");
-//    // Get the session, state and error values from the notification's userInfo dictionary.
-//    NSDictionary *userInfo = [permissions mutableCopy];
-//    
-//    FBSessionState sessionState = [[userInfo objectForKey:@"state"] integerValue];
-//    NSError *error = [userInfo objectForKey:@"error"];
-//    
-//    // Handle the session state.
-//    // Usually, the only interesting states are the opened session, the closed session and the failed login.
-//    if (!error) {
-//        // In case that there's not any error, then check if the session opened or closed.
-//        if (sessionState == FBSessionStateOpen)
-//        {
-//            [FBRequestConnection startWithGraphPath:@"me"
-//                                         parameters:@{@"fields": @"first_name, last_name, picture.type(normal), email"}
-//                                         HTTPMethod:@"GET"
-//                                  completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-//                                      if (!error) {
-//                                          NSLog(@"result=%@",result);
-//                                          
-//                                          FBSignupdictParams = [[NSMutableDictionary alloc] init];
-//                                          [FBSignupdictParams setObject:r_p  forKey:@"r_p"];
-//                                          [FBSignupdictParams setObject:RegisterServiceName  forKey:@"service"];
-//                                          [FBSignupdictParams setObject:[result objectForKey:@"email"]  forKey:@"u_email"];
-//                                          [FBSignupdictParams setObject:[result objectForKey:@"first_name"]  forKey:@"u_name"];
-//                                          [FBSignupdictParams setObject:@""  forKey:@"u_password"];
-//                                          [FBSignupdictParams setObject:@""  forKey:@"u_phone"];
-//                                          [FBSignupdictParams setObject:@""  forKey:@"u_address"];
-//                                          [FBSignupdictParams setObject:@""  forKey:@"u_zip"];
-//                                          [FBSignupdictParams setObject:@""  forKey:@"u_city"];
-//                                          [FBSignupdictParams setObject:@""  forKey:@"u_state"];
-//                                          [FBSignupdictParams setObject:@""  forKey:@"u_country"];
-//                                          [FBSignupdictParams setObject:@"facebook"  forKey:@"u_type"];
-//                                          
-//                                          
-//                                          if ([[result objectForKey:@"u_email"]isEqualToString:@""])
-//                                          {
-//                                              [AppDelegate showErrorMessageWithTitle:@"Error..!" message:@"Privacy set in facebook account while getting user info." delegate:nil];
-//                                          }
-//                                          else
-//                                          {
-//                                              [self CallFBSignup];
-//                                          }
-//                                          // Get the user's profile picture.
-//                                          // NSURL *pictureURL = [NSURL URLWithString:[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]];
-//                                      }
-//                                      else
-//                                      {
-//                                          NSLog(@"%@", [error localizedDescription]);
-//                                      }
-//                                  }];
-//            
-//        }
-//        else if (sessionState == FBSessionStateClosed || sessionState == FBSessionStateClosedLoginFailed){
-//            // A session was closed or the login was failed. Update the UI accordingly.
-//        }
-//    }
-//    else{
-//        // In case an error has occurred, then just log the error and update the UI accordingly.
-//        NSLog(@"Error: %@", [error localizedDescription]);
-//    }
-//
-//}
-//
+-(void)fetchUserInfo
+{
+    if ([FBSDKAccessToken currentAccessToken])
+    {
+        NSLog(@"Token is available : %@",[[FBSDKAccessToken currentAccessToken] tokenString]);
+        
+        //[MBProgressHUD showHUDAddedTo:sharedAppDel.window animated:YES];
+        
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"id, name, link, first_name, last_name, picture.type(large), email, birthday, friends ,friendlists"}]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (!error)
+             {
+                 NSLog(@"result is : %@",result);
+                 
+                 FBSignupdictParams = [[NSMutableDictionary alloc] init];
+                 [FBSignupdictParams setObject:r_p  forKey:@"r_p"];
+                 [FBSignupdictParams setObject:RegisterServiceName  forKey:@"service"];
+                 [FBSignupdictParams setObject:[result objectForKey:@"email"]  forKey:@"u_email"];
+                 [FBSignupdictParams setObject:[result objectForKey:@"first_name"]  forKey:@"u_name"];
+                 [FBSignupdictParams setObject:@""  forKey:@"u_password"];
+                 [FBSignupdictParams setObject:@""  forKey:@"u_phone"];
+                 [FBSignupdictParams setObject:@""  forKey:@"u_address"];
+                 [FBSignupdictParams setObject:@""  forKey:@"u_zip"];
+                 [FBSignupdictParams setObject:@""  forKey:@"u_city"];
+                 [FBSignupdictParams setObject:@""  forKey:@"u_state"];
+                 [FBSignupdictParams setObject:@""  forKey:@"u_country"];
+                 [FBSignupdictParams setObject:@"facebook"  forKey:@"u_type"];
+                 if ([[result objectForKey:@"u_email"]isEqualToString:@""])
+                 {
+                     [AppDelegate showErrorMessageWithTitle:@"Error..!" message:@"Privacy set in facebook account while getting user info." delegate:nil];
+                 }
+                 else
+                 {
+                     [self CallFBSignup];
+                 }
+             }
+             else
+             {
+                 NSLog(@"Error %@",error);
+                 [AppDelegate showErrorMessageWithTitle:@"" message:@"Login Error!, Please try again" delegate:nil];
+             }
+         }];
+    }
+}
 
 -(void)CallFBSignup
 {

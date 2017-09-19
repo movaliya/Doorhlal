@@ -9,6 +9,12 @@
 #import "AppDelegate.h"
 #import "HalalMeatDelivery.pch"
 #import "Constant.h"
+//#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
+
+
+
+static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyCIjQcJ2swKwKZm2Gg5MLjlnPjqYiIaxB4";
+
 @import Stripe;
 
 @interface AppDelegate ()
@@ -20,6 +26,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    //[HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey: kHNKDemoGooglePlacesAutocompleteApiKey];
     
     //Google
     NSError* configureError;

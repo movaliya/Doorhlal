@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "HalalMeatDelivery.pch"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <Google/SignIn.h>
+#import <TwitterKit/TwitterKit.h>
 
-@interface RegisterView : UIViewController<CCKFNavDrawerDelegate>
+@interface RegisterView : UIViewController<CCKFNavDrawerDelegate,GIDSignInUIDelegate,GIDSignInDelegate>
 {
     NSMutableDictionary *FBSignupdictParams;
 }
+
+@property (strong,nonatomic) FBSDKLoginManager *loginMgr;
 @property (strong, nonatomic) CCKFNavDrawer *rootNav;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *ScrollView;

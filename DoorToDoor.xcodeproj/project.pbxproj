@@ -72,6 +72,7 @@
 		530B1F721D89779700F1F894 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530B1F711D89779700F1F894 /* MessageUI.framework */; };
 		530B1F741D8977C000F1F894 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530B1F731D8977C000F1F894 /* SafariServices.framework */; };
 		5310F86B1D7854DE007744A1 /* myAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5310F86A1D7854DE007744A1 /* myAnnotation.m */; };
+		5333ADD41F70DB2900E716E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5333ADD31F70DB2900E716E1 /* GoogleService-Info.plist */; };
 		534D02AA1ED6B8F10007F0C6 /* AddCreditCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 534D02A91ED6B8F10007F0C6 /* AddCreditCardView.m */; };
 		534D02AC1ED6BD660007F0C6 /* Stripe.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 534D02AB1ED6BD660007F0C6 /* Stripe.bundle */; };
 		534D02AF1ED6BD8E0007F0C6 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534D02AD1ED6BD6D0007F0C6 /* Stripe.framework */; };
@@ -186,7 +187,6 @@
 		B1415BE91F6EAECA00BCAF6D /* NewNearbyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1415BE71F6EAECA00BCAF6D /* NewNearbyCell.m */; };
 		B1415BEA1F6EAECA00BCAF6D /* NewNearbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1415BE81F6EAECA00BCAF6D /* NewNearbyCell.xib */; };
 		B148B2151EBF62BD009E9346 /* BlankTxtFildwithframe.png in Resources */ = {isa = PBXBuildFile; fileRef = B148B2141EBF62BD009E9346 /* BlankTxtFildwithframe.png */; };
-		B148CABB1F70530200D4A8B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B148CABA1F70530200D4A8B6 /* GoogleService-Info.plist */; };
 		B148CABD1F70537200D4A8B6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B148CABC1F70537200D4A8B6 /* Info.plist */; };
 		B15330A51EB8FD5200E96C28 /* PaymentView1.m in Sources */ = {isa = PBXBuildFile; fileRef = B15330A41EB8FD5200E96C28 /* PaymentView1.m */; };
 		B15330A81EB9025300E96C28 /* PaymentView2.m in Sources */ = {isa = PBXBuildFile; fileRef = B15330A71EB9025300E96C28 /* PaymentView2.m */; };
@@ -350,6 +350,7 @@
 		5310F8691D7854DE007744A1 /* myAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myAnnotation.h; sourceTree = "<group>"; };
 		5310F86A1D7854DE007744A1 /* myAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myAnnotation.m; sourceTree = "<group>"; };
 		5320DB141EC2ECC400B70059 /* HCSStarRatingView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HCSStarRatingView.framework; sourceTree = SOURCE_ROOT; };
+		5333ADD31F70DB2900E716E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		534D02A71ED6B8F10007F0C6 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		534D02A81ED6B8F10007F0C6 /* AddCreditCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCreditCardView.h; sourceTree = "<group>"; };
 		534D02A91ED6B8F10007F0C6 /* AddCreditCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCreditCardView.m; sourceTree = "<group>"; };
@@ -512,7 +513,6 @@
 		B1415BE71F6EAECA00BCAF6D /* NewNearbyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNearbyCell.m; sourceTree = "<group>"; };
 		B1415BE81F6EAECA00BCAF6D /* NewNearbyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewNearbyCell.xib; sourceTree = "<group>"; };
 		B148B2141EBF62BD009E9346 /* BlankTxtFildwithframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlankTxtFildwithframe.png; sourceTree = "<group>"; };
-		B148CABA1F70530200D4A8B6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B148CABC1F70537200D4A8B6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B15330A31EB8FD5200E96C28 /* PaymentView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentView1.h; sourceTree = "<group>"; };
 		B15330A41EB8FD5200E96C28 /* PaymentView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentView1.m; sourceTree = "<group>"; };
@@ -907,7 +907,7 @@
 		B109C6521D6C9FC9000936A2 /* HalalMeatDelivery */ = {
 			isa = PBXGroup;
 			children = (
-				B148CABA1F70530200D4A8B6 /* GoogleService-Info.plist */,
+				5333ADD31F70DB2900E716E1 /* GoogleService-Info.plist */,
 				53A96F051F6EC39B00907393 /* ios */,
 				530127A71EB769B400394F9A /* Slider */,
 				B1F47D3C1D6F54A4000D5C0A /* DTTableView */,
@@ -1370,6 +1370,7 @@
 				B10B98021D91B25700228F33 /* SimpleTXT.png in Resources */,
 				530793231D706FB40028BF53 /* loginBtn.png in Resources */,
 				535EA4A61EBB52FE00A1AA23 /* phone1.png in Resources */,
+				5333ADD41F70DB2900E716E1 /* GoogleService-Info.plist in Resources */,
 				B148B2151EBF62BD009E9346 /* BlankTxtFildwithframe.png in Resources */,
 				53A96F3A1F6EC39B00907393 /* iTunesArtwork@2x.png in Resources */,
 				B1FFE4B41D80870800A40684 /* ThankYouView.xib in Resources */,
@@ -1413,7 +1414,6 @@
 				53A96F351F6EC39B00907393 /* Icon-App-76x76@3x.png in Resources */,
 				53A96F361F6EC39B00907393 /* Icon-App-83.5x83.5@2x.png in Resources */,
 				530793291D7079FF0028BF53 /* searchnearbyBtn.png in Resources */,
-				B148CABB1F70530200D4A8B6 /* GoogleService-Info.plist in Resources */,
 				53080A921D857D0F00ADA06C /* AddReviewBtn.png in Resources */,
 				B1415BDC1F6E566000BCAF6D /* Main.storyboard in Resources */,
 				B1415BEA1F6EAECA00BCAF6D /* NewNearbyCell.xib in Resources */,

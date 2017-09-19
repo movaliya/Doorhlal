@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B109C64F1D6C9FC9000936A2"
-            BuildableName = "HalalMeatDelivery.app"
-            BlueprintName = "HalalMeatDelivery"
-            ReferencedContainer = "container:HalalMeatDelivery.xcodeproj">
+            BuildableName = "DoorToDoor.app"
+            BlueprintName = "DoorToDoor"
+            ReferencedContainer = "container:DoorToDoor.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

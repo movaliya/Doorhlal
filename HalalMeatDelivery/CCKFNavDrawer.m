@@ -40,7 +40,7 @@
 @end
 
 @implementation CCKFNavDrawer
-
+@synthesize loginMgr;
 #pragma mark - VC lifecycle
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -507,7 +507,7 @@
             [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"Email"];
             [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"Password"];
             [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"PAYMENTMETHOD"];
-           // [[FBSession activeSession] closeAndClearTokenInformation];
+            [loginMgr logOut];
             
             [self CheckLoginArr];
             [super popToRootViewControllerAnimated:NO];
