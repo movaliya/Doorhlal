@@ -11,6 +11,7 @@
 #import "AddressListCell.h"
 #import "CreateNewAddressView.h"
 
+
 #define ButtonColor [UIColor colorWithRed:242.0/255.0 green:18.0/255.0 blue:43.0/255.0 alpha:1.0]
 #define DefaultBTNColor [UIColor colorWithRed:25.0/255.0 green:123.0/255.0 blue:48.0/255.0 alpha:1.0]
 
@@ -108,7 +109,7 @@
 
 -(void)SetDefaultAddress :(NSString *)DeliveryAddress_idStr
 {
-    //http://bulkbox.in/feedmemeat/service/service_general.php?r_p=1224&service=set_default_delivery_address&uid=2&delivery_address_id=21
+   
     
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
     NSString *User_UID=[UserData valueForKey:@"u_id"];

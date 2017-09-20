@@ -12,9 +12,12 @@
 @interface PaymentView1 : UIViewController
 {
     NSMutableArray *AddressArr;
+    NSMutableArray *SelectedAddress;
 }
 @property (strong, nonatomic) NSString *C_ID;
 @property (strong, nonatomic) NSString *PassDateNTime;
+@property (weak, nonatomic) IBOutlet UIView *AddressTBLView;
+@property (weak, nonatomic) IBOutlet UITableView *TBL;
 
 @property (weak, nonatomic) IBOutlet UITextField *UserName_txt;
 @property (weak, nonatomic) IBOutlet UITextField *UserEmail_txt;

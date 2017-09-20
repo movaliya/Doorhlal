@@ -11,11 +11,15 @@
 @interface DeliveryView1 : UIViewController
 {
     NSMutableArray *AddressArr;
+    NSMutableArray *SelectedAddress;
 }
+
 
 @property (strong, nonatomic) NSString *C_ID_Delivery1;
 @property (strong, nonatomic) NSString *theDateNTimeDilvery;
 
+@property (weak, nonatomic) IBOutlet UIView *AddressTBLView;
+@property (weak, nonatomic) IBOutlet UITableView *TBL;
 @property (weak, nonatomic) IBOutlet UITextField *UserName_txt;
 @property (weak, nonatomic) IBOutlet UITextField *UserEmail_txt;
 @property (weak, nonatomic) IBOutlet UITextField *UserPhoneNo_txt;

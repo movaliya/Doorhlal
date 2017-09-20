@@ -18,6 +18,8 @@
 #import "ProfileView.h"
 #import "LoginView.h"
 #import "MyAccountVW.h"
+#import "AboutVW.h"
+#import "TermNConditionVW.h"
 
 #define SHAWDOW_ALPHA 0.5
 #define MENU_DURATION 0.3
@@ -60,15 +62,15 @@
     
     if ([self.appDelegate isUserLoggedIn] == NO)
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"Login & Signup", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms N Conditions",@"Login & Signup", nil];
     }
     else
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"Logout", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms N Conditions",@"Logout", nil];
     }
     
     
-    ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"LogoutRed", nil];
+    ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
     
     
     [self setUpDrawer];
@@ -98,14 +100,14 @@
     
     if ([self.appDelegate isUserLoggedIn] == NO)
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"Login & Signup", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms N Conditions",@"Login & Signup", nil];
     }
     else
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"Logout", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms N Conditions",@"Logout", nil];
     }
     
-    ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"LogoutRed", nil];
+    ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
     
     [self.drawerView.drawerTableView reloadData];
     
@@ -404,6 +406,22 @@
     if (indexPath.row==5)
     {
         cell.IconWidth.constant=14;
+        cell.IconHeight.constant=13;
+        //cell.IconX.constant=8;
+        cell.ImgLblGap.constant=19;
+
+    }
+    if (indexPath.row==6)
+    {
+        cell.IconWidth.constant=14;
+        cell.IconHeight.constant=13;
+        //cell.IconX.constant=8;
+        cell.ImgLblGap.constant=19;
+        
+    }
+    if (indexPath.row==7)
+    {
+        cell.IconWidth.constant=14;
         cell.IconHeight.constant=20;
       //  cell.IconX.constant=8;
         cell.ImgLblGap.constant=18;
@@ -470,6 +488,22 @@
         //[super pushViewController:vcr animated:YES];
     }
     else if (indexPath.row==5)
+    {
+        AboutVW *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"AboutVW"];
+        [super pushViewController:vcr animated:YES];
+        
+        //ProfileView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ProfileView"];
+        //[super pushViewController:vcr animated:YES];
+    }
+    else if (indexPath.row==6)
+    {
+        TermNConditionVW *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TermNConditionVW"];
+        [super pushViewController:vcr animated:YES];
+        
+        //ProfileView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ProfileView"];
+        //[super pushViewController:vcr animated:YES];
+    }
+    else if (indexPath.row==7)
     {
         if ([[TitleArr objectAtIndex:indexPath.row] isEqualToString:@"Login & Signup"])
         {

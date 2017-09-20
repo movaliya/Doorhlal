@@ -51,10 +51,11 @@
     [KmyappDelegate SetbuttonCorner:Login_BTN];
     [KmyappDelegate SetbuttonCorner:GustBTN];
     
-    //    if ([self.appDelegate isUserLoggedIn] == YES)
-//    {
-//        [self performSelector:@selector(checkLoginAndPresentContainer) withObject:nil afterDelay:0.0];
-//    }
+    if ([self.appDelegate isUserLoggedIn] == YES)
+    {
+        SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
+        [self.navigationController pushViewController:vcr animated:YES];
+    }
     
     [self SetupUI];
     
