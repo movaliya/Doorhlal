@@ -11,6 +11,11 @@
 #import "TTRangeSlider.h"
 
 @interface SearchByShop : UIViewController<CCKFNavDrawerDelegate,TTRangeSliderDelegate>
+{
+    
+}
+@property (strong, nonatomic) IBOutlet UISearchBar *PlaceSearch;
+@property (strong, nonatomic) IBOutlet UITableView *SearchPlaceTBL;
 @property (strong, nonatomic) CCKFNavDrawer *rootNav;
 
 @property (strong, nonatomic) IBOutlet UITableView *Table;

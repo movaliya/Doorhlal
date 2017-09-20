@@ -18,6 +18,16 @@
 #import "CategoryCell.h"
 #import "NewNearbyCell.h"
 
+#import "HNKGooglePlacesAutocompleteQuery.h"
+#import "HNKGooglePlacesAutocompleteQueryConfig.h"
+#import "HNKGooglePlacesAutocompleteQueryResponse.h"
+#import "HNKGooglePlacesAutocompletePlace.h"
+#import "HNKGooglePlacesAutocompletePlaceSubstring.h"
+#import "HNKGooglePlacesAutocompletePlaceTerm.h"
+#import "CLPlacemark+HNKAdditions.h"
+
+
+
 static dispatch_once_t predicate;
 
 #define SelectedButtonColor [UIColor colorWithRed:242.0f/255.0f green:18.0f/255.0f blue:43.0f/255.0f alpha:1.0f]
@@ -56,17 +66,76 @@ static dispatch_once_t predicate;
     
 }
 @property AppDelegate *appDelegate;
+@property (strong, nonatomic) HNKGooglePlacesAutocompleteQuery *searchQuery;
+@property (strong, nonatomic) NSArray *searchResults;
+
 @end
 
 @implementation SearchByShop
-@synthesize Table,Filter_BTN;
+@synthesize Table,Filter_BTN,SearchPlaceTBL;
 @synthesize SearchBar,Search_IMG,Searc_BTN;
 @synthesize FilterView,SearchByCatBTN,SearchByRatBTN,SearchByDistBTN,SearchByPriceBTN,FreeDelevBTN;
-@synthesize CatTBL,PriceView,AddressView;
+@synthesize CatTBL,PriceView,AddressView,PlaceSearch;
+
+
+#pragma mark - UISearchBar Delegate
+
+
+- (void)handleSearchError:(NSError *)error
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                   message:error.localizedDescription
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if(searchText.length > 0)
+    {
+        [SearchPlaceTBL setHidden:NO];
+        
+        [_searchQuery fetchPlacesForSearchQuery: searchText completion:^(NSArray *places, NSError *error)
+        {
+             if (error)
+             {
+                 NSLog(@"ERROR: %@", error);
+                 [self handleSearchError:error];
+             }
+             else
+             {
+                 self.searchResults = places;
+                 [SearchPlaceTBL reloadData];
+             }
+         }];
+    }
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    searchBar.text = @"";
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+    [SearchPlaceTBL setHidden:YES];
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey: @"AIzaSyDFE1wLYBzn_T5JtMMoedh6fJWehL4kiL4"];
+
+    self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(Getlocationuser:)
@@ -97,7 +166,7 @@ static dispatch_once_t predicate;
     NewArr=[[NSMutableArray alloc]init];
     
     SearchBar.hidden=YES;
-    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor whiteColor]];
+    //[[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor whiteColor]];
     [SearchBar setImage:[UIImage imageNamed:@"SearchIcon.png"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     
     self.appDelegate = [AppDelegate sharedInstance];
@@ -136,6 +205,7 @@ static dispatch_once_t predicate;
     DistanceParsingArr=[[NSMutableArray alloc]init];
     FreDelParsingArr=[[NSMutableArray alloc]init];
 }
+
 -(void)Getlocationuser:(NSNotification *)notification
 {
     locationManager = [[CLLocationManager alloc] init];
@@ -169,6 +239,7 @@ static dispatch_once_t predicate;
          [self handleGetFilterResponse:response];
      }];
 }
+
 - (void)handleGetFilterResponse:(NSDictionary*)response
 {
    // NSLog(@"GetFilterResponse ===%@",response);
@@ -252,6 +323,7 @@ static dispatch_once_t predicate;
        
     }
 }
+
 -(void)CallForSearchByShop
 {
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
@@ -343,6 +415,10 @@ static dispatch_once_t predicate;
             return FreeDelArr.count;
         }
         
+    }
+    else if (tableView==SearchPlaceTBL)
+    {
+        return self.searchResults.count;
     }
     return SearchDictnory.count;
 }
@@ -465,6 +541,14 @@ static dispatch_once_t predicate;
         
         
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        return cell;
+    }
+    else if (tableView==SearchPlaceTBL)
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HNKDemoSearchResultsCellIdentifier" forIndexPath:indexPath];
+        
+        HNKGooglePlacesAutocompletePlace *thisPlace = self.searchResults[indexPath.row];
+        cell.textLabel.text = thisPlace.name;
         return cell;
     }
     else
@@ -625,6 +709,23 @@ static dispatch_once_t predicate;
         
         [CatTBL reloadData];
     }
+    else if (tableView==SearchPlaceTBL)
+    {
+        [PlaceSearch setShowsCancelButton:NO animated:YES];
+        [PlaceSearch resignFirstResponder];
+        
+        HNKGooglePlacesAutocompletePlace *selectedPlace = self.searchResults[indexPath.row];
+        
+        [CLPlacemark hnk_placemarkFromGooglePlace: selectedPlace apiKey: self.searchQuery.apiKey  completion:^(CLPlacemark *placemarks, NSString *addressString, NSError *error)
+        {
+           if (placemarks)
+           {
+               [SearchPlaceTBL setHidden: YES];
+               [self addPlacemarkAnnotationToMap:placemarks addressString:addressString];
+               [SearchPlaceTBL deselectRowAtIndexPath:indexPath animated:NO];
+           }
+       }];
+    }
     else
     {
         RestaurantDetailView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RestaurantDetailView"];
@@ -632,6 +733,18 @@ static dispatch_once_t predicate;
         vcr.Pin=[[SearchDictnory valueForKey:@"pin"]objectAtIndex:indexPath.row];
         [self.navigationController pushViewController:vcr animated:YES];
     }
+}
+
+#pragma mark - Helpers
+
+- (void)addPlacemarkAnnotationToMap:(CLPlacemark *)placemarks addressString:(NSString *)address
+{
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    annotation.coordinate = placemarks.location.coordinate;
+    annotation.title = address;
+    
+    NSLog(@"LAT==%f LOG==%f",annotation.coordinate.latitude,annotation.coordinate.longitude);
+    NSLog(@"Address=%@",address);
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
@@ -760,77 +873,77 @@ static dispatch_once_t predicate;
     [self.rootNav drawerToggle];
 }
 
-#pragma mark - SerachBarDelegate
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    SearchDictnory=[[NSMutableArray alloc]initWithArray:NewArr];
-    [SearchBar resignFirstResponder];
-    [Table reloadData];
-}
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-{
-    //SearchBar.showsCancelButton = YES;
-    //MainScroll.hidden=YES;
-}
-
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
-{
-    // SearchBar.showsCancelButton = NO;
-    //MainScroll.hidden=YES;
-    //SearchDictnory=[MainDic mutableCopy];
-    [Table reloadData];
-}
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    
-    if([searchText isEqualToString:@""] || searchText==nil)
-    {
-        SearchDictnory=[NewArr mutableCopy];
-        [Table reloadData];
-        return;
-    }
-    
-    resultObjectsArray = [NSMutableArray array];
-    for(NSDictionary *wine in SearchDictnory)
-    {
-        NSString *wineName = [wine objectForKey:@"name"];
-        NSRange range = [wineName rangeOfString:searchText options:NSCaseInsensitiveSearch];
-        if(range.location != NSNotFound)
-            [resultObjectsArray addObject:wine];
-    }
-    
-    SearchDictnory=[resultObjectsArray mutableCopy];
-    NSLog(@"resultObjectsArray=%lu",(unsigned long)resultObjectsArray.count);
-    NSLog(@"tempdict=%@",SearchDictnory);
-    [Table reloadData];
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    
-    if([searchBar.text isEqualToString:@""] || searchBar.text==nil)
-    {
-        SearchDictnory=[NewArr mutableCopy];
-        [Table reloadData];
-        return;
-    }
-    resultObjectsArray = [NSMutableArray array];
-    for(NSDictionary *wine in SearchDictnory)
-    {
-        NSString *wineName = [wine objectForKey:@"name"];
-        NSRange range = [wineName rangeOfString:searchBar.text options:NSCaseInsensitiveSearch];
-        if(range.location != NSNotFound)
-            [resultObjectsArray addObject:wine];
-    }
-    
-    SearchDictnory=[resultObjectsArray mutableCopy];
-    NSLog(@"resultObjectsArray=%lu",(unsigned long)resultObjectsArray.count);
-    NSLog(@"tempdict=%@",SearchDictnory);
-    [Table reloadData];
-    [SearchBar resignFirstResponder];
-}
+//#pragma mark - SerachBarDelegate
+//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+//{
+//    SearchDictnory=[[NSMutableArray alloc]initWithArray:NewArr];
+//    [SearchBar resignFirstResponder];
+//    [Table reloadData];
+//}
+//
+//- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+//{
+//    //SearchBar.showsCancelButton = YES;
+//    //MainScroll.hidden=YES;
+//}
+//
+//- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+//{
+//    // SearchBar.showsCancelButton = NO;
+//    //MainScroll.hidden=YES;
+//    //SearchDictnory=[MainDic mutableCopy];
+//    [Table reloadData];
+//}
+//
+//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+//{
+//    
+//    if([searchText isEqualToString:@""] || searchText==nil)
+//    {
+//        SearchDictnory=[NewArr mutableCopy];
+//        [Table reloadData];
+//        return;
+//    }
+//    
+//    resultObjectsArray = [NSMutableArray array];
+//    for(NSDictionary *wine in SearchDictnory)
+//    {
+//        NSString *wineName = [wine objectForKey:@"name"];
+//        NSRange range = [wineName rangeOfString:searchText options:NSCaseInsensitiveSearch];
+//        if(range.location != NSNotFound)
+//            [resultObjectsArray addObject:wine];
+//    }
+//    
+//    SearchDictnory=[resultObjectsArray mutableCopy];
+//    NSLog(@"resultObjectsArray=%lu",(unsigned long)resultObjectsArray.count);
+//    NSLog(@"tempdict=%@",SearchDictnory);
+//    [Table reloadData];
+//}
+//
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+//{
+//    
+//    if([searchBar.text isEqualToString:@""] || searchBar.text==nil)
+//    {
+//        SearchDictnory=[NewArr mutableCopy];
+//        [Table reloadData];
+//        return;
+//    }
+//    resultObjectsArray = [NSMutableArray array];
+//    for(NSDictionary *wine in SearchDictnory)
+//    {
+//        NSString *wineName = [wine objectForKey:@"name"];
+//        NSRange range = [wineName rangeOfString:searchBar.text options:NSCaseInsensitiveSearch];
+//        if(range.location != NSNotFound)
+//            [resultObjectsArray addObject:wine];
+//    }
+//    
+//    SearchDictnory=[resultObjectsArray mutableCopy];
+//    NSLog(@"resultObjectsArray=%lu",(unsigned long)resultObjectsArray.count);
+//    NSLog(@"tempdict=%@",SearchDictnory);
+//    [Table reloadData];
+//    [SearchBar resignFirstResponder];
+//}
 
 
 - (IBAction)Filter_click:(id)sender
@@ -1173,4 +1286,6 @@ static dispatch_once_t predicate;
 {
     AddressView.hidden=YES;
 }
+
+
 @end
