@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y00-yL-Tq5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y00-yL-Tq5">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1399,11 +1399,11 @@
                                                         <rect key="frame" x="0.0" y="28" width="280" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0cp-7B-8nG" id="BwI-iB-CHO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q31-58-Wwo">
-                                                                    <rect key="frame" x="15" y="0.0" width="250" height="43.5"/>
+                                                                    <rect key="frame" x="15" y="0.0" width="250" height="43"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -8160,8 +8160,11 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="Cancel_Click:" destination="2OA-6B-1Kf" eventType="touchUpInside" id="e7H-LX-ShA"/>
+                                </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhj-bh-36c">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhj-bh-36c">
                                 <rect key="frame" x="0.0" y="80" width="320" height="417"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uek-7I-y1k">
@@ -8227,7 +8230,7 @@
                                                     <constraint firstItem="hwC-Ul-LkH" firstAttribute="leading" secondItem="IsG-C5-gEp" secondAttribute="leading" constant="10" id="mnq-jO-iJI"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Billing Datails" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XU-am-GBc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Billing Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XU-am-GBc">
                                                 <rect key="frame" x="16" y="12" width="288" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="8zg-ne-SEy"/>
@@ -8293,7 +8296,7 @@
                                                     <constraint firstItem="NeA-is-pXT" firstAttribute="leading" secondItem="9ab-T5-9KG" secondAttribute="leading" constant="8" id="o27-um-xwC"/>
                                                 </constraints>
                                             </view>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5WN-mQ-TuV">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WN-mQ-TuV">
                                                 <rect key="frame" x="8" y="41" width="304" height="110"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -8301,6 +8304,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="2OA-6B-1Kf" id="tHk-hW-Ozz"/>
+                                                </connections>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -8353,14 +8359,17 @@
                             <constraint firstAttribute="trailing" secondItem="CaD-3B-EH3" secondAttribute="trailing" id="Jea-r3-DKL"/>
                             <constraint firstItem="es8-EG-5Tl" firstAttribute="top" secondItem="hXW-ap-WgZ" secondAttribute="bottom" constant="15" id="NQb-jf-ynJ"/>
                             <constraint firstAttribute="trailing" secondItem="na2-zl-QDU" secondAttribute="trailing" constant="16" id="UkM-d9-XHM"/>
+                            <constraint firstItem="hXW-ap-WgZ" firstAttribute="top" secondItem="rhj-bh-36c" secondAttribute="bottom" constant="16" id="kTM-3s-Xs9"/>
                             <constraint firstItem="es8-EG-5Tl" firstAttribute="top" secondItem="na2-zl-QDU" secondAttribute="bottom" constant="15" id="vfX-Lg-0m8"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Billing_TXTVW" destination="5WN-mQ-TuV" id="TMT-hr-CuN"/>
                         <outlet property="CVC_TXT" destination="NeA-is-pXT" id="NaU-hT-Rqc"/>
                         <outlet property="CardNumber_TXT" destination="IK5-bp-zJl" id="vvF-b4-jiz"/>
                         <outlet property="ExpiryDate_TXT" destination="YeT-1V-ht8" id="rUs-y4-mxw"/>
                         <outlet property="PayButton" destination="na2-zl-QDU" id="vRV-oQ-61r"/>
+                        <outlet property="cancel_Button" destination="hXW-ap-WgZ" id="UuK-lr-bkX"/>
                         <outlet property="lblCardType" destination="del-fO-o6P" id="Z6Y-uZ-b3x"/>
                     </connections>
                 </viewController>

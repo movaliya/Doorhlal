@@ -63,6 +63,7 @@ static dispatch_once_t predicate;
     NSMutableArray *FreDelParsingArr;
     
     NSString *MaxPriceSTR;
+    NSInteger indexAuto;
     
 }
 @property AppDelegate *appDelegate;
@@ -135,7 +136,7 @@ static dispatch_once_t predicate;
     [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey: @"AIzaSyDFE1wLYBzn_T5JtMMoedh6fJWehL4kiL4"];
 
     self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
-
+    indexAuto=0;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(Getlocationuser:)
@@ -365,7 +366,11 @@ static dispatch_once_t predicate;
     }
     else
     {
+        SearchDictnory=[[NSMutableArray alloc]init];
+        NewArr=[[NSMutableArray alloc]init];
+         [AppDelegate showErrorMessageWithTitle:@"" message:[response objectForKey:@"ack_msg"] delegate:nil];
         NoResponseInt=0;
+         [Table reloadData];
        // oldLimit_ony=limit_only;
     }
 }
@@ -713,18 +718,11 @@ static dispatch_once_t predicate;
     {
         [PlaceSearch setShowsCancelButton:NO animated:YES];
         [PlaceSearch resignFirstResponder];
-        
-        HNKGooglePlacesAutocompletePlace *selectedPlace = self.searchResults[indexPath.row];
-        
-        [CLPlacemark hnk_placemarkFromGooglePlace: selectedPlace apiKey: self.searchQuery.apiKey  completion:^(CLPlacemark *placemarks, NSString *addressString, NSError *error)
-        {
-           if (placemarks)
-           {
-               [SearchPlaceTBL setHidden: YES];
-               [self addPlacemarkAnnotationToMap:placemarks addressString:addressString];
-               [SearchPlaceTBL deselectRowAtIndexPath:indexPath animated:NO];
-           }
-       }];
+        indexAuto=indexPath.row;
+         [KVNProgress show];
+        [self performSelector:@selector(SelectAutoCompleData) withObject:nil afterDelay:3.0];
+        ;
+        [SearchPlaceTBL deselectRowAtIndexPath:indexPath animated:NO];
     }
     else
     {
@@ -734,14 +732,37 @@ static dispatch_once_t predicate;
         [self.navigationController pushViewController:vcr animated:YES];
     }
 }
-
+-(void)SelectAutoCompleData
+{
+    HNKGooglePlacesAutocompletePlace *selectedPlace = self.searchResults[indexAuto];
+    
+    [CLPlacemark hnk_placemarkFromGooglePlace: selectedPlace apiKey: self.searchQuery.apiKey  completion:^(CLPlacemark *placemarks, NSString *addressString, NSError *error)
+     {
+         if (placemarks)
+         {
+             [SearchPlaceTBL setHidden: YES];
+             [self addPlacemarkAnnotationToMap:placemarks addressString:addressString];
+           
+         }
+     }];
+}
 #pragma mark - Helpers
 
 - (void)addPlacemarkAnnotationToMap:(CLPlacemark *)placemarks addressString:(NSString *)address
 {
+   
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     annotation.coordinate = placemarks.location.coordinate;
     annotation.title = address;
+    PlaceSearch.text=address;
+    
+    Latitude= annotation.coordinate.latitude;
+    Logitude= annotation.coordinate.longitude;
+    self.Title_LBL.text =address;
+    AddressView.hidden=YES;
+    [KVNProgress dismiss];
+
+    [self CallForSearchByShop];
     
     NSLog(@"LAT==%f LOG==%f",annotation.coordinate.latitude,annotation.coordinate.longitude);
     NSLog(@"Address=%@",address);
@@ -1203,9 +1224,9 @@ static dispatch_once_t predicate;
     }
     else
     {
-        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:@"No Shops Found." delegate:nil];
         SearchDictnory=[[NSMutableArray alloc]init];
-        NewArr=[[NSMutableArray alloc]initWithArray:SearchDictnory];
+        NewArr=[[NSMutableArray alloc]init];
+        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:@"No Shops Found." delegate:nil];
         [Table reloadData];
         NoResponseInt=0;
         

@@ -38,6 +38,9 @@
     [PayButton.layer setCornerRadius:20.0f];
     [PayButton.layer setMasksToBounds:YES];
     
+    [self.cancel_Button.layer setCornerRadius:20.0f];
+    [self.cancel_Button.layer setMasksToBounds:YES];
+    
     // TextField Set
     CardTypeRegx = [[NSMutableArray alloc]initWithObjects:@"^4[0-9]$" , @"^5[1-5]" , @"^3[47]" , nil];
     
@@ -53,9 +56,67 @@
         [years addObject:[NSString stringWithFormat:@"%d",i]];
     }
     months=[[NSMutableArray alloc]initWithObjects:@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12",nil];
+    AddressArr=[[NSMutableArray alloc]init];
+    SelectedAddress=[[NSMutableArray alloc]init];
+    
+    BOOL internet=[AppDelegate connectedToNetwork];
+    if (internet)
+    {
+        //[self getAddressData];
+        [self performSelector:@selector(getAddressData) withObject:self afterDelay:1.0 ];
+        
+    }
+    else
+        [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+    
+    
     
 }
+-(void)getAddressData
+{
+    NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
+    NSString *User_UID=[UserData valueForKey:@"u_id"];
+    
+    NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
+    [dictParams setObject:r_p  forKey:@"r_p"];
+    [dictParams setObject:GetDeleveryHistory  forKey:@"service"];
+    [dictParams setObject:User_UID  forKey:@"uid"];
+    
+    
+    [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,Filter_url] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
+     {
+         [self handleGetAddressResponse:response];
+     }];
+}
 
+- (void)handleGetAddressResponse:(NSDictionary*)response
+{
+    
+    if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
+    {
+        AddressArr=[[response valueForKey:@"result"] mutableCopy];
+        for (int tt=0; tt<AddressArr.count; tt++)
+        {
+            if ([[[AddressArr objectAtIndex:tt]valueForKey:@"isDefault"] isEqualToString:@"1"])
+            {
+                SelectedAddress=[AddressArr objectAtIndex:tt];
+                break;
+            }
+        }
+        self.Billing_TXTVW.text=[NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@",[SelectedAddress valueForKey:@"name"],[SelectedAddress valueForKey:@"address"],[SelectedAddress valueForKey:@"pincode"], [SelectedAddress valueForKey:@"contact_number"], [SelectedAddress valueForKey:@"email"]];
+        
+    }
+    else
+    {
+        NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
+        
+        if ([UserData count] != 0)
+        {
+            self.Billing_TXTVW.text=[NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@",[UserData valueForKey:@"u_name"],[UserData valueForKey:@"u_address"],[UserData valueForKey:@"u_pincode"], [UserData valueForKey:@"u_phone"], [UserData valueForKey:@"u_address"]];
+        }
+    }
+    
+}
 - (IBAction)PayBtn_action:(id)sender
 {
     
@@ -421,7 +482,10 @@
         ExpiryDate_TXT.text = [NSString stringWithFormat:@"%@/%@",monthNo,year];
     }
     
-    
+}
+- (IBAction)Cancel_Click:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)BackBtn_Action:(id)sender
