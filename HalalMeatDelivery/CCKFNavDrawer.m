@@ -62,15 +62,17 @@
     
     if ([self.appDelegate isUserLoggedIn] == NO)
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms N Conditions",@"Login & Signup", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"About",@"Terms N Conditions",@"Login & Signup", nil];
+        ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
     }
     else
     {
         TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms N Conditions",@"Logout", nil];
+        ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
     }
     
     
-    ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
+    
     
     
     [self setUpDrawer];
@@ -100,14 +102,16 @@
     
     if ([self.appDelegate isUserLoggedIn] == NO)
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms N Conditions",@"Login & Signup", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"About",@"Terms N Conditions",@"Login & Signup", nil];
+        ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
     }
     else
     {
         TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms N Conditions",@"Logout", nil];
+        ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
     }
     
-    ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
+    
     
     [self.drawerView.drawerTableView reloadData];
     
@@ -357,76 +361,121 @@
     {
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     }
+    if ([self.appDelegate isUserLoggedIn] == NO)
+    {
+        if (indexPath.row==0)
+        {
+            cell.IconWidth.constant=19;
+            cell.IconHeight.constant=16;
+            // cell.IconX.constant=8;
+            cell.ImgLblGap.constant=16;
+            
+        }
+        if (indexPath.row==1)
+        {
+            cell.IconWidth.constant=14;
+            cell.IconHeight.constant=14;
+            //cell.IconX.constant=8;
+            cell.ImgLblGap.constant=19;
+        }
+        if (indexPath.row==2)
+        {
+            cell.IconWidth.constant=17;
+            cell.IconHeight.constant=17;
+            // cell.IconX.constant=8;
+            cell.ImgLblGap.constant=16;
+        }
+        
+        if (indexPath.row==3)
+        {
+            cell.IconWidth.constant=14;
+            cell.IconHeight.constant=13;
+            //cell.IconX.constant=8;
+            cell.ImgLblGap.constant=19;
+            
+        }
+        if (indexPath.row==4)
+        {
+            cell.IconWidth.constant=14;
+            cell.IconHeight.constant=13;
+            //cell.IconX.constant=8;
+            cell.ImgLblGap.constant=19;
+            
+        }
+        if (indexPath.row==5)
+        {
+            cell.IconWidth.constant=14;
+            cell.IconHeight.constant=20;
+            //  cell.IconX.constant=8;
+            cell.ImgLblGap.constant=18;
+            
+        }
+    }
+    else
+    {
+        if (indexPath.row==0)
+        {
+            cell.IconWidth.constant=19;
+            cell.IconHeight.constant=16;
+            // cell.IconX.constant=8;
+            cell.ImgLblGap.constant=16;
+            
+        }
+        if (indexPath.row==1)
+        {
+            cell.IconWidth.constant=14;
+            cell.IconHeight.constant=14;
+            //cell.IconX.constant=8;
+            cell.ImgLblGap.constant=19;
+        }
+        if (indexPath.row==2)
+        {
+            cell.IconWidth.constant=17;
+            cell.IconHeight.constant=17;
+            // cell.IconX.constant=8;
+            cell.ImgLblGap.constant=16;
+        }
+        if (indexPath.row==3)
+        {
+            cell.IconWidth.constant=14;
+            cell.IconHeight.constant=13;
+            //cell.IconX.constant=8;
+            cell.ImgLblGap.constant=19;
+        }
+        if (indexPath.row==4)
+        {
+            cell.IconWidth.constant=15;
+            cell.IconHeight.constant=15;
+            // cell.IconX.constant=8;
+            cell.ImgLblGap.constant=18;
+        }
+        if (indexPath.row==5)
+        {
+            cell.IconWidth.constant=14;
+            cell.IconHeight.constant=13;
+            //cell.IconX.constant=8;
+            cell.ImgLblGap.constant=19;
+            
+        }
+        if (indexPath.row==6)
+        {
+            cell.IconWidth.constant=14;
+            cell.IconHeight.constant=13;
+            //cell.IconX.constant=8;
+            cell.ImgLblGap.constant=19;
+            
+        }
+        if (indexPath.row==7)
+        {
+            cell.IconWidth.constant=14;
+            cell.IconHeight.constant=20;
+            //  cell.IconX.constant=8;
+            cell.ImgLblGap.constant=18;
+            
+        }
+    }
     
-    if (indexPath.row==0)
-    {
-        cell.IconWidth.constant=19;
-        cell.IconHeight.constant=16;
-       // cell.IconX.constant=8;
-        cell.ImgLblGap.constant=16;
-        
-    }
-    /*
-    if (indexPath.row==1)
-    {
-        cell.IconWidth.constant=20;
-        cell.IconHeight.constant=15;
-       // cell.IconX.constant=8;
-        cell.ImgLblGap.constant=15.5;
-        
-    }*/
-    if (indexPath.row==1)
-    {
-        cell.IconWidth.constant=14;
-        cell.IconHeight.constant=14;
-        //cell.IconX.constant=8;
-        cell.ImgLblGap.constant=19;
-    }
-    if (indexPath.row==2)
-    {
-        cell.IconWidth.constant=17;
-        cell.IconHeight.constant=17;
-       // cell.IconX.constant=8;
-        cell.ImgLblGap.constant=16;
-    }
-    if (indexPath.row==3)
-    {
-        cell.IconWidth.constant=14;
-        cell.IconHeight.constant=13;
-        //cell.IconX.constant=8;
-        cell.ImgLblGap.constant=19;
-    }
-    if (indexPath.row==4)
-    {
-        cell.IconWidth.constant=15;
-        cell.IconHeight.constant=15;
-       // cell.IconX.constant=8;
-        cell.ImgLblGap.constant=18;
-    }
-    if (indexPath.row==5)
-    {
-        cell.IconWidth.constant=14;
-        cell.IconHeight.constant=13;
-        //cell.IconX.constant=8;
-        cell.ImgLblGap.constant=19;
-
-    }
-    if (indexPath.row==6)
-    {
-        cell.IconWidth.constant=14;
-        cell.IconHeight.constant=13;
-        //cell.IconX.constant=8;
-        cell.ImgLblGap.constant=19;
-        
-    }
-    if (indexPath.row==7)
-    {
-        cell.IconWidth.constant=14;
-        cell.IconHeight.constant=20;
-      //  cell.IconX.constant=8;
-        cell.ImgLblGap.constant=18;
-        
-    }
+    
     cell.Title_LBL.text=[TitleArr objectAtIndex:indexPath.row];
     cell.IconIMG.image=[UIImage imageNamed:[ImgArr objectAtIndex:indexPath.row]];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -438,90 +487,162 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row==0)
+    
+    if ([self.appDelegate isUserLoggedIn] == NO)
     {
-        SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
-        [super pushViewController:vcr animated:YES];
-    }/*
-    else if (indexPath.row==1)
-    {
-        MapNearbyPlace *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MapNearbyPlace"];
-        [super pushViewController:vcr animated:YES];
-    }*/
-    else if (indexPath.row==1)
-    {
-        SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
-        [super pushViewController:vcr animated:YES];
-    }
-    else if (indexPath.row==2)
-    {
-        if ([self.appDelegate isUserLoggedIn] == NO)
+        if (indexPath.row==0)
         {
-            [self performSelector:@selector(checkLoginAndPresentContainer) withObject:nil afterDelay:0.0];
-        }
-        else
+            SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
+            [super pushViewController:vcr animated:YES];
+        }/*
+          else if (indexPath.row==1)
+          {
+          MapNearbyPlace *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MapNearbyPlace"];
+          [super pushViewController:vcr animated:YES];
+          }*/
+        else if (indexPath.row==1)
         {
-            ShoppingCartView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShoppingCartView"];
+            SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
             [super pushViewController:vcr animated:YES];
         }
-        
-    }
-    else if (indexPath.row==3)
-    {
-        if ([self.appDelegate isUserLoggedIn] == NO)
+        else if (indexPath.row==2)
         {
-            [self performSelector:@selector(checkLoginAndPresentContainer) withObject:nil afterDelay:0.0];
-        }
-        else
-        {
-            OrderHistoryView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"OrderHistoryView"];
-            [super pushViewController:vcr animated:YES];
-        }
-        
-    }
-    else if (indexPath.row==4)
-    {
-        MyAccountVW *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MyAccountVW"];
-        [super pushViewController:vcr animated:YES];
-        
-        //ProfileView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ProfileView"];
-        //[super pushViewController:vcr animated:YES];
-    }
-    else if (indexPath.row==5)
-    {
-        AboutVW *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"AboutVW"];
-        [super pushViewController:vcr animated:YES];
-        
-        //ProfileView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ProfileView"];
-        //[super pushViewController:vcr animated:YES];
-    }
-    else if (indexPath.row==6)
-    {
-        TermNConditionVW *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TermNConditionVW"];
-        [super pushViewController:vcr animated:YES];
-        
-        //ProfileView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ProfileView"];
-        //[super pushViewController:vcr animated:YES];
-    }
-    else if (indexPath.row==7)
-    {
-        if ([[TitleArr objectAtIndex:indexPath.row] isEqualToString:@"Login & Signup"])
-        {
-            [self checkLoginAndPresentContainer];
+            if ([self.appDelegate isUserLoggedIn] == NO)
+            {
+                [self performSelector:@selector(checkLoginAndPresentContainer) withObject:nil afterDelay:0.0];
+            }
+            else
+            {
+                ShoppingCartView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShoppingCartView"];
+                [super pushViewController:vcr animated:YES];
+            }
             
         }
-        else
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                            message:@"Are you sure want to Logout?"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"Cancel"
-                                                  otherButtonTitles:@"Logout",nil];
-            alert.tag=50;
-            [alert show];
-        }
         
+        else if (indexPath.row==3)
+        {
+            AboutVW *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"AboutVW"];
+            [super pushViewController:vcr animated:YES];
+            
+            //ProfileView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ProfileView"];
+            //[super pushViewController:vcr animated:YES];
+        }
+        else if (indexPath.row==4)
+        {
+            TermNConditionVW *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TermNConditionVW"];
+            [super pushViewController:vcr animated:YES];
+            
+            //ProfileView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ProfileView"];
+            //[super pushViewController:vcr animated:YES];
+        }
+        else if (indexPath.row==5)
+        {
+            if ([[TitleArr objectAtIndex:indexPath.row] isEqualToString:@"Login & Signup"])
+            {
+                [self checkLoginAndPresentContainer];
+                
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                                message:@"Are you sure want to Logout?"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"Cancel"
+                                                      otherButtonTitles:@"Logout",nil];
+                alert.tag=50;
+                [alert show];
+            }
+            
+        }
     }
+    else
+    {
+        if (indexPath.row==0)
+        {
+            SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
+            [super pushViewController:vcr animated:YES];
+        }/*
+          else if (indexPath.row==1)
+          {
+          MapNearbyPlace *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MapNearbyPlace"];
+          [super pushViewController:vcr animated:YES];
+          }*/
+        else if (indexPath.row==1)
+        {
+            SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
+            [super pushViewController:vcr animated:YES];
+        }
+        else if (indexPath.row==2)
+        {
+            if ([self.appDelegate isUserLoggedIn] == NO)
+            {
+                [self performSelector:@selector(checkLoginAndPresentContainer) withObject:nil afterDelay:0.0];
+            }
+            else
+            {
+                ShoppingCartView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShoppingCartView"];
+                [super pushViewController:vcr animated:YES];
+            }
+            
+        }
+        else if (indexPath.row==3)
+        {
+            if ([self.appDelegate isUserLoggedIn] == NO)
+            {
+                [self performSelector:@selector(checkLoginAndPresentContainer) withObject:nil afterDelay:0.0];
+            }
+            else
+            {
+                OrderHistoryView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"OrderHistoryView"];
+                [super pushViewController:vcr animated:YES];
+            }
+            
+        }
+        else if (indexPath.row==4)
+        {
+            MyAccountVW *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MyAccountVW"];
+            [super pushViewController:vcr animated:YES];
+            
+            //ProfileView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ProfileView"];
+            //[super pushViewController:vcr animated:YES];
+        }
+        else if (indexPath.row==5)
+        {
+            AboutVW *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"AboutVW"];
+            [super pushViewController:vcr animated:YES];
+            
+            //ProfileView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ProfileView"];
+            //[super pushViewController:vcr animated:YES];
+        }
+        else if (indexPath.row==6)
+        {
+            TermNConditionVW *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TermNConditionVW"];
+            [super pushViewController:vcr animated:YES];
+            
+            //ProfileView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ProfileView"];
+            //[super pushViewController:vcr animated:YES];
+        }
+        else if (indexPath.row==7)
+        {
+            if ([[TitleArr objectAtIndex:indexPath.row] isEqualToString:@"Login & Signup"])
+            {
+                [self checkLoginAndPresentContainer];
+                
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                                message:@"Are you sure want to Logout?"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"Cancel"
+                                                      otherButtonTitles:@"Logout",nil];
+                alert.tag=50;
+                [alert show];
+            }
+            
+        }
+    }
+    
     [self closeNavigationDrawer];
 }
 -(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {

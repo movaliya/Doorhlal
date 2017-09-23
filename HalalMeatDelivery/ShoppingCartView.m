@@ -550,6 +550,7 @@
         
         if (itemDetailDic.count==0)
         {
+            EmptyCartView.hidden=NO;
              RestruntNameView.hidden=YES;
             [upperView setHidden:YES];
             [_RestorantImage setHidden:YES];
@@ -564,6 +565,7 @@
     }
     else
     {
+        
         [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
     }
     

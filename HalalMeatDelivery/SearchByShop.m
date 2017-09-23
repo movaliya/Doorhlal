@@ -366,11 +366,11 @@ static dispatch_once_t predicate;
     }
     else
     {
-        SearchDictnory=[[NSMutableArray alloc]init];
-        NewArr=[[NSMutableArray alloc]init];
-         [AppDelegate showErrorMessageWithTitle:@"" message:[response objectForKey:@"ack_msg"] delegate:nil];
+       // SearchDictnory=[[NSMutableArray alloc]init];
+       // NewArr=[[NSMutableArray alloc]init];
+        // [AppDelegate showErrorMessageWithTitle:@"" message:[response objectForKey:@"ack_msg"] delegate:nil];
         NoResponseInt=0;
-         [Table reloadData];
+       //  [Table reloadData];
        // oldLimit_ony=limit_only;
     }
 }
@@ -770,24 +770,27 @@ static dispatch_once_t predicate;
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    NSLog(@"drag Call");
-    NSInteger currentOffset = scrollView.contentOffset.y;
-    NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
-    
-    if (maximumOffset - currentOffset <= -2)
+    if (scrollView==Table)
     {
-        BOOL internet=[AppDelegate connectedToNetwork];
-        if (internet)
-        {
-            if (NoResponseInt==1) {
-                 [self CallForSearchByShop];
-            }
-           
-        }
-        else
-            [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+        NSLog(@"drag Call");
+        NSInteger currentOffset = scrollView.contentOffset.y;
+        NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
         
+        if (maximumOffset - currentOffset <= -2)
+        {
+            BOOL internet=[AppDelegate connectedToNetwork];
+            if (internet)
+            {
+                if (NoResponseInt==1) {
+                    [self CallForSearchByShop];
+                }
+            }
+            else
+                [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+            
+        }
     }
+    
 }
 
 - (IBAction)Search_Click:(id)sender
@@ -1298,6 +1301,8 @@ static dispatch_once_t predicate;
     
     [CatTBL reloadData];
     limit_only=0;
+    SearchDictnory=[[NSMutableArray alloc]init];
+    NewArr=[[NSMutableArray alloc]init];
     [self CallForSearchByShop];
     FilterView.hidden=YES;
 }
