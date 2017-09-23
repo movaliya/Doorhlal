@@ -19,6 +19,7 @@
     NSMutableDictionary *FBSignIndictParams;
 }
 @property (strong,nonatomic) FBSDKLoginManager *loginMgr;
+@property (strong, nonatomic) IBOutlet UILabel *TimeStatus_LBL;
 
 
 @property (strong, nonatomic) CCKFNavDrawer *rootNav;

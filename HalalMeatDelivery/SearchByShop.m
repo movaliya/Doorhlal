@@ -591,7 +591,7 @@ static dispatch_once_t predicate;
             cell.BottonViewHeightAddr.constant=66;
             
         }
-        NSLog(@"linecout==%d",linecout);
+        NSLog(@"linecout==%ld",(long)linecout);
         return cell;
     }
     return nil;

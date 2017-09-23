@@ -43,6 +43,40 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//Time: 6:00 AM – 10:59 AM – Good Morning
+//    11:00 AM  - 3:59 PM – Good Noon
+//    4:00 PM – 9:59 PM – Good Evening
+//    10:00 PM – 5:59 AM – Good Night
+
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitHour fromDate:[NSDate date]];
+    [components setTimeZone:[NSTimeZone localTimeZone]];
+    NSInteger hour = [components hour];
+    
+    if(hour >= 6 && hour < 11)
+    {
+        self.TimeStatus_LBL.text=@"Good Morning";
+        NSLog(@"Good Morning");
+    }
+    else if(hour >= 11 && hour < 16)
+    {
+        self.TimeStatus_LBL.text=@"Good Noon";
+        NSLog(@"Good Noon");
+    }
+    else if(hour >= 16 && hour < 21)
+    {
+        self.TimeStatus_LBL.text=@"Good Evening";
+        NSLog(@"Good Evening");
+    }
+    else if((hour >= 21) || (hour >= 0 && hour < 6))
+    {
+        self.TimeStatus_LBL.text=@"Good Night";
+        NSLog(@"Good Night");
+    }
+    
+    
+    
     self.appDelegate = [AppDelegate sharedInstance];
     
     [KmyappDelegate SetimageinTextfield:User_TXT :@"UserIcon"];
