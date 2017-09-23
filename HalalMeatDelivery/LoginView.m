@@ -506,7 +506,8 @@
 
 -(void)CallFBSignup
 {
-    
+#define UserLogin @"service_login.php"
+#define UserLoginServiceName @"login_user"
     BOOL internet=[AppDelegate connectedToNetwork];
     if (internet)
     {
@@ -605,10 +606,9 @@
         [[NSUserDefaults standardUserDefaults]setObject:[response objectForKey:@"u_pincode"] forKey:@"Pincode"];
         [[NSUserDefaults standardUserDefaults]setObject:[response objectForKey:@"u_name"] forKey:@"UserName"];
         [[NSUserDefaults standardUserDefaults]setObject:[response objectForKey:@"u_phone"] forKey:@"PhoneNumber"];
-        //[AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
-       
-       // HomeView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeView"];
-        [self.navigationController popViewControllerAnimated:YES];
+        
+        SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
+        [self.navigationController pushViewController:vcr animated:YES];
        
     }
     else
