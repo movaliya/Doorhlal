@@ -10,6 +10,7 @@
 #import "KVNProgress.h"
 #import "AlertView.h"
 #import "LoginView.h"
+#import "UIImageView+WebCache.h"
 
 // AFNetworking
 #import <SystemConfiguration/SystemConfiguration.h>
@@ -39,6 +40,11 @@
 
 #define RegisterUrl @"service_register.php"
 #define RegisterServiceName @"register_user"
+
+
+
+//gmail Signup
+#define GmailServiceName @"register_google"
 
 #define Nearbyrestorant_url @"service_restorant.php"
 #define Nearby_restorantsServiceName @"get_nearby_restorants"
@@ -138,6 +144,11 @@
 // check date and Time for delivery
 #define checkTakeAwayTimeServiceName @"place_order_part_1_1_take_away"
 #define checkDeliveryTimeServiceName @"place_order_part_1_1_delivery"
+
+// About N Term Condition
+#define service_general_url @"service_general.php"
+#define AboutServiceName @"about_us_content"
+#define TermNconditionServiceName @"terms_condition_content"
 
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)

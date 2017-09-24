@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y00-yL-Tq5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y00-yL-Tq5">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1399,11 +1399,11 @@
                                                         <rect key="frame" x="0.0" y="28" width="280" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0cp-7B-8nG" id="BwI-iB-CHO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q31-58-Wwo">
-                                                                    <rect key="frame" x="15" y="0.0" width="250" height="43.5"/>
+                                                                    <rect key="frame" x="15" y="0.0" width="250" height="43"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -8650,7 +8650,7 @@
                                     <constraint firstItem="9nO-Wh-X7o" firstAttribute="leading" secondItem="th5-4y-esB" secondAttribute="trailing" constant="15" id="xcz-5z-YdL"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="521403691.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9NF-E4-4ge">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackIMG" translatesAutoresizingMaskIntoConstraints="NO" id="9NF-E4-4ge">
                                 <rect key="frame" x="0.0" y="80" width="320" height="235"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="235" id="sAg-4I-9zg"/>
@@ -8676,7 +8676,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7GJ-zp-111">
                                 <rect key="frame" x="0.0" y="316" width="320" height="252"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
@@ -8705,7 +8704,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="AboutImageVw" destination="9NF-E4-4ge" id="YNb-OM-RKt"/>
+                        <outlet property="About_Subtitle" destination="lwM-Py-aiE" id="21v-wU-APY"/>
                         <outlet property="About_TXTVW" destination="7GJ-zp-111" id="oWQ-rb-cLs"/>
+                        <outlet property="About_Title" destination="9nO-Wh-X7o" id="2zB-bd-vrO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h6f-Dr-A0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -8763,7 +8765,7 @@
                                     <constraint firstAttribute="height" constant="60" id="rSd-KI-59c"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="521403691.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fM5-bq-cbF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackIMG" translatesAutoresizingMaskIntoConstraints="NO" id="fM5-bq-cbF">
                                 <rect key="frame" x="0.0" y="80" width="320" height="235"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="235" id="34t-cp-yXU"/>
@@ -8789,7 +8791,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="510-0m-ld4">
                                 <rect key="frame" x="0.0" y="316" width="320" height="252"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
@@ -8822,7 +8823,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Term_ImageVW" destination="fM5-bq-cbF" id="rZl-Eq-NNd"/>
+                        <outlet property="Term_Subtitle" destination="TSP-li-5ZT" id="6pv-LZ-PgR"/>
                         <outlet property="Term_TXTVW" destination="510-0m-ld4" id="ef0-eG-svd"/>
+                        <outlet property="Term_title" destination="iHF-Mj-3Gh" id="y6R-Lo-pis"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nck-gn-uBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -8831,7 +8835,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="521403691.jpg" width="612" height="408"/>
         <image name="AddPlush" width="86" height="86"/>
         <image name="AddressTxtQuare.png" width="686" height="116"/>
         <image name="Arrow" width="25" height="25"/>

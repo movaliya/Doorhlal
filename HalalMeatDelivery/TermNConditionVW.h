@@ -17,5 +17,8 @@
 @property (strong, nonatomic) CCKFNavDrawer *rootNav;
 
 @property (weak, nonatomic) IBOutlet UITextView *Term_TXTVW;
+@property (weak, nonatomic) IBOutlet UIImageView *Term_ImageVW;
+@property (weak, nonatomic) IBOutlet UILabel *Term_Subtitle;
+@property (weak, nonatomic) IBOutlet UILabel *Term_title;
 
 @end
