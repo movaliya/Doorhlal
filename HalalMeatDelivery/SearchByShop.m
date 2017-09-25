@@ -41,7 +41,7 @@ static dispatch_once_t predicate;
     CLPlacemark *placemark;
     
     double Latitude,Logitude;
-    NSInteger limit_only,NoResponseInt;
+    NSInteger limit_only,NoResponseInt,MapLocationcall;
     
     NSMutableArray *resultObjectsArray;
     NSMutableArray *SearchDictnory,*NewArr;
@@ -184,6 +184,7 @@ static dispatch_once_t predicate;
     [CatTBL registerNib:nib2 forCellReuseIdentifier:@"CategoryCell"];
     
     limit_only=0;
+    MapLocationcall=0;
     // Do any additional setup after loading the view.
     
     
@@ -354,24 +355,52 @@ static dispatch_once_t predicate;
     NSLog(@"response ===%@",response);
     if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
     {
-        DataDic=[response valueForKey:@"result"];
-        for (NSDictionary *dic in DataDic)
+        if (MapLocationcall==1)
         {
-            [SearchDictnory addObject:dic];
+            SearchDictnory=[[NSMutableArray alloc]init];
+            NewArr=[[NSMutableArray alloc]init];
+            DataDic=[response valueForKey:@"result"];
+            for (NSDictionary *dic in DataDic)
+            {
+                [SearchDictnory addObject:dic];
+            }
+            NewArr=[[NSMutableArray alloc]initWithArray:SearchDictnory];
+            limit_only=limit_only+DataDic.count;
+            NoResponseInt=1;
+            [Table reloadData];
+            MapLocationcall=0;
         }
-        NewArr=[[NSMutableArray alloc]initWithArray:SearchDictnory];
-        limit_only=limit_only+DataDic.count;
-        NoResponseInt=1;
-        [Table reloadData];
+        else
+        {
+            DataDic=[response valueForKey:@"result"];
+            for (NSDictionary *dic in DataDic)
+            {
+                [SearchDictnory addObject:dic];
+            }
+            NewArr=[[NSMutableArray alloc]initWithArray:SearchDictnory];
+            limit_only=limit_only+DataDic.count;
+            NoResponseInt=1;
+            [Table reloadData];
+        }
+        
     }
     else
     {
-       // SearchDictnory=[[NSMutableArray alloc]init];
-       // NewArr=[[NSMutableArray alloc]init];
-        // [AppDelegate showErrorMessageWithTitle:@"" message:[response objectForKey:@"ack_msg"] delegate:nil];
-        NoResponseInt=0;
-       //  [Table reloadData];
-       // oldLimit_ony=limit_only;
+        if (MapLocationcall==1)
+        {
+            SearchDictnory=[[NSMutableArray alloc]init];
+            NewArr=[[NSMutableArray alloc]init];
+            [AppDelegate showErrorMessageWithTitle:@"" message:[response objectForKey:@"ack_msg"] delegate:nil];
+            NoResponseInt=0;
+            [Table reloadData];
+        }
+        else
+        {
+            MapLocationcall=0;
+            //[AppDelegate showErrorMessageWithTitle:@"" message:[response objectForKey:@"ack_msg"] delegate:nil];
+            NoResponseInt=0;
+            [Table reloadData];
+        }
     }
 }
 
@@ -761,7 +790,8 @@ static dispatch_once_t predicate;
     self.Title_LBL.text =address;
     AddressView.hidden=YES;
     [KVNProgress dismiss];
-
+    limit_only=0;
+    MapLocationcall=1;
     [self CallForSearchByShop];
     
     NSLog(@"LAT==%f LOG==%f",annotation.coordinate.latitude,annotation.coordinate.longitude);

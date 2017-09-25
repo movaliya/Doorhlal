@@ -174,6 +174,7 @@
      {
          if (session)
          {
+             
              //[MBProgressHUD showHUDAddedTo:sharedAppDel.window animated:YES];
              NSLog(@"signed in as %@, \nauthToken = %@, \nauthSecretToken = %@, \nuserId = %@" , [session userName],[session authToken],[session authTokenSecret],[session userID]);
              
@@ -304,6 +305,7 @@
              {
                  NSLog(@"result is : %@",result);
                  
+                 
                  FBSignIndictParams = [[NSMutableDictionary alloc] init];
                                                            [FBSignIndictParams setObject:r_p  forKey:@"r_p"];
                                                            [FBSignIndictParams setObject:RegisterServiceName  forKey:@"service"];
@@ -374,7 +376,7 @@
         
         FBSignIndictParams = [[NSMutableDictionary alloc] init];
         [FBSignIndictParams setObject:r_p  forKey:@"r_p"];
-        [FBSignIndictParams setObject:RegisterServiceName  forKey:@"service"];
+        [FBSignIndictParams setObject:GmailServiceName  forKey:@"service"];
         [FBSignIndictParams setObject:email  forKey:@"u_email"];
         [FBSignIndictParams setObject:fullName  forKey:@"u_name"];
         [FBSignIndictParams setObject:@""  forKey:@"u_password"];
@@ -386,8 +388,9 @@
         [FBSignIndictParams setObject:@""  forKey:@"u_country"];
         [FBSignIndictParams setObject:@"gmail"  forKey:@"u_type"];
         
+        
         //gmil
-        [self CallFBSignup];
+        [self CallGmailSignup];
 
         
         
@@ -412,6 +415,21 @@
         //  [sharedAppDel ShowAlertWithOneBtn:@"Login Error!, Please try again" andbtnTitle:@"Ok"];
         NSLog(@"%@", error.localizedDescription);
     }
+}
+-(void)CallGmailSignup
+{
+    
+    BOOL internet=[AppDelegate connectedToNetwork];
+    if (internet)
+    {
+        [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,RegisterUrl] withParam:FBSignIndictParams withCompletion:^(NSDictionary *response, BOOL success1)
+         {
+             [self handleFBResponse:response];
+         }];
+    }
+    else
+        [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+    
 }
 
 - (void)signIn:(GIDSignIn *)signIn didDisconnectWithUser:(GIDGoogleUser *)user withError:(NSError *)error
@@ -506,8 +524,7 @@
 
 -(void)CallFBSignup
 {
-#define UserLogin @"service_login.php"
-#define UserLoginServiceName @"login_user"
+
     BOOL internet=[AppDelegate connectedToNetwork];
     if (internet)
     {

@@ -14,9 +14,20 @@
 
 @implementation TermNConditionVW
 
+@synthesize Term_title,Term_TXTVW,Term_ImageVW,Term_Subtitle;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    BOOL internet=[AppDelegate connectedToNetwork];
+    if (internet)
+    {
+        [self CallForTermService];
+    }
+    else
+        [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+    
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -33,6 +44,41 @@
 {
     NSLog(@"CCKFNavDrawerSelection = %li", (long)selectionIndex);
     
+}
+-(void)CallForTermService
+{
+    NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
+    [dictParams setObject:r_p  forKey:@"r_p"];
+    [dictParams setObject:TermNconditionServiceName  forKey:@"service"];
+    
+    
+    [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,service_general_url] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
+     {
+         [self handleTermServiceResponse:response];
+     }];
+    
+}
+
+- (void)handleTermServiceResponse:(NSDictionary*)response
+{
+    NSLog(@"response ===%@",response);
+    if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
+    {
+        NSMutableDictionary *result=[[response objectForKey:@"result"] mutableCopy];
+        NSString *Urlstr=[result valueForKey:@"image"];
+        [Term_ImageVW sd_setImageWithURL:[NSURL URLWithString:Urlstr] placeholderImage:[UIImage imageNamed:@"HomeLogo"]];
+        [Term_ImageVW setShowActivityIndicatorView:YES];
+        
+        Term_title.text=[result valueForKey:@"title"];
+        Term_Subtitle.text=[result valueForKey:@"subtitle"];
+        Term_TXTVW.text=[result valueForKey:@"description"];
+        
+        
+    }
+    else
+    {
+        
+    }
 }
 - (IBAction)Toogle_BTN:(id)sender
 {
