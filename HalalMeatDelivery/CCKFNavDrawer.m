@@ -62,12 +62,12 @@
     
     if ([self.appDelegate isUserLoggedIn] == NO)
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"About",@"Terms N Conditions",@"Login & Signup", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"About",@"Terms & Conditions",@"Login & Signup", nil];
         ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
     }
     else
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms N Conditions",@"Logout", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms & Conditions",@"Logout", nil];
         ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
     }
     
@@ -102,12 +102,12 @@
     
     if ([self.appDelegate isUserLoggedIn] == NO)
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"About",@"Terms N Conditions",@"Login & Signup", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"About",@"Terms & Conditions",@"Login & Signup", nil];
         ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
     }
     else
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms N Conditions",@"Logout", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms & Conditions",@"Logout", nil];
         ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
     }
     

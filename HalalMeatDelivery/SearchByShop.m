@@ -74,7 +74,7 @@ static dispatch_once_t predicate;
 
 @implementation SearchByShop
 @synthesize Table,Filter_BTN,SearchPlaceTBL;
-@synthesize SearchBar,Search_IMG,Searc_BTN;
+@synthesize SearchBar,Search_IMG,Searc_BTN,AdderessCurrentlocation_BTN;
 @synthesize FilterView,SearchByCatBTN,SearchByRatBTN,SearchByDistBTN,SearchByPriceBTN,FreeDelevBTN;
 @synthesize CatTBL,PriceView,AddressView,PlaceSearch;
 
@@ -1314,4 +1314,9 @@ static dispatch_once_t predicate;
 }
 
 
+- (IBAction)CurrentLocation_Click:(id)sender
+{
+    [self CallForSearchByShop];
+    AddressView.hidden=YES;
+}
 @end

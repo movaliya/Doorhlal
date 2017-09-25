@@ -313,18 +313,23 @@
     }
     float wdi=screenWidth/itemCount;
     
+
+    
     int x=0;
     for (int i=0; i<itemCount; i++)
     {
-        UIButton *BTN=[[UIButton alloc]initWithFrame:CGRectMake(x, 0, wdi-1, 40)];
+        CGSize stringsize = [[[Cat_Arr objectAtIndex:i] uppercaseString] sizeWithFont:[UIFont systemFontOfSize:17]];
+
+        UIButton *BTN=[[UIButton alloc]initWithFrame:CGRectMake(x, 0, stringsize.width-1, 40)];
         [BTN setTitle:[[Cat_Arr objectAtIndex:i] uppercaseString] forState:UIControlStateNormal];
         BTN.backgroundColor=[UIColor clearColor];
         BTN.tag=i;
+        BTN.titleLabel.font=[UIFont systemFontOfSize:15];
         [BTN addTarget:self action:@selector(BTN_Click:) forControlEvents:UIControlEventTouchUpInside];
         [BTN setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [TabScroll addSubview:BTN];
         
-        UILabel *LineLBL=[[UILabel alloc]initWithFrame:CGRectMake(x, 41, wdi-1, 4)];
+        UILabel *LineLBL=[[UILabel alloc]initWithFrame:CGRectMake(x, 41, stringsize.width-1, 4)];
         if (i==0)
         {
             [BTN setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -337,7 +342,7 @@
         }
         LineLBL.tag=i;
         [TabScroll  addSubview:LineLBL];
-        x=x+wdi+1;
+        x=x+stringsize.width+1;
     }
     [TabScroll setContentSize:CGSizeMake(x, 0)];
 }

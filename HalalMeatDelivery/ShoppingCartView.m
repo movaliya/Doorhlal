@@ -148,7 +148,7 @@
     
     if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
     {
-        RestruntNameView.hidden=NO;
+        RestruntNameView.hidden=YES;
         [_RestorantImage setHidden:NO];
         [_RestNameLBL setHidden:NO];
         [_RestAddressLBL setHidden:NO];
@@ -162,7 +162,7 @@
         itemDetailDic=[[CardDicnory valueForKey:@"items"] valueForKey:@"product_detail"];
         deleteproductDic=[CardDicnory valueForKey:@"items"];
         
-        NSString *TotalQTY=[NSString stringWithFormat:@"%d",itemDetailDic.count];
+        NSString *TotalQTY=[NSString stringWithFormat:@"%lu",(unsigned long)itemDetailDic.count];
         [[NSUserDefaults standardUserDefaults] setObject:TotalQTY forKey:@"QUANTITYCOUNT"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
@@ -175,7 +175,7 @@
         [dic setObject:arr forKey:@"Count"];
         [MainDic setObject:MainCount forKey:@"MainCount"];
         
-        _upperOrderQTYLBL.text=[NSString stringWithFormat:@"Order Total (%d Items)",itemDetailDic.count];
+        _upperOrderQTYLBL.text=[NSString stringWithFormat:@"Order Total (%lu Items)",(unsigned long)itemDetailDic.count];
         self.Total_LBL.text=[NSString stringWithFormat:@"Total : £ %@",[[CardDicnory valueForKey:@"sub_total"] stringValue]];
         _upperTotalLBL.text=[NSString stringWithFormat:@"£ %@",[[CardDicnory valueForKey:@"sub_total"] stringValue]];
         
@@ -528,7 +528,7 @@
         }
         //********************************************************************
         
-        NSLog(@"ButtonTag delete=%d",ButtonTag);
+        NSLog(@"ButtonTag delete=%ld",(long)ButtonTag);
         
         [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
         
@@ -545,7 +545,7 @@
         
         self.Total_LBL.text=[NSString stringWithFormat:@"Total : £ %ld",(long)SubTotalValues];
         _upperTotalLBL.text=[NSString stringWithFormat:@"£ %ld",(long)SubTotalValues];
-         _upperOrderQTYLBL.text=[NSString stringWithFormat:@"Order Total (%d Items)",itemDetailDic.count];
+         _upperOrderQTYLBL.text=[NSString stringWithFormat:@"Order Total (%lu Items)",(unsigned long)itemDetailDic.count];
         [TableView reloadData];
         
         if (itemDetailDic.count==0)
