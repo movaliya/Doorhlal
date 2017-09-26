@@ -103,18 +103,20 @@
                 break;
             }
         }
-        if (SelectedAddress.count!=0)
+        if (SelectedAddress.count==0)
         {
+            for (int tt=0; tt<AddressArr.count; tt++)
+            {
+                SelectedAddress=[AddressArr objectAtIndex:tt];
+            }
+            
             self.Billing_TXTVW.text=[NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@",[SelectedAddress valueForKey:@"name"],[SelectedAddress valueForKey:@"address"],[SelectedAddress valueForKey:@"pincode"], [SelectedAddress valueForKey:@"contact_number"], [SelectedAddress valueForKey:@"email"]];
         }
         else
         {
-            NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
             
-            if ([UserData count] != 0)
-            {
-                self.Billing_TXTVW.text=[NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@",[UserData valueForKey:@"u_name"],[UserData valueForKey:@"u_address"],[UserData valueForKey:@"u_pincode"], [UserData valueForKey:@"u_phone"], [UserData valueForKey:@"u_address"]];
-            }
+            self.Billing_TXTVW.text=[NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@",[SelectedAddress valueForKey:@"name"],[SelectedAddress valueForKey:@"address"],[SelectedAddress valueForKey:@"pincode"], [SelectedAddress valueForKey:@"contact_number"], [SelectedAddress valueForKey:@"email"]];
+            
         }
     }
     else
