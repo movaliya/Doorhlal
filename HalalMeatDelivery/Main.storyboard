@@ -1616,7 +1616,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHD-5U-zhC">
-                                                <rect key="frame" x="50" y="374" width="220" height="20"/>
+                                                <rect key="frame" x="50" y="374" width="220" height="19.5"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Not yet member?">
                                                         <attributes>
@@ -1675,7 +1675,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQU-W5-VVd">
-                                                <rect key="frame" x="149" y="492" width="22" height="15"/>
+                                                <rect key="frame" x="149" y="492" width="22" height="14.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="22" id="xBB-Kt-zsA"/>
                                                 </constraints>
@@ -1704,7 +1704,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ssq-vb-zP2">
-                                                <rect key="frame" x="60" y="522" width="200" height="50"/>
+                                                <rect key="frame" x="60" y="521.5" width="200" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEV-Ra-Gpd">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
@@ -2017,7 +2017,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN UP WITH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tx2-UY-gkv">
-                                                <rect key="frame" x="109" y="596" width="103" height="15"/>
+                                                <rect key="frame" x="109" y="596" width="103" height="14.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="103" id="NOH-VT-erP"/>
                                                 </constraints>
@@ -2026,7 +2026,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2ck-w4-aKb">
-                                                <rect key="frame" x="60" y="626" width="200" height="50"/>
+                                                <rect key="frame" x="60" y="625.5" width="200" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mah-MJ-PkH">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
