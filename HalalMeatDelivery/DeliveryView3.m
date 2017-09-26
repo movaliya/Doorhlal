@@ -10,9 +10,8 @@
 #import "ThankYouView.h"
 #import "ShoppingCartView.h"
 #import <QuartzCore/QuartzCore.h>
-#import "HomeView.h"
 #import "AddCreditCardView.h"
-
+#import "SearchByShop.h"
 @import Stripe;
 
 @interface DeliveryView3 ()<STPAddCardViewControllerDelegate,STPPaymentContextDelegate,ExampleViewControllerDelegate>
@@ -332,7 +331,7 @@
 {
     ThankPOPUp.hidden=YES;
     
-    HomeView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeView"];
+    SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
     [self.navigationController pushViewController:vcr animated:NO];
 }
 

@@ -12,7 +12,7 @@
 #import "ShoppingCartView.h"
 #import "HomeView.h"
 #import "AddCreditCardView.h"
-
+#import "SearchByShop.h"
 @import Stripe;
 
 
@@ -340,7 +340,7 @@
 {
     ThankPOPUp.hidden=YES;
     
-    HomeView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeView"];
+    SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
     [self.navigationController pushViewController:vcr animated:NO];
 }
 - (IBAction)backBtn_action:(id)sender

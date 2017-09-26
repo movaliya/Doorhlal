@@ -10,7 +10,7 @@
 #import "HalalMeatDelivery.pch"
 #import <CoreLocation/CoreLocation.h>
 #import <AddressBookUI/AddressBookUI.h>
-
+#import "SearchByShop.h"
 @interface RegisterView ()
 @property AppDelegate *appDelegate;
 @end
@@ -274,7 +274,7 @@
     if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
     {
         [[NSUserDefaults standardUserDefaults]setObject:[[response valueForKey:@"result"] objectAtIndex:0] forKey:@"LoginUserDic"];
-        HomeView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeView"];
+        SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
         [self.navigationController pushViewController:vcr animated:YES];
     }
     else
