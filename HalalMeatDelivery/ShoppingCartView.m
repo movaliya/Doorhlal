@@ -28,6 +28,7 @@
 @synthesize SelectDate_TXT,upperDateGBLBL,upperView;
 @synthesize RestruntNameView,EmptyCartView,BottomView;
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -148,7 +149,7 @@
     
     if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
     {
-        RestruntNameView.hidden=YES;
+        RestruntNameView.hidden=NO;
         [_RestorantImage setHidden:NO];
         [_RestNameLBL setHidden:NO];
         [_RestAddressLBL setHidden:NO];
@@ -339,14 +340,14 @@
 -(void)CancelCellClick:(id)sender
 {
     UIButton *senderButton = (UIButton *)sender;
-    UIView *cellContentView = (UIView *)senderButton.superview;
-    UITableViewCell *buttonCell = (UITableViewCell *)[[cellContentView superview] superview];
-    UITableView* table = (UITableView *)[[buttonCell superview] superview];
-    NSIndexPath* pathOfTheCell = [table indexPathForCell:buttonCell];
-    //NSDictionary *item = sortedItems[sortedItems.allKeys[pathOfTheCell.row]];
+//    UIView *cellContentView = (UIView *)senderButton.superview;
+//    UITableViewCell *buttonCell = (UITableViewCell *)[[cellContentView superview] superview];
+//    UITableView* table = (UITableView *)[[buttonCell superview] superview];
+//    NSIndexPath* pathOfTheCell = [table indexPathForCell:buttonCell];
+//    NSDictionary *item = sortedItems[sortedItems.allKeys[pathOfTheCell.row]];
     
     NSInteger *Main=[[[MainDic valueForKey:@"MainCount"] objectAtIndex:senderButton.tag] integerValue];
-    NSInteger *Second=[[[dic valueForKey:@"Count"] objectAtIndex:senderButton.tag] integerValue];
+   // NSInteger *Second=[[[dic valueForKey:@"Count"] objectAtIndex:senderButton.tag] integerValue];
     
     [arr replaceObjectAtIndex:senderButton.tag withObject:[NSString stringWithFormat:@"%ld",Main]];
     [dic setObject:arr forKey:@"Count"];

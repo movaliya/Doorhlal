@@ -21,6 +21,10 @@
 @implementation OrderHistoryDetailView
 @synthesize Table,TopView,BottomView,card_id;
 
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -155,10 +159,7 @@
     [self.rootNav.pan_gr setEnabled:YES];
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
+
 
 - (void)didReceiveMemoryWarning
 {

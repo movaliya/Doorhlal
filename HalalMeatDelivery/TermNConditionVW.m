@@ -16,6 +16,11 @@
 
 @synthesize Term_title,Term_TXTVW,Term_ImageVW,Term_Subtitle;
 
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -66,11 +71,11 @@
     {
         NSMutableDictionary *result=[[response objectForKey:@"result"] mutableCopy];
         NSString *Urlstr=[result valueForKey:@"image"];
-        [Term_ImageVW sd_setImageWithURL:[NSURL URLWithString:Urlstr] placeholderImage:[UIImage imageNamed:@"HomeLogo"]];
+        [Term_ImageVW sd_setImageWithURL:[NSURL URLWithString:Urlstr] placeholderImage:[UIImage imageNamed:@"placeholder_img"]];
         [Term_ImageVW setShowActivityIndicatorView:YES];
         
-       // Term_title.text=[result valueForKey:@"title"];
-       // Term_Subtitle.text=[result valueForKey:@"subtitle"];
+        Term_title.text=[result valueForKey:@"title"];
+        Term_Subtitle.text=[result valueForKey:@"subtitle"];
         Term_TXTVW.text=[result valueForKey:@"description"];
         
         

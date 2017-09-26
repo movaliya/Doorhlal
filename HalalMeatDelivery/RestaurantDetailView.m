@@ -311,7 +311,7 @@
             [view removeFromSuperview];
         }
     }
-    float wdi=screenWidth/itemCount;
+  //  float wdi=screenWidth/itemCount;
     
 
     
@@ -961,7 +961,7 @@
     }
     else
     {
-        UIButton *senderButton = (UIButton *)sender;//RestraorntDic
+       // UIButton *senderButton = (UIButton *)sender;//RestraorntDic
         
         NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
               

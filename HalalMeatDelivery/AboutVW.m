@@ -14,6 +14,12 @@
 
 @implementation AboutVW
 @synthesize About_Title,About_TXTVW,AboutImageVw,About_Subtitle;
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -65,11 +71,11 @@
         NSMutableDictionary *result=[[response objectForKey:@"result"] mutableCopy];
         
         NSString *Urlstr=[result valueForKey:@"image"];
-        [AboutImageVw sd_setImageWithURL:[NSURL URLWithString:Urlstr] placeholderImage:[UIImage imageNamed:@"HomeLogo"]];
+        [AboutImageVw sd_setImageWithURL:[NSURL URLWithString:Urlstr] placeholderImage:[UIImage imageNamed:@"placeholder_img"]];
         [AboutImageVw setShowActivityIndicatorView:YES];
         
-       // About_Title.text=[result valueForKey:@"title"];
-        //About_Subtitle.text=[result valueForKey:@"subtitle"];
+        About_Title.text=[result valueForKey:@"title"];
+        About_Subtitle.text=[result valueForKey:@"subtitle"];
         About_TXTVW.text=[result valueForKey:@"description"];
         
         
