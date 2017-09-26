@@ -49,30 +49,31 @@
 //    4:00 PM – 9:59 PM – Good Evening
 //    10:00 PM – 5:59 AM – Good Night
 
+    //For timing : 12midnight to 5am, nothing will b display, 5am to 12 noon, good morning, 12pm to 5pm good afternoon ,5pm to 12 midnight good evening
     
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitHour fromDate:[NSDate date]];
     [components setTimeZone:[NSTimeZone localTimeZone]];
     NSInteger hour = [components hour];
     
-    if(hour >= 6 && hour < 11)
+    if(hour >= 5 && hour < 12)
     {
         self.TimeStatus_LBL.text=@"Good Morning";
         NSLog(@"Good Morning");
     }
-    else if(hour >= 11 && hour < 16)
+    else if(hour >= 12 && hour < 17)
     {
-        self.TimeStatus_LBL.text=@"Good Noon";
-        NSLog(@"Good Noon");
+        self.TimeStatus_LBL.text=@"Good afternoon";
+        NSLog(@"Good afternoon");
     }
-    else if(hour >= 16 && hour < 21)
+   // else if(hour >= 16 && hour < 21)
+    //{
+      //  self.TimeStatus_LBL.text=@"Good Evening";
+       // NSLog(@"Good Evening");
+   // }
+    else if(hour >= 17  && hour < 24)
     {
-        self.TimeStatus_LBL.text=@"Good Evening";
-        NSLog(@"Good Evening");
-    }
-    else if((hour >= 21) || (hour >= 0 && hour < 6))
-    {
-        self.TimeStatus_LBL.text=@"Good Night";
-        NSLog(@"Good Night");
+        self.TimeStatus_LBL.text=@"Good evening";
+        NSLog(@"Good evening");
     }
     
     
