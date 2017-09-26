@@ -31,6 +31,7 @@
 @implementation DeliveryView3
 @synthesize ThanksOK;
 @synthesize Comment_TXT;
+
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
@@ -288,7 +289,7 @@
     }
     else
     {
-        NSError *error;
+        //NSError *error;
         [self.navigationController popViewControllerAnimated:YES];
         // [self exampleViewController:self didFinishWithError:error];
         [AppDelegate showErrorMessageWithTitle:@"" message:[response objectForKey:@"ack_msg"] delegate:nil];

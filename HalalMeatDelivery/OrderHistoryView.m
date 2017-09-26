@@ -29,6 +29,7 @@
 @synthesize Table;
 @synthesize ClearPop,NoPop,YesPop,ToTextPop,FromTextPop;
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

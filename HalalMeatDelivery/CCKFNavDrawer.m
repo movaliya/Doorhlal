@@ -647,7 +647,7 @@
 }
 -(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MenuCell *cell = (MenuCell *)[tableView cellForRowAtIndexPath:indexPath];
+   // MenuCell *cell = (MenuCell *)[tableView cellForRowAtIndexPath:indexPath];
     //[cell.Title_LBL setTextColor:[UIColor redColor]];
     return indexPath;
 }

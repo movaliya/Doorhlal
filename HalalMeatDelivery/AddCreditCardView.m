@@ -340,7 +340,7 @@
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL test0;
-    NSString *cardString;
+   // NSString *cardString;
     if(textField == CardNumber_TXT)
     {
         if (range.length == 0 &&

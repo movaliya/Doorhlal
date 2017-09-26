@@ -627,7 +627,7 @@ static dispatch_once_t predicate;
 }
 -(NSInteger)hight :(UILabel *)lbl
 {
-    NSInteger lineCount = 0;
+   // NSInteger lineCount = 0;
     CGSize textSize = CGSizeMake(lbl.frame.size.width, MAXFLOAT);
     int rHeight = lroundf([lbl sizeThatFits:textSize].height);
     int charSize = lroundf(lbl.font.lineHeight);
