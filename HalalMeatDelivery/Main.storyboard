@@ -1382,7 +1382,7 @@
                                         <rect key="frame" x="20" y="90" width="280" height="448"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Rqc-qK-bme">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                                <rect key="frame" x="0.0" y="40" width="280" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="TTO-p4-34y"/>
                                                 </constraints>
@@ -1392,7 +1392,7 @@
                                                 </connections>
                                             </searchBar>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fec-iC-jCx">
-                                                <rect key="frame" x="0.0" y="44" width="280" height="404"/>
+                                                <rect key="frame" x="0.0" y="84" width="280" height="364"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HNKDemoSearchResultsCellIdentifier" textLabel="Q31-58-Wwo" style="IBUITableViewCellStyleDefault" id="0cp-7B-8nG" userLabel="Table View Cell">
@@ -1418,16 +1418,35 @@
                                                     <outlet property="delegate" destination="h7r-FA-8Q0" id="i1l-xh-OzX"/>
                                                 </connections>
                                             </tableView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43M-Yl-BxD">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.070588235289999995" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="4d2-L0-GbW"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                                <state key="normal" title="Use My Current Location" image="Current_LocationIcon">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="CurrentLocation_Click:" destination="h7r-FA-8Q0" eventType="touchUpInside" id="Lkn-VV-IfX"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="fec-iC-jCx" firstAttribute="leading" secondItem="8XP-D7-Y2s" secondAttribute="leading" id="3Fx-uN-pOM"/>
-                                            <constraint firstItem="Rqc-qK-bme" firstAttribute="top" secondItem="8XP-D7-Y2s" secondAttribute="top" id="A2k-7G-u6v"/>
+                                            <constraint firstAttribute="trailing" secondItem="43M-Yl-BxD" secondAttribute="trailing" id="4D6-2p-V5M"/>
+                                            <constraint firstItem="43M-Yl-BxD" firstAttribute="leading" secondItem="8XP-D7-Y2s" secondAttribute="leading" id="PvX-lz-co8"/>
                                             <constraint firstItem="Rqc-qK-bme" firstAttribute="leading" secondItem="8XP-D7-Y2s" secondAttribute="leading" id="U6H-vB-vdt"/>
+                                            <constraint firstItem="Rqc-qK-bme" firstAttribute="top" secondItem="43M-Yl-BxD" secondAttribute="bottom" id="UcW-Qa-XMB"/>
                                             <constraint firstItem="fec-iC-jCx" firstAttribute="top" secondItem="Rqc-qK-bme" secondAttribute="bottom" id="ded-nz-sue"/>
                                             <constraint firstAttribute="trailing" secondItem="fec-iC-jCx" secondAttribute="trailing" id="esz-pI-RjT"/>
                                             <constraint firstAttribute="trailing" secondItem="Rqc-qK-bme" secondAttribute="trailing" id="glk-7x-BWd"/>
                                             <constraint firstAttribute="bottom" secondItem="fec-iC-jCx" secondAttribute="bottom" id="qlU-s1-SST"/>
+                                            <constraint firstItem="43M-Yl-BxD" firstAttribute="top" secondItem="8XP-D7-Y2s" secondAttribute="top" id="wUa-tM-8yq"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1474,6 +1493,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="AdderessCurrentlocation_BTN" destination="43M-Yl-BxD" id="n6e-Pk-VoL"/>
                         <outlet property="AddressView" destination="VfN-3X-BQf" id="mlH-K8-tY3"/>
                         <outlet property="CatTBL" destination="ePS-Mz-qgV" id="4O1-xu-9CC"/>
                         <outlet property="FilterView" destination="uX6-Z0-HvV" id="qKH-YZ-g6q"/>
@@ -4604,7 +4624,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foY-5D-jaa">
-                                                        <rect key="frame" x="8" y="57" width="188" height="30"/>
+                                                        <rect key="frame" x="8" y="57" width="197" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="uSd-ql-M3Z"/>
                                                         </constraints>
@@ -4728,7 +4748,7 @@
                                                     <constraint firstItem="JA1-F0-mHE" firstAttribute="leading" secondItem="emu-VD-F3y" secondAttribute="trailing" constant="2" id="p9W-K7-Bid"/>
                                                     <constraint firstItem="VDn-sx-cSX" firstAttribute="top" secondItem="JA1-F0-mHE" secondAttribute="bottom" constant="5" id="vG2-rc-AuL"/>
                                                     <constraint firstItem="e4o-O7-G9J" firstAttribute="top" secondItem="3pz-xc-E2j" secondAttribute="top" constant="28" id="w2u-4R-U9A"/>
-                                                    <constraint firstAttribute="trailing" secondItem="foY-5D-jaa" secondAttribute="trailing" constant="124" id="zR3-dd-h8b"/>
+                                                    <constraint firstAttribute="trailing" secondItem="foY-5D-jaa" secondAttribute="trailing" constant="115" id="zR3-dd-h8b"/>
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -8841,6 +8861,7 @@
         <image name="BlankTxtFild" width="343" height="48"/>
         <image name="BlankTxtFildwithframe.png" width="686" height="116"/>
         <image name="CartImg" width="17" height="17"/>
+        <image name="Current_LocationIcon" width="16" height="16"/>
         <image name="EmptyCartIMG" width="176" height="142"/>
         <image name="FBLogo" width="57" height="57"/>
         <image name="Fileter_Icon" width="14" height="14"/>

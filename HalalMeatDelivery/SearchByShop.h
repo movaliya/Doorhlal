@@ -14,6 +14,8 @@
 {
     
 }
+@property (strong, nonatomic) IBOutlet UIButton *AdderessCurrentlocation_BTN;
+- (IBAction)CurrentLocation_Click:(id)sender;
 @property (strong, nonatomic) IBOutlet UISearchBar *PlaceSearch;
 @property (strong, nonatomic) IBOutlet UITableView *SearchPlaceTBL;
 @property (strong, nonatomic) CCKFNavDrawer *rootNav;
