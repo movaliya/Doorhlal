@@ -74,8 +74,8 @@
         [AboutImageVw sd_setImageWithURL:[NSURL URLWithString:Urlstr] placeholderImage:[UIImage imageNamed:@"placeholder_img"]];
         [AboutImageVw setShowActivityIndicatorView:YES];
         
-        About_Title.text=[result valueForKey:@"title"];
-        About_Subtitle.text=[result valueForKey:@"subtitle"];
+       // About_Title.text=[result valueForKey:@"title"];
+      //  About_Subtitle.text=[result valueForKey:@"subtitle"];
         About_TXTVW.text=[result valueForKey:@"description"];
         
         

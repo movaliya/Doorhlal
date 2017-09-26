@@ -74,8 +74,8 @@
         [Term_ImageVW sd_setImageWithURL:[NSURL URLWithString:Urlstr] placeholderImage:[UIImage imageNamed:@"placeholder_img"]];
         [Term_ImageVW setShowActivityIndicatorView:YES];
         
-        Term_title.text=[result valueForKey:@"title"];
-        Term_Subtitle.text=[result valueForKey:@"subtitle"];
+       // Term_title.text=[result valueForKey:@"title"];
+       // Term_Subtitle.text=[result valueForKey:@"subtitle"];
         Term_TXTVW.text=[result valueForKey:@"description"];
         
         
