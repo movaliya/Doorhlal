@@ -58,10 +58,10 @@
     else
         [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
     
-    _SubTotal_LBL.text=[NSString stringWithFormat:@"£ %@",[self.ChargesDIC valueForKey:@"sub_total"]];
-    _ShippingCharge_LBL.text= [NSString stringWithFormat:@"+ £ %@",[self.ChargesDIC valueForKey:@"shipping_charge"]];
-    _ShippingDiscount_LBL.text=[NSString stringWithFormat:@"- £ %@",[self.ChargesDIC valueForKey:@"shipping_discount"]];
-    _Grand_Total_LBL.text=[NSString stringWithFormat:@"£ %@",[self.ChargesDIC valueForKey:@"final_total"]];
+    _SubTotal_LBL.text=[NSString stringWithFormat:@"$ %@",[self.ChargesDIC valueForKey:@"sub_total"]];
+    _ShippingCharge_LBL.text= [NSString stringWithFormat:@"+ $ %@",[self.ChargesDIC valueForKey:@"shipping_charge"]];
+    _ShippingDiscount_LBL.text=[NSString stringWithFormat:@"- $ %@",[self.ChargesDIC valueForKey:@"shipping_discount"]];
+    _Grand_Total_LBL.text=[NSString stringWithFormat:@"$ %@",[self.ChargesDIC valueForKey:@"final_total"]];
     _TakeAwayDateTime.text=self.DateNTime;
     final_total=[self.ChargesDIC valueForKey:@"final_total"];
     

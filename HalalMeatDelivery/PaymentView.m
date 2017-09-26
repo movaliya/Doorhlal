@@ -228,10 +228,10 @@
         }
         
         [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
-        _SubTotal_LBL.text=[NSString stringWithFormat:@"£ %@",[response valueForKey:@"sub_total"]];
-        _ShippingCharge_LBL.text= [NSString stringWithFormat:@"+ £ %@",[response valueForKey:@"shipping_charge"]];
-        _ShippingDiscount_LBL.text=[NSString stringWithFormat:@"- £ %@",[response valueForKey:@"shipping_discount"]];
-        _Grand_Total_LBL.text=[NSString stringWithFormat:@"£ %@",[response valueForKey:@"final_total"]];
+        _SubTotal_LBL.text=[NSString stringWithFormat:@"$ %@",[response valueForKey:@"sub_total"]];
+        _ShippingCharge_LBL.text= [NSString stringWithFormat:@"+ $ %@",[response valueForKey:@"shipping_charge"]];
+        _ShippingDiscount_LBL.text=[NSString stringWithFormat:@"- $ %@",[response valueForKey:@"shipping_discount"]];
+        _Grand_Total_LBL.text=[NSString stringWithFormat:@"$ %@",[response valueForKey:@"final_total"]];
         _TakeAwayDateTime.text=[NSString stringWithFormat:@"%@ %@",self.theDate,self.theTime];
         [Change_BTN setTitle:@"CHANGE" forState:UIControlStateNormal];
         

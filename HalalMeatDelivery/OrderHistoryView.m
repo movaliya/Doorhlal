@@ -158,7 +158,7 @@
     cell.Title_LBL.text=[[ExchangeArray valueForKey:@"restorant_name"] objectAtIndex:indexPath.section];
 
     //
-    cell.Price_LBL.text=[NSString stringWithFormat:@"£%@",[[ExchangeArray valueForKey:@"subtotal"] objectAtIndex:indexPath.section]];
+    cell.Price_LBL.text=[NSString stringWithFormat:@"$%@",[[ExchangeArray valueForKey:@"subtotal"] objectAtIndex:indexPath.section]];
     cell.Date_LBL.text=[[ExchangeArray valueForKey:@"orderdate"] objectAtIndex:indexPath.section];
     cell.PaymentMethod_LBL.text=[[ExchangeArray valueForKey:@"payment_method"] objectAtIndex:indexPath.section];
     

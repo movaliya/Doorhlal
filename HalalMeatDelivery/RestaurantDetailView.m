@@ -830,7 +830,7 @@
         cell.Title_LBL.text=[[LoadArr valueForKey:@"name"] objectAtIndex:indexPath.row];
         
         
-        cell.Price_LBL.text=[NSString stringWithFormat:@"£%@",[[LoadArr valueForKey:@"sell_price"] objectAtIndex:indexPath.row]];
+        cell.Price_LBL.text=[NSString stringWithFormat:@"$%@",[[LoadArr valueForKey:@"sell_price"] objectAtIndex:indexPath.row]];
         cell.Cat_LBL.text=[[LoadArr valueForKey:@"category"] objectAtIndex:indexPath.row];
         
         NSString *Urlstr=[[LoadArr valueForKey:@"image_path"] objectAtIndex:indexPath.row];

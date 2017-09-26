@@ -12,7 +12,7 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <Google/SignIn.h>
 #import <TwitterKit/TwitterKit.h>
-
+#import "NSDictionary+NullReplacementDic.h"
 @interface LoginView : UIViewController<CCKFNavDrawerDelegate,GIDSignInUIDelegate,GIDSignInDelegate>
 {
     NSDictionary *Maindic;

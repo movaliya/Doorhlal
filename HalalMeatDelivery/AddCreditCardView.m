@@ -31,7 +31,7 @@
     
     [super viewDidLoad];
     PayButton.enabled=YES;
-    NSString *titleamount = [NSString stringWithFormat:@"Pay £%@", self.amount];
+    NSString *titleamount = [NSString stringWithFormat:@"Pay $%@", self.amount];
     [PayButton setTitle:titleamount forState:UIControlStateNormal];
     
    // PayButton.backgroundColor=[UIColor colorWithRed:(193/255.0) green:(193/255.0) blue:(193/255.0) alpha:1.0];
@@ -103,8 +103,19 @@
                 break;
             }
         }
-        self.Billing_TXTVW.text=[NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@",[SelectedAddress valueForKey:@"name"],[SelectedAddress valueForKey:@"address"],[SelectedAddress valueForKey:@"pincode"], [SelectedAddress valueForKey:@"contact_number"], [SelectedAddress valueForKey:@"email"]];
-        
+        if (SelectedAddress.count!=0)
+        {
+            self.Billing_TXTVW.text=[NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@",[SelectedAddress valueForKey:@"name"],[SelectedAddress valueForKey:@"address"],[SelectedAddress valueForKey:@"pincode"], [SelectedAddress valueForKey:@"contact_number"], [SelectedAddress valueForKey:@"email"]];
+        }
+        else
+        {
+            NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
+            
+            if ([UserData count] != 0)
+            {
+                self.Billing_TXTVW.text=[NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@",[UserData valueForKey:@"u_name"],[UserData valueForKey:@"u_address"],[UserData valueForKey:@"u_pincode"], [UserData valueForKey:@"u_phone"], [UserData valueForKey:@"u_address"]];
+            }
+        }
     }
     else
     {

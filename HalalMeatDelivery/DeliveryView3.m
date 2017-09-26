@@ -65,10 +65,10 @@
     
     
     
-    _SubTotal_LBL.text=[NSString stringWithFormat:@"£ %@",[self.ChargesDICNORY3 valueForKey:@"sub_total"]];
-    _ShippingCharge_LBL.text= [NSString stringWithFormat:@"+ £ %@",[self.ChargesDICNORY3 valueForKey:@"shipping_charge"]];
-    _ShippingDiscount_LBL.text=[NSString stringWithFormat:@"- £ %@",[self.ChargesDICNORY3 valueForKey:@"shipping_discount"]];
-    _Grand_Total_LBL.text=[NSString stringWithFormat:@"£ %@",[self.ChargesDICNORY3 valueForKey:@"final_total"]];
+    _SubTotal_LBL.text=[NSString stringWithFormat:@"$ %@",[self.ChargesDICNORY3 valueForKey:@"sub_total"]];
+    _ShippingCharge_LBL.text= [NSString stringWithFormat:@"+ $ %@",[self.ChargesDICNORY3 valueForKey:@"shipping_charge"]];
+    _ShippingDiscount_LBL.text=[NSString stringWithFormat:@"- $ %@",[self.ChargesDICNORY3 valueForKey:@"shipping_discount"]];
+    _Grand_Total_LBL.text=[NSString stringWithFormat:@"$ %@",[self.ChargesDICNORY3 valueForKey:@"final_total"]];
     final_total=[NSString stringWithFormat:@"%@",[self.ChargesDICNORY3 valueForKey:@"final_total"]];
     _DileveryDateTimeLBL.text=self.DateNTimeSTR;
     

@@ -176,8 +176,8 @@
         [MainDic setObject:MainCount forKey:@"MainCount"];
         
         _upperOrderQTYLBL.text=[NSString stringWithFormat:@"Order Total (%lu Items)",(unsigned long)itemDetailDic.count];
-        self.Total_LBL.text=[NSString stringWithFormat:@"Total : £ %@",[[CardDicnory valueForKey:@"sub_total"] stringValue]];
-        _upperTotalLBL.text=[NSString stringWithFormat:@"£ %@",[[CardDicnory valueForKey:@"sub_total"] stringValue]];
+        self.Total_LBL.text=[NSString stringWithFormat:@"Total : $ %@",[[CardDicnory valueForKey:@"sub_total"] stringValue]];
+        _upperTotalLBL.text=[NSString stringWithFormat:@"$ %@",[[CardDicnory valueForKey:@"sub_total"] stringValue]];
         
         SubTotalValues=[[CardDicnory valueForKey:@"sub_total"]integerValue];
         OldSubTotalValues=[[CardDicnory valueForKey:@"sub_total"]integerValue];
@@ -322,7 +322,7 @@
     [cell.Cancel_BTN addTarget:self action:@selector(CancelCellClick:) forControlEvents:UIControlEventTouchUpInside];
     
     cell.Title_LBL.text=[[itemDetailDic valueForKey:@"name"] objectAtIndex:indexPath.row];
-    cell.Price_LBL.text=[NSString stringWithFormat:@"£%@",[[itemDetailDic valueForKey:@"sell_price"] objectAtIndex:indexPath.row]];
+    cell.Price_LBL.text=[NSString stringWithFormat:@"$%@",[[itemDetailDic valueForKey:@"sell_price"] objectAtIndex:indexPath.row]];
     
     cell.Cat_LBL.text=[[itemDetailDic valueForKey:@"category"] objectAtIndex:indexPath.row];
     
@@ -350,8 +350,8 @@
     
     [arr replaceObjectAtIndex:senderButton.tag withObject:[NSString stringWithFormat:@"%ld",Main]];
     [dic setObject:arr forKey:@"Count"];
-    self.Total_LBL.text=[NSString stringWithFormat:@"Total : £ %ld",(long)OldSubTotalValues];
-    _upperTotalLBL.text=[NSString stringWithFormat:@"£ %ld",(long)OldSubTotalValues];
+    self.Total_LBL.text=[NSString stringWithFormat:@"Total : $ %ld",(long)OldSubTotalValues];
+    _upperTotalLBL.text=[NSString stringWithFormat:@"$ %ld",(long)OldSubTotalValues];
     SubTotalValues=OldSubTotalValues;
     
     [TableView reloadData];
@@ -400,8 +400,8 @@
     [arr replaceObjectAtIndex:senderButton.tag withObject:[NSString stringWithFormat:@"%ld",count]];
     [dic setObject:arr forKey:@"Count"];
     SubTotalValues=SubTotalValues+[[[itemDetailDic valueForKey:@"sell_price"] objectAtIndex:senderButton.tag] integerValue];
-    self.Total_LBL.text=[NSString stringWithFormat:@"Total : £ %ld",(long)SubTotalValues];
-    _upperTotalLBL.text=[NSString stringWithFormat:@"£ %ld",(long)SubTotalValues];
+    self.Total_LBL.text=[NSString stringWithFormat:@"Total : $ %ld",(long)SubTotalValues];
+    _upperTotalLBL.text=[NSString stringWithFormat:@"$ %ld",(long)SubTotalValues];
     
     ButtonTag=senderButton.tag;
     chechPlusMinus=1;
@@ -431,8 +431,8 @@
         chechPlusMinus=0;
         cell.Update_View.hidden=NO;
         SubTotalValues=SubTotalValues-[[[itemDetailDic valueForKey:@"sell_price"] objectAtIndex:senderButton.tag] integerValue];
-        self.Total_LBL.text=[NSString stringWithFormat:@"Total : £ %ld",(long)SubTotalValues];
-        _upperTotalLBL.text=[NSString stringWithFormat:@"£ %ld",(long)SubTotalValues];
+        self.Total_LBL.text=[NSString stringWithFormat:@"Total : $ %ld",(long)SubTotalValues];
+        _upperTotalLBL.text=[NSString stringWithFormat:@"$ %ld",(long)SubTotalValues];
     }
 }
 
@@ -543,8 +543,8 @@
         NSString *removeZeroStr = [[response objectForKey:@"total_price"] stringByReplacingOccurrencesOfString:@".00" withString:@""];
         SubTotalValues=[removeZeroStr integerValue];
         
-        self.Total_LBL.text=[NSString stringWithFormat:@"Total : £ %ld",(long)SubTotalValues];
-        _upperTotalLBL.text=[NSString stringWithFormat:@"£ %ld",(long)SubTotalValues];
+        self.Total_LBL.text=[NSString stringWithFormat:@"Total : $ %ld",(long)SubTotalValues];
+        _upperTotalLBL.text=[NSString stringWithFormat:@"$ %ld",(long)SubTotalValues];
          _upperOrderQTYLBL.text=[NSString stringWithFormat:@"Order Total (%lu Items)",(unsigned long)itemDetailDic.count];
         [TableView reloadData];
         
@@ -628,7 +628,7 @@
             [_POPFristView setHidden:YES];
             [_POPThirdView setHidden:YES];
              NSString *min_delivery_amount=[[CardDicnory valueForKey:@"restorant_detail"] valueForKey:@"min_delivery_amount"];
-             _POPMinValue.text=[NSString stringWithFormat:@"£ %@",min_delivery_amount];
+             _POPMinValue.text=[NSString stringWithFormat:@"$ %@",min_delivery_amount];
         }
         else
         {
@@ -704,7 +704,7 @@
                 if ([Paymethod_Str isEqualToString:@"Delivery"])
                 {
                     NSString *tempTotalcheck=_upperTotalLBL.text;
-                    tempTotalcheck = [tempTotalcheck stringByReplacingOccurrencesOfString:@"£ " withString:@""];
+                    tempTotalcheck = [tempTotalcheck stringByReplacingOccurrencesOfString:@"$ " withString:@""];
                     
                     [self performSelector:@selector(checkDeliveryTime) withObject:nil afterDelay:0.1];
                    

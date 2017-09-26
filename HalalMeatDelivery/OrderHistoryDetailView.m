@@ -115,8 +115,8 @@
         [_Restorent_Image sd_setImageWithURL:[NSURL URLWithString:Urlstr] placeholderImage:[UIImage imageNamed:@"placeholder_img"]];
         [_Restorent_Image setShowActivityIndicatorView:YES];
          _Total_Quntity_LBl.text=[NSString stringWithFormat:@"%@",[MainCardDictnory valueForKey:@"total_qty"]];
-        _SubTotal_LBL.text=[NSString stringWithFormat:@"£ %@",[MainCardDictnory valueForKey:@"sub_total"]];
-        _upper_subtotal_LBL.text=[NSString stringWithFormat:@"£ %@",[MainCardDictnory valueForKey:@"sub_total"]];
+        _SubTotal_LBL.text=[NSString stringWithFormat:@"$ %@",[MainCardDictnory valueForKey:@"sub_total"]];
+        _upper_subtotal_LBL.text=[NSString stringWithFormat:@"$ %@",[MainCardDictnory valueForKey:@"sub_total"]];
         _res_phoneLBL.text=[NSString stringWithFormat:@"%@",[[MainCardDictnory valueForKey:@"restorant_details"]valueForKey:@"phone"]];
         _RestAddress.text=[NSString stringWithFormat:@"%@",[[MainCardDictnory valueForKey:@"restorant_details"]valueForKey:@"address"]];
         
@@ -204,7 +204,7 @@
     }
     cell.productName.text=[[product_detail valueForKey:@"name"] objectAtIndex:indexPath.row];
     cell.Quantity_LBL.text=[[[MainCardDictnory valueForKey:@"items"]valueForKey:@"qty"] objectAtIndex:indexPath.row];
-    cell.Total_LBL.text=[NSString stringWithFormat:@"£ %@",[[product_detail valueForKey:@"sell_price"] objectAtIndex:indexPath.row]];
+    cell.Total_LBL.text=[NSString stringWithFormat:@"$ %@",[[product_detail valueForKey:@"sell_price"] objectAtIndex:indexPath.row]];
     
     
     

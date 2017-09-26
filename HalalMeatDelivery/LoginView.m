@@ -377,7 +377,7 @@
         
         FBSignIndictParams = [[NSMutableDictionary alloc] init];
         [FBSignIndictParams setObject:r_p  forKey:@"r_p"];
-        [FBSignIndictParams setObject:GmailServiceName  forKey:@"service"];
+        [FBSignIndictParams setObject:RegisterServiceName  forKey:@"service"];
         [FBSignIndictParams setObject:email  forKey:@"u_email"];
         [FBSignIndictParams setObject:fullName  forKey:@"u_name"];
         [FBSignIndictParams setObject:@""  forKey:@"u_password"];
@@ -387,7 +387,7 @@
         [FBSignIndictParams setObject:@""  forKey:@"u_city"];
         [FBSignIndictParams setObject:@""  forKey:@"u_state"];
         [FBSignIndictParams setObject:@""  forKey:@"u_country"];
-        [FBSignIndictParams setObject:@"gmail"  forKey:@"u_type"];
+        [FBSignIndictParams setObject:@"google"  forKey:@"u_type"];
         
         
         //gmil
@@ -544,9 +544,10 @@
     //NSLog(@"Logindata==%@",response);
     if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
     {
-        
+         NSDictionary *olddic = [response mutableCopy];
+        NSDictionary *newdict =[olddic dictionaryByReplacingNullsWithBlanks];
         NSMutableDictionary *dic = [[NSMutableDictionary  alloc] init];
-        dic=[[response valueForKey:@"result"] objectAtIndex:0];
+        dic=[[newdict valueForKey:@"result"] objectAtIndex:0];
         [[NSUserDefaults standardUserDefaults]setObject:dic forKey:@"LoginUserDic"];
         
         SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
@@ -559,7 +560,6 @@
     }
     
 }
-
 - (IBAction)Login_click:(id)sender
 {
     

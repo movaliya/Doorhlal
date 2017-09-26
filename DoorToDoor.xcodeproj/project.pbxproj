@@ -94,6 +94,8 @@
 		535FF4DA1D7418A0001355CD /* ProductDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535FF4D81D7418A0001355CD /* ProductDetailCell.xib */; };
 		535FF4E21D741931001355CD /* ShoppingCartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535FF4E11D741931001355CD /* ShoppingCartView.m */; };
 		536552661EB308D1004E4598 /* SplashScreen11.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 536552651EB308D1004E4598 /* SplashScreen11.JPG */; };
+		5372A1931F7A6CB800C88265 /* NSArray+NullReplacementArr.m in Sources */ = {isa = PBXBuildFile; fileRef = 5372A1901F7A6CB800C88265 /* NSArray+NullReplacementArr.m */; };
+		5372A1941F7A6CB800C88265 /* NSDictionary+NullReplacementDic.m in Sources */ = {isa = PBXBuildFile; fileRef = 5372A1921F7A6CB800C88265 /* NSDictionary+NullReplacementDic.m */; };
 		5377FE3C1F6F9C5800E35BA9 /* login_back_xhdpi.png in Resources */ = {isa = PBXBuildFile; fileRef = 5377FE3B1F6F9C5800E35BA9 /* login_back_xhdpi.png */; };
 		5395556C1F723AC80057A461 /* AboutVW.m in Sources */ = {isa = PBXBuildFile; fileRef = 5395556B1F723AC80057A461 /* AboutVW.m */; };
 		5395556E1F723D460057A461 /* 521403691.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5395556D1F723D460057A461 /* 521403691.jpg */; };
@@ -408,6 +410,10 @@
 		535FF4E01D741931001355CD /* ShoppingCartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartView.h; sourceTree = "<group>"; };
 		535FF4E11D741931001355CD /* ShoppingCartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartView.m; sourceTree = "<group>"; };
 		536552651EB308D1004E4598 /* SplashScreen11.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SplashScreen11.JPG; sourceTree = "<group>"; };
+		5372A18F1F7A6CB800C88265 /* NSArray+NullReplacementArr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NullReplacementArr.h"; sourceTree = "<group>"; };
+		5372A1901F7A6CB800C88265 /* NSArray+NullReplacementArr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NullReplacementArr.m"; sourceTree = "<group>"; };
+		5372A1911F7A6CB800C88265 /* NSDictionary+NullReplacementDic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NullReplacementDic.h"; sourceTree = "<group>"; };
+		5372A1921F7A6CB800C88265 /* NSDictionary+NullReplacementDic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NullReplacementDic.m"; sourceTree = "<group>"; };
 		5377FE3B1F6F9C5800E35BA9 /* login_back_xhdpi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_back_xhdpi.png; sourceTree = "<group>"; };
 		5395556A1F723AC80057A461 /* AboutVW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVW.h; sourceTree = "<group>"; };
 		5395556B1F723AC80057A461 /* AboutVW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVW.m; sourceTree = "<group>"; };
@@ -1059,6 +1065,10 @@
 				B1FC793C1D7DE5D800DA38DC /* ProfileView.m */,
 				5309C4C61D83F3CE00C146AC /* RateView.h */,
 				5309C4C71D83F3CE00C146AC /* RateView.m */,
+				5372A18F1F7A6CB800C88265 /* NSArray+NullReplacementArr.h */,
+				5372A1901F7A6CB800C88265 /* NSArray+NullReplacementArr.m */,
+				5372A1911F7A6CB800C88265 /* NSDictionary+NullReplacementDic.h */,
+				5372A1921F7A6CB800C88265 /* NSDictionary+NullReplacementDic.m */,
 				B109C6531D6C9FC9000936A2 /* Supporting Files */,
 			);
 			path = HalalMeatDelivery;
@@ -1744,6 +1754,7 @@
 				5301AF641D76A85600F16656 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				B1BE54DA1D6E1A030012A152 /* IQTitleBarButtonItem.m in Sources */,
 				530127AB1EB769C300394F9A /* TTRangeSlider.m in Sources */,
+				5372A1941F7A6CB800C88265 /* NSDictionary+NullReplacementDic.m in Sources */,
 				B151D9FC1F72E6A200D5DF7A /* MTLJSONAdapter.m in Sources */,
 				5301AF4B1D76A83C00F16656 /* AFURLResponseSerialization.m in Sources */,
 				5301AEF21D76A4FD00F16656 /* CommonWS.m in Sources */,
@@ -1765,6 +1776,7 @@
 				B1415BE51F6E56C800BCAF6D /* RegisterView.m in Sources */,
 				535FF4D41D741877001355CD /* NearByCell.m in Sources */,
 				535FF4E21D741931001355CD /* ShoppingCartView.m in Sources */,
+				5372A1931F7A6CB800C88265 /* NSArray+NullReplacementArr.m in Sources */,
 				5301AF2E1D76A80300F16656 /* UIColor+KVNContrast.m in Sources */,
 				B1BE54D41D6E1A030012A152 /* IQUIWindow+Hierarchy.m in Sources */,
 				B1BE54D61D6E1A030012A152 /* IQKeyboardReturnKeyHandler.m in Sources */,
