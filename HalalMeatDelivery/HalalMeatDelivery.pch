@@ -44,7 +44,9 @@
 
 
 //gmail Signup
-#define GmailServiceName @"register_google"
+#define GmailServiceName @"get_user_detail"
+#define SocailMediaLogin_URL @"service_general.php"
+
 
 #define Nearbyrestorant_url @"service_restorant.php"
 #define Nearby_restorantsServiceName @"get_nearby_restorants"

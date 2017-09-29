@@ -1399,11 +1399,11 @@
                                                         <rect key="frame" x="0.0" y="28" width="280" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0cp-7B-8nG" id="BwI-iB-CHO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q31-58-Wwo">
-                                                                    <rect key="frame" x="15" y="0.0" width="250" height="43"/>
+                                                                    <rect key="frame" x="15" y="0.0" width="250" height="43.5"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
