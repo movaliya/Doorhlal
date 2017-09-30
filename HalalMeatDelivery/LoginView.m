@@ -128,6 +128,9 @@
     //Facebook SignIn
     loginMgr = [[FBSDKLoginManager alloc] init];
     [loginMgr logOut];
+    
+
+
    
 }
 
@@ -377,18 +380,21 @@
         
         FBSignIndictParams = [[NSMutableDictionary alloc] init];
         [FBSignIndictParams setObject:r_p  forKey:@"r_p"];
-        [FBSignIndictParams setObject:RegisterServiceName  forKey:@"service"];
-        [FBSignIndictParams setObject:email  forKey:@"u_email"];
-        [FBSignIndictParams setObject:fullName  forKey:@"u_name"];
-        [FBSignIndictParams setObject:@""  forKey:@"u_password"];
-        [FBSignIndictParams setObject:@""  forKey:@"u_phone"];
-        [FBSignIndictParams setObject:@""  forKey:@"u_address"];
-        [FBSignIndictParams setObject:@""  forKey:@"u_zip"];
-        [FBSignIndictParams setObject:@""  forKey:@"u_city"];
-        [FBSignIndictParams setObject:@""  forKey:@"u_state"];
-        [FBSignIndictParams setObject:@""  forKey:@"u_country"];
-        [FBSignIndictParams setObject:@"google"  forKey:@"u_type"];
+        [FBSignIndictParams setObject:GmailServiceName  forKey:@"service"];
+        [FBSignIndictParams setObject:email  forKey:@"email"];
         
+        //[FBSignIndictParams setObject:fullName  forKey:@"u_name"];
+       // [FBSignIndictParams setObject:@""  forKey:@"u_password"];
+       // [FBSignIndictParams setObject:@""  forKey:@"u_phone"];
+      //  [FBSignIndictParams setObject:@""  forKey:@"u_address"];
+       // [FBSignIndictParams setObject:@""  forKey:@"u_zip"];
+      //  [FBSignIndictParams setObject:@""  forKey:@"u_city"];
+       // [FBSignIndictParams setObject:@""  forKey:@"u_state"];
+       // [FBSignIndictParams setObject:@""  forKey:@"u_country"];
+       // [FBSignIndictParams setObject:@"google"  forKey:@"u_type"];
+        
+        
+        //http://bulkbox.in/door2door/service/service_general.php?r_p=1224&service=get_user_detail&email=acharyajay007@gmail.com
         
         //gmil
         [self CallGmailSignup];
@@ -423,7 +429,7 @@
     BOOL internet=[AppDelegate connectedToNetwork];
     if (internet)
     {
-        [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,RegisterUrl] withParam:FBSignIndictParams withCompletion:^(NSDictionary *response, BOOL success1)
+        [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,SocailMediaLogin_URL] withParam:FBSignIndictParams withCompletion:^(NSDictionary *response, BOOL success1)
          {
              [self handleFBResponse:response];
          }];
@@ -552,6 +558,7 @@
         
         SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
         [self.navigationController pushViewController:vcr animated:YES];
+        
          [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
     }
     else
