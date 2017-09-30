@@ -38,4 +38,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *RestAddress;
 @property (weak, nonatomic) IBOutlet UILabel *openNClosingHourLBL;
 @property (weak, nonatomic) IBOutlet UILabel *DownOrderIDLBL;
+@property (strong, nonatomic) IBOutlet UILabel *Comment_LBL;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *CommentViewHight;
+@property (strong, nonatomic) IBOutlet UILabel *Line_LBL;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *ScrollHight;
 @end

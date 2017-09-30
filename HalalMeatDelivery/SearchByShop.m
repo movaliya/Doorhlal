@@ -364,7 +364,28 @@ static dispatch_once_t predicate;
             {
                 [SearchDictnory addObject:dic];
             }
-            NewArr=[[NSMutableArray alloc]initWithArray:SearchDictnory];
+            NSArray *sortedArray = [SearchDictnory sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                if ([[obj1 valueForKey:@"distance"] integerValue] > [[obj2 valueForKey:@"distance"] integerValue]) {
+                    return (NSComparisonResult)NSOrderedDescending;
+                }
+                if ([[obj1 valueForKey:@"distance"] integerValue] < [[obj2 valueForKey:@"distance"] integerValue]) {
+                    return (NSComparisonResult)NSOrderedAscending;
+                }
+                return (NSComparisonResult)NSOrderedSame;
+            }];
+            
+            
+            NSArray *sortedPremium = [sortedArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                if ([[obj1 valueForKey:@"is_per"] integerValue] > [[obj2 valueForKey:@"is_per"] integerValue]) {
+                    return (NSComparisonResult)NSOrderedAscending;
+                }
+                if ([[obj1 valueForKey:@"is_per"] integerValue] < [[obj2 valueForKey:@"is_per"] integerValue]) {
+                    return (NSComparisonResult)NSOrderedDescending;
+                }
+                return (NSComparisonResult)NSOrderedDescending;
+            }];
+            
+            SearchDictnory=[[NSMutableArray alloc]initWithArray:sortedPremium];
             limit_only=limit_only+DataDic.count;
             NoResponseInt=1;
             [Table reloadData];
@@ -377,10 +398,31 @@ static dispatch_once_t predicate;
             {
                 [SearchDictnory addObject:dic];
             }
-            NewArr=[[NSMutableArray alloc]initWithArray:SearchDictnory];
+            NSArray *sortedArray = [SearchDictnory sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                if ([[obj1 valueForKey:@"distance"] integerValue] > [[obj2 valueForKey:@"distance"] integerValue]) {
+                    return (NSComparisonResult)NSOrderedDescending;
+                }
+                if ([[obj1 valueForKey:@"distance"] integerValue] < [[obj2 valueForKey:@"distance"] integerValue]) {
+                    return (NSComparisonResult)NSOrderedAscending;
+                }
+                return (NSComparisonResult)NSOrderedSame;
+            }];
+            NSArray *sortedPremium = [sortedArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                if ([[obj1 valueForKey:@"is_per"] integerValue] > [[obj2 valueForKey:@"is_per"] integerValue]) {
+                    return (NSComparisonResult)NSOrderedAscending;
+                }
+                if ([[obj1 valueForKey:@"is_per"] integerValue] < [[obj2 valueForKey:@"is_per"] integerValue]) {
+                    return (NSComparisonResult)NSOrderedDescending;
+                }
+                return (NSComparisonResult)NSOrderedDescending;
+            }];
+            
+            
+            SearchDictnory=[[NSMutableArray alloc]initWithArray:sortedPremium];
             limit_only=limit_only+DataDic.count;
             NoResponseInt=1;
             [Table reloadData];
+           // NSLog(@"Sorted Service Array is ::%@",sortedArray);
         }
         
     }
@@ -609,6 +651,14 @@ static dispatch_once_t predicate;
         cell.Distance_LBL.text=[NSString stringWithFormat:@" %@ ",[[SearchDictnory valueForKey:@"distance"] objectAtIndex:indexPath.row]] ;
         cell.Address_LBL.text=[NSString stringWithFormat:@" %@ ",[[SearchDictnory valueForKey:@"address"] objectAtIndex:indexPath.row]] ;
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        if ([[[SearchDictnory valueForKey:@"is_per"] objectAtIndex:indexPath.row] isEqualToString:@"1"])
+        {
+            cell.Premium_LBL.hidden=NO;
+        }
+        else
+        {
+            cell.Premium_LBL.hidden=YES;
+        }
         
         NSInteger linecout=[self hight:cell.Address_LBL];
         if (linecout==1)
@@ -1251,7 +1301,29 @@ static dispatch_once_t predicate;
             [SearchDictnory addObject:dic];
             
         }
-        NewArr=[[NSMutableArray alloc]initWithArray:SearchDictnory];
+        NSArray *sortedArray = [SearchDictnory sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            if ([[obj1 valueForKey:@"distance"] integerValue] > [[obj2 valueForKey:@"distance"] integerValue]) {
+                return (NSComparisonResult)NSOrderedDescending;
+            }
+            if ([[obj1 valueForKey:@"distance"] integerValue] < [[obj2 valueForKey:@"distance"] integerValue]) {
+                return (NSComparisonResult)NSOrderedAscending;
+            }
+            return (NSComparisonResult)NSOrderedSame;
+        }];
+        
+        
+        NSArray *sortedPremium = [sortedArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            if ([[obj1 valueForKey:@"is_per"] integerValue] > [[obj2 valueForKey:@"is_per"] integerValue]) {
+                return (NSComparisonResult)NSOrderedAscending;
+            }
+            if ([[obj1 valueForKey:@"is_per"] integerValue] < [[obj2 valueForKey:@"is_per"] integerValue]) {
+                return (NSComparisonResult)NSOrderedDescending;
+            }
+            return (NSComparisonResult)NSOrderedDescending;
+        }];
+        
+        
+        SearchDictnory=[[NSMutableArray alloc]initWithArray:sortedPremium];
         [Table reloadData];
         NoResponseInt=0;
     }
