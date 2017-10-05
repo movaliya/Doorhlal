@@ -19,7 +19,7 @@
 @end
 
 @implementation OrderHistoryDetailView
-@synthesize Table,TopView,BottomView,card_id;
+@synthesize Table,TopView,BottomView,card_id,Comment_LBL,CommentViewHight,Line_LBL;
 
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -73,6 +73,22 @@
         MainCardDictnory=[response objectForKey:@"result"];
         
         _DownOrderIDLBL.text=[NSString stringWithFormat:@"Order ID : %@",[MainCardDictnory valueForKey:@"cart_id"]];
+        
+        
+        if ([[MainCardDictnory valueForKey:@"remarks"] isEqualToString:@""])
+        {
+            CommentViewHight.constant=150;
+            _ScrollHight.constant=612;
+            Line_LBL.hidden=YES;
+            Comment_LBL.text=@"--";
+        }
+        else
+        {
+            CommentViewHight.constant=183;
+            _ScrollHight.constant=642;
+            Line_LBL.hidden=NO;
+            Comment_LBL.text=[MainCardDictnory valueForKey:@"remarks"];
+        }
         
         if ([[MainCardDictnory valueForKey:@"payment_mode"]isEqualToString:@"Online Payment"])
         {
