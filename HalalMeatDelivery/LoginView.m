@@ -431,14 +431,35 @@
     {
         [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,SocailMediaLogin_URL] withParam:FBSignIndictParams withCompletion:^(NSDictionary *response, BOOL success1)
          {
-             [self handleFBResponse:response];
+             [self handleGmailResponse:response];
          }];
     }
     else
         [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
     
 }
-
+- (void)handleGmailResponse:(NSDictionary*)response
+{
+    //NSLog(@"Logindata==%@",response);
+    if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
+    {
+        NSDictionary *olddic = [response mutableCopy];
+        NSDictionary *newdict =[olddic dictionaryByReplacingNullsWithBlanks];
+        NSMutableDictionary *dic = [[NSMutableDictionary  alloc] init];
+        dic=[[newdict valueForKey:@"result"] objectAtIndex:0];
+        [[NSUserDefaults standardUserDefaults]setObject:dic forKey:@"LoginUserDic"];
+        
+        SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
+        [self.navigationController pushViewController:vcr animated:YES];
+        
+        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:@"Login Successfully." delegate:nil];
+    }
+    else
+    {
+        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
+    }
+    
+}
 - (void)signIn:(GIDSignIn *)signIn didDisconnectWithUser:(GIDGoogleUser *)user withError:(NSError *)error
 {
     // Perform any operations when the user disconnects from app here.
