@@ -19,7 +19,7 @@
 
 @interface LoginView ()
 {
-    
+    UIButton *imgforLeft;
 }
 -(void)handleFBSessionStateChangeWithNotification:(NSNotification *)notification;
 @property (strong, nonatomic) UIButton *POPOK;
@@ -131,7 +131,28 @@
     
 
 
-   
+    UIView *vw=[[UIView alloc]initWithFrame:CGRectMake(70, 0, 40, 50)];
+    imgforLeft=[[UIButton alloc] initWithFrame:CGRectMake(0, 5, 40, 40)];
+    [imgforLeft addTarget:self action:@selector(ShowPassword:) forControlEvents:UIControlEventTouchUpInside];
+    [imgforLeft setImage:[UIImage imageNamed:@"ShowPassword"] forState:UIControlStateNormal];
+    [imgforLeft setContentMode:UIViewContentModeCenter];
+    imgforLeft.hidden=YES;
+    [vw addSubview:imgforLeft];
+    Password_TXT.rightView=vw;
+    Password_TXT.rightViewMode=UITextFieldViewModeAlways;
+    
+}
+
+-(void)ShowPassword:(id)sedner
+{
+    if (Password_TXT.secureTextEntry==YES)
+    {
+        Password_TXT.secureTextEntry=NO;
+    }
+    else
+    {
+        Password_TXT.secureTextEntry=YES;
+    }
 }
 
 -(void)checkLoginAndPresentContainer
@@ -698,23 +719,48 @@
     return NO;
 }
  */
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (textField==Password_TXT)
+    {
+        if ([textField.text isEqualToString:@""])
+        {
+            imgforLeft.hidden=YES;
+        }
+    }
+    
+}
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    
+    NSString *resultStr = [textField.text stringByReplacingCharactersInRange:range withString:string];
+
     if (range.location == 0 && [string isEqualToString:@" "])
     {
+        imgforLeft.hidden=YES;
         return NO;
     }
     if (textField==Password_TXT)
     {
         if (range.location == textField.text.length && [string isEqualToString:@" "])
         {
+            imgforLeft.hidden=YES;
             // ignore replacement string and add your own
             textField.text = [textField.text stringByAppendingString:@""];
             return NO;
         }
         else
         {
+            if ([resultStr isEqualToString:@""])
+            {
+                imgforLeft.hidden=YES;
+            }
+            else
+            {
+                imgforLeft.hidden=NO;
+            }
+            
             return YES;
         }
     }
@@ -724,6 +770,7 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField * )textField
 {
+    imgforLeft.hidden=YES;
     [textField resignFirstResponder];
     return YES;
 }

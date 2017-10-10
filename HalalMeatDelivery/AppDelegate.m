@@ -29,6 +29,7 @@ static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyCIjQcJ2s
     
     //[HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey: kHNKDemoGooglePlacesAutocompleteApiKey];
     
+    sleep(3);
     //Google
     NSError* configureError;
     [[GGLContext sharedInstance] configureWithError: &configureError];

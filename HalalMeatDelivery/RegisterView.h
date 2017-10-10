@@ -29,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *email_Txt;
 @property (weak, nonatomic) IBOutlet UITextField *Username_Txt;
 @property (weak, nonatomic) IBOutlet UITextField *address_Txt;
+@property (strong, nonatomic) IBOutlet UITextField *address2_TXT;
+@property (strong, nonatomic) IBOutlet UITextField *PhoneNo_TXT;
+
 @property (weak, nonatomic) IBOutlet UITextField *pincode_Txt;
 @property (weak, nonatomic) IBOutlet UITextField *password_Txt;
 -(void)openActiveSessionWithPermissions:(NSArray *)permissions allowLoginUI:(BOOL)allowLoginUI;

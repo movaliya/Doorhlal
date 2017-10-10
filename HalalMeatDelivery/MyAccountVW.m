@@ -64,6 +64,7 @@
 - (IBAction)MyOrderBtn_Action:(id)sender
 {
     OrderHistoryView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"OrderHistoryView"];
+    vcr.ViewChkStr=@"BACK";
     [self.navigationController pushViewController:vcr animated:YES];
 }
 

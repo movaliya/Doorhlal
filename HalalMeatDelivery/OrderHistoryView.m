@@ -26,14 +26,26 @@
 @end
 
 @implementation OrderHistoryView
-@synthesize Table;
-@synthesize ClearPop,NoPop,YesPop,ToTextPop,FromTextPop;
+@synthesize Table,ViewChkStr,Menu_BTN;
+@synthesize ClearPop,NoPop,YesPop,ToTextPop,FromTextPop,Empty_LBL;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //WhiteBackArrow.png
+    //WhiteMenuIcon.png
     
+    if ([ViewChkStr isEqualToString:@"BACK"])
+    {
+        [Menu_BTN setImage:[UIImage imageNamed:@"WhiteBackArrow"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [Menu_BTN setImage:[UIImage imageNamed:@"WhiteMenuIcon"] forState:UIControlStateNormal];
+    }
+    
+    Empty_LBL.hidden=YES;
     self.appDelegate = [AppDelegate sharedInstance];
    
     UINib *nib = [UINib nibWithNibName:@"OrderHistoryCell" bundle:nil];
@@ -74,24 +86,35 @@
 }
 - (void)handleOrderCardItemResponse:(NSDictionary*)response
 {
+    Table.hidden=NO;
     if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
     {
         OderHistryDic=[[response objectForKey:@"result"] mutableCopy];
         filterArray=[[response objectForKey:@"result"] mutableCopy];
-        for (int i=0; i<filterArray.count; i++)
+        if (filterArray.count==0)
         {
-            NSString *dateStr=[[[filterArray valueForKey:@"orderdate"]objectAtIndex:i] substringToIndex:10];
-            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"yyyy-MM-dd"];
-            NSDate *Startdate = [dateFormat dateFromString:dateStr];
-            NSString *startTimeStamp = [[NSNumber numberWithInt:floor([Startdate timeIntervalSince1970])] stringValue];
+            Empty_LBL.hidden=NO;
+            Table.hidden=YES;
+            Empty_LBL.text=[response objectForKey:@"ack_msg"];
+        }
+        else
+        {
+            for (int i=0; i<filterArray.count; i++)
+            {
+                NSString *dateStr=[[[filterArray valueForKey:@"orderdate"]objectAtIndex:i] substringToIndex:10];
+                NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                [dateFormat setDateFormat:@"yyyy-MM-dd"];
+                NSDate *Startdate = [dateFormat dateFromString:dateStr];
+                NSString *startTimeStamp = [[NSNumber numberWithInt:floor([Startdate timeIntervalSince1970])] stringValue];
+                
+                [[filterArray objectAtIndex:i] setValue:startTimeStamp forKey:@"date"];
+                [[OderHistryDic objectAtIndex:i] setValue:startTimeStamp forKey:@"date"];
+            }
             
-            [[filterArray objectAtIndex:i] setValue:startTimeStamp forKey:@"date"];
-            [[OderHistryDic objectAtIndex:i] setValue:startTimeStamp forKey:@"date"];
+            ExchangeArray=[OderHistryDic mutableCopy];
+            [Table reloadData];
         }
         
-        ExchangeArray=[OderHistryDic mutableCopy];
-        [Table reloadData];
     }
     else
     {
@@ -245,7 +268,16 @@
 }
 - (IBAction)Menu_Click:(id)sender
 {
-    [self.rootNav drawerToggle];
+    if ([ViewChkStr isEqualToString:@"BACK"])
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else
+    {
+        [self.rootNav drawerToggle];
+    }
+    
+    
 }
 
 - (IBAction)Filter_Click:(id)sender

@@ -17,7 +17,7 @@
 
 @implementation RegisterView
 @synthesize SignUp_BTN,FaceBook_BTN,ScrollView;
-@synthesize Username_Txt,email_Txt,pincode_Txt,password_Txt,address_Txt;
+@synthesize Username_Txt,email_Txt,pincode_Txt,password_Txt,address_Txt,address2_TXT,PhoneNo_TXT;
 @synthesize loginMgr;
 
 -(BOOL)prefersStatusBarHidden
@@ -48,11 +48,16 @@
 {
     [super viewDidLoad];
     
+    address_Txt.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    
     [KmyappDelegate SetimageinTextfield:Username_Txt :@"UserIcon"];
     [KmyappDelegate SetimageinTextfield:email_Txt :@"Email_Icon"];
     [KmyappDelegate SetimageinTextfield:pincode_Txt :@"PinIcon"];
     [KmyappDelegate SetimageinTextfield:password_Txt :@"PasswordIcon"];
     [KmyappDelegate SetimageinTextfield:address_Txt :@"AddressIcon"];
+    
+    [KmyappDelegate SetimageinTextfield:PhoneNo_TXT :@"IconPhone"];
+    [KmyappDelegate SetimageinTextfield:address2_TXT :@"AddressIcon"];
     
     [KmyappDelegate SetbuttonCorner:SignUp_BTN];
     

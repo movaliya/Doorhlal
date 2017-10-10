@@ -202,7 +202,7 @@
     cell.Name_LBL.text=[NSString stringWithFormat:@"Name : %@",[[AddressArr objectAtIndex:indexPath.section]valueForKey:@"name"]];
     cell.Address_LBL.text=[NSString stringWithFormat:@"Address : %@",[[AddressArr objectAtIndex:indexPath.section]valueForKey:@"address"]];
     cell.Email_LBL.text=[NSString stringWithFormat:@"Email : %@",[[AddressArr objectAtIndex:indexPath.section]valueForKey:@"email"]];
-    cell.Contact_LBL.text=[NSString stringWithFormat:@"Contact Number : %@",[[AddressArr objectAtIndex:indexPath.section]valueForKey:@"contact_number"]];
+    cell.Contact_LBL.text=[NSString stringWithFormat:@"Mobile no : %@",[[AddressArr objectAtIndex:indexPath.section]valueForKey:@"contact_number"]];
     
     
     cell.Delete_BTN.tag=indexPath.section;
