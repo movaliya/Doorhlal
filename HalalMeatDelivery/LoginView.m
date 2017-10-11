@@ -253,7 +253,12 @@
 
 - (IBAction)Gmail_Click:(id)sender
 {
-    [[GIDSignIn sharedInstance] signIn];
+    GIDSignIn *signin = [GIDSignIn sharedInstance];
+    signin.shouldFetchBasicProfile = true;
+    signin.delegate = self;
+    signin.uiDelegate = self;
+    [signin signIn];
+    
 }
 
 - (IBAction)Facebook_click:(UIButton *)sender
