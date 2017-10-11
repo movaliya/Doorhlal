@@ -266,7 +266,7 @@
         }
         else if ([UserPincode_txt.text isEqualToString:@""])
         {
-            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Pincode" delegate:nil];
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Zip code" delegate:nil];
             self.NextBTN.enabled=YES;
         }
         else if ([UserEmail_txt.text isEqualToString:@""])
@@ -275,23 +275,37 @@
             [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Email" delegate:nil];
             self.NextBTN.enabled=YES;
         }
+        else if ([UserCity_txt.text isEqualToString:@""])
+        {
+            
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter City" delegate:nil];
+            self.NextBTN.enabled=YES;
+        }
         else if ([UserPhoneNo_txt.text isEqualToString:@""])
         {
-            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Phone Number" delegate:nil];
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Mobile Number" delegate:nil];
             self.NextBTN.enabled=YES;
         }
         else
         {
-            BOOL internet=[AppDelegate connectedToNetwork];
-            if (internet)
+            
+            if (![AppDelegate myMobileNumberValidate:UserPhoneNo_txt.text])
             {
-                
-                [self performSelector:@selector(SendBillDetail) withObject:self afterDelay:0.0 ];
+                [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please Enter a Valid Mobile number" delegate:nil];
             }
             else
             {
-                self.NextBTN.enabled=YES;
-                [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+                BOOL internet=[AppDelegate connectedToNetwork];
+                if (internet)
+                {
+                    
+                    [self performSelector:@selector(SendBillDetail) withObject:self afterDelay:0.0 ];
+                }
+                else
+                {
+                    self.NextBTN.enabled=YES;
+                    [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+                }
             }
             
         }

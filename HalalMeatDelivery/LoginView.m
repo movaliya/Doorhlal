@@ -121,9 +121,18 @@
     NSArray *arrScopes = [NSArray arrayWithObjects:loginScope,userScope, nil];
     NSArray *currentScopes = [GIDSignIn sharedInstance].scopes;
     [GIDSignIn sharedInstance].scopes   = [currentScopes arrayByAddingObjectsFromArray:arrScopes];
-    [GIDSignIn sharedInstance].shouldFetchBasicProfile = true;
-    [GIDSignIn sharedInstance].delegate = self;
-    [GIDSignIn sharedInstance].uiDelegate = self;
+    
+    GIDSignIn *signin = [GIDSignIn sharedInstance];
+    signin.shouldFetchBasicProfile = true;
+    signin.delegate = self;
+    signin.uiDelegate = self;
+    
+  //  [GIDSignIn sharedInstance].shouldFetchBasicProfile = true;
+   // [GIDSignIn sharedInstance].delegate = self;
+   // [GIDSignIn sharedInstance].uiDelegate = self;
+    
+    
+    
     
     //Facebook SignIn
     loginMgr = [[FBSDKLoginManager alloc] init];
@@ -502,74 +511,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - Private method implementation
 
-//-(void)handleFBSessionStateChangeWithNotification:(NSNotification *)notification
-//{
-//    NSLog(@"result");
-//    // Get the session, state and error values from the notification's userInfo dictionary.
-//    NSDictionary *userInfo = [notification userInfo];
-//    
-//    FBSessionState sessionState = [[userInfo objectForKey:@"state"] integerValue];
-//    NSError *error = [userInfo objectForKey:@"error"];
-//    
-//    // Handle the session state.
-//    // Usually, the only interesting states are the opened session, the closed session and the failed login.
-//    if (!error) {
-//        // In case that there's not any error, then check if the session opened or closed.
-//        if (sessionState == FBSessionStateOpen)
-//        {
-//            [FBRequestConnection startWithGraphPath:@"me"
-//                                         parameters:@{@"fields": @"first_name, last_name, picture.type(normal), email"}
-//                                         HTTPMethod:@"GET"
-//                                  completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-//                                      if (!error) {
-//                                          NSLog(@"result=%@",result);
-//                                          
-//                                          FBSignIndictParams = [[NSMutableDictionary alloc] init];
-//                                          [FBSignIndictParams setObject:r_p  forKey:@"r_p"];
-//                                          [FBSignIndictParams setObject:RegisterServiceName  forKey:@"service"];
-//                                          [FBSignIndictParams setObject:[result objectForKey:@"email"]  forKey:@"u_email"];
-//                                          [FBSignIndictParams setObject:[result objectForKey:@"first_name"]  forKey:@"u_name"];
-//                                          [FBSignIndictParams setObject:@""  forKey:@"u_password"];
-//                                          [FBSignIndictParams setObject:@""  forKey:@"u_phone"];
-//                                          [FBSignIndictParams setObject:@""  forKey:@"u_address"];
-//                                          [FBSignIndictParams setObject:@""  forKey:@"u_zip"];
-//                                          [FBSignIndictParams setObject:@""  forKey:@"u_city"];
-//                                          [FBSignIndictParams setObject:@""  forKey:@"u_state"];
-//                                          [FBSignIndictParams setObject:@""  forKey:@"u_country"];
-//                                          [FBSignIndictParams setObject:@"facebook"  forKey:@"u_type"];
-//                                          if ([[result objectForKey:@"u_email"]isEqualToString:@""])
-//                                          {
-//                                              [AppDelegate showErrorMessageWithTitle:@"Error..!" message:@"Privacy set in facebook account while getting user info." delegate:nil];
-//                                          }
-//                                          else
-//                                          {
-//                                              [self CallFBSignup];
-//                                          }
-//                                          
-//                                          
-//                                          
-//                                          
-//                                          // Get the user's profile picture.
-//                                          NSURL *pictureURL = [NSURL URLWithString:[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]];
-//                                      }
-//                                      else
-//                                      {
-//                                          NSLog(@"%@", [error localizedDescription]);
-//                                      }
-//                                  }];
-//            
-//        }
-//        else if (sessionState == FBSessionStateClosed || sessionState == FBSessionStateClosedLoginFailed){
-//            // A session was closed or the login was failed. Update the UI accordingly.
-//        }
-//    }
-//    else{
-//        // In case an error has occurred, then just log the error and update the UI accordingly.
-//        NSLog(@"Error: %@", [error localizedDescription]);
-//    }
-//}
+
+#pragma mark - Private method implementation
 
 -(void)CallFBSignup
 {

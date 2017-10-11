@@ -662,6 +662,7 @@
             [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"Email"];
             [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"Password"];
             [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"PAYMENTMETHOD"];
+            [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"QUANTITYCOUNT"];
             [loginMgr logOut];
             
             [self CheckLoginArr];

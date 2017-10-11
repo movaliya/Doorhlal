@@ -15,7 +15,7 @@
 
 @implementation CreateNewAddressView
 @synthesize Submit_BTN,AddressDic,CheckAddresscount;
-@synthesize UserName_TXT,Email_TXT,Mobile_TXT,Post_TXT,Address_TXT,City_TXT;
+@synthesize UserName_TXT,Email_TXT,Mobile_TXT,Post_TXT,Address_TXT,City_TXT,State_TXT;
 
 - (void)viewDidLoad
 {
@@ -37,6 +37,7 @@
     Post_TXT.text=[AddressDic valueForKey:@"pincode"];
     Address_TXT.text=[AddressDic valueForKey:@"address"];
     City_TXT.text=[AddressDic valueForKey:@"city"];
+    State_TXT.text=[AddressDic valueForKey:@"state"];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle
@@ -56,12 +57,7 @@
 
 - (IBAction)Submit_Click:(id)sender
 {
-    if ([UserName_TXT.text isEqualToString:@""])
-    {
-        
-        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter username" delegate:nil];
-    }
-    else if ([Email_TXT.text isEqualToString:@""])
+     if ([Email_TXT.text isEqualToString:@""])
     {
         
         [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter emailaddress" delegate:nil];
@@ -84,11 +80,19 @@
     {
         [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter city" delegate:nil];
     }
+    else if ([State_TXT.text isEqualToString:@""])
+    {
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter State" delegate:nil];
+    }
     else
     {
         if (![AppDelegate IsValidEmail:Email_TXT.text])
         {
             [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter valid email" delegate:nil];
+        }
+        else if (![AppDelegate myMobileNumberValidate:Mobile_TXT.text])
+        {
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please Enter a Valid Mobile number" delegate:nil];
         }
         else
         {
@@ -118,18 +122,21 @@
 
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
     NSString *User_UID=[UserData valueForKey:@"u_id"];
+    NSString *User_Name=[UserData valueForKey:@"u_name"];
     
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
     [dictParams setObject:AddDeleveryAddress  forKey:@"service"];
     [dictParams setObject:User_UID  forKey:@"uid"];
     
-    [dictParams setObject:UserName_TXT.text  forKey:@"name"];
+    [dictParams setObject:User_Name  forKey:@"name"];
     [dictParams setObject:Address_TXT.text  forKey:@"address"];
     [dictParams setObject:Email_TXT.text  forKey:@"email"];
     [dictParams setObject:Mobile_TXT.text  forKey:@"contact_number"];
     [dictParams setObject:City_TXT.text  forKey:@"city"];
+    [dictParams setObject:State_TXT.text  forKey:@"state"];
     [dictParams setObject:Post_TXT.text  forKey:@"pincode"];
+    
     [dictParams setObject:User_UID  forKey:@"uid"];
     [dictParams setObject:@"add"  forKey:@"mode"];
 
@@ -169,17 +176,19 @@
     
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
     NSString *User_UID=[UserData valueForKey:@"u_id"];
+    NSString *User_Name=[UserData valueForKey:@"u_name"];
     
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
     [dictParams setObject:AddDeleveryAddress  forKey:@"service"];
     [dictParams setObject:User_UID  forKey:@"uid"];
     
-    [dictParams setObject:UserName_TXT.text  forKey:@"name"];
+    [dictParams setObject:User_Name  forKey:@"name"];
     [dictParams setObject:Address_TXT.text  forKey:@"address"];
     [dictParams setObject:Email_TXT.text  forKey:@"email"];
     [dictParams setObject:Mobile_TXT.text  forKey:@"contact_number"];
     [dictParams setObject:City_TXT.text  forKey:@"city"];
+    [dictParams setObject:State_TXT.text  forKey:@"state"];
     [dictParams setObject:Post_TXT.text  forKey:@"pincode"];
     [dictParams setObject:User_UID  forKey:@"uid"];
     [dictParams setObject:@"edit"  forKey:@"mode"];

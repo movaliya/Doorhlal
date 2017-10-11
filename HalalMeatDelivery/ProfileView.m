@@ -68,7 +68,7 @@
     self.Name_TXT.text=[UserData valueForKey:@"u_name"];
     self.Email_TXT.text=[UserData valueForKey:@"u_email"];
     self.Phone_TXT.text=[UserData valueForKey:@"u_phone"];
-    self.PinCode_TXT.text=[UserData valueForKey:@"u_pincode"];
+    self.PinCode_TXT.text=[UserData valueForKey:@"u_zip"];
     self.Address_TXT.text=[UserData valueForKey:@"u_address"];
     self.City_TXT.text=[UserData valueForKey:@"u_city"];
     Email_TXT.enabled=NO;
@@ -100,7 +100,7 @@
     else if ([PinCode_TXT.text isEqualToString:@""])
     {
         
-        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Pincode" delegate:nil];
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Zip Code" delegate:nil];
     }
     else if ([Email_TXT.text isEqualToString:@""])
     {
@@ -109,18 +109,26 @@
     }
     else if ([Phone_TXT.text isEqualToString:@""])
     {
-        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter phone Number" delegate:nil];
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Mobile Number" delegate:nil];
     }
     else
     {
-        BOOL internet=[AppDelegate connectedToNetwork];
-        if (internet)
+       if (![AppDelegate myMobileNumberValidate:Phone_TXT.text])
         {
-            [self CallprofileService];
-
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please Enter a Valid Mobile number" delegate:nil];
         }
         else
-            [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+        {
+            BOOL internet=[AppDelegate connectedToNetwork];
+            if (internet)
+            {
+                [self CallprofileService];
+                
+            }
+            else
+                [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+        }
+        
     }
 }
 
@@ -160,7 +168,7 @@
           NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
         
         [UserData setValue:Address_TXT.text forKey:@"u_address"];
-        [UserData setObject:City_TXT.text forKey:@"u_city"];
+       // [UserData setObject:City_TXT.text forKey:@"u_city"];
         [UserData setValue:Email_TXT.text forKey:@"u_email"];
         [UserData setValue:Name_TXT.text forKey:@"u_name"];
         [UserData setValue:Phone_TXT.text forKey:@"u_phone"];

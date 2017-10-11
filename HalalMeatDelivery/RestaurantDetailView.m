@@ -693,7 +693,10 @@
     _ReviewCount_LBL.text=[NSString stringWithFormat:@"(%@ Review)",[RestraorntDic valueForKey:@"count_review"]];
     [self ReviewCount:[NSString stringWithFormat:@"%@",[RestraorntDic valueForKey:@"rate"]]];
     Cat_Arr=[[[RestraorntDic valueForKey:@"products"] valueForKey:@"service_category"]mutableCopy];
-    _RestDistance_LBL.text=[NSString stringWithFormat:@" %@ ",[RestraorntDic valueForKey:@"distance"] ];
+    
+    NSString *distanceMile=[RestraorntDic valueForKey:@"distance"];
+    int tempMile=[distanceMile integerValue];
+    _RestDistance_LBL.text=[NSString stringWithFormat:@" %d M ",tempMile];
     ResLat=[RestraorntDic valueForKey:@"latitude"];
     ResLog=[RestraorntDic valueForKey:@"longitude"];
     if (Cat_Arr.count>0)

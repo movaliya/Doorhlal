@@ -105,7 +105,7 @@
 {
     if ([pincodeTxt.text isEqualToString:@""])
     {
-        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please Enter Post Code" delegate:nil];
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please Enter Zip Code" delegate:nil];
     }
     else
     {

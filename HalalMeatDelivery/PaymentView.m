@@ -278,7 +278,7 @@
         }
         else if ([_UserPincode_txt.text isEqualToString:@""])
         {
-            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Pincode" delegate:nil];
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Zip Code" delegate:nil];
         }
         else if ([_UserEmail_txt.text isEqualToString:@""])
         {
@@ -287,7 +287,7 @@
         }
         else if ([_UserPhoneNo_txt.text isEqualToString:@""])
         {
-            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Phone Number" delegate:nil];
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Mobile Number" delegate:nil];
         }
         else
         {

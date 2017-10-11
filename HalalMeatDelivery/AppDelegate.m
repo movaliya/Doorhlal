@@ -218,6 +218,15 @@ static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyCIjQcJ2s
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:checkString];
 }
++ (BOOL)myMobileNumberValidate:(NSString*)number
+{
+    NSString *numberRegEx = @"[0-9]{10}";
+    NSPredicate *numberTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", numberRegEx];
+    if ([numberTest evaluateWithObject:number] == YES)
+        return TRUE;
+    else
+        return FALSE;
+}
 
 + (void)showErrorMessageWithTitle:(NSString *)title
                           message:(NSString*)message

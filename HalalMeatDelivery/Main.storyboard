@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y00-yL-Tq5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y00-yL-Tq5">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -670,8 +670,8 @@
                                         <color key="textColor" red="0.94901960780000005" green="0.070588235289999995" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prefered Date  Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFg-uA-EQE">
-                                        <rect key="frame" x="96" y="86" width="113" height="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you have any prefer date and time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFg-uA-EQE">
+                                        <rect key="frame" x="51" y="86" width="203" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.94901960780000005" green="0.070588235289999995" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -686,7 +686,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAKE AWAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWc-xh-ih7">
-                                        <rect key="frame" x="192.5" y="40" width="71.5" height="16"/>
+                                        <rect key="frame" x="193" y="40" width="71" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="71.5" id="2rv-3i-gy4"/>
                                             <constraint firstAttribute="height" constant="16" id="qIv-g8-wjI"/>
@@ -703,7 +703,7 @@
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowRadioOff" translatesAutoresizingMaskIntoConstraints="NO" id="GIS-u1-WJn">
-                                        <rect key="frame" x="218.5" y="60" width="20" height="20"/>
+                                        <rect key="frame" x="219" y="60" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="vT4-0K-nEA"/>
                                             <constraint firstAttribute="height" constant="20" id="xmD-ow-aoE"/>
@@ -886,7 +886,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5v-uY-ahu">
-                                        <rect key="frame" x="8" y="19.5" width="29" height="21"/>
+                                        <rect key="frame" x="8" y="20" width="29" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="29" id="LCf-CA-ege"/>
                                             <constraint firstAttribute="height" constant="21" id="PCp-ht-IOD"/>
@@ -927,7 +927,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftA-ZB-oWC">
-                                <rect key="frame" x="160" y="283.5" width="0.0" height="0.0"/>
+                                <rect key="frame" x="160" y="284" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1401,11 +1401,11 @@
                                                         <rect key="frame" x="0.0" y="28" width="280" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0cp-7B-8nG" id="BwI-iB-CHO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q31-58-Wwo">
-                                                                    <rect key="frame" x="15" y="0.0" width="250" height="43.5"/>
+                                                                    <rect key="frame" x="15" y="0.0" width="250" height="43"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1954,7 +1954,7 @@
                                                     <outlet property="delegate" destination="4V0-9F-90j" id="vtJ-u6-Qml"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jhj-kg-sZr">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jhj-kg-sZr">
                                                 <rect key="frame" x="50" y="441" width="220" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -3038,7 +3038,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="YDQ-d4-7Rc"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="I2Q-cd-5fn" id="1H9-hl-ZA2"/>
                                                 </connections>
@@ -3050,12 +3050,12 @@
                                                     <constraint firstAttribute="height" constant="40" id="Tbe-UB-S9K"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="I2Q-cd-5fn" id="HxK-X7-kn0"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Postcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kQW-mJ-NLH">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kQW-mJ-NLH">
                                                 <rect key="frame" x="50" y="205" width="220" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -3067,7 +3067,7 @@
                                                     <outlet property="delegate" destination="I2Q-cd-5fn" id="tgJ-up-mom"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JHa-zj-QIF">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JHa-zj-QIF">
                                                 <rect key="frame" x="50" y="260" width="220" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -4996,7 +4996,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="zME-dp-7gA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="ZIB-3Z-1UG" id="jJh-md-cuq"/>
                                                 </connections>
@@ -5041,7 +5041,7 @@
                                                     </mask>
                                                 </variation>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qyX-Ey-e4T">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qyX-Ey-e4T">
                                                 <rect key="frame" x="58" y="175" width="216" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -5062,7 +5062,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="McR-do-wb0"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Postcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Od9-No-XFf">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Od9-No-XFf">
                                                 <rect key="frame" x="58" y="235" width="216" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="kEW-35-o1j"/>
@@ -5090,7 +5090,7 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="29H-FY-MpQ">
                                                 <rect key="frame" x="58" y="295" width="216" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="ZIB-3Z-1UG" id="HnC-2b-W4X"/>
                                                 </connections>
@@ -5245,7 +5245,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISm-Ig-agR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door 2 Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQQ-yu-gKA">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door2Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQQ-yu-gKA">
                                         <rect key="frame" x="55" y="40" width="200" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="aPO-bc-kNO"/>
@@ -5329,7 +5329,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePH-SN-QZl">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door 2 Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh1-LJ-NPC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door2Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh1-LJ-NPC">
                                         <rect key="frame" x="60" y="40" width="200" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="7eQ-RU-NEn"/>
@@ -6000,13 +6000,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvi-LZ-VgE">
-                                                        <rect key="frame" x="8" y="160" width="267.5" height="16"/>
+                                                        <rect key="frame" x="8" y="160" width="267" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                         <color key="textColor" red="0.63529411759999999" green="0.61176470589999998" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q58-50-5Jp">
-                                                        <rect key="frame" x="283.5" y="160" width="12.5" height="16"/>
+                                                        <rect key="frame" x="283" y="160" width="13" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                         <color key="textColor" red="0.63529411759999999" green="0.61176470589999998" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -6344,7 +6344,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dru-bH-dWa">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door 2 Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ej1-bg-Vxj">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door2Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ej1-bg-Vxj">
                                         <rect key="frame" x="55" y="40" width="200" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="4FP-sU-1TU"/>
@@ -6769,7 +6769,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1p-77-ajt">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door 2 Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlx-1J-EfI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door2Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlx-1J-EfI">
                                         <rect key="frame" x="55" y="40" width="200" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="VJu-mx-ZE6"/>
@@ -6840,7 +6840,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="kHX-Ec-8Dm"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="men-Px-AWz" id="P7C-qd-Ta5"/>
                                                 </connections>
@@ -6885,7 +6885,7 @@
                                                     </mask>
                                                 </variation>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="961-FY-g3m">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="961-FY-g3m">
                                                 <rect key="frame" x="58" y="175" width="216" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -6906,7 +6906,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="DEB-Yj-FX1"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Postcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aOr-Ey-rRl">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aOr-Ey-rRl">
                                                 <rect key="frame" x="58" y="235" width="216" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="jyV-te-UIK"/>
@@ -6934,7 +6934,7 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mEV-lX-knc">
                                                 <rect key="frame" x="58" y="295" width="216" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="men-Px-AWz" id="vxZ-eF-Pes"/>
                                                 </connections>
@@ -7139,7 +7139,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAb-Hv-Z97">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door 2 Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRm-GR-Mlp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door2Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRm-GR-Mlp">
                                         <rect key="frame" x="55" y="40" width="200" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="6tG-h5-qOz"/>
@@ -7358,7 +7358,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tR0-Uz-2eo">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door 2 Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJI-VC-CJ7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door2Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJI-VC-CJ7">
                                         <rect key="frame" x="55" y="40" width="200" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="Zjg-y9-Xic"/>
@@ -7830,7 +7830,7 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="ubq-QW-7a7"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="vNp-bj-Bsm" id="bY2-0j-bWN"/>
                                                 </connections>
@@ -7868,7 +7868,7 @@
                                                     </mask>
                                                 </variation>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QKT-RJ-lzs">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QKT-RJ-lzs">
                                                 <rect key="frame" x="58" y="145" width="216" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation"/>
@@ -7889,7 +7889,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="raE-fX-tcu"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Post code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w77-Dl-c9h">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w77-Dl-c9h">
                                                 <rect key="frame" x="58" y="205" width="216" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="sde-s5-cbE"/>
@@ -7917,7 +7917,7 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ub5-9e-tcG">
                                                 <rect key="frame" x="58" y="265" width="216" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="vNp-bj-Bsm" id="VaY-at-PQu"/>
                                                 </connections>
@@ -7944,7 +7944,7 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ps8-Lh-Og2">
                                                 <rect key="frame" x="58" y="325" width="216" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="vNp-bj-Bsm" id="Uze-JZ-Br1"/>
                                                 </connections>
@@ -8462,7 +8462,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACN-dA-jwV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door 2 Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgp-Fj-PzB">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door2Door" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgp-Fj-PzB">
                                         <rect key="frame" x="55" y="40" width="200" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="Qrh-Wo-ErB"/>
@@ -8728,8 +8728,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQq-oc-8m9">
                                 <rect key="frame" x="0.0" y="264" width="320" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door 2 Door" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwM-Py-aiE">
-                                        <rect key="frame" x="107" y="14" width="106" height="23"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door2Door" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwM-Py-aiE">
+                                        <rect key="frame" x="112" y="14" width="96.5" height="23"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -8966,7 +8966,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="JJH-dT-cUy"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="mfE-DX-agj" id="K1O-7n-mMB"/>
                                                 </connections>
@@ -8990,7 +8990,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="8yU-85-XQx"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="mfE-DX-agj" id="amK-JN-MIM"/>
                                                 </connections>
@@ -9032,7 +9032,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="BLa-VX-F3M"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone no" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HMO-Pp-jAN">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HMO-Pp-jAN">
                                                 <rect key="frame" x="57" y="265" width="217" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="ITa-bi-dvq"/>
@@ -9068,7 +9068,7 @@
                                                 </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconMap" translatesAutoresizingMaskIntoConstraints="NO" id="N6s-lw-fhx">
-                                                <rect key="frame" x="23" y="392.5" width="13" height="15"/>
+                                                <rect key="frame" x="23" y="393" width="13" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="XTi-Kl-jKG"/>
                                                     <constraint firstAttribute="width" constant="13" id="b43-rq-gZN"/>
@@ -9086,13 +9086,13 @@
                                                     <constraint firstAttribute="height" constant="30" id="bC2-IV-Tjw"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="mfE-DX-agj" id="GGI-Ke-fKj"/>
                                                 </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconGloble" translatesAutoresizingMaskIntoConstraints="NO" id="MxJ-t3-Z9t">
-                                                <rect key="frame" x="22" y="152.5" width="15" height="15"/>
+                                                <rect key="frame" x="22" y="153" width="15" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="KRk-lr-36K"/>
                                                     <constraint firstAttribute="width" constant="15" id="OeS-nh-agz"/>
@@ -9110,7 +9110,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="t2B-me-bgP"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="mfE-DX-agj" id="dkO-B6-0pY"/>
                                                 </connections>
@@ -9228,6 +9228,7 @@
                         <outlet property="Email_TXT" destination="j8f-9M-08G" id="YPl-jt-uar"/>
                         <outlet property="Mobile_TXT" destination="HMO-Pp-jAN" id="Utg-uI-koB"/>
                         <outlet property="Post_TXT" destination="ssa-61-zAl" id="41f-vL-7P6"/>
+                        <outlet property="State_TXT" destination="W67-JR-DsT" id="8PW-2X-mPc"/>
                         <outlet property="Submit_BTN" destination="Hgk-hk-hTz" id="9s8-CM-xLs"/>
                     </connections>
                 </viewController>

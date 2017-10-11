@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *Post_TXT;
 @property (strong, nonatomic) IBOutlet UITextField *Address_TXT;
 @property (strong, nonatomic) IBOutlet UITextField *City_TXT;
+@property (weak, nonatomic) IBOutlet UITextField *State_TXT;
 @property (strong, nonatomic) IBOutlet UIButton *Submit_BTN;
 - (IBAction)Submit_Click:(id)sender;
 @end

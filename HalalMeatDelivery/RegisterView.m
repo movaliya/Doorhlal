@@ -212,7 +212,11 @@
     else if ([pincode_Txt.text isEqualToString:@""])
     {
         
-        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Post Code" delegate:nil];
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Zip Code" delegate:nil];
+    }
+    else if ([PhoneNo_TXT.text isEqualToString:@""])
+    {
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Mobile Number" delegate:nil];
     }
     else if ([email_Txt.text isEqualToString:@""])
     {
@@ -233,6 +237,11 @@
         {
             [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Password should be 8 characters, one Special character , One Number" delegate:nil];
         }
+        else if (![AppDelegate myMobileNumberValidate:PhoneNo_TXT.text])
+        {
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please Enter a Valid Mobile number" delegate:nil];
+        }
+        
         else
         {
             
@@ -257,7 +266,7 @@
     [dictParams setObject:password_Txt.text  forKey:@"u_password"];
     [dictParams setObject:Username_Txt.text  forKey:@"u_name"];
     
-    [dictParams setObject:@""  forKey:@"u_phone"];
+    [dictParams setObject:PhoneNo_TXT.text  forKey:@"u_phone"];
     [dictParams setObject:address_Txt.text  forKey:@"u_address"];
     [dictParams setObject:pincode_Txt.text  forKey:@"u_zip"];
     //[dictParams setObject:@""  forKey:@"u_city"];

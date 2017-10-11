@@ -27,7 +27,7 @@
 +(BOOL)connectedToNetwork;
 + (AppDelegate *)sharedInstance;
 +(BOOL)IsValidEmail:(NSString *)checkString;
-
++ (BOOL)myMobileNumberValidate:(NSString*)number;
 + (void)showErrorMessageWithTitle:(NSString *)title
                           message:(NSString*)message
                          delegate:(id)delegate;

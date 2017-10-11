@@ -76,6 +76,20 @@
 }
 -(void)setPickerToTXT
 {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"dd-MM-yyyy hh:mm a"];
+    NSString *dateString = [dateFormat stringFromDate:[NSDate date]];
+    SelectDate_TXT.text = dateString;
+    
+    [dateFormat setDateFormat:@"dd-MM-yyyy"];
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"hh:mm a"];
+    
+    theDate = [dateFormat stringFromDate:[NSDate date]];
+    theTime = [timeFormat stringFromDate:[NSDate date]];
+    
+    
+    
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:GregorianCalendar];

@@ -648,7 +648,11 @@ static dispatch_once_t predicate;
         
         
         cell.RestName_LBL.text=[[SearchDictnory valueForKey:@"name"] objectAtIndex:indexPath.row];
-        cell.Distance_LBL.text=[NSString stringWithFormat:@" %@ ",[[SearchDictnory valueForKey:@"distance"] objectAtIndex:indexPath.row]] ;
+        NSString *distanceMile=[[SearchDictnory valueForKey:@"distance"] objectAtIndex:indexPath.row];
+        int tempMile=[distanceMile integerValue];
+        
+        cell.Distance_LBL.text=[NSString stringWithFormat:@" %d M ",tempMile] ;
+        
         cell.Address_LBL.text=[NSString stringWithFormat:@" %@ ",[[SearchDictnory valueForKey:@"address"] objectAtIndex:indexPath.row]] ;
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         if ([[[SearchDictnory valueForKey:@"is_per"] objectAtIndex:indexPath.row] isEqualToString:@"1"])
