@@ -60,7 +60,8 @@
 
 - (void)handleGetFilterResponse:(NSDictionary*)response
 {
-    NSLog(@"GetFilterResponse ===%@",response);
+    NSLog(@"Get Address Response ===%@",response);
+    AddressArr=[[NSMutableArray alloc]init];
     if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
     {
         AddressArr=[[response valueForKey:@"result"] mutableCopy];

@@ -15,7 +15,7 @@
 
 @implementation CreateNewAddressView
 @synthesize Submit_BTN,AddressDic,CheckAddresscount;
-@synthesize UserName_TXT,Email_TXT,Mobile_TXT,Post_TXT,Address_TXT,City_TXT,State_TXT;
+@synthesize UserName_TXT,Email_TXT,Mobile_TXT,Post_TXT,Address_TXT,City_TXT,State_TXT,Address2_TXT;
 
 - (void)viewDidLoad
 {
@@ -36,6 +36,7 @@
     Mobile_TXT.text=[AddressDic valueForKey:@"contact_number"];
     Post_TXT.text=[AddressDic valueForKey:@"pincode"];
     Address_TXT.text=[AddressDic valueForKey:@"address"];
+    Address2_TXT.text=[AddressDic valueForKey:@"address2"];
     City_TXT.text=[AddressDic valueForKey:@"city"];
     State_TXT.text=[AddressDic valueForKey:@"state"];
 }
@@ -131,6 +132,7 @@
     
     [dictParams setObject:User_Name  forKey:@"name"];
     [dictParams setObject:Address_TXT.text  forKey:@"address"];
+    [dictParams setObject:Address2_TXT.text  forKey:@"address2"];
     [dictParams setObject:Email_TXT.text  forKey:@"email"];
     [dictParams setObject:Mobile_TXT.text  forKey:@"contact_number"];
     [dictParams setObject:City_TXT.text  forKey:@"city"];
@@ -170,7 +172,7 @@
 // Add new address.
 -(void)UpdateAddressData
 {
-   // http://bulkbox.in/feedmemeat/service/service_general.php?r_p=1224&service=delivery_address_service&uid=21&name=Jai&address=402ajsdlksj&email=ajk@gmail.com&contact_number=9978078494&city=Vervala&state=punjab&country=India&pincode=336005&isDefault=1&mode=edit&delivery_address_id=4
+   // http://bulkbox.in/door2door/service/service_general.php?r_p=1224&service=delivery_address_service&uid=21&name=Jai&address=402ajsdlksj&email=ajk@gmail.com&contact_number=9978078494&city=Vervala&state=punjab&country=India&pincode=336005&isDefault=1&mode=edit&delivery_address_id=4
     
     //if isDefault =1 then it will set new address as default
     
@@ -182,9 +184,10 @@
     [dictParams setObject:r_p  forKey:@"r_p"];
     [dictParams setObject:AddDeleveryAddress  forKey:@"service"];
     [dictParams setObject:User_UID  forKey:@"uid"];
-    
+
     [dictParams setObject:User_Name  forKey:@"name"];
     [dictParams setObject:Address_TXT.text  forKey:@"address"];
+    [dictParams setObject:Address2_TXT.text  forKey:@"address2"];
     [dictParams setObject:Email_TXT.text  forKey:@"email"];
     [dictParams setObject:Mobile_TXT.text  forKey:@"contact_number"];
     [dictParams setObject:City_TXT.text  forKey:@"city"];

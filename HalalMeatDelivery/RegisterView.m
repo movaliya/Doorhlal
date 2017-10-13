@@ -268,6 +268,7 @@
     
     [dictParams setObject:PhoneNo_TXT.text  forKey:@"u_phone"];
     [dictParams setObject:address_Txt.text  forKey:@"u_address"];
+    [dictParams setObject:address2_TXT.text  forKey:@"u_address2"];
     [dictParams setObject:pincode_Txt.text  forKey:@"u_zip"];
     //[dictParams setObject:@""  forKey:@"u_city"];
    // [dictParams setObject:@""  forKey:@"u_state"];

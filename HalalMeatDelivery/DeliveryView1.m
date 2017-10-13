@@ -363,8 +363,9 @@
         [dictParams setObject:[SelectedAddress valueForKey:@"email"]  forKey:@"u_email"];
         [dictParams setObject:[SelectedAddress valueForKey:@"contact_number"]  forKey:@"u_phone"];
         [dictParams setObject:[SelectedAddress valueForKey:@"address"]  forKey:@"u_address"];
+        [dictParams setObject:[SelectedAddress valueForKey:@"address2"]  forKey:@"address2"];
         [dictParams setObject:[SelectedAddress valueForKey:@"city"]  forKey:@"u_city"];
-        [dictParams setObject:@""  forKey:@"u_state"];
+        [dictParams setObject:[SelectedAddress valueForKey:@"state"]  forKey:@"u_state"];
         [dictParams setObject:@""  forKey:@"u_country"];
     }
       [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,CardService_url] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)

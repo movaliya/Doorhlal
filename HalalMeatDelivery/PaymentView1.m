@@ -200,7 +200,6 @@
 -(void)SetDefaultAddress :(NSString *)DeliveryAddress_idStr
 {
     
-    
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
     NSString *User_UID=[UserData valueForKey:@"u_id"];
     
@@ -374,9 +373,10 @@
         [dictParams setObject:[SelectedAddress valueForKey:@"email"]  forKey:@"u_email"];
         [dictParams setObject:[SelectedAddress valueForKey:@"contact_number"]  forKey:@"u_phone"];
         [dictParams setObject:[SelectedAddress valueForKey:@"address"]  forKey:@"u_address"];
+        [dictParams setObject:[SelectedAddress valueForKey:@"address2"]  forKey:@"u_address2"];
         
         [dictParams setObject:[SelectedAddress valueForKey:@"city"]  forKey:@"u_city"];
-        [dictParams setObject:@""  forKey:@"u_state"];
+        [dictParams setObject:[SelectedAddress valueForKey:@"state"]  forKey:@"u_state"];
         [dictParams setObject:@""  forKey:@"u_country"];
     }
    

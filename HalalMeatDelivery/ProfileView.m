@@ -148,7 +148,7 @@
     [dictParams setObject:Name_TXT.text  forKey:@"u_name"];
     [dictParams setObject:Address_TXT.text  forKey:@"u_address"];
     [dictParams setObject:PinCode_TXT.text  forKey:@"u_zip"];
-   // [dictParams setObject:City_TXT.text  forKey:@"u_city"];
+    [dictParams setObject:@""  forKey:@"u_city"];
     
 
    
