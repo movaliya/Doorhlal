@@ -261,7 +261,7 @@
     [dictParams setObject:token  forKey:@"stripeToken"];
     [dictParams setObject:User_EMAIL  forKey:@"customer_email"];
     [dictParams setObject:Amoumnt  forKey:@"amount"];
-    [dictParams setObject:@"GBP"  forKey:@"currency"];
+    [dictParams setObject:@"gbp"  forKey:@"currency"];
     
     [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",StripeBaseUrl,ChargeCard_url] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
      {

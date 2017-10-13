@@ -128,10 +128,16 @@ static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyCIjQcJ2s
 
 -(void)GetPublishableKey
 {
-    
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
-    [dictParams setObject:@"feedmemeathalal_publishable_key"  forKey:@"enc_string"];
-    
+    [dictParams setObject:@"door2door_publishable_key"  forKey:@"enc_string"];
+//    [dictParams setObject:UserLoginServiceName  forKey:@"service"];
+//    [dictParams setObject:User_TXT.text  forKey:@"u_email"];
+//    [dictParams setObject:Password_TXT.text  forKey:@"u_password"];
+//    
+//    
+//    NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
+//    [dictParams setObject:@"feedmemeathalal_publishable_key"  forKey:@"enc_string"];
+//    
     [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",StripeBaseUrl,StripePublishKey] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
      {
          [self handlePublishKeyResponse:response];

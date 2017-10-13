@@ -23,7 +23,9 @@
 
 
 // Stripe
-#define StripeBaseUrl @"http://feedmemeathalal.com/application/stripe/"
+//#define StripeBaseUrl @"http://feedmemeathalal.com/application/stripe/"
+#define StripeBaseUrl @"http://bulkbox.in/door2door/stripe/"
+
 #define StripePublishKey @"get_publishable_key.php"
 #define ChargeCard_url @"charge.php"
 
