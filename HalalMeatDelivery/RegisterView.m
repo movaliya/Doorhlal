@@ -527,4 +527,8 @@
 }
 
 
+- (IBAction)Back_click:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

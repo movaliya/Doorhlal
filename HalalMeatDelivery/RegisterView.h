@@ -17,6 +17,7 @@
 {
     NSMutableDictionary *FBSignupdictParams;
 }
+- (IBAction)Back_click:(id)sender;
 
 @property (strong,nonatomic) FBSDKLoginManager *loginMgr;
 @property (strong, nonatomic) CCKFNavDrawer *rootNav;

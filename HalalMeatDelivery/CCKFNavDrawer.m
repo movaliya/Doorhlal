@@ -64,16 +64,16 @@
     {
         TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"About",@"Terms & Conditions",@"Login & Signup", nil];
         ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
+        self.drawerView.Welcome_LBL.hidden=YES;
+       
     }
     else
     {
         TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms & Conditions",@"Logout", nil];
         ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
+        self.drawerView.Welcome_LBL.hidden=NO;
+        self.drawerView.Welcome_LBL.text=[NSString stringWithFormat:@"Welcome %@",[[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] valueForKey:@"u_name"]];
     }
-    
-    
-    
-    
     
     [self setUpDrawer];
     
@@ -104,11 +104,15 @@
     {
         TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"About",@"Terms & Conditions",@"Login & Signup", nil];
         ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
+        self.drawerView.Welcome_LBL.hidden=YES;
+        
     }
     else
     {
         TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms & Conditions",@"Logout", nil];
         ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
+        self.drawerView.Welcome_LBL.hidden=NO;
+        self.drawerView.Welcome_LBL.text=[NSString stringWithFormat:@"Welcome %@",[[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] valueForKey:@"u_name"]];
     }
     
     

@@ -17,4 +17,5 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *LBLLeading;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *LBL_Trailing;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *LogoLBLGap;
+@property (strong, nonatomic) IBOutlet UILabel *Welcome_LBL;
 @end

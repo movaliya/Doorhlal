@@ -42,6 +42,12 @@
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </tableView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTx-h1-Tpj">
+                            <rect key="frame" x="0.0" y="187" width="224" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -50,9 +56,12 @@
                         <constraint firstAttribute="trailing" secondItem="ucE-hw-wWg" secondAttribute="trailing" id="832-MK-uDo"/>
                         <constraint firstItem="LGf-Kt-JYz" firstAttribute="top" secondItem="tXO-v4-3jx" secondAttribute="top" constant="80" id="RbP-TB-UFU"/>
                         <constraint firstItem="ucE-hw-wWg" firstAttribute="top" secondItem="LGf-Kt-JYz" secondAttribute="bottom" constant="50" id="SEI-fL-gwr"/>
+                        <constraint firstItem="gTx-h1-Tpj" firstAttribute="leading" secondItem="tXO-v4-3jx" secondAttribute="leading" id="VXE-rb-0JO"/>
                         <constraint firstItem="adJ-1E-P1A" firstAttribute="top" secondItem="tXO-v4-3jx" secondAttribute="top" constant="31" id="Y0L-yb-hit"/>
                         <constraint firstItem="LGf-Kt-JYz" firstAttribute="centerX" secondItem="tXO-v4-3jx" secondAttribute="centerX" id="ZGT-vJ-uOy"/>
                         <constraint firstAttribute="bottom" secondItem="ucE-hw-wWg" secondAttribute="bottom" id="gfE-1p-FHD"/>
+                        <constraint firstAttribute="trailing" secondItem="gTx-h1-Tpj" secondAttribute="trailing" id="hiy-CW-Z7K"/>
+                        <constraint firstItem="ucE-hw-wWg" firstAttribute="top" secondItem="gTx-h1-Tpj" secondAttribute="bottom" constant="12" id="v71-kp-X8B"/>
                     </constraints>
                 </view>
             </subviews>
@@ -69,6 +78,7 @@
             </constraints>
             <connections>
                 <outlet property="Back_BTN" destination="adJ-1E-P1A" id="6BK-FJ-bmL"/>
+                <outlet property="Welcome_LBL" destination="gTx-h1-Tpj" id="P81-yR-84r"/>
                 <outlet property="drawerTableView" destination="ucE-hw-wWg" id="UN4-Hz-JGY"/>
             </connections>
             <point key="canvasLocation" x="-334" y="282"/>
