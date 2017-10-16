@@ -166,7 +166,9 @@
         if ([self validateCustomerInfo]) {
             PayButton.enabled=NO;
             PayButton.backgroundColor=[UIColor grayColor];
-            [self performStripeOperation];
+            [KVNProgress show];
+            [self performSelector:@selector(performStripeOperation) withObject:nil afterDelay:3.0];
+           // [self performStripeOperation];
         }
     }
     

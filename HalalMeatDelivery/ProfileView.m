@@ -68,11 +68,27 @@
     self.Name_TXT.text=[UserData valueForKey:@"u_name"];
     self.Email_TXT.text=[UserData valueForKey:@"u_email"];
     self.Phone_TXT.text=[UserData valueForKey:@"u_phone"];
-    self.PinCode_TXT.text=[UserData valueForKey:@"u_zip"];
+    self.PinCode_TXT.text=[UserData valueForKey:@"u_pincode"];
     self.Address_TXT.text=[UserData valueForKey:@"u_address"];
     self.City_TXT.text=[UserData valueForKey:@"u_city"];
     Email_TXT.enabled=NO;
     Email_TXT.textColor=[UIColor grayColor];
+    
+    NSString *LoginType = [[NSUserDefaults standardUserDefaults]
+                          stringForKey:@"USERLOGINTYPE"];
+    
+    // Check User Login Type
+    if (LoginType.length!=0)
+    {
+        if ([LoginType isEqualToString:@"social"])
+        {
+            ChangePass_BTN.hidden=YES;
+        }
+        else
+        {
+            ChangePass_BTN.hidden=NO;
+        }
+    }
     
 }
 
@@ -147,7 +163,7 @@
     [dictParams setObject:Phone_TXT.text  forKey:@"u_phone"];
     [dictParams setObject:Name_TXT.text  forKey:@"u_name"];
     [dictParams setObject:Address_TXT.text  forKey:@"u_address"];
-    [dictParams setObject:PinCode_TXT.text  forKey:@"u_zip"];
+    [dictParams setObject:PinCode_TXT.text  forKey:@"u_pincode"];
     [dictParams setObject:@""  forKey:@"u_city"];
     
 

@@ -289,6 +289,8 @@
     if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
     {
         [[NSUserDefaults standardUserDefaults]setObject:[[response valueForKey:@"result"] objectAtIndex:0] forKey:@"LoginUserDic"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"simple" forKey:@"USERLOGINTYPE"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
         [self.navigationController pushViewController:vcr animated:YES];
     }
@@ -519,13 +521,28 @@
     {
         [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,RegisterUrl] withParam:FBSignupdictParams withCompletion:^(NSDictionary *response, BOOL success1)
          {
-             [self handleResponse:response];
+             [self SocailhandleResponse:response];
          }];
     }
     else
         [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
 }
-
+- (void)SocailhandleResponse:(NSDictionary*)response
+{
+    //NSLog(@"Logindata==%@",response);
+    if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:[[response valueForKey:@"result"] objectAtIndex:0] forKey:@"LoginUserDic"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"social" forKey:@"USERLOGINTYPE"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
+        [self.navigationController pushViewController:vcr animated:YES];
+    }
+    else
+    {
+        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
+    }
+}
 
 - (IBAction)Back_click:(id)sender
 {

@@ -312,7 +312,9 @@
              }
              else
              {
-                 [self fetchUserInfo];
+                 [KVNProgress show];
+                 [self performSelector:@selector(fetchUserInfo) withObject:nil afterDelay:3.0];
+                // [self fetchUserInfo];
                  NSLog(@"Logged in");
              }
          }];
@@ -478,6 +480,8 @@
         NSMutableDictionary *dic = [[NSMutableDictionary  alloc] init];
         dic=[[newdict valueForKey:@"result"] objectAtIndex:0];
         [[NSUserDefaults standardUserDefaults]setObject:dic forKey:@"LoginUserDic"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"social" forKey:@"USERLOGINTYPE"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         
         SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
         [self.navigationController pushViewController:vcr animated:YES];
@@ -541,6 +545,8 @@
         NSMutableDictionary *dic = [[NSMutableDictionary  alloc] init];
         dic=[[newdict valueForKey:@"result"] objectAtIndex:0];
         [[NSUserDefaults standardUserDefaults]setObject:dic forKey:@"LoginUserDic"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"social" forKey:@"USERLOGINTYPE"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         
         SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
         [self.navigationController pushViewController:vcr animated:YES];
@@ -619,6 +625,8 @@
         [[NSUserDefaults standardUserDefaults]setObject:[response objectForKey:@"u_pincode"] forKey:@"Pincode"];
         [[NSUserDefaults standardUserDefaults]setObject:[response objectForKey:@"u_name"] forKey:@"UserName"];
         [[NSUserDefaults standardUserDefaults]setObject:[response objectForKey:@"u_phone"] forKey:@"PhoneNumber"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"simple" forKey:@"USERLOGINTYPE"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         
         SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
         [self.navigationController pushViewController:vcr animated:YES];
