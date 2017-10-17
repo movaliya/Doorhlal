@@ -1,13 +1,13 @@
+//
+//  CategoryRestorant.m
+//  DoorToDoor
+//
+//  Created by Mango SW on 17/10/2017.
+//  Copyright © 2017 kaushik. All rights reserved.
+//
 
-//
-//  SearchByCategoryView.m
-//  HalalMeatDelivery
-//
-//  Created by Mango Software Lab on 26/08/2016.
-//  Copyright © 2016 kaushik. All rights reserved.
-//
+#import "CategoryRestorant.h"
 
-#import "SearchByShop.h"
 #import "HalalMeatDelivery.pch"
 #import "SearchByCatCell.h"
 #import "UIImageView+WebCache.h"
@@ -33,7 +33,7 @@ static dispatch_once_t predicate;
 #define SelectedButtonColor [UIColor colorWithRed:242.0f/255.0f green:18.0f/255.0f blue:43.0f/255.0f alpha:1.0f]
 #define UnSelectedButtonColor [UIColor colorWithRed:101.0f/255.0f green:100.0f/255.0f blue:98.0f/255.0f alpha:1.0f]
 
-@interface SearchByShop ()<CLLocationManagerDelegate,UIScrollViewDelegate,UISearchBarDelegate>
+@interface CategoryRestorant ()<CLLocationManagerDelegate,UIScrollViewDelegate,UISearchBarDelegate>
 {
     NSDictionary *DataDic;
     CLLocationManager *locationManager;
@@ -72,7 +72,7 @@ static dispatch_once_t predicate;
 
 @end
 
-@implementation SearchByShop
+@implementation CategoryRestorant
 @synthesize Table,Filter_BTN,SearchPlaceTBL;
 @synthesize SearchBar,Search_IMG,Searc_BTN,AdderessCurrentlocation_BTN;
 @synthesize FilterView,SearchByCatBTN,SearchByRatBTN,SearchByDistBTN,SearchByPriceBTN,FreeDelevBTN;
@@ -93,48 +93,12 @@ static dispatch_once_t predicate;
     [self presentViewController:alert animated:YES completion:nil];
 }
 
--(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-{
-    [searchBar setShowsCancelButton:YES animated:YES];
-}
-
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    if(searchText.length > 0)
-    {
-        [SearchPlaceTBL setHidden:NO];
-        
-        [_searchQuery fetchPlacesForSearchQuery: searchText completion:^(NSArray *places, NSError *error)
-        {
-             if (error)
-             {
-                 NSLog(@"ERROR: %@", error);
-                 [self handleSearchError:error];
-             }
-             else
-             {
-                 self.searchResults = places;
-                 [SearchPlaceTBL reloadData];
-             }
-         }];
-    }
-}
-
--(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    searchBar.text = @"";
-    [searchBar setShowsCancelButton:NO animated:YES];
-    [searchBar resignFirstResponder];
-    [SearchPlaceTBL setHidden:YES];
-}
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey: @"AIzaSyDFE1wLYBzn_T5JtMMoedh6fJWehL4kiL4"];
-
+    
     self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
     indexAuto=0;
     
@@ -192,14 +156,14 @@ static dispatch_once_t predicate;
     if (internet)
     {
         // [self getFilterData];
-         [self performSelector:@selector(getFilterData) withObject:nil afterDelay:0.0];
+        [self performSelector:@selector(getFilterData) withObject:nil afterDelay:0.0];
     }
     else
     {
         [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
     }
     
-   
+    
     
     catParsingArr=[[NSMutableArray alloc]init];
     PriceParsingArr=[[NSMutableArray alloc]init];
@@ -244,7 +208,7 @@ static dispatch_once_t predicate;
 
 - (void)handleGetFilterResponse:(NSDictionary*)response
 {
-   // NSLog(@"GetFilterResponse ===%@",response);
+    // NSLog(@"GetFilterResponse ===%@",response);
     if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
     {
         FilterDict=[response valueForKey:@"result"];
@@ -318,11 +282,11 @@ static dispatch_once_t predicate;
                 [self.rangeSliderCurrency bringSubviewToFront:self.view];
             }
         }
-       [CatTBL reloadData];
+        [CatTBL reloadData];
     }
     else
     {
-       
+        
     }
 }
 
@@ -330,19 +294,11 @@ static dispatch_once_t predicate;
 {
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
-    [dictParams setObject:SerachByShopServiceName  forKey:@"service"];
-    
+    [dictParams setObject:get_restorants_from_categoryServiceName  forKey:@"service"];
     [dictParams setObject:[NSString stringWithFormat:@"%.8f", Latitude]  forKey:@"lat"];
     [dictParams setObject:[NSString stringWithFormat:@"%.8f", Logitude]  forKey:@"long"];
-    
-   // [dictParams setObject:@"22.2795076"  forKey:@"lat"];
-   // [dictParams setObject:@"70.7696403"  forKey:@"long"];
-    
-   [dictParams setObject:[NSString stringWithFormat:@"%ld", (long)limit_only]  forKey:@"limit_only"];
+    [dictParams setObject:self.C_ID  forKey:@"cid"];
     NSLog(@"dictParams search by Shop===%@",dictParams);
-    
-   
-   
     [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,SerachByShop_url] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
      {
          [self handleCategoryResponse:response];
@@ -365,28 +321,28 @@ static dispatch_once_t predicate;
                 [SearchDictnory addObject:dic];
             }
             /*
-            NSArray *sortedArray = [SearchDictnory sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                if ([[obj1 valueForKey:@"distance"] integerValue] > [[obj2 valueForKey:@"distance"] integerValue]) {
-                    return (NSComparisonResult)NSOrderedDescending;
-                }
-                if ([[obj1 valueForKey:@"distance"] integerValue] < [[obj2 valueForKey:@"distance"] integerValue]) {
-                    return (NSComparisonResult)NSOrderedAscending;
-                }
-                return (NSComparisonResult)NSOrderedSame;
-            }];
-            
-            
-            NSArray *sortedPremium = [sortedArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                if ([[obj1 valueForKey:@"is_per"] integerValue] > [[obj2 valueForKey:@"is_per"] integerValue]) {
-                    return (NSComparisonResult)NSOrderedAscending;
-                }
-                if ([[obj1 valueForKey:@"is_per"] integerValue] < [[obj2 valueForKey:@"is_per"] integerValue]) {
-                    return (NSComparisonResult)NSOrderedDescending;
-                }
-                return (NSComparisonResult)NSOrderedDescending;
-            }];
-            
-            SearchDictnory=[[NSMutableArray alloc]initWithArray:sortedPremium];*/
+             NSArray *sortedArray = [SearchDictnory sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+             if ([[obj1 valueForKey:@"distance"] integerValue] > [[obj2 valueForKey:@"distance"] integerValue]) {
+             return (NSComparisonResult)NSOrderedDescending;
+             }
+             if ([[obj1 valueForKey:@"distance"] integerValue] < [[obj2 valueForKey:@"distance"] integerValue]) {
+             return (NSComparisonResult)NSOrderedAscending;
+             }
+             return (NSComparisonResult)NSOrderedSame;
+             }];
+             
+             
+             NSArray *sortedPremium = [sortedArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+             if ([[obj1 valueForKey:@"is_per"] integerValue] > [[obj2 valueForKey:@"is_per"] integerValue]) {
+             return (NSComparisonResult)NSOrderedAscending;
+             }
+             if ([[obj1 valueForKey:@"is_per"] integerValue] < [[obj2 valueForKey:@"is_per"] integerValue]) {
+             return (NSComparisonResult)NSOrderedDescending;
+             }
+             return (NSComparisonResult)NSOrderedDescending;
+             }];
+             
+             SearchDictnory=[[NSMutableArray alloc]initWithArray:sortedPremium];*/
             limit_only=limit_only+DataDic.count;
             NoResponseInt=1;
             [Table reloadData];
@@ -400,31 +356,31 @@ static dispatch_once_t predicate;
                 [SearchDictnory addObject:dic];
             }
             /*
-            NSArray *sortedArray = [SearchDictnory sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                if ([[obj1 valueForKey:@"distance"] integerValue] > [[obj2 valueForKey:@"distance"] integerValue]) {
-                    return (NSComparisonResult)NSOrderedDescending;
-                }
-                if ([[obj1 valueForKey:@"distance"] integerValue] < [[obj2 valueForKey:@"distance"] integerValue]) {
-                    return (NSComparisonResult)NSOrderedAscending;
-                }
-                return (NSComparisonResult)NSOrderedSame;
-            }];
-            NSArray *sortedPremium = [sortedArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                if ([[obj1 valueForKey:@"is_per"] integerValue] > [[obj2 valueForKey:@"is_per"] integerValue]) {
-                    return (NSComparisonResult)NSOrderedAscending;
-                }
-                if ([[obj1 valueForKey:@"is_per"] integerValue] < [[obj2 valueForKey:@"is_per"] integerValue]) {
-                    return (NSComparisonResult)NSOrderedDescending;
-                }
-                return (NSComparisonResult)NSOrderedDescending;
-            }];
-            
-            
-            SearchDictnory=[[NSMutableArray alloc]initWithArray:sortedPremium];*/
+             NSArray *sortedArray = [SearchDictnory sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+             if ([[obj1 valueForKey:@"distance"] integerValue] > [[obj2 valueForKey:@"distance"] integerValue]) {
+             return (NSComparisonResult)NSOrderedDescending;
+             }
+             if ([[obj1 valueForKey:@"distance"] integerValue] < [[obj2 valueForKey:@"distance"] integerValue]) {
+             return (NSComparisonResult)NSOrderedAscending;
+             }
+             return (NSComparisonResult)NSOrderedSame;
+             }];
+             NSArray *sortedPremium = [sortedArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+             if ([[obj1 valueForKey:@"is_per"] integerValue] > [[obj2 valueForKey:@"is_per"] integerValue]) {
+             return (NSComparisonResult)NSOrderedAscending;
+             }
+             if ([[obj1 valueForKey:@"is_per"] integerValue] < [[obj2 valueForKey:@"is_per"] integerValue]) {
+             return (NSComparisonResult)NSOrderedDescending;
+             }
+             return (NSComparisonResult)NSOrderedDescending;
+             }];
+             
+             
+             SearchDictnory=[[NSMutableArray alloc]initWithArray:sortedPremium];*/
             limit_only=limit_only+DataDic.count;
             NoResponseInt=1;
             [Table reloadData];
-           // NSLog(@"Sorted Service Array is ::%@",sortedArray);
+            // NSLog(@"Sorted Service Array is ::%@",sortedArray);
         }
         
     }
@@ -518,7 +474,7 @@ static dispatch_once_t predicate;
         {
             [cell.StarView setHidden:YES];
             [cell.CatTitle_LBL setHidden:NO];
-           
+            
             if ([[CatselectedArr objectAtIndex:indexPath.row] isEqualToString:@"0"])
             {
                 cell.CatIMG.image=[UIImage imageNamed:@"UnselectChkBox"];
@@ -532,8 +488,8 @@ static dispatch_once_t predicate;
         }
         if (SelectedShort==2)
         {
-             [cell.StarView setHidden:NO];
-             [cell.CatTitle_LBL setHidden:YES];
+            [cell.StarView setHidden:NO];
+            [cell.CatTitle_LBL setHidden:YES];
             
             if ([[ReviewStarSelectArr objectAtIndex:indexPath.row] isEqualToString:@"0"])
             {
@@ -553,7 +509,7 @@ static dispatch_once_t predicate;
                     [cell.Start3 setHidden:NO];
                     [cell.Start4 setHidden:NO];
                     [cell.Start5 setHidden:NO];
-                   
+                    
                 }
                 if ([[[ReviewStarArr valueForKey:@"filter_value_name"] objectAtIndex:indexPath.row] integerValue]==4) {
                     [cell.Start1 setHidden:NO];
@@ -588,7 +544,7 @@ static dispatch_once_t predicate;
         }
         else if (SelectedShort==3)
         {
-             [cell.StarView setHidden:YES];
+            [cell.StarView setHidden:YES];
             [cell.CatTitle_LBL setHidden:NO];
             if ([[DistanceSelectArr objectAtIndex:indexPath.row] isEqualToString:@"0"])
             {
@@ -603,7 +559,7 @@ static dispatch_once_t predicate;
         }
         else if (SelectedShort==4)
         {
-             [cell.StarView setHidden:YES];
+            [cell.StarView setHidden:YES];
             [cell.CatTitle_LBL setHidden:NO];
             if ([[FreeDelSelectArr objectAtIndex:indexPath.row] isEqualToString:@"0"])
             {
@@ -683,7 +639,7 @@ static dispatch_once_t predicate;
 }
 -(NSInteger)hight :(UILabel *)lbl
 {
-   // NSInteger lineCount = 0;
+    // NSInteger lineCount = 0;
     CGSize textSize = CGSizeMake(lbl.frame.size.width, MAXFLOAT);
     int rHeight = lroundf([lbl sizeThatFits:textSize].height);
     int charSize = lroundf(lbl.font.lineHeight);
@@ -718,7 +674,7 @@ static dispatch_once_t predicate;
                     }
                 }
             }
-
+            
         }
         else if (SelectedShort==2)
         {
@@ -768,7 +724,7 @@ static dispatch_once_t predicate;
                     }
                 }
             }
-
+            
         }
         else if (SelectedShort==4)
         {
@@ -804,7 +760,7 @@ static dispatch_once_t predicate;
         [PlaceSearch setShowsCancelButton:NO animated:YES];
         [PlaceSearch resignFirstResponder];
         indexAuto=indexPath.row;
-         [KVNProgress show];
+        [KVNProgress show];
         [self performSelector:@selector(SelectAutoCompleData) withObject:nil afterDelay:3.0];
         ;
         [SearchPlaceTBL deselectRowAtIndexPath:indexPath animated:NO];
@@ -827,7 +783,7 @@ static dispatch_once_t predicate;
          {
              [SearchPlaceTBL setHidden: YES];
              [self addPlacemarkAnnotationToMap:placemarks addressString:addressString];
-           
+             
          }
      }];
 }
@@ -835,7 +791,7 @@ static dispatch_once_t predicate;
 
 - (void)addPlacemarkAnnotationToMap:(CLPlacemark *)placemarks addressString:(NSString *)address
 {
-   
+    
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     annotation.coordinate = placemarks.location.coordinate;
     annotation.title = address;
@@ -843,7 +799,7 @@ static dispatch_once_t predicate;
     
     Latitude= annotation.coordinate.latitude;
     Logitude= annotation.coordinate.longitude;
-    self.Title_LBL.text =address;
+    //self.Title_LBL.text =address;
     AddressView.hidden=YES;
     [KVNProgress dismiss];
     limit_only=0;
@@ -853,7 +809,7 @@ static dispatch_once_t predicate;
     NSLog(@"LAT==%f LOG==%f",annotation.coordinate.latitude,annotation.coordinate.longitude);
     NSLog(@"Address=%@",address);
 }
-
+/*
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     if (scrollView==Table)
@@ -878,7 +834,7 @@ static dispatch_once_t predicate;
     }
     
 }
-
+*/
 - (IBAction)Search_Click:(id)sender
 {
     if (Searc_BTN.selected==YES)
@@ -923,14 +879,14 @@ static dispatch_once_t predicate;
     }
     
     
-   // [AppDelegate showErrorMessageWithTitle:@"Warning." message:@"To re-enable, please go to Settings and turn on Location Service for this app." delegate:nil];
+    // [AppDelegate showErrorMessageWithTitle:@"Warning." message:@"To re-enable, please go to Settings and turn on Location Service for this app." delegate:nil];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     //NSLog(@"didUpdateToLocation: %@", newLocation);
     CLLocation *currentLocation = newLocation;
-   
+    
     if (currentLocation != nil)
     {
         
@@ -941,21 +897,21 @@ static dispatch_once_t predicate;
         if (internet)
         {
             
-           // dispatch_once(&predicate, ^{
-                //your code here
-                [self CallForSearchByShop];
-                 [locationManager stopUpdatingLocation];
-                locationManager=nil;
-           // });
+            // dispatch_once(&predicate, ^{
+            //your code here
+            [self CallForSearchByShop];
+            [locationManager stopUpdatingLocation];
+            locationManager=nil;
+            // });
         }
         else
         {
-          //  dispatch_once(&predicate, ^{
-                //your code here
-                [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
-                [locationManager stopUpdatingLocation];
-                locationManager=nil;
-           // });
+            //  dispatch_once(&predicate, ^{
+            //your code here
+            [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+            [locationManager stopUpdatingLocation];
+            locationManager=nil;
+            // });
         }
         // Reverse Geocoding
         NSLog(@"Resolving the Address");
@@ -963,12 +919,12 @@ static dispatch_once_t predicate;
             NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
             if (error == nil && [placemarks count] > 0) {
                 placemark = [placemarks lastObject];
-                self.Title_LBL.text = [NSString stringWithFormat:@"%@ %@ %@ %@",
-                                     placemark.subThoroughfare,
-                                    placemark.administrativeArea,
-                                     placemark.locality,
-                                     placemark.country];
-                 NSLog(@" placemarks: %@",  self.Title_LBL.text);
+                /*self.Title_LBL.text = [NSString stringWithFormat:@"%@ %@ %@ %@",
+                                       placemark.subThoroughfare,
+                                       placemark.administrativeArea,
+                                       placemark.locality,
+                                       placemark.country];*/
+                NSLog(@" placemarks: %@",  self.Title_LBL.text);
             } else {
                 NSLog(@"%@", error.debugDescription);
             }
@@ -980,7 +936,7 @@ static dispatch_once_t predicate;
 
 - (IBAction)Menu_Click:(id)sender
 {
-    [self.rootNav drawerToggle];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //#pragma mark - SerachBarDelegate
@@ -1007,14 +963,14 @@ static dispatch_once_t predicate;
 //
 //- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 //{
-//    
+//
 //    if([searchText isEqualToString:@""] || searchText==nil)
 //    {
 //        SearchDictnory=[NewArr mutableCopy];
 //        [Table reloadData];
 //        return;
 //    }
-//    
+//
 //    resultObjectsArray = [NSMutableArray array];
 //    for(NSDictionary *wine in SearchDictnory)
 //    {
@@ -1023,7 +979,7 @@ static dispatch_once_t predicate;
 //        if(range.location != NSNotFound)
 //            [resultObjectsArray addObject:wine];
 //    }
-//    
+//
 //    SearchDictnory=[resultObjectsArray mutableCopy];
 //    NSLog(@"resultObjectsArray=%lu",(unsigned long)resultObjectsArray.count);
 //    NSLog(@"tempdict=%@",SearchDictnory);
@@ -1032,7 +988,7 @@ static dispatch_once_t predicate;
 //
 //- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 //{
-//    
+//
 //    if([searchBar.text isEqualToString:@""] || searchBar.text==nil)
 //    {
 //        SearchDictnory=[NewArr mutableCopy];
@@ -1047,7 +1003,7 @@ static dispatch_once_t predicate;
 //        if(range.location != NSNotFound)
 //            [resultObjectsArray addObject:wine];
 //    }
-//    
+//
 //    SearchDictnory=[resultObjectsArray mutableCopy];
 //    NSLog(@"resultObjectsArray=%lu",(unsigned long)resultObjectsArray.count);
 //    NSLog(@"tempdict=%@",SearchDictnory);
@@ -1120,8 +1076,8 @@ static dispatch_once_t predicate;
         
         [SearchByPriceBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
         [SearchByRatBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
-        [SearchByDistBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal]; 
-        [FreeDelevBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal]; 
+        [SearchByDistBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
+        [FreeDelevBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
         
         [SearchByPriceBTN setBackgroundColor:[UIColor clearColor]];
         [SearchByRatBTN setBackgroundColor:[UIColor clearColor]];
@@ -1159,7 +1115,7 @@ static dispatch_once_t predicate;
         
         [SearchByCatBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
         [SearchByPriceBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
-        [SearchByDistBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal]; 
+        [SearchByDistBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
         [FreeDelevBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
         
         [SearchByCatBTN setBackgroundColor:[UIColor clearColor]];
@@ -1174,10 +1130,10 @@ static dispatch_once_t predicate;
         [SearchByDistBTN setBackgroundColor:SelectedButtonColor];
         [SearchByDistBTN setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         
-        [SearchByCatBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal]; 
-        [SearchByPriceBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal]; 
-        [SearchByRatBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal]; 
-        [FreeDelevBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal]; 
+        [SearchByCatBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
+        [SearchByPriceBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
+        [SearchByRatBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
+        [FreeDelevBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
         
         [SearchByCatBTN setBackgroundColor:[UIColor clearColor]];
         [SearchByPriceBTN setBackgroundColor:[UIColor clearColor]];
@@ -1191,10 +1147,10 @@ static dispatch_once_t predicate;
         [FreeDelevBTN setBackgroundColor:SelectedButtonColor];
         [FreeDelevBTN setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         
-        [SearchByCatBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal]; 
-        [SearchByPriceBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal]; 
-        [SearchByRatBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal]; 
-        [SearchByDistBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal]; 
+        [SearchByCatBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
+        [SearchByPriceBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
+        [SearchByRatBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
+        [SearchByDistBTN setTitleColor:UnSelectedButtonColor forState:UIControlStateNormal];
         
         [SearchByCatBTN setBackgroundColor:[UIColor clearColor]];
         [SearchByPriceBTN setBackgroundColor:[UIColor clearColor]];
@@ -1213,13 +1169,13 @@ static dispatch_once_t predicate;
         MaxPriceSTR=[NSString stringWithFormat:@"%.0f",selectedMaximum];
         
         /*
-        NSString *maxval=[NSString stringWithFormat:@"%.0f",selectedMaximum];
-        NSMutableDictionary *fliterdic = [[NSMutableDictionary alloc] init];
-        [fliterdic setObject:[SortByPriceArr valueForKey:@"filter_value_id"]   forKey:@"filter_value_id"];
-        [fliterdic setObject:maxval   forKey:@"filter_value_name"];
-        [fliterdic setObject:[SortByPriceArr valueForKey:@"filter_value"]  forKey:@"filter_value"];
-        [fliterdic setObject:[filter_idArry objectAtIndex:1]  forKey:@"filter_id"];
-        [PriceParsingArr addObject:fliterdic];*/
+         NSString *maxval=[NSString stringWithFormat:@"%.0f",selectedMaximum];
+         NSMutableDictionary *fliterdic = [[NSMutableDictionary alloc] init];
+         [fliterdic setObject:[SortByPriceArr valueForKey:@"filter_value_id"]   forKey:@"filter_value_id"];
+         [fliterdic setObject:maxval   forKey:@"filter_value_name"];
+         [fliterdic setObject:[SortByPriceArr valueForKey:@"filter_value"]  forKey:@"filter_value"];
+         [fliterdic setObject:[filter_idArry objectAtIndex:1]  forKey:@"filter_id"];
+         [PriceParsingArr addObject:fliterdic];*/
         
     }
 }
@@ -1277,7 +1233,7 @@ static dispatch_once_t predicate;
     NSString *trimmedString = [json stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]];
     trimmedString = [trimmedString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     trimmedString = [trimmedString stringByReplacingOccurrencesOfString:@" " withString:@""];
-   
+    
     
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
@@ -1308,29 +1264,29 @@ static dispatch_once_t predicate;
             
         }
         /*
-        NSArray *sortedArray = [SearchDictnory sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            if ([[obj1 valueForKey:@"distance"] integerValue] > [[obj2 valueForKey:@"distance"] integerValue]) {
-                return (NSComparisonResult)NSOrderedDescending;
-            }
-            if ([[obj1 valueForKey:@"distance"] integerValue] < [[obj2 valueForKey:@"distance"] integerValue]) {
-                return (NSComparisonResult)NSOrderedAscending;
-            }
-            return (NSComparisonResult)NSOrderedSame;
-        }];
-        
-        
-        NSArray *sortedPremium = [sortedArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            if ([[obj1 valueForKey:@"is_per"] integerValue] > [[obj2 valueForKey:@"is_per"] integerValue]) {
-                return (NSComparisonResult)NSOrderedAscending;
-            }
-            if ([[obj1 valueForKey:@"is_per"] integerValue] < [[obj2 valueForKey:@"is_per"] integerValue]) {
-                return (NSComparisonResult)NSOrderedDescending;
-            }
-            return (NSComparisonResult)NSOrderedDescending;
-        }];
-        
-        
-        SearchDictnory=[[NSMutableArray alloc]initWithArray:sortedPremium];*/
+         NSArray *sortedArray = [SearchDictnory sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+         if ([[obj1 valueForKey:@"distance"] integerValue] > [[obj2 valueForKey:@"distance"] integerValue]) {
+         return (NSComparisonResult)NSOrderedDescending;
+         }
+         if ([[obj1 valueForKey:@"distance"] integerValue] < [[obj2 valueForKey:@"distance"] integerValue]) {
+         return (NSComparisonResult)NSOrderedAscending;
+         }
+         return (NSComparisonResult)NSOrderedSame;
+         }];
+         
+         
+         NSArray *sortedPremium = [sortedArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+         if ([[obj1 valueForKey:@"is_per"] integerValue] > [[obj2 valueForKey:@"is_per"] integerValue]) {
+         return (NSComparisonResult)NSOrderedAscending;
+         }
+         if ([[obj1 valueForKey:@"is_per"] integerValue] < [[obj2 valueForKey:@"is_per"] integerValue]) {
+         return (NSComparisonResult)NSOrderedDescending;
+         }
+         return (NSComparisonResult)NSOrderedDescending;
+         }];
+         
+         
+         SearchDictnory=[[NSMutableArray alloc]initWithArray:sortedPremium];*/
         [Table reloadData];
         NoResponseInt=0;
     }
@@ -1342,7 +1298,7 @@ static dispatch_once_t predicate;
         [Table reloadData];
         NoResponseInt=0;
         
-       // [self ClearFliterBtn_action:self];
+        // [self ClearFliterBtn_action:self];
     }
 }
 
@@ -1398,8 +1354,8 @@ static dispatch_once_t predicate;
         else if ([[filtername valueForKey:@"filter_name"] isEqualToString:@"Sort By Price"])
         {
             // Search By Range Bar.
-           // SortByPriceArr=[[NSMutableArray alloc]init];
-           // SortByPriceArr=[filtername valueForKey:@"data"];
+            // SortByPriceArr=[[NSMutableArray alloc]init];
+            // SortByPriceArr=[filtername valueForKey:@"data"];
         }
     }
     catParsingArr=[[NSMutableArray alloc]init];

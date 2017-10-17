@@ -64,7 +64,10 @@
 #define SerachByShopServiceName @"get_restorants"
 
 
+// search by Category
 #define SerachByCategory_url @"service_general.php"
+#define get_restorants_from_categoryServiceName @"get_restorants_from_category"
+
 #define get_categoryServiceName @"get_category"
 
 // Card Service
