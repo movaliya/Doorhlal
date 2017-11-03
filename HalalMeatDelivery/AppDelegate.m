@@ -243,7 +243,7 @@ static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyCIjQcJ2s
     float duration = 3.0; // duration in seconds
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [alert dismissWithClickedButtonIndex:0 animated:YES];
+       // [alert dismissWithClickedButtonIndex:0 animated:YES];
     });
 }
 +(void)showInternetErrorMessageWithTitle:(NSString *)title delegate:(id)delegate

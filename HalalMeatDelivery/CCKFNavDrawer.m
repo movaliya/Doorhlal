@@ -21,6 +21,7 @@
 #import "AboutVW.h"
 #import "TermNConditionVW.h"
 #import "SearchByCategory.h"
+#import "ContactUS.h"
 
 #define SHAWDOW_ALPHA 0.5
 #define MENU_DURATION 0.3
@@ -63,15 +64,16 @@
     
     if ([self.appDelegate isUserLoggedIn] == NO)
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Search by Category",@"Shopping Cart",@"About",@"Terms & Conditions",@"Login & Signup", nil];
-        ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"SearchByCatRed",@"shoppingCartRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Search by Cuisine",@"Shopping Cart",@"About",@"Terms & Conditions",@"Contact Us",@"Login & Signup", nil];
+        
+        ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"SearchByCatRed",@"shoppingCartRed",@"AboutRed",@"TermRed",@"ContactUs",@"LogoutRed", nil];
         self.drawerView.Welcome_LBL.hidden=YES;
-       
+       //ContactUs
     }
     else
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Search by Category",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms & Conditions",@"Logout", nil];
-        ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Search by Cuisine",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms & Conditions",@"Contact Us",@"Logout", nil];
+        ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"ContactUs",@"LogoutRed", nil];
         self.drawerView.Welcome_LBL.hidden=NO;
         self.drawerView.Welcome_LBL.text=[NSString stringWithFormat:@"Welcome %@",[[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] valueForKey:@"u_name"]];
     }
@@ -103,15 +105,15 @@
     
     if ([self.appDelegate isUserLoggedIn] == NO)
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Search by Category",@"Shopping Cart",@"About",@"Terms & Conditions",@"Login & Signup", nil];
-        ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"SearchByCatRed",@"shoppingCartRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Search by Cuisine",@"Shopping Cart",@"About",@"Terms & Conditions",@"Contact Us",@"Login & Signup", nil];
+        ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"SearchByCatRed",@"shoppingCartRed",@"AboutRed",@"TermRed",@"ContactUs",@"LogoutRed", nil];
         self.drawerView.Welcome_LBL.hidden=YES;
         
     }
     else
     {
-        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Search by Category",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms & Conditions",@"Logout", nil];
-        ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"LogoutRed", nil];
+        TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Search by Cuisine",@"Shopping Cart",@"Order History",@"My Account",@"About",@"Terms & Conditions",@"Contact Us",@"Logout", nil];
+        ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"SearchByCatRed",@"shoppingCartRed",@"OrderHistoryRed",@"ProfileRed",@"AboutRed",@"TermRed",@"ContactUs",@"LogoutRed", nil];
         self.drawerView.Welcome_LBL.hidden=NO;
         self.drawerView.Welcome_LBL.text=[NSString stringWithFormat:@"Welcome %@",[[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] valueForKey:@"u_name"]];
     }
@@ -417,6 +419,14 @@
         if (indexPath.row==6)
         {
             cell.IconWidth.constant=14;
+            cell.IconHeight.constant=13;
+            //cell.IconX.constant=8;
+            cell.ImgLblGap.constant=19;
+            
+        }
+        if (indexPath.row==7)
+        {
+            cell.IconWidth.constant=14;
             cell.IconHeight.constant=20;
             //  cell.IconX.constant=8;
             cell.ImgLblGap.constant=18;
@@ -485,6 +495,14 @@
             
         }
         if (indexPath.row==8)
+        {
+            cell.IconWidth.constant=14;
+            cell.IconHeight.constant=13;
+            //cell.IconX.constant=8;
+            cell.ImgLblGap.constant=19;
+            
+        }
+        if (indexPath.row==9)
         {
             cell.IconWidth.constant=14;
             cell.IconHeight.constant=20;
@@ -560,6 +578,14 @@
             //[super pushViewController:vcr animated:YES];
         }
         else if (indexPath.row==6)
+        {
+            ContactUS *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ContactUS"];
+            [super pushViewController:vcr animated:YES];
+            
+            //ProfileView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ProfileView"];
+            //[super pushViewController:vcr animated:YES];
+        }
+        else if (indexPath.row==7)
         {
             if ([[TitleArr objectAtIndex:indexPath.row] isEqualToString:@"Login & Signup"])
             {
@@ -652,6 +678,14 @@
             //[super pushViewController:vcr animated:YES];
         }
         else if (indexPath.row==8)
+        {
+            ContactUS *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ContactUS"];
+            [super pushViewController:vcr animated:YES];
+            
+            //ProfileView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ProfileView"];
+            //[super pushViewController:vcr animated:YES];
+        }
+        else if (indexPath.row==9)
         {
             if ([[TitleArr objectAtIndex:indexPath.row] isEqualToString:@"Login & Signup"])
             {
