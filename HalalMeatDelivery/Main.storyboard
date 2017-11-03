@@ -549,13 +549,12 @@
                                             <action selector="Menu_Click:" destination="jcw-3k-THU" eventType="touchUpInside" id="hG5-Hv-l5B"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awd-BU-bbQ">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awd-BU-bbQ">
                                         <rect key="frame" x="52" y="18" width="27" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="27" id="OEz-1S-rHN"/>
                                             <constraint firstAttribute="height" constant="25" id="lhc-jT-ku8"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="WhiteBackArrow.png"/>
                                         <connections>
                                             <action selector="BackBtn_Click:" destination="jcw-3k-THU" eventType="touchUpInside" id="qCZ-2g-mNk"/>
                                         </connections>
@@ -1618,7 +1617,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHD-5U-zhC">
-                                                <rect key="frame" x="50" y="374" width="220" height="19.5"/>
+                                                <rect key="frame" x="50" y="374" width="220" height="20"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Not yet member?">
                                                         <attributes>
@@ -1677,7 +1676,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQU-W5-VVd">
-                                                <rect key="frame" x="149" y="492" width="22" height="14.5"/>
+                                                <rect key="frame" x="149" y="492" width="22" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="22" id="xBB-Kt-zsA"/>
                                                 </constraints>
@@ -1706,7 +1705,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ssq-vb-zP2">
-                                                <rect key="frame" x="60" y="521.5" width="200" height="50"/>
+                                                <rect key="frame" x="60" y="522" width="200" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEV-Ra-Gpd">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
@@ -2043,7 +2042,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN UP WITH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tx2-UY-gkv">
-                                                <rect key="frame" x="109" y="716" width="103" height="14.5"/>
+                                                <rect key="frame" x="109" y="716" width="103" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="103" id="NOH-VT-erP"/>
                                                 </constraints>
@@ -2052,7 +2051,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2ck-w4-aKb">
-                                                <rect key="frame" x="60" y="745.5" width="200" height="50"/>
+                                                <rect key="frame" x="60" y="746" width="200" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mah-MJ-PkH">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
@@ -10015,7 +10014,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kc-15-WD5">
-                                        <rect key="frame" x="55" y="40" width="200" height="22"/>
+                                        <rect key="frame" x="57" y="40" width="200" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="6fv-ym-Iu6"/>
                                             <constraint firstAttribute="width" constant="200" id="ofH-a2-2S3"/>
@@ -10025,10 +10024,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6b-fe-15F">
-                                        <rect key="frame" x="8" y="39" width="27" height="25"/>
+                                        <rect key="frame" x="8" y="41" width="29" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="27" id="g5r-HN-T8U"/>
-                                            <constraint firstAttribute="height" constant="25" id="lOT-vn-zec"/>
+                                            <constraint firstAttribute="width" constant="29" id="g5r-HN-T8U"/>
+                                            <constraint firstAttribute="height" constant="21" id="lOT-vn-zec"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="WhiteMenuIcon.png"/>
                                         <connections>
