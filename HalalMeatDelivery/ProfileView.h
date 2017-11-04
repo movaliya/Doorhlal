@@ -20,6 +20,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *Phone_TXT;
 @property (strong, nonatomic) IBOutlet UITextField *PinCode_TXT;
 @property (strong, nonatomic) IBOutlet UITextField *City_TXT;
+@property (strong, nonatomic) IBOutlet UITextField *State_TXT;
+
 @property (strong, nonatomic) IBOutlet UITextField *Address_TXT;
 
 

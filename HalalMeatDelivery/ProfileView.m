@@ -27,7 +27,7 @@
 @end
 
 @implementation ProfileView
-@synthesize Name_TXT,Email_TXT,Phone_TXT,PinCode_TXT,Address_TXT,City_TXT;
+@synthesize Name_TXT,Email_TXT,Phone_TXT,PinCode_TXT,Address_TXT,City_TXT,State_TXT;
 @synthesize Update_BTN,ChangePass_BTN;
 @synthesize POPCancel,POPSubmit,POPOldPAss,POPNewPAss,POPConPAss;
 
@@ -46,6 +46,9 @@
     [KmyappDelegate SetimageinTextfield:Address_TXT :@"AddressIcon"];
     [KmyappDelegate SetimageinTextfield:PinCode_TXT :@"PinIcon"];
     [KmyappDelegate SetimageinTextfield:Phone_TXT :@"MobileIcon"];
+    
+    [KmyappDelegate SetimageinTextfield:City_TXT :@"IconGloble"];
+    [KmyappDelegate SetimageinTextfield:State_TXT :@"IconGloble"];
     
     [KmyappDelegate SetbuttonCorner:Update_BTN];
     [KmyappDelegate SetbuttonCorner:ChangePass_BTN];
