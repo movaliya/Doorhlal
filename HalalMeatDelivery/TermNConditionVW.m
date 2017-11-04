@@ -24,6 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    Term_title.text=[NSString stringWithFormat:@"Terms and Conditions %@",appVersion];
+    
     BOOL internet=[AppDelegate connectedToNetwork];
     if (internet)
     {
