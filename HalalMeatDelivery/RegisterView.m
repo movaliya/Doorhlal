@@ -291,12 +291,30 @@
         [[NSUserDefaults standardUserDefaults]setObject:[[response valueForKey:@"result"] objectAtIndex:0] forKey:@"LoginUserDic"];
         [[NSUserDefaults standardUserDefaults] setObject:@"simple" forKey:@"USERLOGINTYPE"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
-        [self.navigationController pushViewController:vcr animated:YES];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""                                                        message:[response objectForKey:@"ack_msg"]delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil,nil];
+        alert.tag=50;
+        [alert show];
+
+        
     }
     else
     {
         [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
+    }
+}
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    // the user clicked
+    if (alertView.tag==50)
+    {
+        if (buttonIndex == 0)
+        {
+            SearchByShop *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchByShop"];
+            [self.navigationController pushViewController:vcr animated:YES];
+        }
     }
 }
 - (IBAction)Twitter_Click:(id)sender

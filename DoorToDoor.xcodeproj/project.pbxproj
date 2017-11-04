@@ -101,6 +101,7 @@
 		5372A1941F7A6CB800C88265 /* NSDictionary+NullReplacementDic.m in Sources */ = {isa = PBXBuildFile; fileRef = 5372A1921F7A6CB800C88265 /* NSDictionary+NullReplacementDic.m */; };
 		53752AD31FAC5B880029F2A7 /* ContactUS.m in Sources */ = {isa = PBXBuildFile; fileRef = 53752AD21FAC5B880029F2A7 /* ContactUS.m */; };
 		5377FE3C1F6F9C5800E35BA9 /* login_back_xhdpi.png in Resources */ = {isa = PBXBuildFile; fileRef = 5377FE3B1F6F9C5800E35BA9 /* login_back_xhdpi.png */; };
+		5391B6B51FADA63A00FF2969 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5391B6B41FADA63A00FF2969 /* Main.storyboard */; };
 		5395556C1F723AC80057A461 /* AboutVW.m in Sources */ = {isa = PBXBuildFile; fileRef = 5395556B1F723AC80057A461 /* AboutVW.m */; };
 		5395556E1F723D460057A461 /* 521403691.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5395556D1F723D460057A461 /* 521403691.jpg */; };
 		539555711F7244620057A461 /* TermNConditionVW.m in Sources */ = {isa = PBXBuildFile; fileRef = 539555701F7244620057A461 /* TermNConditionVW.m */; };
@@ -191,7 +192,6 @@
 		B120439C1D789BE800095219 /* RestaurantHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B120439B1D789BE800095219 /* RestaurantHeaderView.m */; };
 		B13984101EB6432800A32E36 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B139840E1EB6432800A32E36 /* CategoryCell.m */; };
 		B13984111EB6432800A32E36 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B139840F1EB6432800A32E36 /* CategoryCell.xib */; };
-		B1415BDC1F6E566000BCAF6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1415BDB1F6E566000BCAF6D /* Main.storyboard */; };
 		B1415BDF1F6E56B100BCAF6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1415BDE1F6E56B100BCAF6D /* AppDelegate.m */; };
 		B1415BE41F6E56C800BCAF6D /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1415BE11F6E56C800BCAF6D /* LoginView.m */; };
 		B1415BE51F6E56C800BCAF6D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1415BE31F6E56C800BCAF6D /* RegisterView.m */; };
@@ -427,6 +427,7 @@
 		53752AD11FAC5B880029F2A7 /* ContactUS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUS.h; sourceTree = "<group>"; };
 		53752AD21FAC5B880029F2A7 /* ContactUS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUS.m; sourceTree = "<group>"; };
 		5377FE3B1F6F9C5800E35BA9 /* login_back_xhdpi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_back_xhdpi.png; sourceTree = "<group>"; };
+		5391B6B41FADA63A00FF2969 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5395556A1F723AC80057A461 /* AboutVW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVW.h; sourceTree = "<group>"; };
 		5395556B1F723AC80057A461 /* AboutVW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVW.m; sourceTree = "<group>"; };
 		5395556D1F723D460057A461 /* 521403691.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 521403691.jpg; sourceTree = "<group>"; };
@@ -558,7 +559,6 @@
 		B139840D1EB6432800A32E36 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
 		B139840E1EB6432800A32E36 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		B139840F1EB6432800A32E36 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
-		B1415BDB1F6E566000BCAF6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B1415BDD1F6E56B100BCAF6D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B1415BDE1F6E56B100BCAF6D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B1415BE01F6E56C800BCAF6D /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
@@ -1033,9 +1033,9 @@
 				B1BE54581D6E13130012A152 /* Cells */,
 				5301AEEF1D76A45700F16656 /* CommanClass */,
 				534D02A61ED6B8C50007F0C6 /* StripePay */,
-				B1415BDB1F6E566000BCAF6D /* Main.storyboard */,
 				B1415BDD1F6E56B100BCAF6D /* AppDelegate.h */,
 				B1415BDE1F6E56B100BCAF6D /* AppDelegate.m */,
+				5391B6B41FADA63A00FF2969 /* Main.storyboard */,
 				B1415BE01F6E56C800BCAF6D /* LoginView.h */,
 				B1415BE11F6E56C800BCAF6D /* LoginView.m */,
 				B1415BE21F6E56C800BCAF6D /* RegisterView.h */,
@@ -1604,6 +1604,7 @@
 				535EA4AB1EBB54EC00A1AA23 /* email1.png in Resources */,
 				B1FAD7881D6E0C5800304CC0 /* MaiinRedLogo.png in Resources */,
 				530824A11D82A3D800948547 /* AddressTxtQuare.png in Resources */,
+				5391B6B51FADA63A00FF2969 /* Main.storyboard in Resources */,
 				530793391D7098110028BF53 /* signupBtn.png in Resources */,
 				53A96F2A1F6EC39B00907393 /* Icon-App-40x40@2x.png in Resources */,
 				53A96F3B1F6EC39B00907393 /* iTunesArtwork@3x.png in Resources */,
@@ -1625,7 +1626,6 @@
 				53A96F361F6EC39B00907393 /* Icon-App-83.5x83.5@2x.png in Resources */,
 				530793291D7079FF0028BF53 /* searchnearbyBtn.png in Resources */,
 				53080A921D857D0F00ADA06C /* AddReviewBtn.png in Resources */,
-				B1415BDC1F6E566000BCAF6D /* Main.storyboard in Resources */,
 				B1415BEA1F6EAECA00BCAF6D /* NewNearbyCell.xib in Resources */,
 				535EA4A31EBB52FE00A1AA23 /* adress1.png in Resources */,
 				53A96F391F6EC39B00907393 /* iTunesArtwork@1x.png in Resources */,
