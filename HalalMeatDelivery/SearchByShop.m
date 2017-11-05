@@ -961,13 +961,26 @@ static dispatch_once_t predicate;
         NSLog(@"Resolving the Address");
         [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
             NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+            
+            
             if (error == nil && [placemarks count] > 0) {
                 placemark = [placemarks lastObject];
-                self.Title_LBL.text = [NSString stringWithFormat:@"%@ %@ %@ %@",
-                                     placemark.subThoroughfare,
-                                    placemark.administrativeArea,
-                                     placemark.locality,
-                                     placemark.country];
+                if (placemark.subThoroughfare == nil)
+                {
+                    self.Title_LBL.text = [NSString stringWithFormat:@"%@ %@ %@",
+                                           placemark.administrativeArea,
+                                           placemark.locality,
+                                           placemark.country];
+                }
+                else
+                {
+                    self.Title_LBL.text = [NSString stringWithFormat:@"%@ %@ %@ %@",
+                                           placemark.subThoroughfare,
+                                           placemark.administrativeArea,
+                                           placemark.locality,
+                                           placemark.country];
+                }
+                
                  NSLog(@" placemarks: %@",  self.Title_LBL.text);
             } else {
                 NSLog(@"%@", error.debugDescription);

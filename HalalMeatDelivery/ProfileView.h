@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *State_TXT;
 
 @property (strong, nonatomic) IBOutlet UITextField *Address_TXT;
+@property (weak, nonatomic) IBOutlet UITextField *Address2_TXT;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *Update_BTN;

@@ -105,6 +105,27 @@ static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyCIjQcJ2s
     
     return NO;
 }
+-(void)SetimageinAndPrefixTextfield: (UITextField *)TXT :(NSString *)ImageName
+{
+    UIView *vw=[[UIView alloc]initWithFrame:CGRectMake(50, 0, 55, 50)];
+    UIImageView *imgforLeft=[[UIImageView alloc] initWithFrame:CGRectMake(12, 13, 22, 22)];
+    [imgforLeft setImage:[UIImage imageNamed:ImageName]];
+    [imgforLeft setContentMode:UIViewContentModeCenter];
+    [vw addSubview:imgforLeft];
+    
+    UILabel * Prefixlabel = [[UILabel alloc]initWithFrame:CGRectMake(37, 16, 5, 5)];
+    Prefixlabel.backgroundColor = [UIColor clearColor];
+    Prefixlabel.text = @"+1";
+    [Prefixlabel setFont:[UIFont systemFontOfSize:14]];
+    [Prefixlabel sizeToFit];
+    [vw addSubview:Prefixlabel];
+    
+    TXT.leftView=vw;
+    TXT.leftViewMode=UITextFieldViewModeAlways;
+    TXT.layer.cornerRadius=20.0f;
+    
+    [TXT setValue:[UIColor colorWithRed:116.0f/255.0f green:104.0f/255.0f blue:102.0f/255.0f alpha:1.0f] forKeyPath:@"_placeholderLabel.textColor"];
+}
 
 -(void)SetimageinTextfield: (UITextField *)TXT :(NSString *)ImageName
 {
