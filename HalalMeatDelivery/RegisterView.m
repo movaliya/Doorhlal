@@ -56,7 +56,7 @@
     [KmyappDelegate SetimageinTextfield:password_Txt :@"PasswordIcon"];
     [KmyappDelegate SetimageinTextfield:address_Txt :@"AddressIcon"];
     
-    [KmyappDelegate SetimageinTextfield:PhoneNo_TXT :@"IconPhone"];
+    [KmyappDelegate SetimageinAndPrefixTextfield:PhoneNo_TXT:@"IconPhone"];
     [KmyappDelegate SetimageinTextfield:address2_TXT :@"AddressIcon"];
     
     [KmyappDelegate SetbuttonCorner:SignUp_BTN];
@@ -265,8 +265,8 @@
     [dictParams setObject:email_Txt.text  forKey:@"u_email"];
     [dictParams setObject:password_Txt.text  forKey:@"u_password"];
     [dictParams setObject:Username_Txt.text  forKey:@"u_name"];
-    
-    [dictParams setObject:PhoneNo_TXT.text  forKey:@"u_phone"];
+    NSString *phoneStr=[NSString stringWithFormat:@"+1%@",PhoneNo_TXT.text];
+    [dictParams setObject:phoneStr  forKey:@"u_phone"];
     [dictParams setObject:address_Txt.text  forKey:@"u_address"];
     [dictParams setObject:address2_TXT.text  forKey:@"u_address2"];
     [dictParams setObject:pincode_Txt.text  forKey:@"u_zip"];

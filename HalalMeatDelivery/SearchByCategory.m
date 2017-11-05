@@ -26,6 +26,10 @@
 
 @implementation SearchByCategory
 @synthesize Table;
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 
 - (void)viewDidLoad
 {

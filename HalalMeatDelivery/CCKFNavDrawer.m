@@ -67,7 +67,8 @@
         TitleArr=[[NSMutableArray alloc] initWithObjects:@"Home",@"Search By Shop",@"Search by Cuisine",@"Shopping Cart",@"About",@"Terms & Conditions",@"Contact Us",@"Login & Signup", nil];
         
         ImgArr=[[NSMutableArray alloc] initWithObjects:@"HomeRed",@"SearchByCatRed",@"SearchByCatRed",@"shoppingCartRed",@"AboutRed",@"TermRed",@"ContactUs",@"LogoutRed", nil];
-        self.drawerView.Welcome_LBL.hidden=YES;
+        self.drawerView.Welcome_LBL.hidden=NO;
+         self.drawerView.Welcome_LBL.text=@"Welcome Guest";
        //ContactUs
     }
     else

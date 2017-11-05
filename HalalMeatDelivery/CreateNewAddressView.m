@@ -20,6 +20,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   // [KmyappDelegate SetimageinAndPrefixTextfield:Mobile_TXT:@"IconPhone"];
+    
     Submit_BTN.layer.cornerRadius=20;
     
     if (AddressDic.count>0)

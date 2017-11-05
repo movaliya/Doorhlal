@@ -37,6 +37,6 @@
 -(void)GetPublishableKey;
 -(void)SetbuttonCorner :(UIButton *)BTN;
 -(void)SetimageinTextfield: (UITextField *)TXT :(NSString *)ImageName;
-
+-(void)SetimageinAndPrefixTextfield: (UITextField *)TXT :(NSString *)ImageName;
 @end
 
