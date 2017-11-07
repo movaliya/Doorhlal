@@ -48,7 +48,88 @@
 }
 - (IBAction)SubmitBtn_Click:(id)sender
 {
+    [Name_TXT resignFirstResponder];
+    [Message_TXT resignFirstResponder];
+    [Phone_TXT resignFirstResponder];
+    [Email_TXT resignFirstResponder];
+    
+    if ([Name_TXT.text isEqualToString:@""])
+    {
+        
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Name" delegate:nil];
+    }
+    else if ([Message_TXT.text isEqualToString:@""])
+    {
+        
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Message" delegate:nil];
+    }
+    else if ([Phone_TXT.text isEqualToString:@""])
+    {
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Mobile Number" delegate:nil];
+    }
+    else if ([Email_TXT.text isEqualToString:@""])
+    {
+        
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Email" delegate:nil];
+    }
+    else
+    {
+        if (![AppDelegate IsValidEmail:Email_TXT.text])
+        {
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter valid email" delegate:nil];
+        }
+        else if (![AppDelegate myMobileNumberValidate:Phone_TXT.text])
+        {
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please Enter a Valid Mobile number" delegate:nil];
+        }
+        
+        else
+        {
+            
+            BOOL internet=[AppDelegate connectedToNetwork];
+            if (internet)
+            {
+                [self ContactUsServiceCall];
+            }
+            else
+                [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+            
+        }
+    }
+}
+-(void)ContactUsServiceCall
+{
+    NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
+    [dictParams setObject:r_p  forKey:@"r_p"];
+    [dictParams setObject:ContactUsServiceName  forKey:@"service"];
+    
+    [dictParams setObject:Email_TXT.text  forKey:@"email"];
+    [dictParams setObject:Name_TXT.text  forKey:@"name"];
+    [dictParams setObject:Message_TXT.text  forKey:@"msg"];
+    [dictParams setObject:Phone_TXT.text  forKey:@"phone_no"];
+    
+    [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,ContactServc_url] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
+     {
+         [self handleResponse:response];
+     }];
+}
 
+- (void)handleResponse:(NSDictionary*)response
+{
+    //NSLog(@"Logindata==%@",response);
+    if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
+    {
+        Email_TXT.text=@"";
+        Name_TXT.text=@"";
+        Message_TXT.text=@"";
+        Phone_TXT.text=@"";
+        
+       [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"result"] delegate:nil];
+    }
+    else
+    {
+        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
+    }
 }
 - (IBAction)MenuBtn_Click:(id)sender
 {

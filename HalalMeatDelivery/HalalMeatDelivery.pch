@@ -114,6 +114,10 @@
 #define SetDefautAddress @"set_default_delivery_address"
 #define DeleteDeliveryAddress @"delete_delivery_address"
 
+//Contact Us
+#define ContactServc_url @"service_general.php"
+#define ContactUsServiceName @"send_mail"
+
 
 // CheckOut TakeAway Services
 

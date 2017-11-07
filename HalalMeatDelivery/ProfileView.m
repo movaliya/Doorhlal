@@ -166,18 +166,21 @@
 -(void)CallprofileService
 {
     
+    //http://bulkbox.in/door2door/service/service_user_profile.php?r_p=1224&service=change_user_profile&uid=21&u_name=Jai&u_phone=%2B17222555555&u_pin=00544&u_address=402ajsdlksj&u_address2=Hshbj&u_city=Vervala&u_state=Guj
+    
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
     NSString *User_UID=[UserData valueForKey:@"u_id"];
     
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
+    
     [dictParams setObject:UpdateProfileServiceName  forKey:@"service"];
     [dictParams setObject:User_UID  forKey:@"uid"];
    // [dictParams setObject:Email_TXT.text  forKey:@"u_email"];
     [dictParams setObject:Phone_TXT.text  forKey:@"u_phone"];
     [dictParams setObject:Name_TXT.text  forKey:@"u_name"];
     [dictParams setObject:Address_TXT.text  forKey:@"u_address"];
-    [dictParams setObject:PinCode_TXT.text  forKey:@"u_pincode"];
+    [dictParams setObject:PinCode_TXT.text  forKey:@"u_pin"];
     [dictParams setObject:City_TXT.text  forKey:@"u_city"];
     [dictParams setObject:State_TXT.text  forKey:@"u_state"];
     [dictParams setObject:Address2_TXT.text  forKey:@"u_address2"];
@@ -198,14 +201,15 @@
     {
         
           NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
-        
+
         [UserData setValue:Address_TXT.text forKey:@"u_address"];
-        [UserData setObject:City_TXT.text forKey:@"u_city"];
+        [UserData setValue:Address2_TXT.text forKey:@"u_address2"];
+        [UserData setValue:City_TXT.text forKey:@"u_city"];
         [UserData setValue:Email_TXT.text forKey:@"u_email"];
         [UserData setValue:Name_TXT.text forKey:@"u_name"];
         [UserData setValue:Phone_TXT.text forKey:@"u_phone"];
-        [UserData setValue:PinCode_TXT.text forKey:@"u_zip"];
-         [UserData setValue:State_TXT.text forKey:@"u_state"];
+        [UserData setValue:PinCode_TXT.text forKey:@"u_pincode"];
+        [UserData setValue:State_TXT.text forKey:@"u_state"];
          NSLog(@"LoginUserDic Dic=%@",UserData);
 
         
