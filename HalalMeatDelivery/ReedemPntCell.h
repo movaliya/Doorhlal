@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *ReedemPoint_LBL;
 @property (weak, nonatomic) IBOutlet UILabel *ReedemDate_LBL;
 @property (weak, nonatomic) IBOutlet UILabel *ReedemDescrption_LBL;
+@property (weak, nonatomic) IBOutlet UIView *BackView;
 
 @end

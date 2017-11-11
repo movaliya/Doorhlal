@@ -31,6 +31,10 @@
     
     UINib *nib = [UINib nibWithNibName:@"ReedemPntCell" bundle:nil];
     ReedemPntCell *cell = [[nib instantiateWithOwner:nil options:nil] objectAtIndex:0];
+    cell.layer.shadowOffset = CGSizeMake(1, 0);
+    cell.layer.shadowColor = [[UIColor blackColor] CGColor];
+    cell.layer.shadowRadius = 5;
+    cell.layer.shadowOpacity = .25;
     ReedTableView.rowHeight = cell.frame.size.height;
     [ReedTableView registerNib:nib forCellReuseIdentifier:@"ReedemPntCell"];
     

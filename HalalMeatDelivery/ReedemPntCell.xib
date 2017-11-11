@@ -17,6 +17,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="340" height="85"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WDt-x1-ouU">
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="85"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reedem Point :" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBx-Av-dJA">
                         <rect key="frame" x="8" y="8" width="102" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -62,6 +67,7 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="BackView" destination="WDt-x1-ouU" id="pH0-oj-P3v"/>
                 <outlet property="ReedemDate_LBL" destination="QSQ-3k-f0Y" id="AZe-73-EMH"/>
                 <outlet property="ReedemDescrption_LBL" destination="ol1-Mn-Oii" id="JsD-sR-do1"/>
                 <outlet property="ReedemPoint_LBL" destination="mEy-QX-1Ac" id="kvc-LK-RVo"/>
