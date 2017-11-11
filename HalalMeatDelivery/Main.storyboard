@@ -3937,7 +3937,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqr-VZ-ZuM">
-                                <rect key="frame" x="16" y="96" width="288" height="260"/>
+                                <rect key="frame" x="16" y="96" width="288" height="325"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Payment Method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tid-uE-DJz">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="50"/>
@@ -3950,7 +3950,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lK-rX-uwd">
-                                        <rect key="frame" x="174" y="201" width="97" height="47"/>
+                                        <rect key="frame" x="174" y="266" width="97" height="47"/>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.070588235289999995" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="veD-Wg-QdF"/>
@@ -4012,8 +4012,65 @@
                                             <action selector="OnlinePayment_action:" destination="ZxC-UF-059" eventType="touchUpInside" id="prK-fo-mME"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JS-8c-mTY">
+                                        <rect key="frame" x="75" y="160" width="183" height="80"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RadioDisable" translatesAutoresizingMaskIntoConstraints="NO" id="hoS-Gg-kMB">
+                                                <rect key="frame" x="0.0" y="6.5" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="2vo-qQ-Jb7"/>
+                                                    <constraint firstAttribute="height" constant="30" id="zXO-I8-F7A"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gcj-KA-nV9">
+                                                <rect key="frame" x="0.0" y="0.0" width="183" height="43"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="43" id="DrU-xG-7mH"/>
+                                                </constraints>
+                                                <state key="normal" title="          Stripe">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="OnlinePayment_action:" destination="ZxC-UF-059" eventType="touchUpInside" id="IOY-6B-DVW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffe-B8-MPC">
+                                                <rect key="frame" x="0.0" y="37" width="183" height="43"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="43" id="vZ0-hY-ZAZ"/>
+                                                </constraints>
+                                                <state key="normal" title="          Paypal">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="OnlinePayment_action:" destination="ZxC-UF-059" eventType="touchUpInside" id="yHV-te-u6Y"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RadioDisable" translatesAutoresizingMaskIntoConstraints="NO" id="id8-hR-hfT">
+                                                <rect key="frame" x="0.0" y="43.5" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="kzn-rf-Uo4"/>
+                                                    <constraint firstAttribute="height" constant="30" id="xfB-8C-hD5"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Gcj-KA-nV9" secondAttribute="trailing" id="4BH-hL-UY9"/>
+                                            <constraint firstAttribute="bottom" secondItem="ffe-B8-MPC" secondAttribute="bottom" id="5iW-yt-AKW"/>
+                                            <constraint firstItem="hoS-Gg-kMB" firstAttribute="centerY" secondItem="Gcj-KA-nV9" secondAttribute="centerY" id="6Al-Aq-f1D"/>
+                                            <constraint firstItem="id8-hR-hfT" firstAttribute="centerY" secondItem="ffe-B8-MPC" secondAttribute="centerY" id="A4k-VC-D8Z"/>
+                                            <constraint firstAttribute="height" constant="80" id="OLs-l9-iop"/>
+                                            <constraint firstAttribute="width" constant="183" id="Wet-zS-uXS"/>
+                                            <constraint firstItem="id8-hR-hfT" firstAttribute="leading" secondItem="0JS-8c-mTY" secondAttribute="leading" id="aPe-DD-h8k"/>
+                                            <constraint firstItem="ffe-B8-MPC" firstAttribute="leading" secondItem="0JS-8c-mTY" secondAttribute="leading" id="bHk-mw-ZOK"/>
+                                            <constraint firstItem="id8-hR-hfT" firstAttribute="centerY" secondItem="ffe-B8-MPC" secondAttribute="centerY" id="j6k-gJ-KTa"/>
+                                            <constraint firstItem="Gcj-KA-nV9" firstAttribute="leading" secondItem="0JS-8c-mTY" secondAttribute="leading" id="kLk-7d-JKf"/>
+                                            <constraint firstItem="hoS-Gg-kMB" firstAttribute="leading" secondItem="0JS-8c-mTY" secondAttribute="leading" id="mWr-nf-khi"/>
+                                            <constraint firstItem="Gcj-KA-nV9" firstAttribute="top" secondItem="0JS-8c-mTY" secondAttribute="top" id="mpJ-yZ-HK9"/>
+                                            <constraint firstAttribute="trailing" secondItem="ffe-B8-MPC" secondAttribute="trailing" id="yeu-ao-gfz"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="doJ-gs-dsY" firstAttribute="centerY" secondItem="hAu-DF-QZY" secondAttribute="centerY" id="1yD-ht-HRP"/>
                                     <constraint firstItem="Tid-uE-DJz" firstAttribute="leading" secondItem="gqr-VZ-ZuM" secondAttribute="leading" id="3Fu-MM-cBG"/>
@@ -4026,13 +4083,15 @@
                                     <constraint firstItem="jne-N4-gHg" firstAttribute="leading" secondItem="gqr-VZ-ZuM" secondAttribute="leading" constant="35" id="eey-Z0-vKZ"/>
                                     <constraint firstItem="ecM-S1-UYw" firstAttribute="centerY" secondItem="hAu-DF-QZY" secondAttribute="centerY" id="g7V-W9-X5p"/>
                                     <constraint firstItem="Tid-uE-DJz" firstAttribute="top" secondItem="gqr-VZ-ZuM" secondAttribute="top" id="iCb-4x-gwf"/>
+                                    <constraint firstAttribute="trailing" secondItem="0JS-8c-mTY" secondAttribute="trailing" constant="30" id="ifV-ED-vTj"/>
                                     <constraint firstAttribute="trailing" secondItem="Tid-uE-DJz" secondAttribute="trailing" id="mA1-OI-Yey"/>
                                     <constraint firstItem="ecM-S1-UYw" firstAttribute="leading" secondItem="gqr-VZ-ZuM" secondAttribute="leading" constant="30" id="n0q-Vp-TI2"/>
                                     <constraint firstAttribute="trailing" secondItem="4lK-rX-uwd" secondAttribute="trailing" constant="17" id="rmJ-iP-QFq"/>
                                     <constraint firstAttribute="bottom" secondItem="4lK-rX-uwd" secondAttribute="bottom" constant="12" id="uCv-Gz-Ljf"/>
                                     <constraint firstItem="oCW-LU-cHt" firstAttribute="leading" secondItem="jne-N4-gHg" secondAttribute="trailing" constant="15" id="ulM-Cv-VuW"/>
                                     <constraint firstItem="hAu-DF-QZY" firstAttribute="top" secondItem="Tid-uE-DJz" secondAttribute="bottom" constant="22" id="xI8-cM-5hc"/>
-                                    <constraint firstAttribute="height" constant="260" id="zWy-Ry-T9S"/>
+                                    <constraint firstItem="0JS-8c-mTY" firstAttribute="top" secondItem="oCW-LU-cHt" secondAttribute="bottom" constant="8" id="yDc-EZ-99Y"/>
+                                    <constraint firstAttribute="height" constant="325" id="zWy-Ry-T9S"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -4059,7 +4118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6v-el-7iD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5894" y="-425"/>
+            <point key="canvasLocation" x="5893.125" y="-425.7042253521127"/>
         </scene>
         <!--Payment View-->
         <scene sceneID="aft-Hi-JCb">
@@ -8592,7 +8651,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1J8-A0-G7j">
-                                <rect key="frame" x="8" y="88" width="304" height="160"/>
+                                <rect key="frame" x="8" y="88" width="304" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Payment Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAS-MD-tFU">
                                         <rect key="frame" x="32" y="0.0" width="272" height="30"/>
@@ -8677,19 +8736,81 @@
                                             <action selector="OnlinePaymentBtn_action:" destination="IfE-6J-Xuh" eventType="touchUpInside" id="YEh-dP-KNZ"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zh5-cu-Q7h">
+                                        <rect key="frame" x="78" y="114" width="183" height="80"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RadioDisable" translatesAutoresizingMaskIntoConstraints="NO" id="X6b-Mz-Djc">
+                                                <rect key="frame" x="0.0" y="11.5" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="aUD-88-jg4"/>
+                                                    <constraint firstAttribute="width" constant="20" id="zq0-PZ-Cd1"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETn-IY-bUc">
+                                                <rect key="frame" x="0.0" y="0.0" width="183" height="43"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="43" id="wHp-dx-05l"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="          Stripe">
+                                                    <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="OnlinePayment_action:" destination="ZxC-UF-059" eventType="touchUpInside" id="v69-XO-i5P"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCA-ul-19D">
+                                                <rect key="frame" x="0.0" y="37" width="183" height="43"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="43" id="cbZ-Jt-O6N"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="          Paypal">
+                                                    <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="OnlinePayment_action:" destination="ZxC-UF-059" eventType="touchUpInside" id="Foi-zv-dMj"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RadioDisable" translatesAutoresizingMaskIntoConstraints="NO" id="1Jx-lI-QXA">
+                                                <rect key="frame" x="0.0" y="48.5" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="O8N-At-RC9"/>
+                                                    <constraint firstAttribute="height" constant="20" id="xoZ-8T-Cxs"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ETn-IY-bUc" secondAttribute="trailing" id="56Y-7C-qKF"/>
+                                            <constraint firstAttribute="trailing" secondItem="oCA-ul-19D" secondAttribute="trailing" id="8kh-FG-g8p"/>
+                                            <constraint firstItem="ETn-IY-bUc" firstAttribute="top" secondItem="Zh5-cu-Q7h" secondAttribute="top" id="Q4f-a2-9Jc"/>
+                                            <constraint firstAttribute="width" constant="183" id="SHy-HS-NXC"/>
+                                            <constraint firstItem="ETn-IY-bUc" firstAttribute="leading" secondItem="Zh5-cu-Q7h" secondAttribute="leading" id="Uta-UT-5I7"/>
+                                            <constraint firstItem="1Jx-lI-QXA" firstAttribute="centerY" secondItem="oCA-ul-19D" secondAttribute="centerY" id="asS-xh-w4w"/>
+                                            <constraint firstItem="oCA-ul-19D" firstAttribute="leading" secondItem="Zh5-cu-Q7h" secondAttribute="leading" id="cNZ-Il-YZy"/>
+                                            <constraint firstItem="1Jx-lI-QXA" firstAttribute="centerY" secondItem="oCA-ul-19D" secondAttribute="centerY" id="efP-yJ-oqu"/>
+                                            <constraint firstItem="X6b-Mz-Djc" firstAttribute="centerY" secondItem="ETn-IY-bUc" secondAttribute="centerY" id="kfI-CT-MQg"/>
+                                            <constraint firstItem="1Jx-lI-QXA" firstAttribute="leading" secondItem="Zh5-cu-Q7h" secondAttribute="leading" id="noO-XD-0Hk"/>
+                                            <constraint firstAttribute="height" constant="80" id="xh8-3C-q7r"/>
+                                            <constraint firstItem="X6b-Mz-Djc" firstAttribute="leading" secondItem="Zh5-cu-Q7h" secondAttribute="leading" id="xrT-Oi-Eiz"/>
+                                            <constraint firstAttribute="bottom" secondItem="oCA-ul-19D" secondAttribute="bottom" id="zzZ-yP-rbj"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="9bL-Yf-UhW" firstAttribute="top" secondItem="Bdc-b5-nOt" secondAttribute="bottom" constant="13" id="2cq-2y-ftS"/>
                                     <constraint firstAttribute="trailing" secondItem="tAS-MD-tFU" secondAttribute="trailing" id="35D-sH-EE2"/>
                                     <constraint firstItem="SLI-EY-lAD" firstAttribute="leading" secondItem="1J8-A0-G7j" secondAttribute="leading" id="6RT-f1-d35"/>
+                                    <constraint firstItem="Zh5-cu-Q7h" firstAttribute="leading" secondItem="1J8-A0-G7j" secondAttribute="leading" constant="78" id="8lu-hk-9Me"/>
                                     <constraint firstItem="Cze-5J-8T7" firstAttribute="centerY" secondItem="dMx-kz-X5l" secondAttribute="centerY" id="9bH-Ay-Eo9"/>
                                     <constraint firstItem="SLI-EY-lAD" firstAttribute="baseline" secondItem="tAS-MD-tFU" secondAttribute="baseline" id="BWY-wT-CTV"/>
                                     <constraint firstItem="Cze-5J-8T7" firstAttribute="leading" secondItem="tAS-MD-tFU" secondAttribute="leading" id="Bv6-Yr-Y6T"/>
                                     <constraint firstItem="icx-Fp-XEJ" firstAttribute="centerY" secondItem="00a-yX-lsi" secondAttribute="centerY" id="Hqw-jN-uVG"/>
                                     <constraint firstItem="Bdc-b5-nOt" firstAttribute="leading" secondItem="tAS-MD-tFU" secondAttribute="leading" id="KEt-sI-1RP"/>
                                     <constraint firstItem="Cze-5J-8T7" firstAttribute="top" secondItem="tAS-MD-tFU" secondAttribute="bottom" constant="25" id="Ola-Df-RbC"/>
-                                    <constraint firstAttribute="height" constant="160" id="QkR-Mo-s8w"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zh5-cu-Q7h" secondAttribute="bottom" constant="6" id="QY4-L6-kw9"/>
+                                    <constraint firstItem="Zh5-cu-Q7h" firstAttribute="top" secondItem="00a-yX-lsi" secondAttribute="bottom" constant="5" id="TMc-IR-vge"/>
                                     <constraint firstItem="dMx-kz-X5l" firstAttribute="leading" secondItem="Cze-5J-8T7" secondAttribute="trailing" constant="31" id="Zv1-Zv-UaM"/>
                                     <constraint firstItem="Cze-5J-8T7" firstAttribute="centerX" secondItem="icx-Fp-XEJ" secondAttribute="centerX" id="djq-2o-f6r"/>
                                     <constraint firstItem="Bdc-b5-nOt" firstAttribute="top" secondItem="tAS-MD-tFU" secondAttribute="bottom" constant="25" id="doV-Ci-xc4"/>
