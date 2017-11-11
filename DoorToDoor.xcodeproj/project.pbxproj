@@ -133,6 +133,9 @@
 		53A96F3A1F6EC39B00907393 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53A96F1F1F6EC39B00907393 /* iTunesArtwork@2x.png */; };
 		53A96F3B1F6EC39B00907393 /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53A96F201F6EC39B00907393 /* iTunesArtwork@3x.png */; };
 		53A96F3C1F6EC39B00907393 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 53A96F211F6EC39B00907393 /* README.md */; };
+		53B3FCD71FB6CCDD009B4EA8 /* ReedemPointVW.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B3FCD61FB6CCDD009B4EA8 /* ReedemPointVW.m */; };
+		53B3FCDB1FB6D3E2009B4EA8 /* ReedemPntCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B3FCD91FB6D3E2009B4EA8 /* ReedemPntCell.m */; };
+		53B3FCDC1FB6D3E2009B4EA8 /* ReedemPntCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53B3FCDA1FB6D3E2009B4EA8 /* ReedemPntCell.xib */; };
 		53D47EFA1F729C0D00CDCC96 /* PaymentAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D47EF81F729C0D00CDCC96 /* PaymentAddressCell.m */; };
 		53D47EFB1F729C0D00CDCC96 /* PaymentAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D47EF91F729C0D00CDCC96 /* PaymentAddressCell.xib */; };
 		53FBF0C91D96B58200E47FE3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FBF0C81D96B58200E47FE3 /* Reachability.m */; };
@@ -461,6 +464,11 @@
 		53A96F1F1F6EC39B00907393 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		53A96F201F6EC39B00907393 /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
 		53A96F211F6EC39B00907393 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		53B3FCD51FB6CCDD009B4EA8 /* ReedemPointVW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReedemPointVW.h; sourceTree = "<group>"; };
+		53B3FCD61FB6CCDD009B4EA8 /* ReedemPointVW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReedemPointVW.m; sourceTree = "<group>"; };
+		53B3FCD81FB6D3E2009B4EA8 /* ReedemPntCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReedemPntCell.h; sourceTree = "<group>"; };
+		53B3FCD91FB6D3E2009B4EA8 /* ReedemPntCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReedemPntCell.m; sourceTree = "<group>"; };
+		53B3FCDA1FB6D3E2009B4EA8 /* ReedemPntCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReedemPntCell.xib; sourceTree = "<group>"; };
 		53D47EF71F729C0D00CDCC96 /* PaymentAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentAddressCell.h; sourceTree = "<group>"; };
 		53D47EF81F729C0D00CDCC96 /* PaymentAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentAddressCell.m; sourceTree = "<group>"; };
 		53D47EF91F729C0D00CDCC96 /* PaymentAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentAddressCell.xib; sourceTree = "<group>"; };
@@ -1077,6 +1085,8 @@
 				B15662E91EB9F02D005791FE /* AddressView */,
 				5356CB341EB484B700E0A422 /* SavePaymentMethod.h */,
 				5356CB351EB484B700E0A422 /* SavePaymentMethod.m */,
+				53B3FCD51FB6CCDD009B4EA8 /* ReedemPointVW.h */,
+				53B3FCD61FB6CCDD009B4EA8 /* ReedemPointVW.m */,
 				53752AD11FAC5B880029F2A7 /* ContactUS.h */,
 				53752AD21FAC5B880029F2A7 /* ContactUS.m */,
 				B1FC793B1D7DE5D800DA38DC /* ProfileView.h */,
@@ -1369,6 +1379,9 @@
 				B139840D1EB6432800A32E36 /* CategoryCell.h */,
 				B139840E1EB6432800A32E36 /* CategoryCell.m */,
 				B139840F1EB6432800A32E36 /* CategoryCell.xib */,
+				53B3FCD81FB6D3E2009B4EA8 /* ReedemPntCell.h */,
+				53B3FCD91FB6D3E2009B4EA8 /* ReedemPntCell.m */,
+				53B3FCDA1FB6D3E2009B4EA8 /* ReedemPntCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1561,6 +1574,7 @@
 				B109C67B1D6CBE1A000936A2 /* Food.png in Resources */,
 				B10B97F41D91AFEB00228F33 /* TakeawayThaxView.xib in Resources */,
 				B13984111EB6432800A32E36 /* CategoryCell.xib in Resources */,
+				53B3FCDC1FB6D3E2009B4EA8 /* ReedemPntCell.xib in Resources */,
 				5301AF381D76A81900F16656 /* KVNProgressView.xib in Resources */,
 				535FF4D51D741877001355CD /* NearByCell.xib in Resources */,
 				B10B1BC51D6EC3CA005C9D87 /* login_back_xhdpi111.png in Resources */,
@@ -1754,6 +1768,7 @@
 				B15330AB1EB9060100E96C28 /* DeliveryView1.m in Sources */,
 				533074551F95D710005036BD /* SearchByCategory.m in Sources */,
 				B151DA051F72E6A200D5DF7A /* NSDictionary+MTLMappingAdditions.m in Sources */,
+				53B3FCD71FB6CCDD009B4EA8 /* ReedemPointVW.m in Sources */,
 				B10B97EA1D91AF9100228F33 /* OrderHistoryCell.m in Sources */,
 				B151DA001F72E6A200D5DF7A /* MTLTransformerErrorHandling.m in Sources */,
 				5301AF681D76A85600F16656 /* UIProgressView+AFNetworking.m in Sources */,
@@ -1831,6 +1846,7 @@
 				B10605BA1D76014A00D0501F /* MapCellView.m in Sources */,
 				B151D9CC1F72E2F700D5DF7A /* CLPlacemark+HNKAdditions.m in Sources */,
 				5356CB331EB4765000E0A422 /* MyAccountVW.m in Sources */,
+				53B3FCDB1FB6D3E2009B4EA8 /* ReedemPntCell.m in Sources */,
 				5309C4C81D83F3CF00C146AC /* RateView.m in Sources */,
 				B109C6551D6C9FC9000936A2 /* main.m in Sources */,
 				5301AF671D76A85600F16656 /* UIImageView+AFNetworking.m in Sources */,
