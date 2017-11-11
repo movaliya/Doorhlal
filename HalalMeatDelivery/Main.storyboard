@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y00-yL-Tq5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y00-yL-Tq5">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1401,11 +1401,11 @@
                                                         <rect key="frame" x="0.0" y="28" width="280" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0cp-7B-8nG" id="BwI-iB-CHO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q31-58-Wwo">
-                                                                    <rect key="frame" x="15" y="0.0" width="250" height="43.5"/>
+                                                                    <rect key="frame" x="15" y="0.0" width="250" height="43"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4016,7 +4016,7 @@
                                         <rect key="frame" x="75" y="160" width="183" height="80"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RadioDisable" translatesAutoresizingMaskIntoConstraints="NO" id="hoS-Gg-kMB">
-                                                <rect key="frame" x="0.0" y="6.5" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="7" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="2vo-qQ-Jb7"/>
                                                     <constraint firstAttribute="height" constant="30" id="zXO-I8-F7A"/>
@@ -4032,6 +4032,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="OnlinePayment_action:" destination="ZxC-UF-059" eventType="touchUpInside" id="IOY-6B-DVW"/>
+                                                    <action selector="stripeBtn_Action:" destination="ZxC-UF-059" eventType="touchUpInside" id="erH-yV-KCJ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffe-B8-MPC">
@@ -4044,10 +4045,11 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="OnlinePayment_action:" destination="ZxC-UF-059" eventType="touchUpInside" id="yHV-te-u6Y"/>
+                                                    <action selector="paypalBtn_Action:" destination="ZxC-UF-059" eventType="touchUpInside" id="H6o-sN-44o"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RadioDisable" translatesAutoresizingMaskIntoConstraints="NO" id="id8-hR-hfT">
-                                                <rect key="frame" x="0.0" y="43.5" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="44" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="kzn-rf-Uo4"/>
                                                     <constraint firstAttribute="height" constant="30" id="xfB-8C-hD5"/>
@@ -4113,7 +4115,11 @@
                         <outlet property="MainVIEW" destination="gqr-VZ-ZuM" id="4Og-RE-lSL"/>
                         <outlet property="OnlinePaymtIMAGE" destination="jne-N4-gHg" id="WtN-5e-1gi"/>
                         <outlet property="SaveBtn" destination="4lK-rX-uwd" id="ZjR-Tq-SEk"/>
+                        <outlet property="mainViewHeight" destination="zWy-Ry-T9S" id="XXr-Sk-Nj1"/>
                         <outlet property="onlinePay_Btn" destination="0iW-QV-LLU" id="zCB-Gc-Wr3"/>
+                        <outlet property="paymentView" destination="0JS-8c-mTY" id="r6Y-7y-Agd"/>
+                        <outlet property="paypalimageVW" destination="id8-hR-hfT" id="NUr-C0-vgd"/>
+                        <outlet property="stripeimgeVW" destination="hoS-Gg-kMB" id="BQr-LK-16M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6v-el-7iD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -7413,7 +7419,7 @@
                                         <rect key="frame" x="78" y="116" width="183" height="80"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RadioDisable" translatesAutoresizingMaskIntoConstraints="NO" id="TNt-Tz-sxF">
-                                                <rect key="frame" x="0.0" y="11.5" width="20" height="20"/>
+                                                <rect key="frame" x="0.0" y="12" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="UAW-vQ-6ct"/>
                                                     <constraint firstAttribute="width" constant="20" id="VXH-g7-1S0"/>
@@ -7429,7 +7435,7 @@
                                                     <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="OnlinePayment_action:" destination="ZxC-UF-059" eventType="touchUpInside" id="kmN-MQ-Uyq"/>
+                                                    <action selector="stripBtn_Action:" destination="utS-6t-Ruc" eventType="touchUpInside" id="opu-Xx-WdK"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXu-wq-F3h">
@@ -7442,11 +7448,11 @@
                                                     <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="OnlinePayment_action:" destination="ZxC-UF-059" eventType="touchUpInside" id="dGx-vg-Ggs"/>
+                                                    <action selector="paypalBtn_Action:" destination="utS-6t-Ruc" eventType="touchUpInside" id="bxf-9T-CFa"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RadioDisable" translatesAutoresizingMaskIntoConstraints="NO" id="LMN-7X-neE">
-                                                <rect key="frame" x="0.0" y="48.5" width="20" height="20"/>
+                                                <rect key="frame" x="0.0" y="49" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="MfG-Q3-8mL"/>
                                                     <constraint firstAttribute="height" constant="20" id="n21-jm-u1j"/>
@@ -7556,6 +7562,10 @@
                         <outlet property="OnlinePay_ImageView" destination="tu0-bz-p6q" id="q9E-ra-oea"/>
                         <outlet property="PaymentRadio_btn" destination="Y6b-P4-rUd" id="KEL-7K-3mI"/>
                         <outlet property="PreviousBTN" destination="Afr-S9-6cw" id="IVX-5O-flj"/>
+                        <outlet property="mainViewHeight" destination="icf-7J-nYQ" id="Ccc-do-soc"/>
+                        <outlet property="paymentView" destination="M4F-9Z-Aop" id="4Pl-jX-GUD"/>
+                        <outlet property="paypalImageVW" destination="LMN-7X-neE" id="e5r-JP-Pe7"/>
+                        <outlet property="stripeImageVW" destination="TNt-Tz-sxF" id="ENY-90-q0p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJX-Mx-PvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -8802,7 +8812,7 @@
                                         <rect key="frame" x="78" y="114" width="183" height="80"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RadioDisable" translatesAutoresizingMaskIntoConstraints="NO" id="X6b-Mz-Djc">
-                                                <rect key="frame" x="0.0" y="11.5" width="20" height="20"/>
+                                                <rect key="frame" x="0.0" y="12" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="aUD-88-jg4"/>
                                                     <constraint firstAttribute="width" constant="20" id="zq0-PZ-Cd1"/>
@@ -8818,7 +8828,7 @@
                                                     <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="OnlinePayment_action:" destination="ZxC-UF-059" eventType="touchUpInside" id="v69-XO-i5P"/>
+                                                    <action selector="stripeBtn_Action:" destination="IfE-6J-Xuh" eventType="touchUpInside" id="lX2-GS-P5k"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCA-ul-19D">
@@ -8831,11 +8841,11 @@
                                                     <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="OnlinePayment_action:" destination="ZxC-UF-059" eventType="touchUpInside" id="Foi-zv-dMj"/>
+                                                    <action selector="paypalBtn_Action:" destination="IfE-6J-Xuh" eventType="touchUpInside" id="moy-iT-BOf"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RadioDisable" translatesAutoresizingMaskIntoConstraints="NO" id="1Jx-lI-QXA">
-                                                <rect key="frame" x="0.0" y="48.5" width="20" height="20"/>
+                                                <rect key="frame" x="0.0" y="49" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="O8N-At-RC9"/>
                                                     <constraint firstAttribute="height" constant="20" id="xoZ-8T-Cxs"/>
@@ -8946,6 +8956,10 @@
                         <outlet property="OnlinePay_ImageView" destination="icx-Fp-XEJ" id="WoQ-Pl-2N7"/>
                         <outlet property="PaymentRadio_btn" destination="9bL-Yf-UhW" id="ous-vC-KSC"/>
                         <outlet property="PreviousBTN" destination="Yuq-07-uuW" id="iFv-ci-J3n"/>
+                        <outlet property="mainViewHeight" destination="f3b-vY-rIF" id="WBo-HG-nnT"/>
+                        <outlet property="paymentView" destination="Zh5-cu-Q7h" id="Lon-bF-7tg"/>
+                        <outlet property="paypalImageVW" destination="1Jx-lI-QXA" id="ano-ko-bL3"/>
+                        <outlet property="stripeImageVW" destination="X6b-Mz-Djc" id="EKF-UJ-YLZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVU-JE-7ar" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -10052,11 +10066,11 @@
                                                         <rect key="frame" x="0.0" y="28" width="280" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pdF-EF-ZaW" id="qZy-xS-RH3">
-                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BkW-dM-W0Z">
-                                                                    <rect key="frame" x="15" y="0.0" width="250" height="43.5"/>
+                                                                    <rect key="frame" x="15" y="0.0" width="250" height="43"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

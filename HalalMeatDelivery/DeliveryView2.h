@@ -23,5 +23,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *OnlinePay_ImageView;
 @property (weak, nonatomic) IBOutlet UIButton *NextBTN;
 @property (weak, nonatomic) IBOutlet UIButton *PreviousBTN;
+@property (weak, nonatomic) IBOutlet UIImageView *stripeImageVW;
+@property (weak, nonatomic) IBOutlet UIImageView *paypalImageVW;
+@property (weak, nonatomic) IBOutlet UIView *paymentView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewHeight;
 
 @end

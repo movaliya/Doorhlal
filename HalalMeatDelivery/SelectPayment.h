@@ -22,4 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *PaymentRadio_btn;
 @property (weak, nonatomic) IBOutlet UIButton *NextBTN;
 @property (weak, nonatomic) IBOutlet UIButton *PreviousBTN;
+@property (weak, nonatomic) IBOutlet UIImageView *stripeImageVW;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewHeight;
+@property (weak, nonatomic) IBOutlet UIView *paymentView;
+@property (weak, nonatomic) IBOutlet UIImageView *paypalImageVW;
 @end

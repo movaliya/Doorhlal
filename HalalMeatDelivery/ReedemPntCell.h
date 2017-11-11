@@ -14,5 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *ReedemDescrption_LBL;
 @property (weak, nonatomic) IBOutlet UIView *BackView;
 
-@property (strong, nonatomic) IBOutlet UIView *BackView;
+
 @end

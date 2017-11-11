@@ -14,6 +14,7 @@
 
 @implementation SavePaymentMethod
 @synthesize SaveBtn,MainVIEW,CashOndlvryIMAGE,OnlinePaymtIMAGE;
+@synthesize stripeimgeVW,paypalimageVW;
 
 
 - (void)viewDidLoad
@@ -32,7 +33,8 @@
     // OnlinePaymtIMAGE.hidden=YES;
     //self.onlinePay_Btn.hidden=YES;
    // self.onlinePay_Btn.enabled=NO;
-    
+    _paymentView.hidden=YES;
+    self.mainViewHeight.constant=250;
     
     NSString *savedValue = [[NSUserDefaults standardUserDefaults]
                             stringForKey:@"PAYMENTMETHOD"];
@@ -44,6 +46,8 @@
             OnlinePaymtIMAGE.image=[UIImage imageNamed:@"RadioDisable"];
             
             Paymethod_Str=@"CashOnDelivery";
+            _paymentView.hidden=YES;
+            self.mainViewHeight.constant=250;
         }
         else
         {
@@ -51,6 +55,8 @@
             OnlinePaymtIMAGE.image=[UIImage imageNamed:@"RadioEnable"];
             
             Paymethod_Str=@"OnlinePayment";
+            _paymentView.hidden=NO;
+            self.mainViewHeight.constant=325;
         }
     }
    
@@ -69,6 +75,8 @@
     OnlinePaymtIMAGE.image=[UIImage imageNamed:@"RadioDisable"];
     
     Paymethod_Str=@"CashOnDelivery";
+    _paymentView.hidden=YES;
+    self.mainViewHeight.constant=250;
    
 }
 
@@ -78,7 +86,21 @@
     OnlinePaymtIMAGE.image=[UIImage imageNamed:@"RadioEnable"];
     
     Paymethod_Str=@"OnlinePayment";
-   }
+    _paymentView.hidden=NO;
+    self.mainViewHeight.constant=325;
+    
+}
+
+- (IBAction)stripeBtn_Action:(id)sender
+{
+    stripeimgeVW.image=[UIImage imageNamed:@"RadioEnable"];
+    paypalimageVW.image=[UIImage imageNamed:@"RadioDisable"];
+}
+- (IBAction)paypalBtn_Action:(id)sender
+{
+    stripeimgeVW.image=[UIImage imageNamed:@"RadioDisable"];
+    paypalimageVW.image=[UIImage imageNamed:@"RadioEnable"];
+}
 
 - (IBAction)SaveBtn_action:(id)sender
 {
