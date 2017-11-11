@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "HalalMeatDelivery.pch"
 #import "AddressListView.h"
+#import "ReedemPointVW.h"
 
 @interface MyAccountVW ()
 
@@ -65,6 +66,11 @@
 {
     OrderHistoryView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"OrderHistoryView"];
     vcr.ViewChkStr=@"BACK";
+    [self.navigationController pushViewController:vcr animated:YES];
+}
+- (IBAction)RedeemPoint_Click:(id)sender
+{
+    ProfileView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ReedemPointVW"];
     [self.navigationController pushViewController:vcr animated:YES];
 }
 
