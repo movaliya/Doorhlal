@@ -14,7 +14,7 @@
 @end
 
 @implementation SelectPayment
-
+@synthesize paymentView,paypalImageVW,stripeImageVW;
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
@@ -26,6 +26,9 @@
     [super viewDidLoad];
     
     //********************* set Payment Method ***********************************
+    
+    paymentView.hidden=YES;
+    _mainViewHeight.constant=160;
     NSString *savedValue = [[NSUserDefaults standardUserDefaults]
                             stringForKey:@"PAYMENTMETHOD"];
     if (savedValue)
@@ -37,6 +40,8 @@
             self.COD_Imageview.image=[UIImage imageNamed:@"RadioEnable"];
             self.OnlinePay_ImageView.image=[UIImage imageNamed:@"RadioDisable"];
             Paymethod_Str=@"0";
+            paymentView.hidden=YES;
+            _mainViewHeight.constant=160;
             
         }
         else
@@ -46,6 +51,8 @@
             self.COD_Imageview.image=[UIImage imageNamed:@"RadioDisable"];
             self.OnlinePay_ImageView.image=[UIImage imageNamed:@"RadioEnable"];
             Paymethod_Str=@"3";
+            paymentView.hidden=NO;
+            _mainViewHeight.constant=200;
         }
     }
     //********************* END *************************************************
@@ -58,6 +65,8 @@
     self.COD_Imageview.image=[UIImage imageNamed:@"RadioEnable"];
     self.OnlinePay_ImageView.image=[UIImage imageNamed:@"RadioDisable"];
     Paymethod_Str=@"0";
+    paymentView.hidden=YES;
+    _mainViewHeight.constant=160;
 }
 - (IBAction)OnlinePaymentBtn_action:(id)sender
 {
@@ -66,6 +75,18 @@
     self.COD_Imageview.image=[UIImage imageNamed:@"RadioDisable"];
     self.OnlinePay_ImageView.image=[UIImage imageNamed:@"RadioEnable"];
     Paymethod_Str=@"3";
+    paymentView.hidden=NO;
+    _mainViewHeight.constant=200;
+}
+- (IBAction)stripeBtn_Action:(id)sender
+{
+    stripeImageVW.image=[UIImage imageNamed:@"RadioEnable"];
+    paypalImageVW.image=[UIImage imageNamed:@"RadioDisable"];
+}
+- (IBAction)paypalBtn_Action:(id)sender
+{
+    stripeImageVW.image=[UIImage imageNamed:@"RadioDisable"];
+    paypalImageVW.image=[UIImage imageNamed:@"RadioEnable"];
 }
 - (IBAction)NextBtn_action:(id)sender
 {
