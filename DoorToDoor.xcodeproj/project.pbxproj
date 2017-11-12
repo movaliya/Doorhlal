@@ -244,6 +244,11 @@
 		B15662F21EB9F03D005791FE /* CreateNewAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B15662ED1EB9F03D005791FE /* CreateNewAddressView.m */; };
 		B15662F31EB9F03D005791FE /* AddressListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B15662EF1EB9F03D005791FE /* AddressListCell.m */; };
 		B15662F41EB9F03D005791FE /* AddressListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15662F01EB9F03D005791FE /* AddressListCell.xib */; };
+		B1B37AF01FB821960036E390 /* MNMBottomPullToRefreshManager22.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B37AEF1FB821960036E390 /* MNMBottomPullToRefreshManager22.m */; };
+		B1B37AF51FB823790036E390 /* MNMBottomPullToRefresh.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1B37AF21FB823790036E390 /* MNMBottomPullToRefresh.strings */; };
+		B1B37AF61FB823790036E390 /* MNMBottomPullToRefreshArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B37AF31FB823790036E390 /* MNMBottomPullToRefreshArrow.png */; };
+		B1B37AF71FB823790036E390 /* MNMBottomPullToRefreshArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B37AF41FB823790036E390 /* MNMBottomPullToRefreshArrow@2x.png */; };
+		B1B37AFA1FB823860036E390 /* MNMBottomPullToRefreshView22.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B37AF91FB823860036E390 /* MNMBottomPullToRefreshView22.m */; };
 		B1BE545B1D6E134B0012A152 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BE545A1D6E134B0012A152 /* HomeView.m */; };
 		B1BE54CF1D6E1A030012A152 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BE54AD1D6E1A030012A152 /* IQNSArray+Sort.m */; };
 		B1BE54D01D6E1A030012A152 /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BE54AF1D6E1A030012A152 /* IQUIScrollView+Additions.m */; };
@@ -672,6 +677,13 @@
 		B15662EE1EB9F03D005791FE /* AddressListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressListCell.h; sourceTree = "<group>"; };
 		B15662EF1EB9F03D005791FE /* AddressListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressListCell.m; sourceTree = "<group>"; };
 		B15662F01EB9F03D005791FE /* AddressListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressListCell.xib; sourceTree = "<group>"; };
+		B1B37AEE1FB821960036E390 /* MNMBottomPullToRefreshManager22.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNMBottomPullToRefreshManager22.h; sourceTree = "<group>"; };
+		B1B37AEF1FB821960036E390 /* MNMBottomPullToRefreshManager22.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNMBottomPullToRefreshManager22.m; sourceTree = "<group>"; };
+		B1B37AF21FB823790036E390 /* MNMBottomPullToRefresh.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = MNMBottomPullToRefresh.strings; sourceTree = "<group>"; };
+		B1B37AF31FB823790036E390 /* MNMBottomPullToRefreshArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MNMBottomPullToRefreshArrow.png; sourceTree = "<group>"; };
+		B1B37AF41FB823790036E390 /* MNMBottomPullToRefreshArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MNMBottomPullToRefreshArrow@2x.png"; sourceTree = "<group>"; };
+		B1B37AF81FB823860036E390 /* MNMBottomPullToRefreshView22.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNMBottomPullToRefreshView22.h; sourceTree = "<group>"; };
+		B1B37AF91FB823860036E390 /* MNMBottomPullToRefreshView22.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNMBottomPullToRefreshView22.m; sourceTree = "<group>"; };
 		B1BE54591D6E134B0012A152 /* HomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
 		B1BE545A1D6E134B0012A152 /* HomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
 		B1BE54AC1D6E1A030012A152 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
@@ -1074,7 +1086,8 @@
 			isa = PBXGroup;
 			children = (
 				5333ADD31F70DB2900E716E1 /* GoogleService-Info.plist */,
-				53B3FD001FB73C8C009B4EA8 /* PayPalMobile */,
+				B1B37AF11FB8235B0036E390 /* MNMBottomPullToRefresh */,
+
 				B151D9D51F72E6A200D5DF7A /* Mantle */,
 				B151D9B81F72E2F700D5DF7A /* Classes */,
 				53A96F051F6EC39B00907393 /* ios */,
@@ -1341,6 +1354,20 @@
 			name = AddressView;
 			sourceTree = "<group>";
 		};
+		B1B37AF11FB8235B0036E390 /* MNMBottomPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				B1B37AF81FB823860036E390 /* MNMBottomPullToRefreshView22.h */,
+				B1B37AF91FB823860036E390 /* MNMBottomPullToRefreshView22.m */,
+				B1B37AEE1FB821960036E390 /* MNMBottomPullToRefreshManager22.h */,
+				B1B37AEF1FB821960036E390 /* MNMBottomPullToRefreshManager22.m */,
+				B1B37AF21FB823790036E390 /* MNMBottomPullToRefresh.strings */,
+				B1B37AF31FB823790036E390 /* MNMBottomPullToRefreshArrow.png */,
+				B1B37AF41FB823790036E390 /* MNMBottomPullToRefreshArrow@2x.png */,
+			);
+			name = MNMBottomPullToRefresh;
+			sourceTree = "<group>";
+		};
 		B1BE54571D6E12E70012A152 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -1604,6 +1631,7 @@
 				5308249D1D82A2C100948547 /* pincodeTxtQuare.png in Resources */,
 				535EA4A91EBB533700A1AA23 /* city.png in Resources */,
 				530793221D706FB40028BF53 /* FBLoginBtn@2x.png in Resources */,
+				B1B37AF51FB823790036E390 /* MNMBottomPullToRefresh.strings in Resources */,
 				B1F47D451D6F557C000D5C0A /* WhiteBackArrow.png in Resources */,
 				53A96F2B1F6EC39B00907393 /* Icon-App-40x40@3x.png in Resources */,
 				53D47EFB1F729C0D00CDCC96 /* PaymentAddressCell.xib in Resources */,
@@ -1674,11 +1702,13 @@
 				530793391D7098110028BF53 /* signupBtn.png in Resources */,
 				53A96F2A1F6EC39B00907393 /* Icon-App-40x40@2x.png in Resources */,
 				53A96F3B1F6EC39B00907393 /* iTunesArtwork@3x.png in Resources */,
+				B1B37AF61FB823790036E390 /* MNMBottomPullToRefreshArrow.png in Resources */,
 				5307931D1D7068F90028BF53 /* reg_logo_xxhdpi.png in Resources */,
 				B10605B51D75F59A00D0501F /* WhiteBackArrowGo.png in Resources */,
 				B110D5C81D72B208008D8655 /* SearchByCatCell.xib in Resources */,
 				53A96F251F6EC39B00907393 /* Icon-App-20x20@3x.png in Resources */,
 				5330745F1F96353A005036BD /* SplashScreen.jpg in Resources */,
+				B1B37AF71FB823790036E390 /* MNMBottomPullToRefreshArrow@2x.png in Resources */,
 				B10B1BC31D6EBDBD005C9D87 /* BackREDImg.png in Resources */,
 				B10B1BCD1D6ED119005C9D87 /* DrawerView.xib in Resources */,
 				53B3FD151FB73CAA009B4EA8 /* button_secondary_selected@2x.png in Resources */,
@@ -1846,6 +1876,7 @@
 				53752AD31FAC5B880029F2A7 /* ContactUS.m in Sources */,
 				B1BE54DA1D6E1A030012A152 /* IQTitleBarButtonItem.m in Sources */,
 				530127AB1EB769C300394F9A /* TTRangeSlider.m in Sources */,
+				B1B37AFA1FB823860036E390 /* MNMBottomPullToRefreshView22.m in Sources */,
 				5372A1941F7A6CB800C88265 /* NSDictionary+NullReplacementDic.m in Sources */,
 				B151D9FC1F72E6A200D5DF7A /* MTLJSONAdapter.m in Sources */,
 				5301AF4B1D76A83C00F16656 /* AFURLResponseSerialization.m in Sources */,
@@ -1902,6 +1933,7 @@
 				5356CB331EB4765000E0A422 /* MyAccountVW.m in Sources */,
 				53B3FCDB1FB6D3E2009B4EA8 /* ReedemPntCell.m in Sources */,
 				5309C4C81D83F3CF00C146AC /* RateView.m in Sources */,
+				B1B37AF01FB821960036E390 /* MNMBottomPullToRefreshManager22.m in Sources */,
 				B109C6551D6C9FC9000936A2 /* main.m in Sources */,
 				5301AF671D76A85600F16656 /* UIImageView+AFNetworking.m in Sources */,
 				B11657F71D7760A7005AF0D1 /* SDImageCache.m in Sources */,

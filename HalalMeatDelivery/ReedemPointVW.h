@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "HalalMeatDelivery.pch"
+#import "MNMBottomPullToRefreshManager22.h"
 
 
-@interface ReedemPointVW : UIViewController<CCKFNavDrawerDelegate>
+@interface ReedemPointVW : UIViewController<CCKFNavDrawerDelegate,MNMBottomPullToRefreshManager22Client>
 {
-    
+    MNMBottomPullToRefreshManager22 *pullToRefreshManager;
+
 }
 @property (weak, nonatomic) IBOutlet UILabel *TotalReedemPoint_LBL;
 @property (weak, nonatomic) IBOutlet UITableView *ReedTableView;
