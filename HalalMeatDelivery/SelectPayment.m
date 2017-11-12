@@ -82,11 +82,13 @@
 {
     stripeImageVW.image=[UIImage imageNamed:@"RadioEnable"];
     paypalImageVW.image=[UIImage imageNamed:@"RadioDisable"];
+    paymentString=@"Stripe";
 }
 - (IBAction)paypalBtn_Action:(id)sender
 {
     stripeImageVW.image=[UIImage imageNamed:@"RadioDisable"];
     paypalImageVW.image=[UIImage imageNamed:@"RadioEnable"];
+    paymentString=@"Paypal";
 }
 - (IBAction)NextBtn_action:(id)sender
 {
@@ -99,17 +101,43 @@
     }
     else
     {
-        BOOL internet=[AppDelegate connectedToNetwork];
-        if (internet)
+        if ([Paymethod_Str isEqualToString:@"3"])
         {
-            [self performSelector:@selector(SendPayMethod) withObject:self afterDelay:0.0 ];
-            // [self SendPayMethod];
+            if (paymentString.length==0)
+            {
+                self.NextBTN.enabled=YES;
+                [AppDelegate showErrorMessageWithTitle:@"ERROR..!" message:@"Please Select Sub Payment Method." delegate:nil];
+            }
+            else
+            {
+                BOOL internet=[AppDelegate connectedToNetwork];
+                if (internet)
+                {
+                    [self performSelector:@selector(SendPayMethod) withObject:self afterDelay:0.0 ];
+                    // [self SendPayMethod];
+                }
+                else
+                {
+                    self.NextBTN.enabled=YES;
+                    [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+                }
+            }
         }
         else
         {
-            self.NextBTN.enabled=YES;
-            [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+            BOOL internet=[AppDelegate connectedToNetwork];
+            if (internet)
+            {
+                [self performSelector:@selector(SendPayMethod) withObject:self afterDelay:0.0 ];
+                // [self SendPayMethod];
+            }
+            else
+            {
+                self.NextBTN.enabled=YES;
+                [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+            }
         }
+        
         
     }
 }
@@ -143,6 +171,7 @@
         vcr.DateNTime=self.PassDatefrom1;
         vcr.Cart_ID=self.PayCart_ID;
         vcr.PaymentString=Paymethod_Str;
+        vcr.PaymentType=paymentString;
         [self.navigationController pushViewController:vcr animated:NO];
         
         [AppDelegate showErrorMessageWithTitle:@"" message:[response objectForKey:@"ack_msg"] delegate:nil];

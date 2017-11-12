@@ -43,8 +43,6 @@
 #define RegisterUrl @"service_register.php"
 #define RegisterServiceName @"register_user"
 
-
-
 //gmail Signup
 #define GmailServiceName @"get_user_detail"
 #define SocailMediaLogin_URL @"service_general.php"

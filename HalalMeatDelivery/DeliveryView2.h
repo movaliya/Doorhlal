@@ -13,6 +13,7 @@
     NSString *Paymethod_Str;
     NSString *final_total;
     NSMutableDictionary *paypalInfoDic;
+    NSString *paymentString;
 }
 @property (strong, nonatomic) NSDictionary *ChargesDICNORY;
 @property (strong, nonatomic) NSString *CartID_DEL2;

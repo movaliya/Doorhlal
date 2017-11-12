@@ -15,13 +15,19 @@
 #import "SearchByShop.h"
 @import Stripe;
 
-
+// Set the environment:
+// - For live charges, use PayPalEnvironmentProduction (default).
+// - To use the PayPal sandbox, use PayPalEnvironmentSandbox.
+// - For testing, use PayPalEnvironmentNoNetwork.
+#define kPayPalEnvironment PayPalEnvironmentNoNetwork
 
 @interface PaymentView2 ()<STPAddCardViewControllerDelegate,STPPaymentContextDelegate,ExampleViewControllerDelegate>
 {
     STPPaymentContext *paymentContext;
     ThankYouView *ThankPOPUp;
 }
+@property(nonatomic, strong, readwrite) PayPalConfiguration *payPalConfig;
+
 -(void)submitTokenToBackend:(STPToken *)token;
 
 @property (nonatomic) STPAPIClient *apiClient;
@@ -44,6 +50,72 @@
 {
     return UIStatusBarStyleLightContent;
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    // Preconnect to PayPal early
+    [self setPayPalEnvironment:self.environment];
+}
+
+#pragma mark - PAYPAL Deledate
+- (BOOL)acceptCreditCards {
+    return self.payPalConfig.acceptCreditCards;
+}
+
+- (void)setAcceptCreditCards:(BOOL)acceptCreditCards {
+    self.payPalConfig.acceptCreditCards = acceptCreditCards;
+}
+
+- (void)setPayPalEnvironment:(NSString *)environment
+{
+    self.environment = environment;
+    [PayPalMobile preconnectWithEnvironment:environment];
+}
+
+-(void)Set_up_payPalConfig
+{
+    // Set up payPalConfig
+    _payPalConfig = [[PayPalConfiguration alloc] init];
+#if HAS_CARDIO
+    // You should use the PayPal-iOS-SDK+card-Sample-App target to enable this setting.
+    // For your apps, you will need to link to the libCardIO and dependent libraries. Please read the README.md
+    // for more details.
+    _payPalConfig.acceptCreditCards = YES;
+#else
+    _payPalConfig.acceptCreditCards = NO;
+#endif
+    _payPalConfig.merchantName = @"Awesome Shirts, Inc.";
+    _payPalConfig.merchantPrivacyPolicyURL = [NSURL URLWithString:@"https://www.paypal.com/webapps/mpp/ua/privacy-full"];
+    _payPalConfig.merchantUserAgreementURL = [NSURL URLWithString:@"https://www.paypal.com/webapps/mpp/ua/useragreement-full"];
+    
+    // Setting the languageOrLocale property is optional.
+    //
+    // If you do not set languageOrLocale, then the PayPalPaymentViewController will present
+    // its user interface according to the device's current language setting.
+    //
+    // Setting languageOrLocale to a particular language (e.g., @"es" for Spanish) or
+    // locale (e.g., @"es_MX" for Mexican Spanish) forces the PayPalPaymentViewController
+    // to use that language/locale.
+    //
+    // For full details, including a list of available languages and locales, see PayPalPaymentViewController.h.
+    
+    _payPalConfig.languageOrLocale = [NSLocale preferredLanguages][0];
+    
+    // Setting the payPalShippingAddressOption property is optional.
+    //
+    // See PayPalConfiguration.h for details.
+    
+    _payPalConfig.payPalShippingAddressOption = PayPalShippingAddressOptionPayPal;
+    
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    // use default environment, should be Production in real life
+    self.environment = @"sandbox";
+    
+    NSLog(@"PayPal iOS SDK version: %@", [PayPalMobile libraryVersion]);
+    
+}
+
 
 - (void)viewDidLoad
 {
@@ -52,8 +124,9 @@
     BOOL internet=[AppDelegate connectedToNetwork];
     if (internet)
     {
-        //[self Set_up_payPalConfig];
+       
         [self checkStripKey];
+        [self Set_up_payPalConfig];
     }
     else
         [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
@@ -64,6 +137,7 @@
     _Grand_Total_LBL.text=[NSString stringWithFormat:@"$ %@",[self.ChargesDIC valueForKey:@"final_total"]];
     _TakeAwayDateTime.text=self.DateNTime;
     final_total=[self.ChargesDIC valueForKey:@"final_total"];
+    
     
     ThankPOPUp =[[[NSBundle mainBundle]loadNibNamed:@"TakeawayThaxView" owner:nil options:nil]firstObject];
     ThankPOPUp.frame =self.view.frame;
@@ -102,16 +176,20 @@
 }
 - (IBAction)PlaceOrderBtn_action:(id)sender
 {
-    
-    
     if ([self.PaymentString isEqualToString:@"3"])
     {
-        // Stripe Payment
-        AddCreditCardView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"AddCreditCardView"];
-        vcr.delegate = self;
-        vcr.amount=[NSDecimalNumber decimalNumberWithString:final_total];
-        [self.navigationController pushViewController:vcr animated:YES];
-        
+        if ([self.PaymentType isEqualToString:@"Stripe"])
+        {
+            // Stripe Payment
+            AddCreditCardView *vcr = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"AddCreditCardView"];
+            vcr.delegate = self;
+            vcr.amount=[NSDecimalNumber decimalNumberWithString:final_total];
+            [self.navigationController pushViewController:vcr animated:YES];
+        }
+        else
+        {
+              [self payByPayPAl];
+        }
     }
     else
     {
@@ -165,18 +243,46 @@
     NSString *status_code;
     NSString *failure_message;
     NSString *order_status;
-    if ([[[PaymentProofDic objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
+    NSString *tracking_id;
+   
+    //check payment type is stripe or Paypal
+    if ([self.PaymentType isEqualToString:@"Stripe"])
     {
-        status_code=@"1";
-        failure_message=@"";
-        order_status=@"approved";
+        //Stripe
+        tracking_id=[PaymentProofDic valueForKey:@"transaction_id"];
+        if ([[[PaymentProofDic objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
+        {
+            status_code=@"1";
+            failure_message=@"";
+            order_status=@"approved";
+        }
+        else
+        {
+            status_code=@"0";
+            failure_message=@"unsuccessful";
+            order_status=@"failed";
+        }
+
     }
     else
     {
-        status_code=@"0";
-        failure_message=@"unsuccessful";
-        order_status=@"failed";
+        //Paypal Call
+         tracking_id=[paypalInfoDic valueForKey:@"id"];
+        if ([[paypalInfoDic objectForKey:@"state"] isEqualToString:@"approved"])
+        {
+            status_code=@"1";
+            failure_message=@"";
+            order_status=@"approved";
+        }
+        else
+        {
+            status_code=@"0";
+            failure_message=@"unsuccessful";
+            order_status=@"failed";
+        }
     }
+    
+    
     
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
@@ -186,8 +292,8 @@
     
     // Payment Detail
     [dictParams setObject:status_code  forKey:@"status_code"];
-    [dictParams setObject:[PaymentProofDic valueForKey:@"transaction_id"]  forKey:@"tracking_id"];
-    [dictParams setObject:@"Stripe"  forKey:@"payment_method"];
+    [dictParams setObject:tracking_id  forKey:@"tracking_id"];
+    [dictParams setObject:self.PaymentType  forKey:@"payment_method"];
     [dictParams setObject:order_status  forKey:@"order_status"];
     [dictParams setObject:failure_message  forKey:@"failure_message"];
     [dictParams setObject:@"USD"  forKey:@"currency"];
@@ -288,6 +394,139 @@
     }
     
 }
+-(void)payByPayPAl
+{
+    // Remove our last completed payment, just for demo purposes.
+    self.resultText = nil;
+    
+    // Note: For purposes of illustration, this example shows a payment that includes
+    //       both payment details (subtotal, shipping, tax) and multiple items.
+    //       You would only specify these if appropriate to your situation.
+    //       Otherwise, you can leave payment.items and/or payment.paymentDetails nil,
+    //       and simply set payment.amount to your total charge.
+    
+    // Optional: include multiple items
+    NSLog(@"final_total=%@",final_total);
+    PayPalItem *item1 = [PayPalItem itemWithName:@"door2door Order"
+                                    withQuantity:1
+                                       withPrice:[NSDecimalNumber decimalNumberWithString:final_total]
+                                    withCurrency:@"USD"
+                                         withSku:@"Hip-00037"];
+    
+    NSArray *items = @[item1];
+    NSDecimalNumber *subtotal = [PayPalItem totalPriceForItems:items];
+    
+    // Optional: include payment details
+    NSDecimalNumber *shipping = [[NSDecimalNumber alloc] initWithString:@"0.00"];
+    NSDecimalNumber *tax = [[NSDecimalNumber alloc] initWithString:@"0.00"];
+    
+    PayPalPaymentDetails *paymentDetails = [PayPalPaymentDetails paymentDetailsWithSubtotal:subtotal
+                                                                               withShipping:shipping
+                                                                                    withTax:tax];
+    NSLog(@"PaymentDetail===%@",paymentDetails);
+    
+    NSDecimalNumber *total = [[subtotal decimalNumberByAdding:shipping] decimalNumberByAdding:tax];
+    NSString *shortDesp=@"door2door";
+    
+    PayPalPayment *payment = [[PayPalPayment alloc] init];
+    payment.amount = total;
+    payment.currencyCode = @"USD";
+    payment.shortDescription = shortDesp;
+    payment.items = items;  // if not including multiple items, then leave payment.items as nil
+    payment.paymentDetails = paymentDetails;
+    
+    
+    // if not including payment details, then leave payment.paymentDetails as nil
+    
+    if (!payment.processable)
+    {
+        // This particular payment will always be processable. If, for
+        // example, the amount was negative or the shortDescription was
+        // empty, this payment wouldn't be processable, and you'd want
+        // to handle that here.
+    }
+    
+    // Update payPalConfig re accepting credit cards.
+    self.payPalConfig.acceptCreditCards = self.acceptCreditCards;
+    
+    PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc] initWithPayment:payment configuration:self.payPalConfig delegate:self];
+    //NSLog(@"asdasd===%hhd",acceptCreditCards);
+    [self presentViewController:paymentViewController animated:YES completion:nil];
+}
+#pragma mark PayPalPaymentDelegate methods
+
+- (void)payPalPaymentViewController:(PayPalPaymentViewController *)paymentViewController didCompletePayment:(PayPalPayment *)completedPayment {
+    NSLog(@"PayPal Payment Success!");
+    self.resultText = [completedPayment description];
+    [self sendCompletedPaymentToServer:completedPayment]; // Payment was processed successfully; send to server for verification and fulfillment
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)payPalPaymentDidCancel:(PayPalPaymentViewController *)paymentViewController {
+    NSLog(@"PayPal Payment Canceled");
+    self.resultText = nil;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark Proof of payment validation
+
+- (void)sendCompletedPaymentToServer:(PayPalPayment *)completedPayment {
+    // TODO: Send completedPayment.confirmation to server
+    NSLog(@"Here is your proof of payment:\n\n%@\n\nSend this to your server for confirmation and fulfillment.", completedPayment.confirmation);
+    paypalInfoDic=[completedPayment.confirmation valueForKey:@"response"];
+    
+    if([completedPayment.confirmation valueForKey:@"response_type"])
+    {
+        BOOL internet=[AppDelegate connectedToNetwork];
+        if (internet)
+        {
+            [self proof_of_payment];
+        }
+        else
+            [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+        
+    }
+}
+#pragma mark PayPalFuturePaymentDelegate methods
+
+- (void)payPalFuturePaymentViewController:(PayPalFuturePaymentViewController *)futurePaymentViewController
+                didAuthorizeFuturePayment:(NSDictionary *)futurePaymentAuthorization {
+    NSLog(@"PayPal Future Payment Authorization Success!");
+    self.resultText = [futurePaymentAuthorization description];
+    [self sendFuturePaymentAuthorizationToServer:futurePaymentAuthorization];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)payPalFuturePaymentDidCancel:(PayPalFuturePaymentViewController *)futurePaymentViewController {
+    NSLog(@"PayPal Future Payment Authorization Canceled");
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)sendFuturePaymentAuthorizationToServer:(NSDictionary *)authorization {
+    // TODO: Send authorization to server
+    NSLog(@"Here is your authorization:\n\n%@\n\nSend this to your server to complete future payment setup.", authorization);
+}
+
+#pragma mark PayPalProfileSharingDelegate methods
+
+- (void)payPalProfileSharingViewController:(PayPalProfileSharingViewController *)profileSharingViewController
+             userDidLogInWithAuthorization:(NSDictionary *)profileSharingAuthorization {
+    NSLog(@"PayPal Profile Sharing Authorization Success!");
+    self.resultText = [profileSharingAuthorization description];
+    
+    [self sendProfileSharingAuthorizationToServer:profileSharingAuthorization];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)userDidCancelPayPalProfileSharingViewController:(PayPalProfileSharingViewController *)profileSharingViewController {
+    NSLog(@"PayPal Profile Sharing Authorization Canceled");
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)sendProfileSharingAuthorizationToServer:(NSDictionary *)authorization {
+    // TODO: Send authorization to server
+    NSLog(@"Here is your authorization:\n\n%@\n\nSend this to your server to complete profile sharing setup.", authorization);
+}
+
+
 #pragma mark - ExampleViewControllerDelegate
 
 - (void)exampleViewController:(UIViewController *)controller didFinishWithMessage:(NSString *)message {

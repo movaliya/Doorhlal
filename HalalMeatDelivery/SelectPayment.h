@@ -12,6 +12,7 @@
 {
     NSString *Paymethod_Str;
     NSString *final_total;
+    NSString *paymentString;
 }
 @property (strong, nonatomic) NSString *PayCart_ID;
 @property (strong, nonatomic) NSString *PassDatefrom1;

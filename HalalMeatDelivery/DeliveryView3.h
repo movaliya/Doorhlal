@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "HalalMeatDelivery.pch"
 #import <Stripe/Stripe.h>
+#import "PayPalMobile.h"
+
 
 typedef NS_ENUM(NSInteger, STPBackendChargeResult) {
     STPBackendChargeResultSuccess,
@@ -23,10 +25,11 @@ typedef void (^STPSourceSubmissionHandler)(STPBackendChargeResult status, NSErro
 - (void)createBackendChargeWithSource:(NSString *)sourceID completion:(STPSourceSubmissionHandler)completion;
 @end
 
-@interface DeliveryView3 : UIViewController
+@interface DeliveryView3 : UIViewController<PayPalPaymentDelegate, PayPalFuturePaymentDelegate, PayPalProfileSharingDelegate>
 {
     NSString *final_total;
     NSMutableDictionary *PaymentProofDic;
+    NSMutableDictionary *paypalInfoDic;
 }
 @property (weak, nonatomic) IBOutlet UILabel *DileveryDateTimeLBL;
 @property (weak, nonatomic) IBOutlet UILabel *SubTotal_LBL;
@@ -38,8 +41,12 @@ typedef void (^STPSourceSubmissionHandler)(STPBackendChargeResult status, NSErro
 @property (strong, nonatomic) NSString *DateNTimeSTR;
 @property (strong, nonatomic) NSString *CartID_DEL3;
 @property (strong, nonatomic) NSString *PAYMENT_STR;
+@property (strong, nonatomic) NSString *PaymentType;
+
 
 @property(nonatomic, strong, readwrite) NSString *environment;
 @property(nonatomic, strong, readwrite) NSString *resultText;
 @property (weak, nonatomic) IBOutlet UITextField *Comment_TXT;
+
+
 @end

@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "HalalMeatDelivery.pch"
 #import "Constant.h"
+#import "PayPalMobile.h"
+
 //#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
 
 
@@ -26,6 +28,11 @@ static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyCIjQcJ2s
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction : @"", PayPalEnvironmentSandbox : @"AQUjbRYq2t8ExCL0hxJ0Tyd20lOc_fS16qhEuweO8ojBdMNGfF2ZDRBtDV5yl2xyhz5dq59WLgv4X0-q"}];
+    
+    //sandBoxKey: AQUjbRYq2t8ExCL0hxJ0Tyd20lOc_fS16qhEuweO8ojBdMNGfF2ZDRBtDV5yl2xyhz5dq59WLgv4X0-q
+
     
     //[HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey: kHNKDemoGooglePlacesAutocompleteApiKey];
     

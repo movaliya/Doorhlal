@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Stripe/Stripe.h>
+#import "PayPalMobile.h"
 
 typedef NS_ENUM(NSInteger, STPBackendChargeResult) {
     STPBackendChargeResultSuccess,
@@ -22,11 +23,12 @@ typedef void (^STPSourceSubmissionHandler)(STPBackendChargeResult status, NSErro
 - (void)createBackendChargeWithSource:(NSString *)sourceID completion:(STPSourceSubmissionHandler)completion;
 @end
 
-@interface PaymentView2 : UIViewController
+@interface PaymentView2 : UIViewController<PayPalPaymentDelegate, PayPalFuturePaymentDelegate, PayPalProfileSharingDelegate>
 {
      NSMutableDictionary *take_away_address;
     NSString *final_total;
     NSMutableDictionary *PaymentProofDic;
+    NSMutableDictionary *paypalInfoDic;
 }
 
 
@@ -34,6 +36,7 @@ typedef void (^STPSourceSubmissionHandler)(STPBackendChargeResult status, NSErro
 @property (strong, nonatomic) NSString *DateNTime;
 @property (strong, nonatomic) NSString *Cart_ID;
 @property (strong, nonatomic) NSString *PaymentString;
+@property (strong, nonatomic) NSString *PaymentType;
 
 @property (weak, nonatomic) IBOutlet UILabel *TakeAwayDateTime;
 @property (weak, nonatomic) IBOutlet UILabel *SubTotal_LBL;
@@ -41,4 +44,7 @@ typedef void (^STPSourceSubmissionHandler)(STPBackendChargeResult status, NSErro
 @property (weak, nonatomic) IBOutlet UILabel *ShippingDiscount_LBL;
 @property (weak, nonatomic) IBOutlet UILabel *Grand_Total_LBL;
 @property (weak, nonatomic) IBOutlet UITextField *Comment_TXT;
+
+@property(nonatomic, strong, readwrite) NSString *environment;
+@property(nonatomic, strong, readwrite) NSString *resultText;
 @end

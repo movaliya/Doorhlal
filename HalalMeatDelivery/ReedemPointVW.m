@@ -41,6 +41,11 @@
     
     // Do any additional setup after loading the view.
 }
+
+-(void)getRedeemPoint
+{
+   // http://bulkbox.in/door2door/service/service_cart.php?r_p=1224&service=get_user_reedem_transactions&uid=1&ul=0&ll=10
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
