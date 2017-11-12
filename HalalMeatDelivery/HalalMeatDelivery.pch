@@ -93,6 +93,10 @@
 #define cancel_order_url @"service_cart.php"
 #define cancel_orderServiceName @"cancel_order"
 
+#define GetRedeemPointWithLimit @"get_user_reedem_transactions"
+
+
+
 
 // Update Profile
 

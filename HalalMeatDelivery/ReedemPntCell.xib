@@ -72,7 +72,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="BackView" destination="WDt-x1-ouU" id="2Of-bh-2h6"/>
+                <outlet property="BackView" destination="WDt-x1-ouU" id="p9A-EL-uSM"/>
                 <outlet property="ReedemDate_LBL" destination="QSQ-3k-f0Y" id="AZe-73-EMH"/>
                 <outlet property="ReedemDescrption_LBL" destination="ol1-Mn-Oii" id="JsD-sR-do1"/>
                 <outlet property="ReedemPoint_LBL" destination="mEy-QX-1Ac" id="kvc-LK-RVo"/>
