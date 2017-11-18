@@ -17,7 +17,7 @@
 
 @implementation RegisterView
 @synthesize SignUp_BTN,FaceBook_BTN,ScrollView;
-@synthesize Username_Txt,email_Txt,pincode_Txt,password_Txt,address_Txt,address2_TXT,PhoneNo_TXT;
+@synthesize Username_Txt,email_Txt,pincode_Txt,password_Txt,address_Txt,address2_TXT,PhoneNo_TXT,city_TXT,state_TXT,country_TXT;
 @synthesize loginMgr;
 
 -(BOOL)prefersStatusBarHidden
@@ -58,6 +58,9 @@
     
     [KmyappDelegate SetimageinAndPrefixTextfield:PhoneNo_TXT:@"IconPhone"];
     [KmyappDelegate SetimageinTextfield:address2_TXT :@"AddressIcon"];
+    [KmyappDelegate SetimageinTextfield:city_TXT :@"IconGloble"];
+    [KmyappDelegate SetimageinTextfield:state_TXT :@"IconGloble"];
+    [KmyappDelegate SetimageinTextfield:country_TXT :@"IconGloble"];
     
     [KmyappDelegate SetbuttonCorner:SignUp_BTN];
     
@@ -209,6 +212,18 @@
         
         [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Address" delegate:nil];
     }
+    else if ([city_TXT.text isEqualToString:@""])
+    {
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter city" delegate:nil];
+    }
+    else if ([state_TXT.text isEqualToString:@""])
+    {
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter State" delegate:nil];
+    }
+    else if ([country_TXT.text isEqualToString:@""])
+    {
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Country" delegate:nil];
+    }
     else if ([pincode_Txt.text isEqualToString:@""])
     {
         
@@ -270,9 +285,9 @@
     [dictParams setObject:address_Txt.text  forKey:@"u_address"];
     [dictParams setObject:address2_TXT.text  forKey:@"u_address2"];
     [dictParams setObject:pincode_Txt.text  forKey:@"u_zip"];
-    //[dictParams setObject:@""  forKey:@"u_city"];
-   // [dictParams setObject:@""  forKey:@"u_state"];
-   // [dictParams setObject:@""  forKey:@"u_country"];
+    [dictParams setObject:city_TXT.text  forKey:@"u_city"];
+    [dictParams setObject:state_TXT.text  forKey:@"u_state"];
+    [dictParams setObject:country_TXT.text  forKey:@"u_country"];
      [dictParams setObject:@"simple"  forKey:@"u_type"];
     
     

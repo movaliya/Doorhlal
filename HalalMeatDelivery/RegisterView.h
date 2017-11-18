@@ -32,6 +32,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *address_Txt;
 @property (strong, nonatomic) IBOutlet UITextField *address2_TXT;
 @property (strong, nonatomic) IBOutlet UITextField *PhoneNo_TXT;
+@property (weak, nonatomic) IBOutlet UITextField *city_TXT;
+@property (weak, nonatomic) IBOutlet UITextField *state_TXT;
+@property (weak, nonatomic) IBOutlet UITextField *country_TXT;
 
 @property (weak, nonatomic) IBOutlet UITextField *pincode_Txt;
 @property (weak, nonatomic) IBOutlet UITextField *password_Txt;

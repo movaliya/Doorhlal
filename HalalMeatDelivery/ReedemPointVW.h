@@ -14,6 +14,8 @@
 @interface ReedemPointVW : UIViewController<CCKFNavDrawerDelegate,MNMBottomPullToRefreshManager22Client>
 {
     MNMBottomPullToRefreshManager22 *pullToRefreshManager;
+    NSMutableDictionary *redeemDic;
+    NSString *reedem_points_Total;
 
 }
 @property (weak, nonatomic) IBOutlet UILabel *TotalReedemPoint_LBL;

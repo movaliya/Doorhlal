@@ -15,12 +15,13 @@
 
 @implementation CreateNewAddressView
 @synthesize Submit_BTN,AddressDic,CheckAddresscount;
-@synthesize UserName_TXT,Email_TXT,Mobile_TXT,Post_TXT,Address_TXT,City_TXT,State_TXT,Address2_TXT;
+@synthesize UserName_TXT,Email_TXT,Mobile_TXT,Post_TXT,Address_TXT,City_TXT,State_TXT,Address2_TXT,country_TXT;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   // [KmyappDelegate SetimageinAndPrefixTextfield:Mobile_TXT:@"IconPhone"];
+   
+    [KmyappDelegate SetimageinAndPrefixTextfield:Mobile_TXT:@"IconPhone"];
     
     Submit_BTN.layer.cornerRadius=20;
     
@@ -33,14 +34,20 @@
 
 -(void)SetaddressData
 {
+    
+    NSString *mobilenumber=[AddressDic valueForKey:@"contact_number"];
+    mobilenumber = [mobilenumber stringByReplacingOccurrencesOfString:@"+1" withString:@""];
+    
+    
     UserName_TXT.text=[AddressDic valueForKey:@"name"];
     Email_TXT.text=[AddressDic valueForKey:@"email"];
-    Mobile_TXT.text=[AddressDic valueForKey:@"contact_number"];
+    Mobile_TXT.text=mobilenumber;
     Post_TXT.text=[AddressDic valueForKey:@"pincode"];
     Address_TXT.text=[AddressDic valueForKey:@"address"];
     Address2_TXT.text=[AddressDic valueForKey:@"address2"];
     City_TXT.text=[AddressDic valueForKey:@"city"];
     State_TXT.text=[AddressDic valueForKey:@"state"];
+    country_TXT.text=[AddressDic valueForKey:@"country"];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle
@@ -87,6 +94,10 @@
     {
         [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter State" delegate:nil];
     }
+    else if ([country_TXT.text isEqualToString:@""])
+    {
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Country" delegate:nil];
+    }
     else
     {
         if (![AppDelegate IsValidEmail:Email_TXT.text])
@@ -126,6 +137,7 @@
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
     NSString *User_UID=[UserData valueForKey:@"u_id"];
     NSString *User_Name=[UserData valueForKey:@"u_name"];
+    NSString *phoneStr=[NSString stringWithFormat:@"+1%@",Mobile_TXT.text];
     
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
@@ -136,9 +148,10 @@
     [dictParams setObject:Address_TXT.text  forKey:@"address"];
     [dictParams setObject:Address2_TXT.text  forKey:@"address2"];
     [dictParams setObject:Email_TXT.text  forKey:@"email"];
-    [dictParams setObject:Mobile_TXT.text  forKey:@"contact_number"];
+    [dictParams setObject:phoneStr  forKey:@"contact_number"];
     [dictParams setObject:City_TXT.text  forKey:@"city"];
     [dictParams setObject:State_TXT.text  forKey:@"state"];
+    [dictParams setObject:country_TXT.text  forKey:@"country"];
     [dictParams setObject:Post_TXT.text  forKey:@"pincode"];
     
     [dictParams setObject:User_UID  forKey:@"uid"];
@@ -181,6 +194,7 @@
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
     NSString *User_UID=[UserData valueForKey:@"u_id"];
     NSString *User_Name=[UserData valueForKey:@"u_name"];
+    NSString *phoneStr=[NSString stringWithFormat:@"+1%@",Mobile_TXT.text];
     
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
@@ -191,9 +205,10 @@
     [dictParams setObject:Address_TXT.text  forKey:@"address"];
     [dictParams setObject:Address2_TXT.text  forKey:@"address2"];
     [dictParams setObject:Email_TXT.text  forKey:@"email"];
-    [dictParams setObject:Mobile_TXT.text  forKey:@"contact_number"];
+    [dictParams setObject:phoneStr  forKey:@"contact_number"];
     [dictParams setObject:City_TXT.text  forKey:@"city"];
     [dictParams setObject:State_TXT.text  forKey:@"state"];
+    [dictParams setObject:country_TXT.text  forKey:@"country"];
     [dictParams setObject:Post_TXT.text  forKey:@"pincode"];
     [dictParams setObject:User_UID  forKey:@"uid"];
     [dictParams setObject:@"edit"  forKey:@"mode"];

@@ -136,14 +136,6 @@
 		53B3FCD71FB6CCDD009B4EA8 /* ReedemPointVW.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B3FCD61FB6CCDD009B4EA8 /* ReedemPointVW.m */; };
 		53B3FCDB1FB6D3E2009B4EA8 /* ReedemPntCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B3FCD91FB6D3E2009B4EA8 /* ReedemPntCell.m */; };
 		53B3FCDC1FB6D3E2009B4EA8 /* ReedemPntCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53B3FCDA1FB6D3E2009B4EA8 /* ReedemPntCell.xib */; };
-		53B3FD141FB73CAA009B4EA8 /* button_secondary_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B3FD011FB73CAA009B4EA8 /* button_secondary_selected.png */; };
-		53B3FD151FB73CAA009B4EA8 /* button_secondary_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B3FD021FB73CAA009B4EA8 /* button_secondary_selected@2x.png */; };
-		53B3FD161FB73CAA009B4EA8 /* button_secondary.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B3FD031FB73CAA009B4EA8 /* button_secondary.png */; };
-		53B3FD171FB73CAA009B4EA8 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B3FD041FB73CAA009B4EA8 /* check@2x.png */; };
-		53B3FD181FB73CAA009B4EA8 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B3FD051FB73CAA009B4EA8 /* check.png */; };
-		53B3FD1A1FB73CAA009B4EA8 /* ios_sample_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B3FD071FB73CAA009B4EA8 /* ios_sample_icon.png */; };
-		53B3FD1D1FB73CAA009B4EA8 /* ios_sample_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B3FD0E1FB73CAA009B4EA8 /* ios_sample_icon@2x.png */; };
-		53B3FD1F1FB73CAA009B4EA8 /* button_secondary@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B3FD121FB73CAA009B4EA8 /* button_secondary@2x.png */; };
 		53D47EFA1F729C0D00CDCC96 /* PaymentAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D47EF81F729C0D00CDCC96 /* PaymentAddressCell.m */; };
 		53D47EFB1F729C0D00CDCC96 /* PaymentAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D47EF91F729C0D00CDCC96 /* PaymentAddressCell.xib */; };
 		53FBF0C91D96B58200E47FE3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FBF0C81D96B58200E47FE3 /* Reachability.m */; };
@@ -482,21 +474,6 @@
 		53B3FCD81FB6D3E2009B4EA8 /* ReedemPntCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReedemPntCell.h; sourceTree = "<group>"; };
 		53B3FCD91FB6D3E2009B4EA8 /* ReedemPntCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReedemPntCell.m; sourceTree = "<group>"; };
 		53B3FCDA1FB6D3E2009B4EA8 /* ReedemPntCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReedemPntCell.xib; sourceTree = "<group>"; };
-		53B3FD011FB73CAA009B4EA8 /* button_secondary_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_secondary_selected.png; sourceTree = "<group>"; };
-		53B3FD021FB73CAA009B4EA8 /* button_secondary_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_secondary_selected@2x.png"; sourceTree = "<group>"; };
-		53B3FD031FB73CAA009B4EA8 /* button_secondary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_secondary.png; sourceTree = "<group>"; };
-		53B3FD041FB73CAA009B4EA8 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
-		53B3FD051FB73CAA009B4EA8 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
-		53B3FD071FB73CAA009B4EA8 /* ios_sample_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios_sample_icon.png; sourceTree = "<group>"; };
-		53B3FD091FB73CAA009B4EA8 /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPayment.h; sourceTree = "<group>"; };
-		53B3FD0A1FB73CAA009B4EA8 /* PayPalFuturePaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalFuturePaymentViewController.h; sourceTree = "<group>"; };
-		53B3FD0C1FB73CAA009B4EA8 /* PayPalMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalMobile.h; sourceTree = "<group>"; };
-		53B3FD0D1FB73CAA009B4EA8 /* PayPalConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalConfiguration.h; sourceTree = "<group>"; };
-		53B3FD0E1FB73CAA009B4EA8 /* ios_sample_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios_sample_icon@2x.png"; sourceTree = "<group>"; };
-		53B3FD0F1FB73CAA009B4EA8 /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPaymentViewController.h; sourceTree = "<group>"; };
-		53B3FD101FB73CAA009B4EA8 /* PayPalOAuthScopes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalOAuthScopes.h; sourceTree = "<group>"; };
-		53B3FD121FB73CAA009B4EA8 /* button_secondary@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_secondary@2x.png"; sourceTree = "<group>"; };
-		53B3FD131FB73CAA009B4EA8 /* PayPalProfileSharingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalProfileSharingViewController.h; sourceTree = "<group>"; };
 		53D47EF71F729C0D00CDCC96 /* PaymentAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentAddressCell.h; sourceTree = "<group>"; };
 		53D47EF81F729C0D00CDCC96 /* PaymentAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentAddressCell.m; sourceTree = "<group>"; };
 		53D47EF91F729C0D00CDCC96 /* PaymentAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentAddressCell.xib; sourceTree = "<group>"; };
@@ -1024,28 +1001,6 @@
 			path = AppIcon.appiconset;
 			sourceTree = "<group>";
 		};
-		53B3FD001FB73C8C009B4EA8 /* PayPalMobile */ = {
-			isa = PBXGroup;
-			children = (
-				53B3FD011FB73CAA009B4EA8 /* button_secondary_selected.png */,
-				53B3FD021FB73CAA009B4EA8 /* button_secondary_selected@2x.png */,
-				53B3FD031FB73CAA009B4EA8 /* button_secondary.png */,
-				53B3FD041FB73CAA009B4EA8 /* check@2x.png */,
-				53B3FD051FB73CAA009B4EA8 /* check.png */,
-				53B3FD0E1FB73CAA009B4EA8 /* ios_sample_icon@2x.png */,
-				53B3FD121FB73CAA009B4EA8 /* button_secondary@2x.png */,
-				53B3FD071FB73CAA009B4EA8 /* ios_sample_icon.png */,
-				53B3FD091FB73CAA009B4EA8 /* PayPalPayment.h */,
-				53B3FD0A1FB73CAA009B4EA8 /* PayPalFuturePaymentViewController.h */,
-				53B3FD0C1FB73CAA009B4EA8 /* PayPalMobile.h */,
-				53B3FD0D1FB73CAA009B4EA8 /* PayPalConfiguration.h */,
-				53B3FD0F1FB73CAA009B4EA8 /* PayPalPaymentViewController.h */,
-				53B3FD101FB73CAA009B4EA8 /* PayPalOAuthScopes.h */,
-				53B3FD131FB73CAA009B4EA8 /* PayPalProfileSharingViewController.h */,
-			);
-			name = PayPalMobile;
-			sourceTree = "<group>";
-		};
 		53FBF0C61D96B57500E47FE3 /* Rechability */ = {
 			isa = PBXGroup;
 			children = (
@@ -1087,7 +1042,6 @@
 			children = (
 				5333ADD31F70DB2900E716E1 /* GoogleService-Info.plist */,
 				B1B37AF11FB8235B0036E390 /* MNMBottomPullToRefresh */,
-
 				B151D9D51F72E6A200D5DF7A /* Mantle */,
 				B151D9B81F72E2F700D5DF7A /* Classes */,
 				53A96F051F6EC39B00907393 /* ios */,
@@ -1619,7 +1573,6 @@
 			files = (
 				5309350C1D9E296700F9DBEE /* AlertView.xib in Resources */,
 				530793281D7079FF0028BF53 /* pincodeSearchBtn.png in Resources */,
-				53B3FD1A1FB73CAA009B4EA8 /* ios_sample_icon.png in Resources */,
 				53A96F261F6EC39B00907393 /* Icon-App-29x29@1x.png in Resources */,
 				5308248F1D829A4900948547 /* PhoneTxt.png in Resources */,
 				B10B97EB1D91AF9100228F33 /* OrderHistoryCell.xib in Resources */,
@@ -1640,10 +1593,8 @@
 				53A96F2E1F6EC39B00907393 /* Icon-App-60x60@1x.png in Resources */,
 				53A96F311F6EC39B00907393 /* Icon-App-72x72@1x.png in Resources */,
 				530793331D7097E50028BF53 /* AddressTxt.png in Resources */,
-				53B3FD1D1FB73CAA009B4EA8 /* ios_sample_icon@2x.png in Resources */,
 				53A96F221F6EC39B00907393 /* Contents.json in Resources */,
 				B1F47D4B1D6F5C33000D5C0A /* WhiteStat.png in Resources */,
-				53B3FD171FB73CAA009B4EA8 /* check@2x.png in Resources */,
 				53A96F281F6EC39B00907393 /* Icon-App-29x29@3x.png in Resources */,
 				B148CABD1F70537200D4A8B6 /* Info.plist in Resources */,
 				5377FE3C1F6F9C5800E35BA9 /* login_back_xhdpi.png in Resources */,
@@ -1659,7 +1610,6 @@
 				B10B1BEA1D6EFEF4005C9D87 /* WhiteMenuIcon.png in Resources */,
 				535EA4A51EBB52FE00A1AA23 /* home1.png in Resources */,
 				530793371D7098010028BF53 /* PincodeTxt.png in Resources */,
-				53B3FD161FB73CAA009B4EA8 /* button_secondary.png in Resources */,
 				B109C6601D6C9FC9000936A2 /* Assets.xcassets in Resources */,
 				53A96F301F6EC39B00907393 /* Icon-App-60x60@3x.png in Resources */,
 				53A96F331F6EC39B00907393 /* Icon-App-76x76@1x.png in Resources */,
@@ -1671,7 +1621,6 @@
 				530793231D706FB40028BF53 /* loginBtn.png in Resources */,
 				535EA4A61EBB52FE00A1AA23 /* phone1.png in Resources */,
 				5330745A1F95E193005036BD /* SearchByCategoryCell.xib in Resources */,
-				53B3FD181FB73CAA009B4EA8 /* check.png in Resources */,
 				5333ADD41F70DB2900E716E1 /* GoogleService-Info.plist in Resources */,
 				B148B2151EBF62BD009E9346 /* BlankTxtFildwithframe.png in Resources */,
 				53A96F3A1F6EC39B00907393 /* iTunesArtwork@2x.png in Resources */,
@@ -1688,7 +1637,6 @@
 				B1FC79421D7DEDF900DA38DC /* PasswordView.xib in Resources */,
 				53A96F381F6EC39B00907393 /* Icon-Small-50x50@2x.png in Resources */,
 				530824931D829B8000948547 /* EmailTxt.png in Resources */,
-				53B3FD141FB73CAA009B4EA8 /* button_secondary_selected.png in Resources */,
 				530824951D82A0F800948547 /* userNameTxtSquare.png in Resources */,
 				53A96F321F6EC39B00907393 /* Icon-App-72x72@2x.png in Resources */,
 				530793241D706FB40028BF53 /* passwordTxt.png in Resources */,
@@ -1711,7 +1659,6 @@
 				B1B37AF71FB823790036E390 /* MNMBottomPullToRefreshArrow@2x.png in Resources */,
 				B10B1BC31D6EBDBD005C9D87 /* BackREDImg.png in Resources */,
 				B10B1BCD1D6ED119005C9D87 /* DrawerView.xib in Resources */,
-				53B3FD151FB73CAA009B4EA8 /* button_secondary_selected@2x.png in Resources */,
 				5357A5461D7ADF80008B4D2E /* checkOutBtn.png in Resources */,
 				B10605B71D75FDFE00D0501F /* myView.xib in Resources */,
 				53A96F2F1F6EC39B00907393 /* Icon-App-60x60@2x.png in Resources */,
@@ -1719,7 +1666,6 @@
 				53A96F271F6EC39B00907393 /* Icon-App-29x29@2x.png in Resources */,
 				53A96F231F6EC39B00907393 /* Icon-App-20x20@1x.png in Resources */,
 				53A96F351F6EC39B00907393 /* Icon-App-76x76@3x.png in Resources */,
-				53B3FD1F1FB73CAA009B4EA8 /* button_secondary@2x.png in Resources */,
 				5395556E1F723D460057A461 /* 521403691.jpg in Resources */,
 				53A96F361F6EC39B00907393 /* Icon-App-83.5x83.5@2x.png in Resources */,
 				530793291D7079FF0028BF53 /* searchnearbyBtn.png in Resources */,
@@ -2081,6 +2027,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HalalMeatDelivery",
+					"$(PROJECT_DIR)/HalalMeatDelivery/paypalSDK",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode";
@@ -2120,6 +2067,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HalalMeatDelivery",
+					"$(PROJECT_DIR)/HalalMeatDelivery/paypalSDK",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode";

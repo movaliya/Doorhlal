@@ -27,7 +27,7 @@
 @end
 
 @implementation ProfileView
-@synthesize Name_TXT,Email_TXT,Phone_TXT,PinCode_TXT,Address_TXT,City_TXT,State_TXT,Address2_TXT;
+@synthesize Name_TXT,Email_TXT,Phone_TXT,PinCode_TXT,Address_TXT,City_TXT,State_TXT,Address2_TXT,Country_TXT;
 @synthesize Update_BTN,ChangePass_BTN;
 @synthesize POPCancel,POPSubmit,POPOldPAss,POPNewPAss,POPConPAss;
 
@@ -46,7 +46,10 @@
     [KmyappDelegate SetimageinTextfield:Address_TXT :@"AddressIcon"];
     [KmyappDelegate SetimageinTextfield:Address2_TXT :@"AddressIcon"];
     [KmyappDelegate SetimageinTextfield:PinCode_TXT :@"PinIcon"];
-    [KmyappDelegate SetimageinTextfield:Phone_TXT :@"MobileIcon"];
+    [KmyappDelegate SetimageinTextfield:Country_TXT :@"IconGloble"];
+    
+    [KmyappDelegate SetimageinAndPrefixTextfield:Phone_TXT:@"MobileIcon"];
+
     
     [KmyappDelegate SetimageinTextfield:City_TXT :@"IconGloble"];
     [KmyappDelegate SetimageinTextfield:State_TXT :@"IconGloble"];
@@ -69,13 +72,17 @@
     // Fill User Data From Dic
     
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
+    NSString *mobilenumber=[UserData valueForKey:@"u_phone"];
+    mobilenumber = [mobilenumber stringByReplacingOccurrencesOfString:@"+1" withString:@""];
+    
     self.Name_TXT.text=[UserData valueForKey:@"u_name"];
     self.Email_TXT.text=[UserData valueForKey:@"u_email"];
-    self.Phone_TXT.text=[UserData valueForKey:@"u_phone"];
+    self.Phone_TXT.text=mobilenumber;
     self.PinCode_TXT.text=[UserData valueForKey:@"u_pincode"];
     self.Address_TXT.text=[UserData valueForKey:@"u_address"];
     self.City_TXT.text=[UserData valueForKey:@"u_city"];
     self.State_TXT.text=[UserData valueForKey:@"u_state"];
+    self.Country_TXT.text=[UserData valueForKey:@"u_country"];
     self.Address2_TXT.text=[UserData valueForKey:@"u_address2"];
     Email_TXT.enabled=NO;
     Email_TXT.textColor=[UIColor grayColor];
@@ -141,6 +148,10 @@
     {
         [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter City" delegate:nil];
     }
+    else if ([Country_TXT.text isEqualToString:@""])
+    {
+        [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Country" delegate:nil];
+    }
     else
     {
        if (![AppDelegate myMobileNumberValidate:Phone_TXT.text])
@@ -170,6 +181,7 @@
     
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
     NSString *User_UID=[UserData valueForKey:@"u_id"];
+    NSString *phoneStr=[NSString stringWithFormat:@"+1%@",Phone_TXT.text];
     
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
@@ -177,12 +189,13 @@
     [dictParams setObject:UpdateProfileServiceName  forKey:@"service"];
     [dictParams setObject:User_UID  forKey:@"uid"];
    // [dictParams setObject:Email_TXT.text  forKey:@"u_email"];
-    [dictParams setObject:Phone_TXT.text  forKey:@"u_phone"];
+    [dictParams setObject:phoneStr  forKey:@"u_phone"];
     [dictParams setObject:Name_TXT.text  forKey:@"u_name"];
     [dictParams setObject:Address_TXT.text  forKey:@"u_address"];
     [dictParams setObject:PinCode_TXT.text  forKey:@"u_pin"];
     [dictParams setObject:City_TXT.text  forKey:@"u_city"];
     [dictParams setObject:State_TXT.text  forKey:@"u_state"];
+    [dictParams setObject:Country_TXT.text  forKey:@"u_country"];
     [dictParams setObject:Address2_TXT.text  forKey:@"u_address2"];
     
 
@@ -201,15 +214,17 @@
     {
         
           NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
-
+        NSString *phoneStr=[NSString stringWithFormat:@"+1%@",Phone_TXT.text];
+        
         [UserData setValue:Address_TXT.text forKey:@"u_address"];
         [UserData setValue:Address2_TXT.text forKey:@"u_address2"];
         [UserData setValue:City_TXT.text forKey:@"u_city"];
         [UserData setValue:Email_TXT.text forKey:@"u_email"];
         [UserData setValue:Name_TXT.text forKey:@"u_name"];
-        [UserData setValue:Phone_TXT.text forKey:@"u_phone"];
+        [UserData setValue:phoneStr forKey:@"u_phone"];
         [UserData setValue:PinCode_TXT.text forKey:@"u_pincode"];
         [UserData setValue:State_TXT.text forKey:@"u_state"];
+         [UserData setValue:Country_TXT.text forKey:@"u_country"];
          NSLog(@"LoginUserDic Dic=%@",UserData);
 
         

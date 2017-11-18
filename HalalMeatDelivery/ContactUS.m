@@ -38,7 +38,8 @@
     [KmyappDelegate SetimageinTextfield:Name_TXT :@"IconUser"];
     [KmyappDelegate SetimageinTextfield:Email_TXT :@"IconEmail"];
     [KmyappDelegate SetimageinTextfield:Message_TXT :@"messageIcon"];
-    [KmyappDelegate SetimageinTextfield:Phone_TXT :@"IconPhone"];
+    //[KmyappDelegate SetimageinTextfield:Phone_TXT :@"IconPhone"];
+    [KmyappDelegate SetimageinAndPrefixTextfield:Phone_TXT:@"IconPhone"];
     
     [KmyappDelegate SetbuttonCorner:Submit_BTN];
     
@@ -99,6 +100,8 @@
 }
 -(void)ContactUsServiceCall
 {
+    NSString *phoneStr=[NSString stringWithFormat:@"+1%@",Phone_TXT.text];
+    
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
     [dictParams setObject:ContactUsServiceName  forKey:@"service"];
@@ -106,7 +109,7 @@
     [dictParams setObject:Email_TXT.text  forKey:@"email"];
     [dictParams setObject:Name_TXT.text  forKey:@"name"];
     [dictParams setObject:Message_TXT.text  forKey:@"msg"];
-    [dictParams setObject:Phone_TXT.text  forKey:@"phone_no"];
+    [dictParams setObject:phoneStr  forKey:@"phone_no"];
     
     [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,ContactServc_url] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
      {

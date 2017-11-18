@@ -357,10 +357,12 @@
     NSString *User_EMAIL=[UserData valueForKey:@"u_email"];
     
    Amoumnt = [Amoumnt stringByReplacingOccurrencesOfString:@".00" withString:@""];
+    NSInteger integeramount =[Amoumnt integerValue]*100;
+    NSString *multipleamount=[NSString stringWithFormat:@"%ld",(long)integeramount];
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:token  forKey:@"stripeToken"];
     [dictParams setObject:User_EMAIL  forKey:@"customer_email"];
-    [dictParams setObject:Amoumnt  forKey:@"amount"];
+    [dictParams setObject:multipleamount  forKey:@"amount"];
     [dictParams setObject:@"gbp"  forKey:@"currency"];
     
     [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",StripeBaseUrl,ChargeCard_url] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)

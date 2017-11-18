@@ -10,7 +10,7 @@
 #import "ReedemPntCell.h"
 @interface ReedemPointVW ()
 {
-    NSUInteger reloadsCount;
+    NSUInteger reloadsCount,reloadsCountLL;
 }
 @end
 
@@ -21,7 +21,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    reloadsCount = 10;
     self.rootNav = (CCKFNavDrawer *)self.navigationController;
     [self.rootNav setCCKFNavDrawerDelegate:self];
     [self.rootNav CheckLoginArr];
@@ -32,8 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self GetRedeemPoint:reloadsCount];
+    TotalReedemPoint_LBL.text=@"Total Redeem Point : 0";
+    reloadsCount = 10;
+    reloadsCountLL=0;
+    [self GetRedeemPoint:reloadsCount :reloadsCountLL];
     UINib *nib = [UINib nibWithNibName:@"ReedemPntCell" bundle:nil];
     ReedemPntCell *cell = [[nib instantiateWithOwner:nil options:nil] objectAtIndex:0];
     cell.layer.shadowOffset = CGSizeMake(1, 0);
@@ -45,7 +46,7 @@
     
 }
 
--(void)GetRedeemPoint :(NSInteger )Count
+-(void)GetRedeemPoint :(NSInteger )Count :(NSInteger )countLL
 {
     NSLog(@"remove cell click");
     
@@ -62,7 +63,7 @@
         [dictParams setObject:r_p  forKey:@"r_p"];
         [dictParams setObject:GetRedeemPointWithLimit forKey:@"service"];
         [dictParams setObject:User_UID  forKey:@"uid"];
-        [dictParams setObject:@"0"  forKey:@"ul"];
+        [dictParams setObject:[NSString stringWithFormat:@"%ld",(long)countLL]  forKey:@"ul"];
         [dictParams setObject:[NSString stringWithFormat:@"%ld",(long)Count]  forKey:@"ll"];
         
         
@@ -81,7 +82,10 @@
 {
     if ([[[response objectForKey:@"ack"]stringValue ] isEqualToString:@"1"])
     {
-        
+        redeemDic=[[response objectForKey:@"result"]mutableCopy];
+        reedem_points_Total=[response objectForKey:@"reedem_points"];
+        TotalReedemPoint_LBL.text=[NSString stringWithFormat:@"Total Redeem Point : %@",reedem_points_Total];
+        [ReedTableView reloadData];
     }
     else
     {
@@ -114,7 +118,8 @@
 {
     [pullToRefreshManager tableViewReloadFinished];
     reloadsCount=reloadsCount+10;
-    [self GetRedeemPoint:reloadsCount];
+    reloadsCountLL=reloadsCountLL+10;
+    [self GetRedeemPoint:reloadsCount :reloadsCountLL];
     [ReedTableView reloadData];
     
     [pullToRefreshManager tableViewReloadFinished];
@@ -123,7 +128,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return redeemDic.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -153,6 +158,10 @@
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
     }
+    cell.ReedemPoint_LBL.text=[[redeemDic valueForKey:@"reedem_points"] objectAtIndex:indexPath.section];
+    cell.ReedemDate_LBL.text=[[redeemDic valueForKey:@"adate"] objectAtIndex:indexPath.section];
+    cell.ReedemDescrption_LBL.text=[[redeemDic valueForKey:@"description"] objectAtIndex:indexPath.section];
+    
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
