@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
+    [KmyappDelegate SetimageinAndPrefixTextfield:UserPhoneNo_txt:@"IconPhone"];
     AddressArr=[[NSMutableArray alloc]init];
     SelectedAddress=[[NSMutableArray alloc]init];
     
@@ -91,6 +91,18 @@
         
         if ([UserData count] != 0)
         {
+            NSLocale *currentLocale = [NSLocale currentLocale];  // get the current locale.
+            NSString *countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
+            
+            NSString *filePath = [[NSBundle mainBundle] pathForResource:@"country-calling-codes" ofType:@"json"];
+            NSData *content = [[NSData alloc] initWithContentsOfFile:filePath];
+            NSMutableArray *json = [NSJSONSerialization JSONObjectWithData:content options:kNilOptions error:nil];
+            
+            NSArray *filtered = [json filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(code contains[c] %@)", countryCode]];
+            
+            NSString *callingCode=[NSString stringWithFormat:@"+%@",[[filtered valueForKey:@"callingCode"] objectAtIndex:0]];
+            
+            
             
             if ([UserData valueForKey:@"u_name"] != (id)[NSNull null])
             {
@@ -102,7 +114,9 @@
             }
             if ([UserData valueForKey:@"u_phone"] != (id)[NSNull null])
             {
-                self.UserPhoneNo_txt.text=[UserData valueForKey:@"u_phone"];
+                NSString *mobilenumber=[UserData valueForKey:@"u_phone"];
+                mobilenumber = [mobilenumber stringByReplacingOccurrencesOfString:callingCode withString:@""];
+                self.UserPhoneNo_txt.text=mobilenumber;
             }
             if ([UserData valueForKey:@"u_pincode"] != (id)[NSNull null])
             {
@@ -110,14 +124,26 @@
             }
             if ([UserData valueForKey:@"u_address"] != (id)[NSNull null])
             {
-                self.UserAddress_txt.text=[UserData valueForKey:@"u_address"] ;
+                self.houseno_TXT.text=[UserData valueForKey:@"u_address"] ;
+            }
+            if ([UserData valueForKey:@"u_address2"] != (id)[NSNull null])
+            {
+                self.street_TXT.text=[UserData valueForKey:@"u_address2"] ;
             }
             if ([UserData valueForKey:@"u_city"] != (id)[NSNull null])
             {
                 self.UserCity_txt.text=[UserData valueForKey:@"u_city"] ;
             }
-            self.UserEmail_txt.enabled=NO;
-            self.UserEmail_txt.textColor=[UIColor grayColor];
+            if ([UserData valueForKey:@"u_state"] != (id)[NSNull null])
+            {
+                self.state_TXT.text=[UserData valueForKey:@"u_state"] ;
+            }
+            if ([UserData valueForKey:@"u_country"] != (id)[NSNull null])
+            {
+                self.country_TXT.text=[UserData valueForKey:@"u_country"] ;
+            }
+           // self.UserEmail_txt.enabled=NO;
+            //self.UserEmail_txt.textColor=[UIColor grayColor];
             
         }
     }
@@ -252,17 +278,17 @@
     if (AddressArr.count==0)
     {
         
-        if ([UserName_txt.text isEqualToString:@""])
+        if ([_houseno_TXT.text isEqualToString:@""])
         {
-            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter username" delegate:nil];
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter House no" delegate:nil];
             self.NextBTN.enabled=YES;
         }
-        else if ([UserAddress_txt.text isEqualToString:@""])
+        if ([_street_TXT.text isEqualToString:@""])
         {
-            
-            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Address" delegate:nil];
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Street" delegate:nil];
             self.NextBTN.enabled=YES;
         }
+        
         else if ([UserPincode_txt.text isEqualToString:@""])
         {
             [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Zip code" delegate:nil];
@@ -278,6 +304,16 @@
         {
             
             [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter City" delegate:nil];
+            self.NextBTN.enabled=YES;
+        }
+        else if ([_state_TXT.text isEqualToString:@""])
+        {
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter State" delegate:nil];
+            self.NextBTN.enabled=YES;
+        }
+        else if ([_country_TXT.text isEqualToString:@""])
+        {
+            [AppDelegate showErrorMessageWithTitle:@"Error!" message:@"Please enter Country" delegate:nil];
             self.NextBTN.enabled=YES;
         }
         else if ([UserPhoneNo_txt.text isEqualToString:@""])
@@ -338,6 +374,17 @@
       NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     if (AddressArr.count==0)
     {
+        NSLocale *currentLocale = [NSLocale currentLocale];  // get the current locale.
+        NSString *countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"country-calling-codes" ofType:@"json"];
+        NSData *content = [[NSData alloc] initWithContentsOfFile:filePath];
+        NSMutableArray *json = [NSJSONSerialization JSONObjectWithData:content options:kNilOptions error:nil];
+        
+        NSArray *filtered = [json filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(code contains[c] %@)", countryCode]];
+        
+        NSString *callingCode=[NSString stringWithFormat:@"+%@",[[filtered valueForKey:@"callingCode"] objectAtIndex:0]];
+        NSString *phoneStr=[NSString stringWithFormat:@"%@%@",callingCode,UserPhoneNo_txt.text];
+        
         NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
         NSString *User_UID=[UserData valueForKey:@"u_id"];
         
@@ -348,14 +395,15 @@
         [dictParams setObject:C_ID  forKey:@"cid"];
         [dictParams setObject:UserPincode_txt.text  forKey:@"u_pin"];
         
-        [dictParams setObject:UserName_txt.text  forKey:@"u_name"];
+        [dictParams setObject:[UserData valueForKey:@"u_name"]  forKey:@"u_name"];
         [dictParams setObject:UserEmail_txt.text  forKey:@"u_email"];
-        [dictParams setObject:UserPhoneNo_txt.text  forKey:@"u_phone"];
-        [dictParams setObject:UserAddress_txt.text  forKey:@"u_address"];
+        [dictParams setObject:phoneStr  forKey:@"u_phone"];
+        [dictParams setObject:_houseno_TXT.text  forKey:@"u_address"];
+        [dictParams setObject:_street_TXT.text  forKey:@"u_address2"];
         
         [dictParams setObject:UserCity_txt.text  forKey:@"u_city"];
-        [dictParams setObject:@""  forKey:@"u_state"];
-        [dictParams setObject:@""  forKey:@"u_country"];
+        [dictParams setObject:_street_TXT.text  forKey:@"u_state"];
+        [dictParams setObject:_country_TXT.text  forKey:@"u_country"];
     }
     else
     {
@@ -407,6 +455,24 @@
         self.NextBTN.enabled=YES;
         [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
     }
+}
+
+#define MAX_LENGTH 10
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField==self.UserPhoneNo_txt)
+    {
+        if (UserPhoneNo_txt.text.length >= MAX_LENGTH && range.length == 0)
+        {
+            return NO; // return NO to not change text
+        }
+        else
+        {
+            return YES;
+        }
+    }
+    return YES;
 }
 - (IBAction)BackBtn_action:(id)sender
 {

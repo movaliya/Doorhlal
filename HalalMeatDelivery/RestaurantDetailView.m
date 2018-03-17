@@ -689,14 +689,20 @@
     
     //--------------------------Header View Of Restorant ---------------------------------------
     _RestorantName_Lbl.text=[RestraorntDic valueForKey:@"name"];
-    _RestorantAddress_Lbl.text=[RestraorntDic valueForKey:@"address"];
+    NSString *contactNo=[RestraorntDic valueForKey:@"phone"];
+    NSString *tempAddess=[RestraorntDic valueForKey:@"address"];
+    NSString *tempAddess1=[tempAddess stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+    tempAddess1=[tempAddess1 stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
+    
+    _RestorantAddress_Lbl.text=[NSString stringWithFormat:@" %@ Phone NO:%@",tempAddess1,contactNo] ;
+    
     _ReviewCount_LBL.text=[NSString stringWithFormat:@"(%@ Review)",[RestraorntDic valueForKey:@"count_review"]];
     [self ReviewCount:[NSString stringWithFormat:@"%@",[RestraorntDic valueForKey:@"rate"]]];
     Cat_Arr=[[[RestraorntDic valueForKey:@"products"] valueForKey:@"service_category"]mutableCopy];
     
     NSString *distanceMile=[RestraorntDic valueForKey:@"distance"];
     int tempMile=[distanceMile integerValue];
-    _RestDistance_LBL.text=[NSString stringWithFormat:@" %d M ",tempMile];
+    _RestDistance_LBL.text=[NSString stringWithFormat:@" %d Miles",tempMile];
     ResLat=[RestraorntDic valueForKey:@"latitude"];
     ResLog=[RestraorntDic valueForKey:@"longitude"];
     if (Cat_Arr.count>0)
@@ -888,22 +894,27 @@
     NSLog(@"Array===%@",[[MainCount objectAtIndex:pageTable] objectAtIndex:senderButton.tag]);
     
     NSInteger count = [[[MainCount objectAtIndex:pageTable] objectAtIndex:senderButton.tag] integerValue];
+    
+    
     count = count + 1;
-    cell.RestQuatityLBL.text = [NSString stringWithFormat:@"%ld",(long)count];
-    
-    [[MainCount objectAtIndex:pageTable] replaceObjectAtIndex:senderButton.tag withObject:[NSString stringWithFormat:@"%ld",(long)count]];
-    
-    ButtonTag=senderButton.tag;
-    chechPlusMinus=1;
-    
-    NSArray* subviews = [[NSArray alloc] initWithArray: TableScroll.subviews];
-    for (UITableView* view in subviews)
-    {
-        if ([view isKindOfClass:[UITableView class]])
+    if (count<11) {
+        cell.RestQuatityLBL.text = [NSString stringWithFormat:@"%ld",(long)count];
+        
+        [[MainCount objectAtIndex:pageTable] replaceObjectAtIndex:senderButton.tag withObject:[NSString stringWithFormat:@"%ld",(long)count]];
+        
+        ButtonTag=senderButton.tag;
+        chechPlusMinus=1;
+        
+        NSArray* subviews = [[NSArray alloc] initWithArray: TableScroll.subviews];
+        for (UITableView* view in subviews)
         {
-            [view reloadData];
+            if ([view isKindOfClass:[UITableView class]])
+            {
+                [view reloadData];
+            }
         }
-    }    //[TableView reloadData];
+    }
+      //[TableView reloadData];
     
 }
 

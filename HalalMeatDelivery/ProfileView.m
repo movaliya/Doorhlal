@@ -10,6 +10,7 @@
 #import "PasswordView.h"
 #import "AppDelegate.h"
 #import "HalalMeatDelivery.pch"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ProfileView ()<UITextFieldDelegate>
 {
@@ -57,6 +58,26 @@
     [KmyappDelegate SetbuttonCorner:Update_BTN];
     [KmyappDelegate SetbuttonCorner:ChangePass_BTN];
     
+    //[State_TXT addTarget:self action:@selector(StateTXTActive:) forControlEvents:UIControlEventEditingDidBegin];
+    
+    self.statedropdownTBL.hidden=YES;
+    self.statedropdownTBL.layer.cornerRadius=10;
+
+    self.stateDropdwnTblHeight.constant = 0;
+   // [State_TXT setInputView:self.statedropdownTBL];
+    
+    NSLocale *currentLocale = [NSLocale currentLocale];  // get the current locale.
+    NSString *countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
+   
+       NSString *filePath = [[NSBundle mainBundle] pathForResource:@"country-calling-codes" ofType:@"json"];
+    NSData *content = [[NSData alloc] initWithContentsOfFile:filePath];
+    dropDwonARR = [NSJSONSerialization JSONObjectWithData:content options:kNilOptions error:nil];
+    
+    NSArray *filtered = [dropDwonARR filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(code contains[c] %@)", countryCode]];
+    
+    NSString *callingCode=[NSString stringWithFormat:@"+%@",[[filtered valueForKey:@"callingCode"] objectAtIndex:0]];
+
+    
     // Initialize the appDelegate property.
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
@@ -73,7 +94,7 @@
     
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
     NSString *mobilenumber=[UserData valueForKey:@"u_phone"];
-    mobilenumber = [mobilenumber stringByReplacingOccurrencesOfString:@"+1" withString:@""];
+    mobilenumber = [mobilenumber stringByReplacingOccurrencesOfString:callingCode withString:@""];
     
     self.Name_TXT.text=[UserData valueForKey:@"u_name"];
     self.Email_TXT.text=[UserData valueForKey:@"u_email"];
@@ -176,12 +197,15 @@
 
 -(void)CallprofileService
 {
+    NSLocale *currentLocale = [NSLocale currentLocale];  // get the current locale.
+    NSString *countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
+    NSArray *filtered = [dropDwonARR filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(code contains[c] %@)", countryCode]];
     
-    //http://bulkbox.in/door2door/service/service_user_profile.php?r_p=1224&service=change_user_profile&uid=21&u_name=Jai&u_phone=%2B17222555555&u_pin=00544&u_address=402ajsdlksj&u_address2=Hshbj&u_city=Vervala&u_state=Guj
+    NSString *callingCode=[NSString stringWithFormat:@"+%@",[[filtered valueForKey:@"callingCode"] objectAtIndex:0]];
     
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
     NSString *User_UID=[UserData valueForKey:@"u_id"];
-    NSString *phoneStr=[NSString stringWithFormat:@"+1%@",Phone_TXT.text];
+    NSString *phoneStr=[NSString stringWithFormat:@"%@%@",callingCode,Phone_TXT.text];
     
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
@@ -214,7 +238,13 @@
     {
         
           NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
-        NSString *phoneStr=[NSString stringWithFormat:@"+1%@",Phone_TXT.text];
+        
+        NSLocale *currentLocale = [NSLocale currentLocale];  // get the current locale.
+        NSString *countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
+        NSArray *filtered = [dropDwonARR filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(code contains[c] %@)", countryCode]];
+        
+        NSString *callingCode=[NSString stringWithFormat:@"+%@",[[filtered valueForKey:@"callingCode"] objectAtIndex:0]];
+        NSString *phoneStr=[NSString stringWithFormat:@"%@%@",callingCode,Phone_TXT.text];
         
         [UserData setValue:Address_TXT.text forKey:@"u_address"];
         [UserData setValue:Address2_TXT.text forKey:@"u_address2"];
@@ -350,7 +380,66 @@
         [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
     }
 }
+/*
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+     self.statedropdownTBL.hidden=YES;
+    
+    if (textField==State_TXT)
+    {
+        checkTEXTFIELD=@"1";
+        self.statedropdownTBL.hidden=NO;
+        self.dropdownTBLTop.constant = 0;
+        self.stateDropdwnTblHeight.constant = 128;
+        return NO;
+       
+    }
+    if (textField==Country_TXT)
+    {
+        checkTEXTFIELD=@"0";
+        self.statedropdownTBL.hidden=NO;
+        self.dropdownTBLTop.constant = 111;
+        self.stateDropdwnTblHeight.constant = 128;
+         return NO;
+    }
+     return YES;
 
+}*/
+#pragma mark - TableView
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return dropDwonARR.count;
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *cellIdentifier = @"CustomCell";
+    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    cell.textLabel.text=[[dropDwonARR valueForKey:@"name"] objectAtIndex:indexPath.row];
+    cell.textLabel.textColor=[UIColor blackColor];
+    cell.textLabel.font=[UIFont systemFontOfSize:14];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    
+    return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    self.statedropdownTBL.hidden=YES;
+    if ([checkTEXTFIELD isEqualToString:@"1"])
+    {
+        self.State_TXT.text=[[dropDwonARR valueForKey:@"name"] objectAtIndex:indexPath.row];
+    }
+    else
+    {
+         self.Country_TXT.text=[[dropDwonARR valueForKey:@"name"] objectAtIndex:indexPath.row];
+    }
+    
+    
+}
+#define MAX_LENGTH 10
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
    // POPOldPAss
@@ -373,8 +462,20 @@
             return YES;
         }
     }
+    if (textField==Phone_TXT)
+    {
+        if (Phone_TXT.text.length >= MAX_LENGTH && range.length == 0)
+        {
+            return NO; // return NO to not change text
+        }
+        else
+        {
+            return YES;
+        }
+    }
     return YES;
    
 }
+
 
 @end

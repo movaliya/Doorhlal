@@ -653,9 +653,15 @@ static dispatch_once_t predicate;
         NSString *distanceMile=[[SearchDictnory valueForKey:@"distance"] objectAtIndex:indexPath.row];
         int tempMile=[distanceMile integerValue];
         
-        cell.Distance_LBL.text=[NSString stringWithFormat:@" %d M ",tempMile] ;
+        cell.Distance_LBL.text=[NSString stringWithFormat:@" %d Miles ",tempMile] ;
         
-        cell.Address_LBL.text=[NSString stringWithFormat:@" %@ ",[[SearchDictnory valueForKey:@"address"] objectAtIndex:indexPath.row]] ;
+        NSString *contactNo=[[SearchDictnory valueForKey:@"phone"] objectAtIndex:indexPath.row];
+         NSString *tempAddess=[[SearchDictnory valueForKey:@"address"] objectAtIndex:indexPath.row];
+        NSString *tempAddess1=[tempAddess stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+        tempAddess1=[tempAddess1 stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
+        
+        cell.Address_LBL.text=[NSString stringWithFormat:@" %@ Phone NO:%@",tempAddess1,contactNo] ;
+        
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         if ([[[SearchDictnory valueForKey:@"is_per"] objectAtIndex:indexPath.row] isEqualToString:@"1"])
         {
@@ -673,7 +679,7 @@ static dispatch_once_t predicate;
         }
         else
         {
-            cell.BottonViewHeightAddr.constant=66;
+            cell.BottonViewHeightAddr.constant=80;
             
         }
         NSLog(@"linecout==%ld",(long)linecout);
@@ -963,23 +969,104 @@ static dispatch_once_t predicate;
             NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
             
             
+            
+            
             if (error == nil && [placemarks count] > 0) {
                 placemark = [placemarks lastObject];
+                NSLog(@"placemark.ISOcountryCode =%@",placemark.ISOcountryCode);
+                NSLog(@"placemark.country =%@",placemark.country);
+                NSLog(@"placemark.postalCode =%@",placemark.postalCode);
+                NSLog(@"placemark.administrativeArea =%@",placemark.administrativeArea);
+                NSLog(@"placemark.locality =%@",placemark.locality);
+                NSLog(@"placemark.subLocality =%@",placemark.subLocality);
+                NSLog(@"placemark.subThoroughfare =%@",placemark.subThoroughfare);
+                
+                NSMutableDictionary *AddressDic = [[NSMutableDictionary alloc] init];
+                
+                NSString *strAdd = nil;
+                
+                if ([placemark.subThoroughfare length] != 0)
+                    strAdd = placemark.subThoroughfare;
+                
+                if ([placemark.thoroughfare length] != 0)
+                {
+                    // strAdd -> store value of current location
+                    if ([strAdd length] != 0)
+                        strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark thoroughfare]];
+                    else
+                    {
+                        // strAdd -> store only this value,which is not null
+                        strAdd = placemark.thoroughfare;
+                    }
+                }
+                
+                if ([placemark.postalCode length] != 0)
+                {
+                    if ([strAdd length] != 0)
+                        strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark postalCode]];
+                    else
+                        strAdd = placemark.postalCode;
+                }
+                
+                if ([placemark.locality length] != 0)
+                {
+                    if ([strAdd length] != 0)
+                        strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark locality]];
+                    else
+                        strAdd = placemark.locality;
+                }
+                
+                if ([placemark.administrativeArea length] != 0)
+                {
+                    if ([strAdd length] != 0)
+                        strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark administrativeArea]];
+                    else
+                        strAdd = placemark.administrativeArea;
+                }
+                
+                if ([placemark.country length] != 0)
+                {
+                    if ([strAdd length] != 0)
+                        strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark country]];
+                    else
+                        strAdd = placemark.country;
+                }
+                
+                
+                self.Title_LBL.text =strAdd;
+                
+                
+                
+                
                 if (placemark.subThoroughfare == nil)
                 {
-                    self.Title_LBL.text = [NSString stringWithFormat:@"%@ %@ %@",
-                                           placemark.administrativeArea,
-                                           placemark.locality,
-                                           placemark.country];
+                   // self.Title_LBL.text = [NSString stringWithFormat:@"%@, %@, %@",
+                                          // placemark.administrativeArea,
+                                         //  placemark.locality,
+                                         //  placemark.country];
+                    
+                    [AddressDic setObject:@"" forKey:@"Street"];
+                    [AddressDic setObject:placemark.locality forKey:@"City"];
+                    [AddressDic setObject:placemark.administrativeArea forKey:@"State"];
+                    [AddressDic setObject:placemark.country forKey:@"Country"];
+                    [AddressDic setObject:placemark.postalCode forKey:@"Zip_Code"];
                 }
                 else
                 {
-                    self.Title_LBL.text = [NSString stringWithFormat:@"%@ %@ %@ %@",
-                                           placemark.subThoroughfare,
-                                           placemark.administrativeArea,
-                                           placemark.locality,
-                                           placemark.country];
+                    //self.Title_LBL.text = [NSString stringWithFormat:@"%@, %@, %@, %@",
+                                           //placemark.subThoroughfare,
+                                          // placemark.administrativeArea,
+                                          // placemark.locality,
+                                         //  placemark.country];
+                    
+                    [AddressDic setObject:placemark.subThoroughfare forKey:@"Street"];
+                    [AddressDic setObject:placemark.locality forKey:@"City"];
+                    [AddressDic setObject:placemark.administrativeArea forKey:@"State"];
+                    [AddressDic setObject:placemark.country forKey:@"Country"];
+                    [AddressDic setObject:placemark.postalCode forKey:@"Zip_Code"];
                 }
+                [[NSUserDefaults standardUserDefaults]setObject:AddressDic forKey:@"ADDRESSDIC"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 
                  NSLog(@" placemarks: %@",  self.Title_LBL.text);
             } else {

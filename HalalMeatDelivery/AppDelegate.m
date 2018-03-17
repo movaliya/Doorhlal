@@ -10,6 +10,8 @@
 #import "HalalMeatDelivery.pch"
 #import "Constant.h"
 #import "PayPalMobile.h"
+#import<CoreTelephony/CTCarrier.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 
 //#import <HNKGooglePlacesAutocomplete/HNKGooglePlacesAutocompleteQuery.h>
 
@@ -97,7 +99,13 @@ static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyCIjQcJ2s
 {
     if ([[FBSDKApplicationDelegate sharedInstance] application:app openURL:url options:options])
     {
-        return YES;
+        BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:app
+                                                                      openURL:url
+                                                            sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                                                   annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+                        ];
+        // Add any custom logic here.
+        return handled;
     }
     else if ([[Twitter sharedInstance] application:app openURL:url options:options])
     {
@@ -114,7 +122,20 @@ static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyCIjQcJ2s
 }
 -(void)SetimageinAndPrefixTextfield: (UITextField *)TXT :(NSString *)ImageName
 {
-    UIView *vw=[[UIView alloc]initWithFrame:CGRectMake(50, 0, 55, 50)];
+    
+    NSLocale *currentLocale = [NSLocale currentLocale];  // get the current locale.
+    NSString *countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"country-calling-codes" ofType:@"json"];
+    NSData *content = [[NSData alloc] initWithContentsOfFile:filePath];
+    NSMutableArray *json = [NSJSONSerialization JSONObjectWithData:content options:kNilOptions error:nil];
+    
+    NSArray *filtered = [json filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(code contains[c] %@)", countryCode]];
+
+    NSString *callingCode=[NSString stringWithFormat:@"+%@",[[filtered valueForKey:@"callingCode"] objectAtIndex:0]];
+    
+    
+    
+    UIView *vw=[[UIView alloc]initWithFrame:CGRectMake(50, 0, 65, 50)];
     UIImageView *imgforLeft=[[UIImageView alloc] initWithFrame:CGRectMake(12, 13, 22, 22)];
     [imgforLeft setImage:[UIImage imageNamed:ImageName]];
     [imgforLeft setContentMode:UIViewContentModeCenter];
@@ -122,7 +143,8 @@ static NSString *const kHNKDemoGooglePlacesAutocompleteApiKey = @"AIzaSyCIjQcJ2s
     
     UILabel * Prefixlabel = [[UILabel alloc]initWithFrame:CGRectMake(37, 16, 5, 5)];
     Prefixlabel.backgroundColor = [UIColor clearColor];
-    Prefixlabel.text = @"+1";
+    
+    Prefixlabel.text = callingCode;
     [Prefixlabel setFont:[UIFont systemFontOfSize:14]];
     [Prefixlabel sizeToFit];
     [vw addSubview:Prefixlabel];

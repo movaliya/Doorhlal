@@ -25,8 +25,16 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb887963614713967</string>
-				<string>twitterkit-M68MwH3dpgYz0MIeOrfXGKXy2</string>
+				<string>fb140554453225007</string>
+			</array>
+			<key>CFBundleURLTypes</key>
+			<array>
+				<dict>
+					<key>CFBundleURLSchemes</key>
+					<array>
+						<string>fb140554453225007</string>
+					</array>
+				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -37,6 +45,16 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.696392848252-ki8v92p483klb2k2akl5s4ltilmh6h8k</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>twitter</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>twitterkit-M68MwH3dpgYz0MIeOrfXGKXy2</string>
 			</array>
 		</dict>
 	</array>
@@ -57,7 +75,7 @@
 		</array>
 	</dict>
 	<key>FacebookAppID</key>
-	<string>887963614713967</string>
+	<string>140554453225007</string>
 	<key>FacebookDisplayName</key>
 	<string>DoorToDoor</string>
 	<key>LSApplicationQueriesSchemes</key>

@@ -410,17 +410,21 @@
     
     NSInteger count = [cell.Qunt_LBL.text integerValue];
     count = count + 1;
-    cell.Qunt_LBL.text = [NSString stringWithFormat:@"%ld",count];
+    if (count<11)
+    {
+        cell.Qunt_LBL.text = [NSString stringWithFormat:@"%ld",count];
+        
+        [arr replaceObjectAtIndex:senderButton.tag withObject:[NSString stringWithFormat:@"%ld",count]];
+        [dic setObject:arr forKey:@"Count"];
+        SubTotalValues=SubTotalValues+[[[itemDetailDic valueForKey:@"sell_price"] objectAtIndex:senderButton.tag] integerValue];
+        self.Total_LBL.text=[NSString stringWithFormat:@"Total : $ %ld",(long)SubTotalValues];
+        _upperTotalLBL.text=[NSString stringWithFormat:@"$ %ld",(long)SubTotalValues];
+        
+        ButtonTag=senderButton.tag;
+        chechPlusMinus=1;
+        cell.Update_View.hidden=NO;
+    }
     
-    [arr replaceObjectAtIndex:senderButton.tag withObject:[NSString stringWithFormat:@"%ld",count]];
-    [dic setObject:arr forKey:@"Count"];
-    SubTotalValues=SubTotalValues+[[[itemDetailDic valueForKey:@"sell_price"] objectAtIndex:senderButton.tag] integerValue];
-    self.Total_LBL.text=[NSString stringWithFormat:@"Total : $ %ld",(long)SubTotalValues];
-    _upperTotalLBL.text=[NSString stringWithFormat:@"$ %ld",(long)SubTotalValues];
-    
-    ButtonTag=senderButton.tag;
-    chechPlusMinus=1;
-    cell.Update_View.hidden=NO;
     //[TableView reloadData];
     
 }

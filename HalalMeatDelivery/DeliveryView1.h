@@ -27,5 +27,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *UserAddress_txt;
 @property (weak, nonatomic) IBOutlet UITextField *UserCity_txt;
 @property (weak, nonatomic) IBOutlet UIButton *NextBTN;
+@property (weak, nonatomic) IBOutlet UITextField *HouseNo_TXT;
+@property (weak, nonatomic) IBOutlet UITextField *Street_TXT;
+@property (weak, nonatomic) IBOutlet UITextField *State_TXT;
+@property (weak, nonatomic) IBOutlet UITextField *Country_TXT;
 
 @end

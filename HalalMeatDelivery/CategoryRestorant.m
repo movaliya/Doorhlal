@@ -609,7 +609,7 @@ static dispatch_once_t predicate;
         NSString *distanceMile=[[SearchDictnory valueForKey:@"distance"] objectAtIndex:indexPath.row];
         int tempMile=[distanceMile integerValue];
         
-        cell.Distance_LBL.text=[NSString stringWithFormat:@" %d M ",tempMile] ;
+        cell.Distance_LBL.text=[NSString stringWithFormat:@" %d Miles ",tempMile] ;
         
         cell.Address_LBL.text=[NSString stringWithFormat:@" %@ ",[[SearchDictnory valueForKey:@"address"] objectAtIndex:indexPath.row]] ;
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -919,6 +919,9 @@ static dispatch_once_t predicate;
             NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
             if (error == nil && [placemarks count] > 0) {
                 placemark = [placemarks lastObject];
+               
+                
+                
                 /*self.Title_LBL.text = [NSString stringWithFormat:@"%@ %@ %@ %@",
                                        placemark.subThoroughfare,
                                        placemark.administrativeArea,

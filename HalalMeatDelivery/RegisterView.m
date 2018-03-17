@@ -11,6 +11,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import "SearchByShop.h"
+
+#import <CoreTelephony/CTCarrier.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+
 @interface RegisterView ()
 @property AppDelegate *appDelegate;
 @end
@@ -168,7 +172,7 @@
         return NO;  // no lowerCase Chars;
     return YES;
 }
-
+#define MAX_LENGTH 10
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (range.location == 0 && [string isEqualToString:@" "])
@@ -188,6 +192,18 @@
             return YES;
         }
     }
+    if (textField==PhoneNo_TXT)
+    {
+        if (PhoneNo_TXT.text.length >= MAX_LENGTH && range.length == 0)
+        {
+            return NO; // return NO to not change text
+        }
+        else
+        {
+            return YES;
+        }
+    }
+    
     return YES;
 }
 
@@ -273,6 +289,15 @@
 }
 -(void)CallNormalSignup
 {
+    NSLocale *currentLocale = [NSLocale currentLocale];  // get the current locale.
+    NSString *countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"country-calling-codes" ofType:@"json"];
+    NSData *content = [[NSData alloc] initWithContentsOfFile:filePath];
+    NSMutableArray *json = [NSJSONSerialization JSONObjectWithData:content options:kNilOptions error:nil];
+    
+    NSArray *filtered = [json filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(code contains[c] %@)", countryCode]];
+    
+    NSString *callingCode=[NSString stringWithFormat:@"+%@",[[filtered valueForKey:@"callingCode"] objectAtIndex:0]];
     
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
@@ -280,7 +305,7 @@
     [dictParams setObject:email_Txt.text  forKey:@"u_email"];
     [dictParams setObject:password_Txt.text  forKey:@"u_password"];
     [dictParams setObject:Username_Txt.text  forKey:@"u_name"];
-    NSString *phoneStr=[NSString stringWithFormat:@"+1%@",PhoneNo_TXT.text];
+    NSString *phoneStr=[NSString stringWithFormat:@"%@%@",callingCode,PhoneNo_TXT.text];
     [dictParams setObject:phoneStr  forKey:@"u_phone"];
     [dictParams setObject:address_Txt.text  forKey:@"u_address"];
     [dictParams setObject:address2_TXT.text  forKey:@"u_address2"];
@@ -341,7 +366,7 @@
              //[MBProgressHUD showHUDAddedTo:sharedAppDel.window animated:YES];
              NSLog(@"signed in as %@, \nauthToken = %@, \nauthSecretToken = %@, \nuserId = %@" , [session userName],[session authToken],[session authTokenSecret],[session userID]);
              
-             NSString *emailtw=[NSString stringWithFormat:@"%@/@gmil.com",[session userName]];
+             NSString *emailtw=[NSString stringWithFormat:@"%@@twitter.com",[session userName]];
              FBSignupdictParams = [[NSMutableDictionary alloc] init];
              [FBSignupdictParams setObject:r_p  forKey:@"r_p"];
              [FBSignupdictParams setObject:RegisterServiceName  forKey:@"service"];
@@ -391,40 +416,50 @@
     if (error == nil)
     {
         // [MBProgressHUD showHUDAddedTo:sharedAppDel.window animated:YES];
-        NSString *userId = user.userID;
-        NSString *fullName = user.profile.name;
-        NSString *givenName = user.profile.givenName;
-        NSString *familyName = user.profile.familyName;
+        //NSString *userId = user.userID;
+        //NSString *givenName = user.profile.givenName;
+       // NSString *familyName = user.profile.familyName;
+       // NSString *clientID = user.authentication.clientID;
+       // NSString *accessToken = user.authentication.accessToken;
+       // NSString *refreshToken = user.authentication.refreshToken;
+       // NSString *idToken = user.authentication.idToken;
+        
         NSString *email = user.profile.email;
+        NSString *fullName = user.profile.name;
+        if ( ( ![email isEqual:[NSNull null]] ) && ( [email length] != 0 ) )
+        {
+            if ( ( ![fullName isEqual:[NSNull null]] ) && ( [fullName length] != 0 ) )
+            {
+                FBSignupdictParams = [[NSMutableDictionary alloc] init];
+                [FBSignupdictParams setObject:r_p  forKey:@"r_p"];
+                [FBSignupdictParams setObject:RegisterServiceName  forKey:@"service"];
+                [FBSignupdictParams setObject:email  forKey:@"u_email"];
+                [FBSignupdictParams setObject:fullName  forKey:@"u_name"];
+                [FBSignupdictParams setObject:@""  forKey:@"u_password"];
+                [FBSignupdictParams setObject:@""  forKey:@"u_phone"];
+                [FBSignupdictParams setObject:@""  forKey:@"u_address"];
+                [FBSignupdictParams setObject:@""  forKey:@"u_zip"];
+                [FBSignupdictParams setObject:@""  forKey:@"u_city"];
+                [FBSignupdictParams setObject:@""  forKey:@"u_state"];
+                [FBSignupdictParams setObject:@""  forKey:@"u_country"];
+                [FBSignupdictParams setObject:@"gmail"  forKey:@"u_type"];
+                
+                //gmil
+                [self CallFBSignup];
+            }
+            else
+            {
+                [AppDelegate showErrorMessageWithTitle:@"" message:@"Privacy set in google account while getting user info." delegate:nil];
+            }
+        }
+        else
+        {
+            [AppDelegate showErrorMessageWithTitle:@"" message:@"Privacy set in google account while getting user info." delegate:nil];
+        }
         
-        NSString *clientID = user.authentication.clientID;
-        NSString *accessToken = user.authentication.accessToken;
-        NSString *refreshToken = user.authentication.refreshToken;
-        NSString *idToken = user.authentication.idToken;
+
         
-        NSLog(@"userId == %@,\nfullName == %@,\ngivenName == %@,\nfamilyName == %@,\nemail == %@,\nclientID == %@,\naccessToken == %@,\nrefreshToken == %@,\nidToken == %@",userId,fullName,givenName,familyName,email,clientID,accessToken,refreshToken,idToken);
-        
-        FBSignupdictParams = [[NSMutableDictionary alloc] init];
-        [FBSignupdictParams setObject:r_p  forKey:@"r_p"];
-        [FBSignupdictParams setObject:RegisterServiceName  forKey:@"service"];
-        [FBSignupdictParams setObject:email  forKey:@"u_email"];
-        [FBSignupdictParams setObject:fullName  forKey:@"u_name"];
-        [FBSignupdictParams setObject:@""  forKey:@"u_password"];
-        [FBSignupdictParams setObject:@""  forKey:@"u_phone"];
-        [FBSignupdictParams setObject:@""  forKey:@"u_address"];
-        [FBSignupdictParams setObject:@""  forKey:@"u_zip"];
-        [FBSignupdictParams setObject:@""  forKey:@"u_city"];
-        [FBSignupdictParams setObject:@""  forKey:@"u_state"];
-        [FBSignupdictParams setObject:@""  forKey:@"u_country"];
-        [FBSignupdictParams setObject:@"gmail"  forKey:@"u_type"];
-        
-        //gmil
-        [self CallFBSignup];
-        
-        
-        
-        
-        
+        //NSLog(@"userId == %@,\nfullName == %@,\ngivenName == %@,\nfamilyName == %@,\nemail == %@,\nclientID == %@,\naccessToken == %@,\nrefreshToken == %@,\nidToken == %@",userId,fullName,givenName,familyName,email,clientID,accessToken,refreshToken,idToken);
         
         
         //
@@ -475,7 +510,7 @@
     {
         
         [loginMgr
-         logInWithReadPermissions: @[@"public_profile",@"email",@"user_friends",@"user_birthday"]
+         logInWithReadPermissions: @[@"public_profile",@"email"]
          fromViewController:self
          handler:^(FBSDKLoginManagerLoginResult *result, NSError *error)
          {
@@ -515,28 +550,36 @@
              if (!error)
              {
                  NSLog(@"result is : %@",result);
-                 
-                 FBSignupdictParams = [[NSMutableDictionary alloc] init];
-                 [FBSignupdictParams setObject:r_p  forKey:@"r_p"];
-                 [FBSignupdictParams setObject:RegisterServiceName  forKey:@"service"];
-                 [FBSignupdictParams setObject:[result objectForKey:@"email"]  forKey:@"u_email"];
-                 [FBSignupdictParams setObject:[result objectForKey:@"first_name"]  forKey:@"u_name"];
-                 [FBSignupdictParams setObject:@""  forKey:@"u_password"];
-                 [FBSignupdictParams setObject:@""  forKey:@"u_phone"];
-                 [FBSignupdictParams setObject:@""  forKey:@"u_address"];
-                 [FBSignupdictParams setObject:@""  forKey:@"u_zip"];
-                 [FBSignupdictParams setObject:@""  forKey:@"u_city"];
-                 [FBSignupdictParams setObject:@""  forKey:@"u_state"];
-                 [FBSignupdictParams setObject:@""  forKey:@"u_country"];
-                 [FBSignupdictParams setObject:@"facebook"  forKey:@"u_type"];
-                 if ([[result objectForKey:@"u_email"]isEqualToString:@""])
+                 if ( ( ![[result objectForKey:@"email"] isEqual:[NSNull null]] ) && ( [[result objectForKey:@"email"] length] != 0 ) )
                  {
-                     [AppDelegate showErrorMessageWithTitle:@"Error..!" message:@"Privacy set in facebook account while getting user info." delegate:nil];
+                     FBSignupdictParams = [[NSMutableDictionary alloc] init];
+                     [FBSignupdictParams setObject:r_p  forKey:@"r_p"];
+                     [FBSignupdictParams setObject:RegisterServiceName  forKey:@"service"];
+                     [FBSignupdictParams setObject:[result objectForKey:@"email"]  forKey:@"u_email"];
+                     [FBSignupdictParams setObject:[result objectForKey:@"first_name"]  forKey:@"u_name"];
+                     [FBSignupdictParams setObject:@""  forKey:@"u_password"];
+                     [FBSignupdictParams setObject:@""  forKey:@"u_phone"];
+                     [FBSignupdictParams setObject:@""  forKey:@"u_address"];
+                     [FBSignupdictParams setObject:@""  forKey:@"u_zip"];
+                     [FBSignupdictParams setObject:@""  forKey:@"u_city"];
+                     [FBSignupdictParams setObject:@""  forKey:@"u_state"];
+                     [FBSignupdictParams setObject:@""  forKey:@"u_country"];
+                     [FBSignupdictParams setObject:@"facebook"  forKey:@"u_type"];
+                     if ([[result objectForKey:@"u_email"]isEqualToString:@""])
+                     {
+                         [AppDelegate showErrorMessageWithTitle:@"Error..!" message:@"Privacy set in facebook account while getting user info." delegate:nil];
+                     }
+                     else
+                     {
+                         [self CallFBSignup];
+                     }
                  }
                  else
                  {
-                     [self CallFBSignup];
+                     [AppDelegate showErrorMessageWithTitle:@"" message:@"Privacy set in facebook account while getting user info." delegate:nil];
                  }
+                 
+                
              }
              else
              {

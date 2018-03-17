@@ -162,6 +162,8 @@
     [manager.requestSerializer setValue:Token forHTTPHeaderField:@"authorization"];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+   // [KVNProgress showProgress:0.0f
+                       //status:@"We are processing the data hold for second."];
     [KVNProgress show];
     [manager POST:strUrl parameters:dictParam progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
     {

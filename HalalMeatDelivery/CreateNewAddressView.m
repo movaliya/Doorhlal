@@ -8,7 +8,8 @@
 
 #import "CreateNewAddressView.h"
 #import "HalalMeatDelivery.pch"
-
+#import <CoreTelephony/CTCarrier.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 @interface CreateNewAddressView ()
 
 @end
@@ -29,14 +30,35 @@
     {
         [self SetaddressData];
     }
+    else
+    {
+        NSMutableDictionary *GoogleGetAddress = [[[NSUserDefaults standardUserDefaults] objectForKey:@"ADDRESSDIC"] mutableCopy];
+        if (GoogleGetAddress.count>0)
+        {
+            Post_TXT.text=[GoogleGetAddress valueForKey:@"Zip_Code"];
+            Address2_TXT.text=[GoogleGetAddress valueForKey:@"Street"];
+            City_TXT.text=[GoogleGetAddress valueForKey:@"City"];
+            State_TXT.text=[GoogleGetAddress valueForKey:@"State"];
+            country_TXT.text=[GoogleGetAddress valueForKey:@"Country"];
+        }
+    }
     
 }
 
 -(void)SetaddressData
 {
+    NSLocale *currentLocale = [NSLocale currentLocale];  // get the current locale.
+    NSString *countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"country-calling-codes" ofType:@"json"];
+    NSData *content = [[NSData alloc] initWithContentsOfFile:filePath];
+    NSMutableArray *json = [NSJSONSerialization JSONObjectWithData:content options:kNilOptions error:nil];
+    
+    NSArray *filtered = [json filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(code contains[c] %@)", countryCode]];
+    
+    NSString *callingCode=[NSString stringWithFormat:@"+%@",[[filtered valueForKey:@"callingCode"] objectAtIndex:0]];
     
     NSString *mobilenumber=[AddressDic valueForKey:@"contact_number"];
-    mobilenumber = [mobilenumber stringByReplacingOccurrencesOfString:@"+1" withString:@""];
+    mobilenumber = [mobilenumber stringByReplacingOccurrencesOfString:callingCode withString:@""];
     
     
     UserName_TXT.text=[AddressDic valueForKey:@"name"];
@@ -134,10 +156,20 @@
     //http://bulkbox.in/feedmemeat/service/service_general.php?r_p=1224&service=delivery_address_service&uid=1&name=Jai&address=402ajsdlksj&email=ajk@gmail.com&contact_number=9978078494&city=Vervala&state=punjab&country=India&pincode=336005&isDefault=1&mode=add
     //if isDefault =1 then it will set new address as default
 
+    NSLocale *currentLocale = [NSLocale currentLocale];  // get the current locale.
+    NSString *countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"country-calling-codes" ofType:@"json"];
+    NSData *content = [[NSData alloc] initWithContentsOfFile:filePath];
+    NSMutableArray *json = [NSJSONSerialization JSONObjectWithData:content options:kNilOptions error:nil];
+    
+    NSArray *filtered = [json filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(code contains[c] %@)", countryCode]];
+    
+    NSString *callingCode=[NSString stringWithFormat:@"+%@",[[filtered valueForKey:@"callingCode"] objectAtIndex:0]];
+    
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
     NSString *User_UID=[UserData valueForKey:@"u_id"];
     NSString *User_Name=[UserData valueForKey:@"u_name"];
-    NSString *phoneStr=[NSString stringWithFormat:@"+1%@",Mobile_TXT.text];
+    NSString *phoneStr=[NSString stringWithFormat:@"%@%@",callingCode,Mobile_TXT.text];
     
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
@@ -190,11 +222,22 @@
    // http://bulkbox.in/door2door/service/service_general.php?r_p=1224&service=delivery_address_service&uid=21&name=Jai&address=402ajsdlksj&email=ajk@gmail.com&contact_number=9978078494&city=Vervala&state=punjab&country=India&pincode=336005&isDefault=1&mode=edit&delivery_address_id=4
     
     //if isDefault =1 then it will set new address as default
+    NSLocale *currentLocale = [NSLocale currentLocale];  // get the current locale.
+    NSString *countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"country-calling-codes" ofType:@"json"];
+    NSData *content = [[NSData alloc] initWithContentsOfFile:filePath];
+    NSMutableArray *json = [NSJSONSerialization JSONObjectWithData:content options:kNilOptions error:nil];
+    
+    NSArray *filtered = [json filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(code contains[c] %@)", countryCode]];
+    
+    NSString *callingCode=[NSString stringWithFormat:@"+%@",[[filtered valueForKey:@"callingCode"] objectAtIndex:0]];
+
+    
     
     NSMutableDictionary *UserData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserDic"] mutableCopy];
     NSString *User_UID=[UserData valueForKey:@"u_id"];
     NSString *User_Name=[UserData valueForKey:@"u_name"];
-    NSString *phoneStr=[NSString stringWithFormat:@"+1%@",Mobile_TXT.text];
+    NSString *phoneStr=[NSString stringWithFormat:@"%@%@",callingCode,Mobile_TXT.text];
     
     NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     [dictParams setObject:r_p  forKey:@"r_p"];
@@ -235,5 +278,21 @@
         [AppDelegate showErrorMessageWithTitle:nil message:[response objectForKey:@"ack_msg"] delegate:nil];
     }
 }
+#define MAX_LENGTH 10
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField==Mobile_TXT)
+    {
+        if (Mobile_TXT.text.length >= MAX_LENGTH && range.length == 0)
+        {
+            return NO; // return NO to not change text
+        }
+        else
+        {
+            return YES;
+        }
+    }
+    return YES;
+}
 @end

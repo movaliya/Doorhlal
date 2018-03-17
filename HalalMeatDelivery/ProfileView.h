@@ -11,9 +11,13 @@
 
 @interface ProfileView : UIViewController
 {
-    
+    NSMutableArray *dropDwonARR;
+    NSString *checkTEXTFIELD;
 }
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dropdownTBLTop;
 - (IBAction)Back_click:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *statedropdownTBL;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *stateDropdwnTblHeight;
 
 @property (strong, nonatomic) IBOutlet UITextField *Name_TXT;
 @property (strong, nonatomic) IBOutlet UITextField *Email_TXT;

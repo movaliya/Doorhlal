@@ -207,7 +207,7 @@
              //[MBProgressHUD showHUDAddedTo:sharedAppDel.window animated:YES];
              NSLog(@"signed in as %@, \nauthToken = %@, \nauthSecretToken = %@, \nuserId = %@" , [session userName],[session authToken],[session authTokenSecret],[session userID]);
              
-             NSString *emailtw=[NSString stringWithFormat:@"%@/@gmil.com",[session userName]];
+             NSString *emailtw=[NSString stringWithFormat:@"%@@twitter.com",[session userName]];
              FBSignIndictParams = [[NSMutableDictionary alloc] init];
              [FBSignIndictParams setObject:r_p  forKey:@"r_p"];
              [FBSignIndictParams setObject:RegisterServiceName  forKey:@"service"];
@@ -297,7 +297,7 @@
         //        }
         
         [loginMgr
-         logInWithReadPermissions: @[@"public_profile",@"email",@"user_friends",@"user_birthday"]
+         logInWithReadPermissions: @[@"public_profile",@"email"]
          fromViewController:self
          handler:^(FBSDKLoginManagerLoginResult *result, NSError *error)
          {
@@ -340,29 +340,36 @@
              if (!error)
              {
                  NSLog(@"result is : %@",result);
+                 if ( ( ![[result objectForKey:@"email"] isEqual:[NSNull null]] ) && ( [[result objectForKey:@"email"] length] != 0 ) )
+                 {
+                     FBSignIndictParams = [[NSMutableDictionary alloc] init];
+                     [FBSignIndictParams setObject:r_p  forKey:@"r_p"];
+                     [FBSignIndictParams setObject:RegisterServiceName  forKey:@"service"];
+                     [FBSignIndictParams setObject:[result objectForKey:@"email"]  forKey:@"u_email"];
+                     [FBSignIndictParams setObject:[result objectForKey:@"first_name"]  forKey:@"u_name"];
+                     [FBSignIndictParams setObject:@""  forKey:@"u_password"];
+                     [FBSignIndictParams setObject:@""  forKey:@"u_phone"];
+                     [FBSignIndictParams setObject:@""  forKey:@"u_address"];
+                     [FBSignIndictParams setObject:@""  forKey:@"u_zip"];
+                     [FBSignIndictParams setObject:@""  forKey:@"u_city"];
+                     [FBSignIndictParams setObject:@""  forKey:@"u_state"];
+                     [FBSignIndictParams setObject:@""  forKey:@"u_country"];
+                     [FBSignIndictParams setObject:@"facebook"  forKey:@"u_type"];
+                     if ([[result objectForKey:@"u_email"]isEqualToString:@""])
+                     {
+                         [AppDelegate showErrorMessageWithTitle:@"Error..!" message:@"Privacy set in facebook account while getting user info." delegate:nil];
+                     }
+                     else
+                     {
+                         [self CallFBSignup];
+                     }
+                 }
+                 else
+                 {
+                     [AppDelegate showErrorMessageWithTitle:@"" message:@"Privacy set in facebook account while getting user info." delegate:nil];
+                 }
                  
                  
-                 FBSignIndictParams = [[NSMutableDictionary alloc] init];
-                                                           [FBSignIndictParams setObject:r_p  forKey:@"r_p"];
-                                                           [FBSignIndictParams setObject:RegisterServiceName  forKey:@"service"];
-                                                           [FBSignIndictParams setObject:[result objectForKey:@"email"]  forKey:@"u_email"];
-                                                           [FBSignIndictParams setObject:[result objectForKey:@"first_name"]  forKey:@"u_name"];
-                                                           [FBSignIndictParams setObject:@""  forKey:@"u_password"];
-                                                           [FBSignIndictParams setObject:@""  forKey:@"u_phone"];
-                                                           [FBSignIndictParams setObject:@""  forKey:@"u_address"];
-                                                           [FBSignIndictParams setObject:@""  forKey:@"u_zip"];
-                                                           [FBSignIndictParams setObject:@""  forKey:@"u_city"];
-                                                           [FBSignIndictParams setObject:@""  forKey:@"u_state"];
-                                                           [FBSignIndictParams setObject:@""  forKey:@"u_country"];
-                                                           [FBSignIndictParams setObject:@"facebook"  forKey:@"u_type"];
-                                                           if ([[result objectForKey:@"u_email"]isEqualToString:@""])
-                                                           {
-                                                               [AppDelegate showErrorMessageWithTitle:@"Error..!" message:@"Privacy set in facebook account while getting user info." delegate:nil];
-                                                           }
-                                                           else
-                                                           {
-                                                               [self CallFBSignup];
-                                                           }
                  
                  
                  
@@ -397,25 +404,31 @@
     if (error == nil)
     {
         // [MBProgressHUD showHUDAddedTo:sharedAppDel.window animated:YES];
-        NSString *userId = user.userID;
-        NSString *fullName = user.profile.name;
-        NSString *givenName = user.profile.givenName;
-        NSString *familyName = user.profile.familyName;
+        //NSString *userId = user.userID;
+        //NSString *fullName = user.profile.name;
+       // NSString *givenName = user.profile.givenName;
+       // NSString *familyName = user.profile.familyName;
+       // NSString *clientID = user.authentication.clientID;
+       // NSString *accessToken = user.authentication.accessToken;
+       // NSString *refreshToken = user.authentication.refreshToken;
+        //NSString *idToken = user.authentication.idToken;
+        
         NSString *email = user.profile.email;
+        if ( ( ![email isEqual:[NSNull null]] ) && ( [email length] != 0 ) )
+        {
+            FBSignIndictParams = [[NSMutableDictionary alloc] init];
+            [FBSignIndictParams setObject:r_p  forKey:@"r_p"];
+            [FBSignIndictParams setObject:GmailServiceName  forKey:@"service"];
+            [FBSignIndictParams setObject:email  forKey:@"email"];
+             [self CallGmailSignup];
+        }
+        else
+        {
+             [AppDelegate showErrorMessageWithTitle:@"" message:@"Privacy set in google account while getting user info." delegate:nil];
+        }
         
-        NSString *clientID = user.authentication.clientID;
-        NSString *accessToken = user.authentication.accessToken;
-        NSString *refreshToken = user.authentication.refreshToken;
-        NSString *idToken = user.authentication.idToken;
-        
-        NSLog(@"userId == %@,\nfullName == %@,\ngivenName == %@,\nfamilyName == %@,\nemail == %@,\nclientID == %@,\naccessToken == %@,\nrefreshToken == %@,\nidToken == %@",userId,fullName,givenName,familyName,email,clientID,accessToken,refreshToken,idToken);
-        
-        FBSignIndictParams = [[NSMutableDictionary alloc] init];
-        [FBSignIndictParams setObject:r_p  forKey:@"r_p"];
-        [FBSignIndictParams setObject:GmailServiceName  forKey:@"service"];
-        [FBSignIndictParams setObject:email  forKey:@"email"];
-        
-        //[FBSignIndictParams setObject:fullName  forKey:@"u_name"];
+        //NSLog(@"userId == %@,\nfullName == %@,\ngivenName == %@,\nfamilyName == %@,\nemail == %@,\nclientID == %@,\naccessToken == %@,\nrefreshToken == %@,\nidToken == %@",userId,fullName,givenName,familyName,email,clientID,accessToken,refreshToken,idToken);
+              //[FBSignIndictParams setObject:fullName  forKey:@"u_name"];
        // [FBSignIndictParams setObject:@""  forKey:@"u_password"];
        // [FBSignIndictParams setObject:@""  forKey:@"u_phone"];
       //  [FBSignIndictParams setObject:@""  forKey:@"u_address"];
@@ -429,15 +442,7 @@
         //http://bulkbox.in/door2door/service/service_general.php?r_p=1224&service=get_user_detail&email=acharyajay007@gmail.com
         
         //gmil
-        [self CallGmailSignup];
-
-        
-        
-        
-        
-        
-        
-        //
+              //
         //        NSDictionary *dictGoogle = [[NSDictionary alloc] initWithObjectsAndKeys:
         //                                    email,@"email",
         //                                    @"",@"username",
